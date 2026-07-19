@@ -1,9 +1,4 @@
-const Footer = () => (
-  <footer className="border-t border-neutral-800 px-8 py-10 text-center text-sm text-neutral-500">
-    <p>© {new Date().getFullYear()} Faith Changes Everything. All rights reserved.</p>
-  </footer>
-);
-
+import Footer from "@/components/FooterTemp";
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
