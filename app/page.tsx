@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
@@ -76,6 +77,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
