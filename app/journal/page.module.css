@@ -1,0 +1,368 @@
+/* ===========================
+   Journal Page
+=========================== */
+
+.page {
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.paper {
+  background: #ffffff;
+  width: 850px;
+  min-height: 1100px;
+  padding: 40px 60px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.banner {
+  width: 320px;
+  height: auto;
+}
+
+/* ===========================
+   Section Title
+=========================== */
+
+.sectionTitle {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.sectionHeading {
+  color: #173A63;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* ===========================
+   Divider
+=========================== */
+
+.dividerContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.goldDivider {
+  width: 650px;
+  height: 3px;
+  background: #C39A3A;
+  border-radius: 2px;
+}
+
+/* ===========================
+   Study Page
+=========================== */
+
+.studyPageBody {
+  width: 100%;
+  font-family: Georgia, serif;
+  color: #333333;
+}
+
+.studySectionHeading {
+  margin: 0 0 18px 0;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #173A63;
+}
+
+/* Book / Chapter / Verses */
+
+.studyBasicsRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.studyField {
+  flex: 2;
+}
+
+.studyFieldSmall {
+  flex: 1;
+}
+
+.studyLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.studyInput {
+  width: 100%;
+  height: 28px;
+  padding: 2px 4px;
+
+  box-sizing: border-box;
+
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: #333333;
+
+  background: transparent;
+
+  border: none;
+  border-bottom: 1px solid #777777;
+
+  outline: none;
+}
+
+.studyInput:focus {
+  border-bottom: 2px solid #C39A3A;
+}
+
+/* Theme */
+
+.studyFieldFull {
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.studyTextAreaField {
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.studyTextArea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 10px;
+
+  box-sizing: border-box;
+  resize: none;
+
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+
+  background: transparent;
+
+  border: 1px solid #b8b8b8;
+  border-radius: 4px;
+
+  outline: none;
+}
+
+.studyTextArea:focus {
+  border-color: #C39A3A;
+}
+
+.studyTextAreaFieldLarge {
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.studyTextAreaLarge {
+  width: 100%;
+  min-height: 125px;
+  padding: 8px 10px;
+
+  box-sizing: border-box;
+  resize: none;
+
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+
+  background: transparent;
+
+  border: 1px solid #b8b8b8;
+  border-radius: 4px;
+
+  outline: none;
+}
+
+.studyTextAreaLarge:focus {
+  border-color: #C39A3A;
+}
+
+.studyIntro {
+  margin: 0 0 16px 0;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #555555;
+}
+
+.studyNotesField {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.studyNotesArea {
+  width: 100%;
+  min-height: 430px;
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+  resize: none;
+
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+
+  background: transparent;
+
+  border: 1px solid #b8b8b8;
+  border-radius: 4px;
+
+  outline: none;
+}
+
+.studyNotesArea:focus {
+  border-color: #C39A3A;
+}
+
+.relatedStudySection {
+  width: 100%;
+}
+/* ===========================
+   Letter
+=========================== */
+
+.letterBody {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #333;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.6;
+}
+.letterBody p {
+  margin-bottom: 12px;
+}
+.finalBlessing {
+  margin-bottom: 2px !important;
+}
+
+
+/* ===========================
+   Signature
+=========================== */
+
+.signature {
+  margin-top: 8px;
+}
+
+.closing {
+  margin: 0 0 8px 0;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #333333;
+}
+
+.signatureBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  top: -40px;
+}
+
+.signatureGraphic {
+  width: 285px;
+  margin-left: -55px;
+  margin-bottom: -35px;
+}
+
+.signatureGraphic img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.signatureInfo {
+  margin-left: 0;
+  position: relative;
+  top: -25px;
+}
+
+.pastorName {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222222;
+  line-height: 1.15;
+}
+
+.title {
+  margin: 2px 0 0 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #666666;
+  line-height: 1.2;
+}
+
+.ministryName {
+  margin: 2px 0 0 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #666666;
+  line-height: 1.2;
+}
+/* ===========================
+   Print
+=========================== */
+
+@media print {
+
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+
+  .page {
+    background: white;
+    min-height: auto;
+    padding: 0;
+    display: block;
+  }
+
+  .paper {
+    width: 8.5in;
+    height: 11in;
+
+    margin: 0;
+    padding: 0.5in 0.75in;
+
+    box-sizing: border-box;
+
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+}

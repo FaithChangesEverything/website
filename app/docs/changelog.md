@@ -42,3 +42,13 @@
   - Today's Encouragement
   - Verse of the Day
   - Daily Prayer
+
+---
+
+  ## v0.4 – Custom Domain Connected
+**Date:** July 19, 2026
+
+### Added
+- Connected faithchangeseverything.org to Vercel.
+- Website is now publicly available on its permanent domain.
+- Enabled secure HTTPS access.
