@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import styles from "../page.module.css";
 
 export default function Signature() {
@@ -10,16 +10,6 @@ export default function Signature() {
       </p>
 
       <div className={styles.signatureBlock}>
-
-  <div className={styles.signatureGraphic}>
-    <Image
-      src="/journal/assets/signature.png"
-      alt="Pastor Richard Ball Signature"
-      width={2067}
-      height={761}
-      priority
-    />
-  </div>
 
   <div className={styles.signatureInfo}>
           <div className={styles.pastorName}>

@@ -275,7 +275,7 @@
 }
 
 .closing {
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
   font-family: Georgia, serif;
   font-size: 16px;
   font-style: italic;
@@ -283,57 +283,40 @@
 }
 
 .signatureBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  top: -40px;
-}
-
-.signatureGraphic {
-  width: 285px;
-  margin-left: -55px;
-  margin-bottom: -35px;
-}
-
-.signatureGraphic img {
-  width: 100%;
-  height: auto;
   display: block;
 }
 
 .signatureInfo {
-  margin-left: 0;
-  position: relative;
-  top: -25px;
+  margin: 0;
 }
 
 .pastorName {
-  margin: 0;
+  margin: 0 0 2px 0;
   font-family: Georgia, serif;
   font-size: 18px;
   font-weight: 700;
   color: #222222;
-  line-height: 1.15;
+  line-height: 1.25;
 }
 
 .title {
-  margin: 2px 0 0 0;
+  margin: 0 0 2px 0;
   font-family: Georgia, serif;
   font-size: 15px;
   font-style: italic;
   color: #666666;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .ministryName {
-  margin: 2px 0 0 0;
+  margin: 0;
   font-family: Georgia, serif;
   font-size: 15px;
   font-style: italic;
   color: #666666;
-  line-height: 1.2;
+  line-height: 1.25;
 }
+
 /* ===========================
    Print
 =========================== */
