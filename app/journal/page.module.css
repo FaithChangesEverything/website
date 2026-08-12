@@ -349,3 +349,63 @@
   }
 
 }
+
+/* ===========================
+   Printable Journal
+=========================== */
+
+.printableDocument {
+  background: #eeeeee;
+  padding: 30px 0;
+}
+
+.printablePage {
+  width: 8.5in;
+  min-height: 11in;
+  margin: 0 auto 30px auto;
+  padding: 0.5in 0.75in;
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ===========================
+   Printable Journal - Print
+=========================== */
+
+@media print {
+
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+
+  .printableDocument {
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .printablePage {
+    width: 8.5in;
+    height: 11in;
+
+    margin: 0;
+    padding: 0.5in 0.75in;
+
+    box-sizing: border-box;
+
+    border-radius: 0;
+    box-shadow: none;
+
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .printablePage:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

@@ -1,0 +1,237 @@
+/* ===========================
+   Downloads Page
+=========================== */
+
+.page {
+  min-height: 100vh;
+  background: #f7f2e8;
+  padding: 50px 24px;
+}
+
+.content {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.logo {
+  display: block;
+  width: 320px;
+  height: auto;
+  margin: 0 auto 18px auto;
+}
+
+.heading {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #173a63;
+}
+
+.goldLine {
+  width: 140px;
+  height: 3px;
+  margin: 14px auto 18px;
+  background: #c39a3a;
+  border-radius: 2px;
+}
+
+.intro {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555555;
+}
+
+/* ===========================
+   Resource Cards
+=========================== */
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.resourceCard {
+  background: #ffffff;
+  padding: 34px 38px;
+  border-radius: 8px;
+  border-top: 4px solid #c39a3a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+.cardHeading {
+  margin-bottom: 22px;
+}
+
+.resourceType {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #c39a3a;
+}
+
+.resourceCard h2 {
+  margin: 0 0 6px;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #173a63;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  color: #666666;
+}
+
+.resourceCard > p {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333333;
+}
+
+/* ===========================
+   Download Button
+=========================== */
+
+.buttonArea {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.downloadButton {
+  display: inline-block;
+  padding: 13px 22px;
+  background: #173a63;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.downloadButton:hover {
+  opacity: 0.88;
+}
+
+.fileNote {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  color: #777777;
+}
+
+/* ===========================
+   App Notice
+=========================== */
+
+.appNotice {
+  margin-top: 34px;
+  padding: 30px 34px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #dfd4b8;
+  border-radius: 8px;
+}
+
+.appNotice h2 {
+  margin: 0 0 10px;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  color: #173a63;
+}
+
+.appNotice p {
+  max-width: 650px;
+  margin: 0 auto 12px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+.appNotice span {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #c39a3a;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #777777;
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 700px) {
+  .page {
+    padding: 30px 16px;
+  }
+
+  .logo {
+    width: 260px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .resourceCard {
+    padding: 28px 24px;
+  }
+
+  .resourceCard h2 {
+    font-size: 24px;
+  }
+
+  .buttonArea {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .downloadButton {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
