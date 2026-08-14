@@ -907,3 +907,155 @@ a { color: inherit; text-decoration: none; }
     font-size: 0.72rem;
   }
 }
+
+/* Phase 2.11 — Static Daily Affirmation visual component
+   Preference B: warm cream panel with subtle gold accents.
+   Static approved content only; no Supabase connection in this phase. */
+.daily-affirmation-section {
+  position: relative;
+  padding: clamp(54px, 7vw, 96px) clamp(18px, 4vw, 64px);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(224, 189, 104, 0.10), transparent 34%),
+    linear-gradient(180deg, #07101f 0%, #0a1423 100%);
+}
+
+.daily-affirmation-card {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  padding: clamp(38px, 5vw, 70px) clamp(24px, 7vw, 86px);
+  border: 1px solid rgba(177, 137, 54, 0.38);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.80), rgba(255, 250, 239, 0.95)),
+    #fbf3e3;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  color: #09182d;
+  text-align: center;
+}
+
+.daily-affirmation-heading {
+  display: grid;
+  grid-template-columns: minmax(28px, 72px) auto minmax(28px, 72px);
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.daily-affirmation-rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b78936);
+}
+
+.daily-affirmation-rule:last-child {
+  background: linear-gradient(90deg, #b78936, transparent);
+}
+
+.daily-affirmation-eyebrow {
+  margin: 0;
+  color: #9a6b18;
+  font-size: clamp(0.66rem, 1vw, 0.78rem);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.daily-affirmation-card h2 {
+  margin: 0;
+  color: #07182d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.daily-affirmation-text {
+  width: min(730px, 100%);
+  margin: 24px auto 0;
+  color: #213047;
+  font-size: clamp(1.08rem, 1.7vw, 1.34rem);
+  font-weight: 500;
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.daily-affirmation-divider {
+  display: grid;
+  grid-template-columns: minmax(36px, 120px) 10px minmax(36px, 120px);
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px auto 28px;
+}
+
+.daily-affirmation-divider > span:not(.daily-affirmation-diamond) {
+  height: 1px;
+  background: rgba(183, 137, 54, 0.55);
+}
+
+.daily-affirmation-diamond {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #b78936;
+  transform: rotate(45deg);
+}
+
+.daily-affirmation-scripture {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  color: #a32626;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.22rem, 2.1vw, 1.68rem);
+  font-style: italic;
+  line-height: 1.65;
+  text-wrap: balance;
+}
+
+.daily-affirmation-reference {
+  margin: 16px 0 0;
+  color: #090f18;
+  font-size: clamp(0.92rem, 1.3vw, 1.04rem);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .daily-affirmation-section {
+    padding: 34px 14px 44px;
+  }
+
+  .daily-affirmation-card {
+    padding: 34px 20px 38px;
+    border-radius: 18px;
+  }
+
+  .daily-affirmation-heading {
+    grid-template-columns: 24px auto 24px;
+    gap: 9px;
+    margin-bottom: 18px;
+  }
+
+  .daily-affirmation-eyebrow {
+    letter-spacing: 0.15em;
+  }
+
+  .daily-affirmation-text {
+    margin-top: 18px;
+    line-height: 1.62;
+  }
+
+  .daily-affirmation-divider {
+    margin: 24px auto 22px;
+  }
+
+  .daily-affirmation-scripture {
+    line-height: 1.55;
+  }
+}
