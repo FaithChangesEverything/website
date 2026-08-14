@@ -60,6 +60,88 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(to right, rgba(3, 10, 24, 0.06), transparent 28%, transparent 72%, rgba(3, 10, 24, 0.06));
 }
 
+
+/* Phase 2.1: animated lighthouse sweep.
+   The beam is a lightweight CSS overlay that animates transform/opacity only. */
+.lighthouse-sweep {
+  --beam-x: 51.5%;
+  --beam-y: 30.5%;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 950px;
+  perspective-origin: var(--beam-x) var(--beam-y);
+}
+
+.lighthouse-sweep-beam {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: 78vw;
+  height: clamp(74px, 9vw, 150px);
+  transform-origin: 0 50%;
+  transform: translateY(-50%) rotateY(0deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 224, 0.66) 0%,
+    rgba(255, 240, 196, 0.43) 20%,
+    rgba(255, 226, 164, 0.23) 52%,
+    rgba(255, 224, 160, 0.02) 100%
+  );
+  clip-path: polygon(0 46%, 100% 4%, 100% 96%, 0 54%);
+  filter: blur(4px);
+  opacity: 0.68;
+  will-change: transform, opacity;
+  animation: lighthouse-rotate 10s linear infinite;
+}
+
+.lighthouse-sweep-glow {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: clamp(28px, 2.4vw, 42px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 252, 231, 0.94) 0%,
+    rgba(255, 219, 143, 0.52) 42%,
+    rgba(255, 176, 85, 0) 76%
+  );
+  box-shadow: 0 0 30px rgba(255, 202, 111, 0.38);
+  opacity: 0.88;
+}
+
+@keyframes lighthouse-rotate {
+  0% {
+    transform: translateY(-50%) rotateY(0deg);
+    opacity: 0.70;
+  }
+  21% { opacity: 0.40; }
+  25% {
+    transform: translateY(-50%) rotateY(90deg);
+    opacity: 0.05;
+  }
+  29% { opacity: 0.26; }
+  50% {
+    transform: translateY(-50%) rotateY(180deg);
+    opacity: 0.70;
+  }
+  71% { opacity: 0.40; }
+  75% {
+    transform: translateY(-50%) rotateY(270deg);
+    opacity: 0.05;
+  }
+  79% { opacity: 0.26; }
+  100% {
+    transform: translateY(-50%) rotateY(360deg);
+    opacity: 0.70;
+  }
+}
+
 .site-header {
   position: relative;
   z-index: 10;
@@ -261,7 +343,89 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 1180px) {
-  .site-header {
+  
+/* Phase 2.1: animated lighthouse sweep.
+   The beam is a lightweight CSS overlay that animates transform/opacity only. */
+.lighthouse-sweep {
+  --beam-x: 50.55%;
+  --beam-y: 30.5%;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 950px;
+  perspective-origin: var(--beam-x) var(--beam-y);
+}
+
+.lighthouse-sweep-beam {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: 78vw;
+  height: clamp(74px, 9vw, 150px);
+  transform-origin: 0 50%;
+  transform: translateY(-50%) rotateY(0deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 224, 0.66) 0%,
+    rgba(255, 240, 196, 0.43) 20%,
+    rgba(255, 226, 164, 0.23) 52%,
+    rgba(255, 224, 160, 0.02) 100%
+  );
+  clip-path: polygon(0 46%, 100% 4%, 100% 96%, 0 54%);
+  filter: blur(4px);
+  opacity: 0.68;
+  will-change: transform, opacity;
+  animation: lighthouse-rotate 10s linear infinite;
+}
+
+.lighthouse-sweep-glow {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: clamp(28px, 2.4vw, 42px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 252, 231, 0.94) 0%,
+    rgba(255, 219, 143, 0.52) 42%,
+    rgba(255, 176, 85, 0) 76%
+  );
+  box-shadow: 0 0 30px rgba(255, 202, 111, 0.38);
+  opacity: 0.88;
+}
+
+@keyframes lighthouse-rotate {
+  0% {
+    transform: translateY(-50%) rotateY(0deg);
+    opacity: 0.70;
+  }
+  21% { opacity: 0.40; }
+  25% {
+    transform: translateY(-50%) rotateY(90deg);
+    opacity: 0.05;
+  }
+  29% { opacity: 0.26; }
+  50% {
+    transform: translateY(-50%) rotateY(180deg);
+    opacity: 0.70;
+  }
+  71% { opacity: 0.40; }
+  75% {
+    transform: translateY(-50%) rotateY(270deg);
+    opacity: 0.05;
+  }
+  79% { opacity: 0.26; }
+  100% {
+    transform: translateY(-50%) rotateY(360deg);
+    opacity: 0.70;
+  }
+}
+
+.site-header {
     grid-template-columns: 180px 1fr auto;
     gap: 18px;
     padding-inline: 28px;
@@ -273,8 +437,92 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 900px) {
+  .lighthouse-sweep { --beam-x: 52%; --beam-y: 25.2%; }
+  .lighthouse-sweep-beam { width: 92vw; height: clamp(70px, 12vw, 118px); }
   .hero { height: 96svh; min-height: 580px; max-height: none; }
-  .site-header {
+  
+/* Phase 2.1: animated lighthouse sweep.
+   The beam is a lightweight CSS overlay that animates transform/opacity only. */
+.lighthouse-sweep {
+  --beam-x: 50.55%;
+  --beam-y: 30.5%;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 950px;
+  perspective-origin: var(--beam-x) var(--beam-y);
+}
+
+.lighthouse-sweep-beam {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: 78vw;
+  height: clamp(74px, 9vw, 150px);
+  transform-origin: 0 50%;
+  transform: translateY(-50%) rotateY(0deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 224, 0.66) 0%,
+    rgba(255, 240, 196, 0.43) 20%,
+    rgba(255, 226, 164, 0.23) 52%,
+    rgba(255, 224, 160, 0.02) 100%
+  );
+  clip-path: polygon(0 46%, 100% 4%, 100% 96%, 0 54%);
+  filter: blur(4px);
+  opacity: 0.68;
+  will-change: transform, opacity;
+  animation: lighthouse-rotate 10s linear infinite;
+}
+
+.lighthouse-sweep-glow {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: clamp(28px, 2.4vw, 42px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 252, 231, 0.94) 0%,
+    rgba(255, 219, 143, 0.52) 42%,
+    rgba(255, 176, 85, 0) 76%
+  );
+  box-shadow: 0 0 30px rgba(255, 202, 111, 0.38);
+  opacity: 0.88;
+}
+
+@keyframes lighthouse-rotate {
+  0% {
+    transform: translateY(-50%) rotateY(0deg);
+    opacity: 0.70;
+  }
+  21% { opacity: 0.40; }
+  25% {
+    transform: translateY(-50%) rotateY(90deg);
+    opacity: 0.05;
+  }
+  29% { opacity: 0.26; }
+  50% {
+    transform: translateY(-50%) rotateY(180deg);
+    opacity: 0.70;
+  }
+  71% { opacity: 0.40; }
+  75% {
+    transform: translateY(-50%) rotateY(270deg);
+    opacity: 0.05;
+  }
+  79% { opacity: 0.26; }
+  100% {
+    transform: translateY(-50%) rotateY(360deg);
+    opacity: 0.70;
+  }
+}
+
+.site-header {
     display: flex;
     justify-content: space-between;
     min-height: 72px;
@@ -321,8 +569,93 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 600px) {
+  .lighthouse-sweep { --beam-x: 51%; --beam-y: 20.7%; }
+  .lighthouse-sweep-beam { width: 115vw; height: clamp(62px, 22vw, 92px); filter: blur(4px); }
+  .lighthouse-sweep-glow { width: 30px; }
   .hero { height: 96svh; min-height: 560px; max-height: none; }
-  .site-header {
+  
+/* Phase 2.1: animated lighthouse sweep.
+   The beam is a lightweight CSS overlay that animates transform/opacity only. */
+.lighthouse-sweep {
+  --beam-x: 50.55%;
+  --beam-y: 30.5%;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 950px;
+  perspective-origin: var(--beam-x) var(--beam-y);
+}
+
+.lighthouse-sweep-beam {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: 78vw;
+  height: clamp(74px, 9vw, 150px);
+  transform-origin: 0 50%;
+  transform: translateY(-50%) rotateY(0deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 224, 0.66) 0%,
+    rgba(255, 240, 196, 0.43) 20%,
+    rgba(255, 226, 164, 0.23) 52%,
+    rgba(255, 224, 160, 0.02) 100%
+  );
+  clip-path: polygon(0 46%, 100% 4%, 100% 96%, 0 54%);
+  filter: blur(4px);
+  opacity: 0.68;
+  will-change: transform, opacity;
+  animation: lighthouse-rotate 10s linear infinite;
+}
+
+.lighthouse-sweep-glow {
+  position: absolute;
+  left: var(--beam-x);
+  top: var(--beam-y);
+  width: clamp(28px, 2.4vw, 42px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 252, 231, 0.94) 0%,
+    rgba(255, 219, 143, 0.52) 42%,
+    rgba(255, 176, 85, 0) 76%
+  );
+  box-shadow: 0 0 30px rgba(255, 202, 111, 0.38);
+  opacity: 0.88;
+}
+
+@keyframes lighthouse-rotate {
+  0% {
+    transform: translateY(-50%) rotateY(0deg);
+    opacity: 0.70;
+  }
+  21% { opacity: 0.40; }
+  25% {
+    transform: translateY(-50%) rotateY(90deg);
+    opacity: 0.05;
+  }
+  29% { opacity: 0.26; }
+  50% {
+    transform: translateY(-50%) rotateY(180deg);
+    opacity: 0.70;
+  }
+  71% { opacity: 0.40; }
+  75% {
+    transform: translateY(-50%) rotateY(270deg);
+    opacity: 0.05;
+  }
+  79% { opacity: 0.26; }
+  100% {
+    transform: translateY(-50%) rotateY(360deg);
+    opacity: 0.70;
+  }
+}
+
+.site-header {
     min-height: 68px;
     padding: 9px 12px;
   }
@@ -369,9 +702,208 @@ a { color: inherit; text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .lighthouse-sweep { display: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Phase 2.5 — Precision Lighthouse Beam (51.5% desktop origin)
+   Position-only refinement. Phase 2.2 brightness, contrast, timing, and beam shape are preserved.
+   These final overrides intentionally sit after earlier rules so the beam origin can be tuned
+   independently for desktop, tablet, and phone without changing the approved artwork. */
+.lighthouse-sweep {
+  --beam-x: 51.5%;
+  --beam-y: 34.7%;
+}
+
+@media (max-width: 900px) {
+  .lighthouse-sweep {
+    --beam-x: 52%;
+    --beam-y: 25.2%;
+  }
+}
+
+@media (max-width: 600px) {
+  .lighthouse-sweep {
+    --beam-x: 51%;
+    --beam-y: 20.7%;
+  }
+}
+
+/* Phase 2.6 — Widen lighthouse beam at its starting point by 25%
+   Phase 2.5 origin (51.5%), brightness, contrast, length, speed, fade, glow,
+   positioning, artwork, and reduced-motion behavior remain unchanged.
+
+   Previous beam opening at origin: 46%–54% = 8% of beam height.
+   Phase 2.6 opening:             45%–55% = 10% of beam height (+25%). */
+.lighthouse-sweep-beam {
+  clip-path: polygon(0 45%, 100% 4%, 100% 96%, 0 55%);
+}
+
+/* Phase 2.7 — Pointed/tapered desktop lighthouse beam
+   Desktop only. Keeps the approved 51.5% beam origin, brightness, contrast,
+   rotation speed, fade, glow, artwork, and reduced-motion behavior unchanged.
+
+   Change from Phase 2.6:
+   - The beam now begins at a single point at the bulb (0 50%).
+   - The far end of the cone is made about 25% taller so the light spreads
+     more broadly as it travels away from the lighthouse.
+   - Tablet and mobile retain the Phase 2.6 geometry until tested separately. */
+@media (min-width: 901px) {
+  .lighthouse-sweep-beam {
+    height: clamp(93px, 11.25vw, 188px);
+    clip-path: polygon(0 50%, 100% 0%, 100% 100%);
+  }
+}
+
+/* Phase 2.8 — Pointed/tapered desktop lighthouse beam with 35% wider spread
+   Desktop only. Keeps the approved 51.5% beam origin and Phase 2.7 pointed
+   origin while increasing the far-end spread from approximately +25% to +35%.
+   Brightness, contrast, rotation speed, fade, glow, artwork, reduced-motion
+   behavior, and tablet/mobile geometry remain unchanged. */
+@media (min-width: 901px) {
+  .lighthouse-sweep-beam {
+    height: clamp(101px, 12.15vw, 203px);
+    clip-path: polygon(0 50%, 100% 0%, 100% 100%);
+  }
+}
+
+/* Phase 2.9 — Lighthouse Animation Control
+   Manual visitor control layered on top of Phase 2.8.
+   - Desktop/tablet: compact Pause/Play control beside Request Prayer.
+   - Mobile: Pause/Resume control inside the hamburger menu.
+   - Visitor choice is stored only in localStorage on that browser/device.
+   - System prefers-reduced-motion remains authoritative and cannot be overridden.
+   - Phase 2.8 beam geometry, origin, brightness, timing, glow, and artwork are unchanged. */
+.hero.is-lighthouse-paused .lighthouse-sweep {
+  display: none;
+}
+
+.lighthouse-motion-toggle {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 0.86rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+.lighthouse-motion-toggle:hover:not(:disabled),
+.lighthouse-motion-toggle:focus-visible:not(:disabled) {
+  background: #ffffff;
+  color: var(--navy-deep);
+}
+
+.lighthouse-motion-toggle:focus-visible,
+.mobile-motion-control:focus-visible {
+  outline: 2px solid #e0bd68;
+  outline-offset: 3px;
+}
+
+.lighthouse-motion-toggle:disabled,
+.mobile-motion-control:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.mobile-motion-control {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 10px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .desktop-motion-control {
+    display: none;
+  }
+
+  .mobile-motion-control {
+    display: inline-flex;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-motion-control {
+    padding-block: 12px;
+  }
+}
+
+/* Phase 2.10 — Tablet lighthouse alignment + visible motion control
+   Tablet-only refinement. Desktop (>1180px) and phone (<=600px) remain unchanged.
+   - Aligns the animated beam with the bulb on tablet portrait widths.
+   - Keeps the desktop-style navigation on larger tablets.
+   - Ensures the Pause/Play control remains visible beside Request Prayer on larger tablets.
+   - Phase 2.8 beam shape, 35% spread, brightness, timing, fade, glow, artwork,
+     local preference behavior, and reduced-motion behavior remain unchanged. */
+@media (min-width: 601px) and (max-width: 1180px) {
+  .lighthouse-sweep {
+    --beam-x: 51.5%;
+    --beam-y: 20.7%;
+  }
+}
+
+/* Larger tablets such as iPad Pro keep the full navigation, so reserve enough
+   header room for the compact Pause/Play control beside Request Prayer. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .site-header {
+    grid-template-columns: 150px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding-inline: 18px;
+  }
+
+  .desktop-nav {
+    gap: 10px;
+    font-size: 0.68rem;
+  }
+
+  .header-brand-faith {
+    font-size: 1.48rem;
+  }
+
+  .header-brand-sub {
+    font-size: 0.47rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .prayer-button {
+    padding-inline: 11px;
+    font-size: 0.68rem;
+  }
+
+  .lighthouse-motion-toggle.desktop-motion-control {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    font-size: 0.72rem;
   }
 }

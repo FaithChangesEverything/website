@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -17,12 +17,49 @@ const navItems = [
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lighthouseMotionPaused, setLighthouseMotionPaused] = useState(false);
+  const [systemReducedMotion, setSystemReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const savedPreference = window.localStorage.getItem("fce-lighthouse-motion");
+    if (savedPreference === "paused") {
+      setLighthouseMotionPaused(true);
+    }
+
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncReducedMotion = () => setSystemReducedMotion(reducedMotionQuery.matches);
+
+    syncReducedMotion();
+    reducedMotionQuery.addEventListener("change", syncReducedMotion);
+
+    return () => reducedMotionQuery.removeEventListener("change", syncReducedMotion);
+  }, []);
+
+  const animationPaused = systemReducedMotion || lighthouseMotionPaused;
+
+  const toggleLighthouseMotion = () => {
+    if (systemReducedMotion) return;
+
+    setLighthouseMotionPaused((paused) => {
+      const nextPaused = !paused;
+      window.localStorage.setItem(
+        "fce-lighthouse-motion",
+        nextPaused ? "paused" : "running",
+      );
+      return nextPaused;
+    });
+  };
 
   return (
     <main className="landing-page">
-      <section className="hero" aria-label="Faith Changes Everything">
+      <section className={`hero ${animationPaused ? "is-lighthouse-paused" : ""}`} aria-label="Faith Changes Everything">
         <div className="hero-image" aria-hidden="true" />
         <div className="hero-shade" aria-hidden="true" />
+
+        <div className="lighthouse-sweep" aria-hidden="true">
+          <span className="lighthouse-sweep-beam" />
+          <span className="lighthouse-sweep-glow" />
+        </div>
 
         <header className="site-header">
           <Link className="header-brand" href="/" aria-label="Faith Changes Everything home">
@@ -43,6 +80,30 @@ export default function Home() {
               <span aria-hidden="true">🙏</span>
               <span>Request Prayer</span>
             </Link>
+
+            <button
+              className="lighthouse-motion-toggle desktop-motion-control"
+              type="button"
+              aria-label={
+                systemReducedMotion
+                  ? "Lighthouse animation is disabled by your system Reduce Motion setting"
+                  : animationPaused
+                    ? "Resume lighthouse animation"
+                    : "Pause lighthouse animation"
+              }
+              title={
+                systemReducedMotion
+                  ? "Lighthouse animation is disabled by Reduce Motion"
+                  : animationPaused
+                    ? "Resume lighthouse"
+                    : "Pause lighthouse"
+              }
+              aria-pressed={animationPaused}
+              disabled={systemReducedMotion}
+              onClick={toggleLighthouseMotion}
+            >
+              <span aria-hidden="true">{animationPaused ? "▶" : "Ⅱ"}</span>
+            </button>
 
             <button
               className="mobile-menu-toggle"
@@ -74,6 +135,23 @@ export default function Home() {
                 {item.label}
               </Link>
             ))}
+
+            <button
+              className="mobile-motion-control"
+              type="button"
+              aria-pressed={animationPaused}
+              disabled={systemReducedMotion}
+              onClick={toggleLighthouseMotion}
+            >
+              <span aria-hidden="true">{animationPaused ? "▶" : "Ⅱ"}</span>
+              <span>
+                {systemReducedMotion
+                  ? "Lighthouse Motion: System Reduced"
+                  : animationPaused
+                    ? "Resume Lighthouse"
+                    : "Pause Lighthouse"}
+              </span>
+            </button>
           </nav>
         </header>
 
