@@ -22,6 +22,10 @@ export type ResourceId = string;
 /**
  * A reference used by Journey to Hope content.
  *
+ * `type` describes the authoritative FCE asset type (song, sermon, video,
+ * document, etc.). `category` describes how that asset is presented in the
+ * Journey. For example, a video may appear in the Testimony category.
+ *
  * Journey pages should reference authoritative FCE assets by ID rather than
  * duplicating titles, URLs, artwork, or other asset metadata.
  */
