@@ -14,6 +14,11 @@ export type JourneyStepId =
  * Keep this file limited to placement/category information and authoritative
  * FCE IDs. Titles, artwork, descriptions, and public destinations belong in
  * the resource registry, not here.
+ *
+ * Sermon/video rule: use a ser-* ID when the resource is presented as a
+ * Related Sermon. Use the associated vid-* ID when the video itself is
+ * intentionally presented as Testimony or Encouragement. Sermon Metadata
+ * retains the relationship between a sermon record and its video asset.
  */
 export const stepResourceAssignments: Record<
   JourneyStepId,
@@ -25,7 +30,7 @@ export const stepResourceAssignments: Record<
     { id: "song-2026-0012", type: "song", category: "related-song" },
     { id: "ser-2026-0003", type: "sermon", category: "related-sermon" },
     { id: "ser-2026-0007", type: "sermon", category: "related-sermon" },
-    { id: "ser-2026-0001", type: "sermon", category: "testimony" },
+    { id: "vid-2026-00182", type: "video", category: "testimony" },
     { id: "vid-2026-00027", type: "video", category: "related-video" },
     { id: "vid-2026-00044", type: "video", category: "related-video" },
     { id: "doc-2026-00017", type: "document", category: "bible-study" },
@@ -88,7 +93,7 @@ export const stepResourceAssignments: Record<
     { id: "song-2026-0014", type: "song", category: "related-song" },
     { id: "ser-2026-0007", type: "sermon", category: "related-sermon" },
     { id: "ser-2026-0015", type: "sermon", category: "related-sermon" },
-    { id: "ser-2026-0001", type: "sermon", category: "testimony" },
+    { id: "vid-2026-00182", type: "video", category: "testimony" },
     { id: "vid-2026-00027", type: "video", category: "related-video" },
     { id: "vid-2026-00044", type: "video", category: "related-video" },
     { id: "vid-2026-00184", type: "video", category: "related-video" },
@@ -113,9 +118,7 @@ export const stepResourceAssignments: Record<
     { id: "vid-2026-00164", type: "video", category: "related-video" },
     { id: "vid-2026-00019", type: "video", category: "related-video" },
     { id: "doc-2026-00017", type: "document", category: "bible-study" },
-    // Alaska is intentionally not assigned here yet. The dependency audit
-    // still requires choosing whether Step 6 should present the sermon
-    // (ser-2026-0001) or testimony video (vid-2026-00182).
+    { id: "vid-2026-00182", type: "video", category: "testimony" },
   ],
 };
 
