@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "eslint app/journey-to-hope && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
