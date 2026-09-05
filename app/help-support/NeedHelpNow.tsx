@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { crisisSupport } from "./crisisSupport";
 import styles from "./helpSupport.module.css";
+import enhancements from "./helpSupportEnhancements.module.css";
 
 type NeedHelpNowProps = {
   compact?: boolean;
@@ -33,20 +34,22 @@ export default function NeedHelpNow({
         Immediate crisis support
       </h2>
 
-      <p className={styles.crisisOpening}>{crisisSupport.opening}</p>
+      <p className={enhancements.crisisOpening}>{crisisSupport.opening}</p>
 
       <div className={styles.emergencyBanner}>
         <span className={styles.warningIcon} aria-hidden="true">!</span>
         <div>
           <p>If this is an emergency or there is immediate danger,</p>
-          <a className={styles.emergencyCall} href={crisisSupport.emergency.callHref}>
+          <a className={enhancements.emergencyCall} href={crisisSupport.emergency.callHref}>
             {crisisSupport.emergency.callLabel}
           </a>
           <p>or go to the nearest emergency room.</p>
         </div>
         <p className={styles.lifeMatters}>
           {crisisSupport.pastoralClosing.map((line) => (
-            <span key={line}>{line}</span>
+            <span className={enhancements.lifeMattersLine} key={line}>
+              {line}
+            </span>
           ))}
         </p>
       </div>
