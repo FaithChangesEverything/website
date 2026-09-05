@@ -3,6 +3,7 @@ import NeedHelpNow from "./NeedHelpNow";
 import SupportIcon from "./SupportIcon";
 import { supportCategories } from "./resources";
 import styles from "./helpSupport.module.css";
+import enhancements from "./helpSupportEnhancements.module.css";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -60,6 +61,7 @@ export default function HelpSupportPage() {
           <strong>FAITH</strong>
           <span>CHANGES EVERYTHING</span>
         </Link>
+
         <nav aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link key={item.label} href={item.href}>
@@ -67,6 +69,18 @@ export default function HelpSupportPage() {
             </Link>
           ))}
         </nav>
+
+        <details className={enhancements.mobileNav}>
+          <summary aria-label="Open navigation menu">Menu</summary>
+          <div className={enhancements.mobileNavPanel}>
+            {navItems.map((item) => (
+              <Link key={item.label} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </details>
+
         <Link className={styles.prayerButton} href="/prayer">
           🙏 Request Prayer
         </Link>
@@ -212,6 +226,17 @@ export default function HelpSupportPage() {
             mental health, legal, or emergency services. The information on
             this page is not a substitute for care or advice from a qualified
             professional.
+          </p>
+          <p>
+            If you are unsure what kind of help you need, please contact a
+            qualified professional or reach out to one of the crisis services
+            listed on this page.
+          </p>
+          <p>
+            <strong>
+              If there is immediate danger or a life-threatening emergency,
+              call 911 or go to the nearest emergency room.
+            </strong>
           </p>
           <p>
             Faith Changes Everything is not affiliated with or responsible for
