@@ -15,33 +15,33 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-const cardImages: Record<string, { position: string; alt: string }> = {
+const cardImages: Record<string, { src: string; alt: string }> = {
   "christian-counseling": {
-    position: "0%",
+    src: "/images/help-support/christian-counseling.webp",
     alt: "Two people having a supportive conversation.",
   },
   "mental-health": {
-    position: "16.6667%",
+    src: "/images/help-support/mental-health.webp",
     alt: "A person looking toward a peaceful sunrise.",
   },
   "grief-recovery": {
-    position: "33.3333%",
+    src: "/images/help-support/grief-recovery.webp",
     alt: "A white lily beside a cross in warm evening light.",
   },
   "marriage-family": {
-    position: "50%",
+    src: "/images/help-support/marriage-family.webp",
     alt: "A family walking together at sunset.",
   },
   "addiction-recovery": {
-    position: "66.6667%",
+    src: "/images/help-support/addiction-recovery.webp",
     alt: "Broken chains representing freedom and recovery.",
   },
   "bible-study": {
-    position: "83.3333%",
+    src: "/images/help-support/bible-study.webp",
     alt: "An open Bible in warm natural light.",
   },
   "find-a-church": {
-    position: "100%",
+    src: "/images/help-support/finding-a-church.webp",
     alt: "A welcoming church at sunset.",
   },
 };
@@ -122,7 +122,12 @@ export default function HelpSupportPage() {
                     className={styles.cardPhoto}
                     role="img"
                     aria-label={cardImage.alt}
-                    style={{ backgroundPosition: `${cardImage.position} center` }}
+                    style={{
+                      backgroundImage: `url(${cardImage.src})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                    }}
                   />
                 ) : null}
 
