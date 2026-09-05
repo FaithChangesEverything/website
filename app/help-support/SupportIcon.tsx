@@ -21,7 +21,6 @@ const common = {
   strokeWidth: 1.7,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
-  focusable: "false",
   "aria-hidden": true,
 };
 
