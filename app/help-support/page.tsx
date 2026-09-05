@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import NeedHelpNow from "./NeedHelpNow";
 import SupportIcon from "./SupportIcon";
@@ -16,33 +15,33 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-const cardImages: Record<string, { src: string; alt: string }> = {
+const cardImages: Record<string, { position: string; alt: string }> = {
   "christian-counseling": {
-    src: "/images/help-support/christian-counseling.jpg",
+    position: "0%",
     alt: "Two people having a supportive conversation.",
   },
   "mental-health": {
-    src: "/images/help-support/mental-health.jpg",
+    position: "16.6667%",
     alt: "A person looking toward a peaceful sunrise.",
   },
   "grief-recovery": {
-    src: "/images/help-support/grief-recovery.jpg",
+    position: "33.3333%",
     alt: "A white lily beside a cross in warm evening light.",
   },
   "marriage-family": {
-    src: "/images/help-support/marriage-family.jpg",
+    position: "50%",
     alt: "A family walking together at sunset.",
   },
   "addiction-recovery": {
-    src: "/images/help-support/addiction-recovery.jpg",
+    position: "66.6667%",
     alt: "Broken chains representing freedom and recovery.",
   },
   "bible-study": {
-    src: "/images/help-support/bible-study.jpg",
+    position: "83.3333%",
     alt: "An open Bible in warm natural light.",
   },
   "find-a-church": {
-    src: "/images/help-support/finding-a-church.jpg",
+    position: "100%",
     alt: "A welcoming church at sunset.",
   },
 };
@@ -119,14 +118,12 @@ export default function HelpSupportPage() {
                 id={category.id}
               >
                 {cardImage ? (
-                  <div className={styles.cardPhoto}>
-                    <Image
-                      src={cardImage.src}
-                      alt={cardImage.alt}
-                      fill
-                      sizes="(max-width: 720px) 100vw, (max-width: 1000px) 50vw, 33vw"
-                    />
-                  </div>
+                  <div
+                    className={styles.cardPhoto}
+                    role="img"
+                    aria-label={cardImage.alt}
+                    style={{ backgroundPosition: `${cardImage.position} center` }}
+                  />
                 ) : null}
 
                 <div className={styles.cardContent}>
