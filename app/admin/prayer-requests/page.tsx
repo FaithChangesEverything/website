@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
-import { markPrayerRequestPrayedFor } from "@/app/prayer/actions";
+import PrayedForForm from "./PrayedForForm";
 import "./admin-prayer.css";
 
 type PrayerRequest = { id:string; created_at:string; name:string|null; prayer_request:string };
@@ -54,11 +54,7 @@ export default async function PrayerRequestsAdminPage() {
                 <time dateTime={request.created_at}>{new Intl.DateTimeFormat("en-US", { dateStyle:"medium", timeStyle:"short" }).format(new Date(request.created_at))}</time>
               </div>
               <p className="admin-request-text">{request.prayer_request}</p>
-              <form action={markPrayerRequestPrayedFor}>
-                <input type="hidden" name="request_id" value={request.id} />
-                <button className="prayed-button" type="submit">Prayed For — Permanently Delete</button>
-                <p className="delete-warning">This action permanently deletes the request and cannot be undone.</p>
-              </form>
+              <PrayedForForm requestId={request.id} />
             </article>
           ))}
         </section>
