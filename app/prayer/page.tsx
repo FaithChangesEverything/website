@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import PrayerRequestForm from "./PrayerRequestForm";
@@ -18,7 +19,13 @@ export default function PrayerPage() {
     <main className="prayer-page">
       <header className="prayer-header">
         <Link className="prayer-brand" href="/" aria-label="Faith Changes Everything home">
-          <span>FAITH</span><small>CHANGES EVERYTHING</small>
+          <Image
+            src="/images/fce-main-logo.png"
+            alt="Faith Changes Everything"
+            width={320}
+            height={190}
+            priority
+          />
         </Link>
         <nav aria-label="Primary navigation">
           {navItems.map(([label, href]) => <Link key={label} href={href}>{label}</Link>)}
