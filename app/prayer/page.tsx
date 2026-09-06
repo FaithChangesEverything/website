@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Footer from "@/components/Footer";
 import PrayerRequestForm from "./PrayerRequestForm";
 import "./prayer.css";
 
@@ -80,11 +81,7 @@ export default function PrayerPage() {
         </section>
       </section>
 
-      <footer className="prayer-footer">
-        <strong>Faith Changes Everything</strong>
-        <span>There is always hope.</span>
-        <span>© {new Date().getFullYear()} Faith Changes Everything. All Rights Reserved.</span>
-      </footer>
+      <Footer />
     </main>
   );
 }
