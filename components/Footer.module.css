@@ -1,0 +1,147 @@
+.footer {
+  background: #071c33;
+  color: #f7f2e8;
+  padding: 28px clamp(24px, 4vw, 64px) 18px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.mainRow {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.9fr) minmax(320px, 1.3fr) minmax(180px, 0.8fr);
+  gap: 34px;
+  align-items: center;
+}
+
+.brandBlock,
+.scriptureBlock,
+.homeBlock {
+  min-width: 0;
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: min(230px, 100%);
+  height: auto;
+  object-fit: contain;
+}
+
+.scriptureBlock {
+  text-align: center;
+}
+
+.verse {
+  margin: 0;
+  color: #d84a4a;
+  font: italic 1rem/1.6 Georgia, serif;
+}
+
+.reference {
+  margin: 6px 0 0;
+  color: #f7f2e8;
+  font-weight: 800;
+}
+
+.ministryLine {
+  margin: 10px 0 0;
+  color: #ffffff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+.homeBlock {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+  font-weight: 700;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.homeLink:hover,
+.homeLink:focus-visible {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.6);
+}
+
+.bottomRow {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #c9d2dc;
+  font-size: .78rem;
+}
+
+.bottomRow p {
+  margin: 0;
+}
+
+.utilityNav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.utilityNav a {
+  color: #f7f2e8;
+}
+
+.utilityNav a:hover,
+.utilityNav a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .mainRow {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .brandBlock,
+  .homeBlock {
+    justify-content: center;
+  }
+
+  .logo {
+    width: min(210px, 70vw);
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer {
+    padding-inline: 20px;
+  }
+
+  .ministryLine {
+    letter-spacing: .14em;
+    line-height: 1.6;
+  }
+
+  .utilityNav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
