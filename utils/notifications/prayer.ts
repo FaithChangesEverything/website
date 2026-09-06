@@ -12,6 +12,7 @@ function getAdminDashboardUrl() {
 }
 
 export async function sendPrayerRequestAdminNotification(requestId: string) {
+  // Notification settings are injected by Vercel at deployment time.
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.PRAYER_NOTIFICATION_TO;
   const from = process.env.PRAYER_NOTIFICATION_FROM;
