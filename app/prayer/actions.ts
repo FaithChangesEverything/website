@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { sendPrayerRequestAdminNotification } from "@/utils/notifications/prayer";
 import { createClient } from "@/utils/supabase/server";
 
 export type PrayerFormState = {
@@ -31,7 +32,10 @@ export async function submitPrayerRequest(
     return { status: "error", message: "Please keep the optional name to 100 characters or fewer." };
   }
 
+  const requestId = crypto.randomUUID();
+
   const { error } = await supabase.from("prayer_requests").insert({
+    id: requestId,
     name: rawName || null,
     prayer_request: prayerRequest,
     status: "new",
@@ -41,6 +45,12 @@ export async function submitPrayerRequest(
   if (error) {
     console.error("Prayer request submission failed:", error.code);
     return { status: "error", message: "We were unable to submit your prayer request. Please try again." };
+  }
+
+  try {
+    await sendPrayerRequestAdminNotification(requestId);
+  } catch {
+    console.error("Prayer request was stored, but the admin notification could not be sent.");
   }
 
   return {
