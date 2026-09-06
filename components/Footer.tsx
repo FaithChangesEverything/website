@@ -8,10 +8,10 @@ export default function Footer() {
       <div className={styles.mainRow}>
         <div className={styles.brandBlock}>
           <Image
-            src="/images/fce-logo-white.png"
+            src="/images/fce-main-logo.png"
             alt="Faith Changes Everything"
-            width={260}
-            height={150}
+            width={320}
+            height={190}
             className={styles.logo}
           />
         </div>
