@@ -1,13 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PrayerRequestForm from "./PrayerRequestForm";
 import "./prayer.css";
-
-const navItems = [
-  ["Home", "/"], ["Journey to Hope", "/journey"], ["Music", "/music"], ["Sermons", "/sermons"],
-  ["Prayer", "/prayer"], ["Resources", "/resources"], ["About", "/about"], ["Contact", "/contact"],
-];
 
 export const metadata = {
   title: "Prayer Request | Faith Changes Everything",
@@ -17,20 +12,7 @@ export const metadata = {
 export default function PrayerPage() {
   return (
     <main className="prayer-page">
-      <header className="prayer-header">
-        <Link className="prayer-brand" href="/" aria-label="Faith Changes Everything home">
-          <Image
-            src="/images/fce-main-logo.png"
-            alt="Faith Changes Everything"
-            width={320}
-            height={190}
-            priority
-          />
-        </Link>
-        <nav aria-label="Primary navigation">
-          {navItems.map(([label, href]) => <Link key={label} href={href}>{label}</Link>)}
-        </nav>
-      </header>
+      <Header />
 
       <section className="prayer-hero" aria-labelledby="prayer-title">
         <div className="prayer-hero-overlay" />
