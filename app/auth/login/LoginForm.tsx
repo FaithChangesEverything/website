@@ -18,8 +18,19 @@ export default function LoginForm({ message, next }: LoginFormProps) {
   }
   function switchMode(newMode: "login" | "signup") { setMode(newMode); setLocalMessage(""); setPassword(""); setConfirmPassword(""); setShowPassword(false); }
 
-  const labelStyle = { fontWeight:600,fontSize:"14px",alignSelf:"center" };
-  const inputStyle = { width:"100%",padding:"10px 12px",boxSizing:"border-box" as const,border:"1px solid #b8b8b8",borderRadius:"4px",fontSize:"16px" };
+  const labelStyle = { fontWeight:600,fontSize:"14px",alignSelf:"center",color:"#17263b" };
+  const inputStyle = {
+    width:"100%",
+    padding:"10px 12px",
+    boxSizing:"border-box" as const,
+    border:"1px solid #b8b8b8",
+    borderRadius:"4px",
+    fontSize:"16px",
+    color:"#17263b",
+    backgroundColor:"#ffffff",
+    caretColor:"#17263b",
+    WebkitTextFillColor:"#17263b",
+  };
 
   return (
     <form>
@@ -32,15 +43,15 @@ export default function LoginForm({ message, next }: LoginFormProps) {
         <input id="password" name="password" type={showPassword?"text":"password"} required autoComplete={mode==="login"?"current-password":"new-password"} value={password} onChange={e=>setPassword(e.target.value)} style={inputStyle}/>
         {mode === "signup" && <><label htmlFor="confirmPassword" style={labelStyle}>Confirm Password</label><input id="confirmPassword" type={showPassword?"text":"password"} value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} style={inputStyle}/></>}
       </div>
-      <label style={{display:"flex",alignItems:"center",gap:"8px",marginTop:"14px",marginLeft:"134px",marginBottom:"22px",fontSize:"14px"}}><input type="checkbox" checked={showPassword} onChange={e=>setShowPassword(e.target.checked)}/>{mode==="login"?"Show password":"Show passwords"}</label>
+      <label style={{display:"flex",alignItems:"center",gap:"8px",marginTop:"14px",marginLeft:"134px",marginBottom:"22px",fontSize:"14px",color:"#17263b"}}><input type="checkbox" checked={showPassword} onChange={e=>setShowPassword(e.target.checked)}/>{mode==="login"?"Show password":"Show passwords"}</label>
       {mode === "login" ? <>
         <button formAction={login} style={{width:"100%",padding:"12px",border:"none",borderRadius:"4px",backgroundColor:"#173A63",color:"#fff",fontSize:"16px",cursor:"pointer"}}>Sign In</button>
-        <div style={{marginTop:"24px",textAlign:"center",fontSize:"14px"}}><p style={{marginBottom:"8px"}}>Don&apos;t have an account?</p><button type="button" onClick={()=>switchMode("signup")} style={{border:"none",background:"none",color:"#173A63",textDecoration:"underline",cursor:"pointer",fontSize:"14px"}}>Create Account</button></div>
+        <div style={{marginTop:"24px",textAlign:"center",fontSize:"14px",color:"#17263b"}}><p style={{marginBottom:"8px"}}>Don&apos;t have an account?</p><button type="button" onClick={()=>switchMode("signup")} style={{border:"none",background:"none",color:"#173A63",textDecoration:"underline",cursor:"pointer",fontSize:"14px"}}>Create Account</button></div>
       </> : <>
         <button formAction={handleSignup} style={{width:"100%",padding:"12px",border:"1px solid #C39A3A",borderRadius:"4px",backgroundColor:"#fff",color:"#173A63",fontSize:"16px",cursor:"pointer"}}>Create Account</button>
-        <div style={{marginTop:"24px",textAlign:"center",fontSize:"14px"}}><p style={{marginBottom:"8px"}}>Already have an account?</p><button type="button" onClick={()=>switchMode("login")} style={{border:"none",background:"none",color:"#173A63",textDecoration:"underline",cursor:"pointer",fontSize:"14px"}}>Back to Sign In</button></div>
+        <div style={{marginTop:"24px",textAlign:"center",fontSize:"14px",color:"#17263b"}}><p style={{marginBottom:"8px"}}>Already have an account?</p><button type="button" onClick={()=>switchMode("login")} style={{border:"none",background:"none",color:"#173A63",textDecoration:"underline",cursor:"pointer",fontSize:"14px"}}>Back to Sign In</button></div>
       </>}
-      {(localMessage||message)&&<p style={{marginTop:"24px",padding:"12px",backgroundColor:"#f7f2e8",borderRadius:"4px",fontSize:"14px",lineHeight:1.5}}>{localMessage||message}</p>}
+      {(localMessage||message)&&<p style={{marginTop:"24px",padding:"12px",backgroundColor:"#f7f2e8",borderRadius:"4px",fontSize:"14px",lineHeight:1.5,color:"#17263b"}}>{localMessage||message}</p>}
     </form>
   );
 }
