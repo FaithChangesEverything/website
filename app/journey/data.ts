@@ -23,8 +23,8 @@ export const journeySteps: JourneyStep[] = [
     summary: "Begin with the hope God gives and discover where lasting hope is found.",
     lessons: [
       { id: "1.a", title: "Before We Begin", href: "/journey/step-1/before-we-begin", kind: "pastor-letter" },
-      { id: "1.b", title: "Hope for Today", href: "/journey/step-1/hope-for-today" },
-      { id: "1.c", title: "A Biblical Study of Hope", href: "/journey/step-1/biblical-study-of-hope", kind: "series" },
+      { id: "1.b", title: "Understanding Hope", href: "/journey/step-1/hope-for-today" },
+      { id: "1.c", title: "What Does the Bible Say About Hope", href: "/journey/step-1/biblical-study-of-hope", kind: "series" },
       { id: "1.d", title: "Time to Reflect", href: "/journey/step-1/time-to-reflect" },
       { id: "1.e", title: "Helpful Resources", href: "/journey/step-1/helpful-resources" },
       { id: "1.f", title: "A Prayer for Today", href: "/journey/step-1/a-prayer-for-today" },
