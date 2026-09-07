@@ -67,7 +67,7 @@ export function LessonSidebar({ stepNumber, lessons, currentId }: { stepNumber: 
 
 export function ProgressSavePrompt() {
   return (
-    <aside className={styles.progressPrompt}>
+    <aside className={`${styles.progressPrompt} ${fixes.readablePanel}`}>
       <div><strong>Want to save your progress?</strong><p>Your Journey remains fully available whether or not you save progress.</p></div>
       <Link href="/journey/save-progress">Save Your Journey Progress</Link>
     </aside>
