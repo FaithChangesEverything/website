@@ -1,0 +1,112 @@
+.crisisBarSafe{
+  justify-content:flex-start;
+  min-height:58px;
+  padding:12px 28px 12px clamp(260px,26vw,340px);
+}
+.crisisBarSafe>a{margin-left:auto}
+
+.interiorHeroCalm,
+.pastorLetterHeroCalm{
+  background:
+    linear-gradient(90deg,rgba(5,20,37,.86),rgba(5,20,37,.28)),
+    url('/images/prayer-request-lighthouse-hero.png') center 48%/cover no-repeat;
+}
+
+.readablePanel{
+  color:#263849!important;
+}
+.readablePanel strong,
+.readablePanel h2,
+.readablePanel h3{
+  color:#17324f!important;
+}
+.readablePanel p,
+.readablePanel li{
+  color:#52606d!important;
+}
+
+.signatureBlend{
+  background:transparent!important;
+  mix-blend-mode:multiply;
+  filter:grayscale(1) contrast(1.35);
+}
+
+.individualLessonContent{
+  max-width:none!important;
+  color:#172b3f;
+}
+.individualLessonHeader{
+  align-items:center!important;
+}
+.individualLessonHeader h1{
+  font-family:inherit!important;
+  font-size:clamp(1.8rem,3vw,2.7rem)!important;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.lessonAudioNotice{
+  margin:18px 0 4px!important;
+  padding:13px 16px!important;
+  background:#f5f7f8!important;
+  border:1px solid #dbe2e7!important;
+  border-left:4px solid #d3a347!important;
+  color:#263849!important;
+}
+.lessonAudioNotice strong{color:#17324f!important}
+.lessonAudioNotice p{color:#52606d!important;margin:.35em 0 0;font-size:.84rem}
+.lessonBlocks{
+  margin-top:8px;
+}
+.lessonResourceLinks{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.lessonResourceLinks a{
+  display:block;
+  border:1px solid #ded5c8;
+  border-radius:8px;
+  padding:10px 12px;
+  text-decoration:none;
+  color:#17324f;
+  background:#fffaf4;
+  font-size:.78rem;
+  font-weight:800;
+  text-align:center;
+}
+.lessonCompletionConcept{
+  margin-top:0!important;
+  padding:20px!important;
+  background:#fff8eb!important;
+  border:1px solid #e5d7bd!important;
+  border-radius:0 0 10px 10px;
+}
+.lessonCompletionConcept button:disabled,
+.readableButton:disabled{
+  opacity:1!important;
+}
+.lessonCompletionConcept button:disabled{
+  background:#2f783c!important;
+  color:#fff!important;
+}
+
+@media(max-width:950px){
+  .crisisBarSafe{
+    justify-content:center;
+    padding:12px 22px;
+  }
+  .crisisBarSafe>a{margin-left:0}
+}
+
+@media(max-width:760px){
+  .crisisBarSafe{
+    justify-content:flex-start;
+    padding:12px 18px;
+  }
+  .lessonResourceLinks{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:480px){
+  .lessonResourceLinks{grid-template-columns:1fr}
+}
