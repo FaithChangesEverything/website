@@ -44,7 +44,7 @@ export const journeySteps: JourneyStep[] = [
       { id: "2.d", title: "Time to Reflect", href: "/journey/step-2/time-to-reflect" },
       { id: "2.e", title: "Continue Your Salvation Journey", href: "/journey/step-2/continue-your-salvation-journey" },
       { id: "2.f", title: "Bible Study Online Resources", href: "/journey/step-2/bible-study-online-resources" },
-      { id: "2.g", title: "A Final Word of Encouragement", href: "/journey/step-2/a-final-word-of-encouragement" },
+      { id: "2.g", title: "Final Encouragement", href: "/journey/step-2/final-encouragement" },
       { id: "2.h", title: "Continue Your Journey", href: "/journey/step-2/continue-your-journey" },
     ],
   },
@@ -57,9 +57,6 @@ export const journeySteps: JourneyStep[] = [
     lessons: [
       { id: "3.a", title: "Before We Begin", href: "/journey/step-3/before-we-begin", kind: "pastor-letter" },
       { id: "3.b", title: "Knowing the Heart of God", href: "/journey/step-3/knowing-the-heart-of-god" },
-      { id: "3.c", title: "Time to Reflect", href: "/journey/step-3/time-to-reflect" },
-      { id: "3.d", title: "Final Word of Encouragement", href: "/journey/step-3/final-word-of-encouragement" },
-      { id: "3.e", title: "Continue Your Journey", href: "/journey/step-3/continue-your-journey" },
     ],
   },
   {
@@ -103,7 +100,7 @@ export const journeySteps: JourneyStep[] = [
       { id: "6.b", title: "Read God’s Word", href: "/journey/step-6/read-gods-word" },
       { id: "6.c", title: "Walk with Christ", href: "/journey/step-6/walk-with-christ" },
       { id: "6.d", title: "Reflect on Your Journey", href: "/journey/step-6/reflect-on-your-journey" },
-      { id: "6.e", title: "Receive Weekly Encouragement", href: "/journey/step-6/receive-weekly-encouragement" },
+      { id: "6.e", title: "Find a Church Home", href: "/journey/step-6/find-a-church-home" },
       { id: "6.f", title: "We Would Love to Pray for You", href: "/prayer" },
       { id: "6.g", title: "Stay Connected", href: "/journey/step-6/stay-connected" },
     ],
