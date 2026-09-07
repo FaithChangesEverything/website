@@ -25,6 +25,10 @@ export const journeySteps: JourneyStep[] = [
       { id: "1.a", title: "Before We Begin", href: "/journey/step-1/before-we-begin", kind: "pastor-letter" },
       { id: "1.b", title: "Hope for Today", href: "/journey/step-1/hope-for-today" },
       { id: "1.c", title: "A Biblical Study of Hope", href: "/journey/step-1/biblical-study-of-hope", kind: "series" },
+      { id: "1.d", title: "Time to Reflect", href: "/journey/step-1/time-to-reflect" },
+      { id: "1.e", title: "Helpful Resources", href: "/journey/step-1/helpful-resources" },
+      { id: "1.f", title: "A Prayer for Today", href: "/journey/step-1/a-prayer-for-today" },
+      { id: "1.g", title: "Continue Your Journey", href: "/journey/step-1/continue-your-journey" },
     ],
   },
   {
@@ -33,7 +37,16 @@ export const journeySteps: JourneyStep[] = [
     title: "I’m Looking for Information About Salvation",
     href: "/journey/step-2",
     summary: "Understand the Gospel, salvation through Jesus Christ, and what it means to follow Him.",
-    lessons: [],
+    lessons: [
+      { id: "2.a", title: "Before We Begin", href: "/journey/step-2/before-we-begin", kind: "pastor-letter" },
+      { id: "2.b", title: "Understanding Salvation", href: "/journey/step-2/understanding-salvation" },
+      { id: "2.c", title: "What Does the Bible Say About Salvation", href: "/journey/step-2/what-does-the-bible-say-about-salvation" },
+      { id: "2.d", title: "Time to Reflect", href: "/journey/step-2/time-to-reflect" },
+      { id: "2.e", title: "Continue Your Salvation Journey", href: "/journey/step-2/continue-your-salvation-journey" },
+      { id: "2.f", title: "Bible Study Online Resources", href: "/journey/step-2/bible-study-online-resources" },
+      { id: "2.g", title: "A Final Word of Encouragement", href: "/journey/step-2/final-word-of-encouragement" },
+      { id: "2.h", title: "Continue Your Journey", href: "/journey/step-2/continue-your-journey" },
+    ],
   },
   {
     id: "3",
@@ -41,7 +54,13 @@ export const journeySteps: JourneyStep[] = [
     title: "Knowing the Heart of God",
     href: "/journey/step-3",
     summary: "Learn what Scripture reveals about God’s character and His heart toward us.",
-    lessons: [],
+    lessons: [
+      { id: "3.a", title: "Before We Begin", href: "/journey/step-3/before-we-begin", kind: "pastor-letter" },
+      { id: "3.b", title: "Knowing the Heart of God", href: "/journey/step-3/knowing-the-heart-of-god" },
+      { id: "3.c", title: "Time to Reflect", href: "/journey/step-3/time-to-reflect" },
+      { id: "3.d", title: "Words of Encouragement", href: "/journey/step-3/words-of-encouragement" },
+      { id: "3.e", title: "Continue Your Journey", href: "/journey/step-3/continue-your-journey" },
+    ],
   },
   {
     id: "4",
@@ -50,6 +69,9 @@ export const journeySteps: JourneyStep[] = [
     href: "/journey/step-4",
     summary: "Build practical habits that help you know God’s Word and grow in your walk with Christ.",
     lessons: [
+      { id: "4.a", title: "Before We Begin", href: "/journey/step-4/before-we-begin", kind: "pastor-letter" },
+      { id: "4.b", title: "Understanding Spiritual Growth", href: "/journey/step-4/understanding-spiritual-growth" },
+      { id: "4.c", title: "The Importance of Reading God’s Word", href: "/journey/step-4/the-importance-of-reading-gods-word" },
       { id: "4.d", title: "How to Study the Bible", href: "/journey/step-4/how-to-study-the-bible", kind: "series" },
     ],
   },
@@ -59,7 +81,16 @@ export const journeySteps: JourneyStep[] = [
     title: "I’m Walking Through a Difficult Season",
     href: "/journey/step-5",
     summary: "Find biblical truth and encouragement for seasons that feel heavy or uncertain.",
-    lessons: [],
+    lessons: [
+      { id: "5.a", title: "Before We Begin", href: "/journey/step-5/before-we-begin", kind: "pastor-letter" },
+      { id: "5.b", title: "When Life Feels Overwhelming", href: "/journey/step-5/when-life-feels-overwhelming" },
+      { id: "5.c", title: "When You’re Grieving", href: "/journey/step-5/when-youre-grieving" },
+      { id: "5.d", title: "When God Feels Silent", href: "/journey/step-5/when-god-feels-silent" },
+      { id: "5.e", title: "When You Think You Have Failed", href: "/journey/step-5/when-you-think-you-have-failed" },
+      { id: "5.f", title: "When You’re Afraid of the Future", href: "/journey/step-5/when-youre-afraid-of-the-future" },
+      { id: "5.g", title: "When Relationships Hurt", href: "/journey/step-5/when-relationships-hurt" },
+      { id: "5.h", title: "Finding Hope Again", href: "/journey/step-5/finding-hope-again" },
+    ],
   },
   {
     id: "6",
@@ -83,7 +114,7 @@ export const hopeSeries = [
   "The God of Hope",
   "Hope: An Anchor for the Soul",
   "Hope in God’s Faithfulness",
-  "Hope in the Past: Renewed Strength",
+  "Hope that Renews Strength",
   "Hope in the Midst of Discouragement",
   "Hope Through Suffering",
   "A Living Hope Through Christ",
@@ -99,3 +130,12 @@ export const bibleStudySeries = [
   "Live What You Learn",
   "Never Stop Growing",
 ];
+
+export function getJourneyStep(stepNumber: number) {
+  return journeySteps.find((step) => step.number === stepNumber);
+}
+
+export function getJourneyLesson(stepNumber: number, slug: string) {
+  const step = getJourneyStep(stepNumber);
+  return step?.lessons.find((lesson) => lesson.href.endsWith(`/${slug}`));
+}
