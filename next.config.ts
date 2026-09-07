@@ -20,7 +20,27 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/journey/step-2/final-word-of-encouragement",
-        destination: "/journey/step-2/a-final-word-of-encouragement",
+        destination: "/journey/step-2/final-encouragement",
+        permanent: true,
+      },
+      {
+        source: "/journey/step-2/a-final-word-of-encouragement",
+        destination: "/journey/step-2/final-encouragement",
+        permanent: true,
+      },
+      {
+        source: "/journey/step-3/time-to-reflect",
+        destination: "/journey/step-3/knowing-the-heart-of-god",
+        permanent: true,
+      },
+      {
+        source: "/journey/step-3/final-word-of-encouragement",
+        destination: "/journey/step-3/knowing-the-heart-of-god",
+        permanent: true,
+      },
+      {
+        source: "/journey/step-3/continue-your-journey",
+        destination: "/journey/step-3/knowing-the-heart-of-god",
         permanent: true,
       },
       {
@@ -30,7 +50,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/journey/step-6/weekly-encouragement",
-        destination: "/journey/step-6/receive-weekly-encouragement",
+        destination: "/journey/step-6",
+        permanent: true,
+      },
+      {
+        source: "/journey/step-6/receive-weekly-encouragement",
+        destination: "/journey/step-6",
         permanent: true,
       },
     ];
