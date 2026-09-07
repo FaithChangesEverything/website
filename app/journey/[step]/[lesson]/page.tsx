@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IndividualLesson, PastorLetter, SeriesOverview } from "../../components/PageStructures";
-import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
+import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
 
+const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
 
 function resolveLesson(stepSlug: string, lessonSlug: string) {
@@ -41,6 +42,25 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
+
+  if (lesson.id === "1.c") {
+    const sections = hopeSeries.map((title, index) => ({
+      id: `1.c.${hopeSectionIds[index]}`,
+      title,
+      href: `/journey/step-1/biblical-study-of-hope/study-${index + 1}`,
+    }));
+
+    return (
+      <SeriesOverview
+        stepNumber={1}
+        parentId="1.c"
+        title="What Does the Bible Say About Hope"
+        intro="This lesson is a seven-part Scripture study. Each study is presented as its own continuous teaching page while 1.c remains one parent lesson in your Journey."
+        sections={sections}
+        lessons={step.lessons}
+      />
+    );
+  }
 
   if (lesson.id === "4.d") {
     const sections = bibleStudySeries.map((title, index) => ({
