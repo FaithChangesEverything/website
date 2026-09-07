@@ -91,6 +91,40 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "3.b") {
+    return (
+      <IndividualLesson
+        stepNumber={3}
+        lessonId="3.b"
+        title="Knowing the Heart of God"
+        lessons={step.lessons}
+        intro="The complete Step 3 teaching remains one continuous lesson. The authoritative Doctrine now places reflection, final encouragement, and Continue Your Journey inside 3.b rather than as separate Step-level lessons."
+      >
+        <LessonBlock title="3.b.1 God Reveals His Own Character" icon="▤">
+          <p>The approved Doctrine teaching for God’s revealed character will appear here during content implementation.</p>
+        </LessonBlock>
+        <LessonBlock title="3.b.2 Jesus Is the Perfect Revelation of God" icon="◇">
+          <p>The approved Doctrine teaching about Jesus revealing the Father will appear here during content implementation.</p>
+        </LessonBlock>
+        <LessonBlock title="3.b.3 Knowing God Personally" icon="✦" tone="highlight">
+          <p>The approved Doctrine teaching about knowing God personally will appear here during content implementation.</p>
+        </LessonBlock>
+        <LessonBlock title="3.b.4 Go Deeper in Your Understanding of God" icon="▣">
+          <p>The approved Character of God Bible Study Series invitation and supporting content will appear here during content implementation.</p>
+        </LessonBlock>
+        <LessonBlock title="3.b.5 Time to Reflect" icon="?">
+          <p>The approved reflection questions and Scripture will remain inside this lesson as established by Doctrine Rev. 1.6.</p>
+        </LessonBlock>
+        <LessonBlock title="3.b.6 Final Encouragement" icon="✦" tone="highlight">
+          <p>The approved final encouragement will appear here as part of the same 3.b lesson.</p>
+        </LessonBlock>
+        <LessonBlock title="3.b.7 Continue Your Journey" icon="→">
+          <p>The approved Continue Your Journey content and Step 3 resources will close this lesson during content implementation.</p>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   return (
     <IndividualLesson
       stepNumber={stepNumber}
