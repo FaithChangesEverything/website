@@ -125,6 +125,25 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "6.f") {
+    return (
+      <IndividualLesson
+        stepNumber={6}
+        lessonId="6.f"
+        title="We Would Love to Pray for You"
+        lessons={step.lessons}
+        intro="This Journey lesson keeps prayer support inside Step 6 while giving visitors a clear path to the existing Prayer Request page. Final wording remains governed by the authoritative Doctrine manuscript."
+      >
+        <LessonBlock title="Prayer Support" icon="♡" tone="highlight">
+          <p>The approved Step 6.f prayer invitation will be integrated here from the authoritative Doctrine during content implementation.</p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/prayer">Submit a Prayer Request</Link>
+          </div>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   return (
     <IndividualLesson
       stepNumber={stepNumber}
