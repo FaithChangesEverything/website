@@ -1,7 +1,7 @@
 .header {
   position: relative;
   z-index: 5;
-  min-height: 72px;
+  min-height: 88px;
   padding: 10px clamp(22px, 4vw, 68px);
   display: flex;
   align-items: center;
@@ -9,15 +9,15 @@
   gap: 30px;
   background: #061329;
   color: #fff;
+  overflow: visible;
 }
 
 .brand {
   position: absolute;
   left: clamp(22px, 4vw, 68px);
-  top: 50%;
-  width: 260px;
-  height: 154px;
-  transform: translateY(-25%);
+  bottom: -50px;
+  width: 220px;
+  height: 131px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,10 +46,17 @@
 }
 
 @media (max-width: 950px) {
+  .header {
+    min-height: 108px;
+    justify-content: center;
+  }
+
   .brand {
-    width: 210px;
-    height: 125px;
-    transform: translateY(-19%);
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 185px;
+    height: 110px;
   }
 
   .nav {
@@ -59,14 +66,13 @@
 
 @media (max-width: 620px) {
   .header {
-    justify-content: center;
+    min-height: 102px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .brand {
-    left: 50%;
-    top: 50%;
-    width: 185px;
-    height: 110px;
-    transform: translate(-50%, -16%);
+    width: 175px;
+    height: 104px;
   }
 }
