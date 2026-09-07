@@ -11,6 +11,22 @@ function buildSectionNav(baseHref: string, titles: string[], index: number) {
   return { previous, next };
 }
 
+export function generateStaticParams() {
+  const hopeStudies = hopeSeries.map((_, index) => ({
+    step: "step-1",
+    lesson: "biblical-study-of-hope",
+    section: `study-${index + 1}`,
+  }));
+
+  const bibleStudies = bibleStudySeries.map((_, index) => ({
+    step: "step-4",
+    lesson: "how-to-study-the-bible",
+    section: `study-${index + 1}`,
+  }));
+
+  return [...hopeStudies, ...bibleStudies];
+}
+
 export default async function JourneySeriesStudyPage({ params }: { params: Promise<{ step: string; lesson: string; section: string }> }) {
   const { step: stepSlug, lesson: lessonSlug, section: sectionSlug } = await params;
   const stepMatch = /^step-(\d+)$/.exec(stepSlug);
@@ -25,14 +41,40 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
     const index = studyNumber - 1;
     const baseHref = "/journey/step-1/biblical-study-of-hope";
     const nav = buildSectionNav(baseHref, hopeSeries, index);
-    return <SeriesStudy stepNumber={1} parentId="1.c" sectionId={`1.c.${hopeSectionIds[index]}`} title={hopeSeries[index]} parentTitle="A Biblical Study of Hope" lessons={step.lessons} previousSection={nav.previous} nextSection={nav.next}><p>The approved Doctrine content for this seven-part hope study will be integrated here without changing its authoritative order or teaching structure.</p></SeriesStudy>;
+    return (
+      <SeriesStudy
+        stepNumber={1}
+        parentId="1.c"
+        sectionId={`1.c.${hopeSectionIds[index]}`}
+        title={hopeSeries[index]}
+        parentTitle="What Does the Bible Say About Hope"
+        lessons={step.lessons}
+        previousSection={nav.previous}
+        nextSection={nav.next}
+      >
+        <p>The approved Doctrine content for this seven-part hope study will be integrated here without changing its authoritative order or teaching structure.</p>
+      </SeriesStudy>
+    );
   }
 
   if (stepNumber === 4 && lessonSlug === "how-to-study-the-bible" && studyNumber <= bibleStudySeries.length) {
     const index = studyNumber - 1;
     const baseHref = "/journey/step-4/how-to-study-the-bible";
     const nav = buildSectionNav(baseHref, bibleStudySeries, index);
-    return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={step.lessons} previousSection={nav.previous} nextSection={nav.next}><p>The approved Doctrine content for this study will be integrated here. The architecture intentionally supports the different internal block patterns used across 4.d.1 through 4.d.65.</p></SeriesStudy>;
+    return (
+      <SeriesStudy
+        stepNumber={4}
+        parentId="4.d"
+        sectionId={`4.d.${bibleStudySectionIds[index]}`}
+        title={bibleStudySeries[index]}
+        parentTitle="How to Study the Bible"
+        lessons={step.lessons}
+        previousSection={nav.previous}
+        nextSection={nav.next}
+      >
+        <p>The approved Doctrine content for this study will be integrated here. The architecture intentionally supports the different internal block patterns used across 4.d.1 through 4.d.65.</p>
+      </SeriesStudy>
+    );
   }
 
   notFound();
