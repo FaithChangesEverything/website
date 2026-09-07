@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IndividualLesson, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
+
+function resolveLesson(stepSlug: string, lessonSlug: string) {
+  const match = /^step-(\d+)$/.exec(stepSlug);
+  const stepNumber = match ? Number(match[1]) : Number.NaN;
+  const step = getJourneyStep(stepNumber);
+  const lesson = getJourneyLesson(stepNumber, lessonSlug);
+  return { stepNumber, step, lesson };
+}
 
 export function generateStaticParams() {
   return journeySteps.flatMap((step) =>
@@ -15,12 +24,21 @@ export function generateStaticParams() {
   );
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ step: string; lesson: string }> }): Promise<Metadata> {
+  const { step: stepSlug, lesson: lessonSlug } = await params;
+  const { step, lesson } = resolveLesson(stepSlug, lessonSlug);
+
+  if (!step || !lesson) return { title: "Journey to Hope | Faith Changes Everything" };
+
+  return {
+    title: `${lesson.title} | Step ${step.number} | Journey to Hope`,
+    description: `${lesson.title}, part of Step ${step.number}: ${step.title} in Faith Changes Everything's Journey to Hope.`,
+  };
+}
+
 export default async function JourneyLessonPage({ params }: { params: Promise<{ step: string; lesson: string }> }) {
   const { step: stepSlug, lesson: lessonSlug } = await params;
-  const match = /^step-(\d+)$/.exec(stepSlug);
-  const stepNumber = match ? Number(match[1]) : Number.NaN;
-  const step = getJourneyStep(stepNumber);
-  const lesson = getJourneyLesson(stepNumber, lessonSlug);
+  const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
 
