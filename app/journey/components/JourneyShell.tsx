@@ -3,10 +3,11 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { journeySteps, type JourneyLesson } from "../data";
 import styles from "../journey.module.css";
+import fixes from "../journey-fixes.module.css";
 
 export function NeedHelpRightNow() {
   return (
-    <aside className={styles.crisisBar} aria-label="Need help right now">
+    <aside className={`${styles.crisisBar} ${fixes.crisisBarSafe}`} aria-label="Need help right now">
       <strong>Need Help Right Now?</strong>
       <span>If you are in immediate danger, call 911. In the U.S., call or text 988 for crisis support.</span>
       <a href="https://988lifeline.org/" rel="noreferrer">Get Help Now →</a>
@@ -55,7 +56,7 @@ export function LessonSidebar({ stepNumber, lessons, currentId }: { stepNumber: 
           <span aria-hidden="true">›</span>
         </Link>
       ))}
-      <div className={styles.sidebarLegend} aria-label="Lesson status legend"><span>● Current</span><span>○ Not Started</span></div>
+      <div className={styles.sidebarLegend} aria-label="Lesson status legend"><span>● Current</span><span>○ Available</span></div>
     </nav>
   );
 }
