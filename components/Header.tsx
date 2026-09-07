@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 
 const navItems = [
@@ -13,7 +16,14 @@ const navItems = [
   ["Contact", "/contact"],
 ];
 
+function isActiveSection(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className={styles.header}>
       <Link className={styles.brand} href="/" aria-label="Faith Changes Everything home">
@@ -26,9 +36,20 @@ export default function Header() {
         />
       </Link>
       <nav className={styles.nav} aria-label="Primary navigation">
-        {navItems.map(([label, href]) => (
-          <Link key={label} href={href}>{label}</Link>
-        ))}
+        {navItems.map(([label, href]) => {
+          const active = isActiveSection(pathname, href);
+          const current = pathname === href ? "page" : active ? "location" : undefined;
+          return (
+            <Link
+              key={label}
+              href={href}
+              className={active ? styles.active : undefined}
+              aria-current={current}
+            >
+              {label}
+            </Link>
+          );
+        })}
       </nav>
     </header>
   );

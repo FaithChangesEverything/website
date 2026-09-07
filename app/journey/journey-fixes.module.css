@@ -1,0 +1,196 @@
+.crisisBarSafe{
+  display:grid!important;
+  grid-template-columns:34px auto minmax(0,1fr) auto;
+  align-items:center;
+  justify-content:initial!important;
+  gap:0 12px!important;
+  min-height:54px;
+  padding:7px 24px 7px clamp(250px,25vw,320px)!important;
+  background:#fffaf6!important;
+}
+.crisisIcon{
+  width:30px;
+  height:30px;
+  border-radius:7px;
+  display:grid;
+  place-items:center;
+  background:#bd181c;
+  color:#fff;
+  font-weight:900;
+  font-size:1.05rem;
+}
+.crisisTitle{
+  padding-right:12px;
+  border-right:1px solid #e1d8ce;
+  white-space:nowrap;
+  color:#b51419!important;
+  font-size:.78rem!important;
+  letter-spacing:.01em;
+}
+.crisisCopy{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  color:#26384b!important;
+  font-size:.72rem;
+  line-height:1.28!important;
+}
+.crisisEmphasis{
+  color:#b51419;
+  font-weight:800;
+}
+.crisisAction{
+  margin-left:10px!important;
+  padding:9px 16px!important;
+  border-radius:7px!important;
+  white-space:nowrap;
+  font-size:.76rem;
+}
+
+.interiorHeroCalm,
+.pastorLetterHeroCalm{
+  background:
+    linear-gradient(90deg,rgba(5,20,37,.86),rgba(5,20,37,.28)),
+    url('/images/prayer-request-lighthouse-hero.png') center 48%/cover no-repeat;
+}
+
+.readablePanel{
+  color:#263849!important;
+}
+.readablePanel strong,
+.readablePanel h2,
+.readablePanel h3{
+  color:#17324f!important;
+}
+.readablePanel p,
+.readablePanel li{
+  color:#52606d!important;
+}
+
+.signatureBlend{
+  background:transparent!important;
+  mix-blend-mode:multiply;
+  filter:grayscale(1) contrast(1.35);
+}
+
+.individualLessonContent{
+  max-width:none!important;
+  color:#172b3f;
+}
+.individualLessonHeader,
+.seriesHeader{
+  align-items:center!important;
+}
+.individualLessonHeader h1,
+.seriesHeader h1{
+  font-family:inherit!important;
+  font-size:clamp(1.8rem,3vw,2.7rem)!important;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.seriesStudyKicker{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.seriesStudyKicker span{
+  color:#9b6d20;
+}
+.lessonAudioNotice{
+  margin:18px 0 4px!important;
+  padding:13px 16px!important;
+  background:#f5f7f8!important;
+  border:1px solid #dbe2e7!important;
+  border-left:4px solid #d3a347!important;
+  color:#263849!important;
+}
+.lessonAudioNotice strong{color:#17324f!important}
+.lessonAudioNotice p{color:#52606d!important;margin:.35em 0 0;font-size:.84rem}
+.lessonBlocks{
+  margin-top:8px;
+}
+.lessonResourceLinks{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.lessonResourceLinks a{
+  display:block;
+  border:1px solid #ded5c8;
+  border-radius:8px;
+  padding:10px 12px;
+  text-decoration:none;
+  color:#17324f;
+  background:#fffaf4;
+  font-size:.78rem;
+  font-weight:800;
+  text-align:center;
+}
+.lessonCompletionConcept{
+  margin-top:0!important;
+  padding:20px!important;
+  background:#fff8eb!important;
+  border:1px solid #e5d7bd!important;
+  border-radius:0 0 10px 10px;
+}
+.lessonCompletionConcept button:disabled,
+.readableButton:disabled{
+  opacity:1!important;
+}
+.lessonCompletionConcept button:disabled{
+  background:#2f783c!important;
+  color:#fff!important;
+}
+
+/* When the shared header brings the logo fully back into the navy bar,
+   the crisis strip no longer needs to reserve horizontal logo space. */
+@media(max-width:1240px){
+  .crisisBarSafe{
+    grid-template-columns:30px auto minmax(0,1fr) auto;
+    padding:8px 18px!important;
+  }
+}
+
+@media(max-width:820px){
+  .crisisBarSafe{
+    grid-template-columns:30px minmax(0,1fr) auto;
+    gap:6px 10px!important;
+  }
+  .crisisTitle{
+    border-right:0;
+    padding-right:0;
+  }
+  .crisisCopy{
+    grid-column:2/4;
+  }
+  .crisisAction{
+    grid-column:3;
+    grid-row:1;
+  }
+}
+
+@media(max-width:760px){
+  .crisisBarSafe{
+    grid-template-columns:30px minmax(0,1fr);
+    padding:9px 14px!important;
+  }
+  .crisisCopy{
+    grid-column:1/-1;
+    padding-left:40px;
+  }
+  .crisisAction{
+    grid-column:1/-1;
+    grid-row:auto;
+    margin:4px 0 0 40px!important;
+    width:max-content;
+  }
+  .lessonResourceLinks{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:480px){
+  .lessonResourceLinks{grid-template-columns:1fr}
+  .crisisTitle{white-space:normal}
+}

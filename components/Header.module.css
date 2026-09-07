@@ -1,7 +1,7 @@
 .header {
   position: relative;
   z-index: 5;
-  min-height: 72px;
+  min-height: 88px;
   padding: 10px clamp(22px, 4vw, 68px);
   display: flex;
   align-items: center;
@@ -9,15 +9,15 @@
   gap: 30px;
   background: #061329;
   color: #fff;
+  overflow: visible;
 }
 
 .brand {
   position: absolute;
   left: clamp(22px, 4vw, 68px);
-  top: 50%;
-  width: 260px;
-  height: 154px;
-  transform: translateY(-25%);
+  bottom: -50px;
+  width: 220px;
+  height: 131px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,22 +34,94 @@
 .nav {
   margin-left: auto;
   display: flex;
-  gap: clamp(14px, 1.7vw, 28px);
+  align-items: center;
+  gap: 0;
   font-size: .78rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
+.nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 clamp(8px, .85vw, 14px);
+}
+
+.nav a + a {
+  border-left: 1px solid rgba(215, 168, 75, .72);
+}
+
+.nav a:first-child {
+  padding-left: 0;
+}
+
+.nav a:last-child {
+  padding-right: 0;
+}
+
 .nav a:hover,
 .nav a:focus-visible {
   text-decoration: underline;
+  text-decoration-color: #d7a84b;
+  text-underline-offset: 4px;
+}
+
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 999px;
+  background: #d7a84b;
+  box-shadow: 0 0 5px rgba(215, 168, 75, .28);
+}
+
+/* At intermediate browser widths, keep the logo fully inside the navy header.
+   This prevents the intentional wide-screen overlap from colliding with the
+   Need Help Right Now strip when the browser is narrowed or zoomed. */
+@media (max-width: 1240px) {
+  .header {
+    min-height: 104px;
+    padding: 8px 24px;
+    gap: 18px;
+  }
+
+  .brand {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    flex: 0 0 auto;
+    width: 170px;
+    height: 101px;
+  }
+
+  .nav {
+    font-size: .69rem;
+  }
+
+  .nav a {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .nav a.active::after {
+    bottom: -7px;
+  }
 }
 
 @media (max-width: 950px) {
+  .header {
+    min-height: 108px;
+    justify-content: center;
+  }
+
   .brand {
-    width: 210px;
-    height: 125px;
-    transform: translateY(-19%);
+    width: 185px;
+    height: 110px;
   }
 
   .nav {
@@ -59,14 +131,13 @@
 
 @media (max-width: 620px) {
   .header {
-    justify-content: center;
+    min-height: 102px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .brand {
-    left: 50%;
-    top: 50%;
-    width: 185px;
-    height: 110px;
-    transform: translate(-50%, -16%);
+    width: 175px;
+    height: 104px;
   }
 }
