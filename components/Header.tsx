@@ -38,12 +38,13 @@ export default function Header() {
       <nav className={styles.nav} aria-label="Primary navigation">
         {navItems.map(([label, href]) => {
           const active = isActiveSection(pathname, href);
+          const current = pathname === href ? "page" : active ? "location" : undefined;
           return (
             <Link
               key={label}
               href={href}
               className={active ? styles.active : undefined}
-              aria-current={active ? "page" : undefined}
+              aria-current={current}
             >
               {label}
             </Link>
