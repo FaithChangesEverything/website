@@ -58,7 +58,7 @@ export const journeySteps: JourneyStep[] = [
       { id: "3.a", title: "Before We Begin", href: "/journey/step-3/before-we-begin", kind: "pastor-letter" },
       { id: "3.b", title: "Knowing the Heart of God", href: "/journey/step-3/knowing-the-heart-of-god" },
       { id: "3.c", title: "Time to Reflect", href: "/journey/step-3/time-to-reflect" },
-      { id: "3.d", title: "Words of Encouragement", href: "/journey/step-3/words-of-encouragement" },
+      { id: "3.d", title: "Final Word of Encouragement", href: "/journey/step-3/final-word-of-encouragement" },
       { id: "3.e", title: "Continue Your Journey", href: "/journey/step-3/continue-your-journey" },
     ],
   },
