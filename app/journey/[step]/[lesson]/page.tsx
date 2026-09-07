@@ -49,7 +49,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     const sections = hopeSeries.map((title, index) => ({
       id: `1.c.${hopeSectionIds[index]}`,
       title,
-      href: `/journey/step-1/biblical-study-of-hope/study-${index + 1}`,
+      href: `/journey/step-1/what-does-the-bible-say-about-hope/study-${index + 1}`,
     }));
 
     return (
