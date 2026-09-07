@@ -8,9 +8,13 @@ import fixes from "../journey-fixes.module.css";
 export function NeedHelpRightNow() {
   return (
     <aside className={`${styles.crisisBar} ${fixes.crisisBarSafe}`} aria-label="Need help right now">
-      <strong>Need Help Right Now?</strong>
-      <span>If you are in immediate danger, call 911. In the U.S., call or text 988 for crisis support.</span>
-      <a href="https://988lifeline.org/" rel="noreferrer">Get Help Now →</a>
+      <span className={fixes.crisisIcon} aria-hidden="true">!</span>
+      <strong className={fixes.crisisTitle}>Need Help Right Now?</strong>
+      <span className={fixes.crisisCopy}>
+        <span>If you are in immediate danger, call <span className={fixes.crisisEmphasis}>911</span>. If you are in crisis, you are not alone.</span>
+        <span>Call or text <span className={fixes.crisisEmphasis}>988 (24/7)</span> or visit <span className={fixes.crisisEmphasis}>988lifeline.org</span>.</span>
+      </span>
+      <a className={fixes.crisisAction} href="https://988lifeline.org/" rel="noreferrer">Get Help Now →</a>
     </aside>
   );
 }
