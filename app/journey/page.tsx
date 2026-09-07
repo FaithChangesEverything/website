@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JourneyFrame, ProgressSavePrompt } from "./components/JourneyShell";
 import { journeySteps } from "./data";
 import styles from "./journey.module.css";
+import refined from "./journey-refinements.module.css";
 
 export const metadata = { title: "Journey to Hope | Faith Changes Everything", description: "A Scripture-centered journey of hope, salvation, faith, encouragement, and next steps with Jesus Christ." };
 
@@ -11,7 +12,7 @@ export default function JourneyPage() {
     <section className={styles.landingHero}><div><p className={styles.eyebrow}>Welcome to</p><h1>Journey to Hope</h1><span className={styles.goldRule} aria-hidden="true" /><p>You don’t have to walk through life’s questions and struggles alone. Journey to Hope is here to guide you with truth, encouragement, and practical steps to grow closer to Jesus.</p></div></section>
 
     <section className={styles.pastorWelcome}>
-      <div className={styles.pastorIdentity}><div className={styles.pastorPortrait}><Image src="/images/pastor-richard.png" alt="Pastor Richard" width={260} height={260} sizes="(max-width: 720px) 160px, 220px" priority /></div><Image className={styles.pastorSignatureImage} src="/journal/assets/signature.png" alt="Pastor Richard signature" width={205} height={82} /><span>Founder &amp; Pastor</span></div>
+      <div className={styles.pastorIdentity}><div className={styles.pastorPortrait}><Image src="/images/pastor-richard.png" alt="Pastor Richard" width={260} height={260} sizes="(max-width: 720px) 160px, 220px" priority /></div><Image className={refined.pastorSignatureImage} src="/journal/assets/signature.png" alt="Pastor Richard signature" width={205} height={82} /><span>Founder &amp; Pastor</span></div>
       <div className={styles.pastorWelcomeCopy}><p className={styles.eyebrow}>A Letter from Pastor Richard</p><h2>Welcome to Your<br />Journey to Hope</h2><span className={styles.goldRule} aria-hidden="true" /><p>The complete Journey-wide Pastor Letter will remain here in written form, together with the approved recording. Final Doctrine copy is integrated during content implementation.</p><div className={styles.welcomeActions}><Link href="/journey/step-1/before-we-begin">Read Pastor Richard’s Letter</Link><button type="button" disabled>▶ Listen to Pastor Richard</button></div></div>
     </section>
 
