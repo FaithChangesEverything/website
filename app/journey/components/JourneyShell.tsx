@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { journeySteps, type JourneyLesson } from "../data";
+import { getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
 import styles from "../journey.module.css";
 import fixes from "../journey-fixes.module.css";
 
@@ -43,8 +44,19 @@ export function StepBanner({ currentStep }: { currentStep: number }) {
   );
 }
 
-export function LessonSidebar({ stepNumber, lessons, currentId }: { stepNumber: number; lessons: JourneyLesson[]; currentId?: string }) {
+function statePresentation(state: JourneyDisplayState | undefined, current: boolean, saving: boolean) {
+  if (!saving) return { icon: current ? "●" : "○", label: current ? "Current" : "Available" };
+  if (state === "completed") return { icon: "✓", label: "Completed" };
+  if (state === "in_progress") return { icon: "●", label: "In Progress" };
+  if (state === "supporting") return { icon: "◇", label: "Supporting" };
+  return { icon: "○", label: "Not Started" };
+}
+
+export async function LessonSidebar({ stepNumber, lessons, currentId }: { stepNumber: number; lessons: JourneyLesson[]; currentId?: string }) {
   const step = journeySteps[stepNumber - 1];
+  const states = await getJourneyStepDisplayStates(stepNumber);
+  const saving = Boolean(states);
+
   return (
     <nav className={styles.lessonSidebar} aria-label={`Lessons in Step ${stepNumber}`}>
       <div className={styles.lessonSidebarHeader}>
@@ -53,14 +65,20 @@ export function LessonSidebar({ stepNumber, lessons, currentId }: { stepNumber: 
         <div className={styles.stepIdentityImage} role="img" aria-label={`Approved Step ${stepNumber} identity image position`}><span>Step {stepNumber} image</span></div>
       </div>
       <h2>Lessons in Step {stepNumber}</h2>
-      {lessons.map((lesson) => (
-        <Link key={lesson.id} href={lesson.href} className={lesson.id === currentId ? styles.currentLesson : ""} aria-current={lesson.id === currentId ? "page" : undefined}>
-          <span className={styles.lessonState} aria-hidden="true">{lesson.id === currentId ? "●" : "○"}</span>
-          <span><small>{lesson.id}</small>{lesson.title}</span>
-          <span aria-hidden="true">›</span>
-        </Link>
-      ))}
-      <div className={styles.sidebarLegend} aria-label="Lesson status legend"><span>● Current</span><span>○ Available</span></div>
+      {lessons.map((lesson) => {
+        const current = lesson.id === currentId;
+        const presentation = statePresentation(states?.[lesson.id]?.state, current, saving);
+        return (
+          <Link key={lesson.id} href={lesson.href} className={current ? styles.currentLesson : ""} aria-current={current ? "page" : undefined}>
+            <span className={styles.lessonState} aria-hidden="true">{presentation.icon}</span>
+            <span><small>{lesson.id}</small>{lesson.title}<small>{presentation.label}</small></span>
+            <span aria-hidden="true">›</span>
+          </Link>
+        );
+      })}
+      <div className={styles.sidebarLegend} aria-label="Lesson status legend">
+        {saving ? <><span>✓ Completed</span><span>● In Progress</span><span>○ Not Started</span><span>◇ Supporting</span></> : <><span>● Current</span><span>○ Available</span></>}
+      </div>
     </nav>
   );
 }
