@@ -5,17 +5,18 @@ import { cookies } from "next/headers";
 
 import { createServiceClient } from "@/utils/supabase/service";
 import {
-  JOURNEY_ID_MIN_LENGTH,
-  JOURNEY_SESSION_INACTIVITY_DAYS,
+  APPROVED_JOURNEY_ID_SYMBOLS,
+  GENERATED_JOURNEY_ID_LENGTH,
+  REMEMBERED_SESSION_INACTIVITY_DAYS,
+  isValidJourneyPasscode,
+  validateJourneyId as validateJourneyIdRule,
 } from "./rules";
 
 const SESSION_COOKIE = "fce_j2h_session";
-const GENERATED_ID_LENGTH = 12;
-const ALLOWED_SYMBOLS = "!@#$%&*-_";
 const UPPER = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const LOWER = "abcdefghijkmnopqrstuvwxyz";
 const DIGITS = "23456789";
-const ALL = UPPER + LOWER + DIGITS + ALLOWED_SYMBOLS;
+const ALL = UPPER + LOWER + DIGITS + APPROVED_JOURNEY_ID_SYMBOLS;
 
 export type JourneyCredentialsResult =
   | { ok: true; journeyId?: string }
@@ -46,29 +47,15 @@ function shuffle(chars: string[]) {
   return chars.join("");
 }
 
-export function validateJourneyId(value: string) {
-  const id = normalizeJourneyId(value);
-  if (id.length < JOURNEY_ID_MIN_LENGTH) return false;
-  if (!/^[A-Za-z0-9!@#$%&*_\-]+$/.test(id)) return false;
-  if (!/[A-Z]/.test(id) || !/[a-z]/.test(id)) return false;
-  if ((id.match(/[0-9]/g) ?? []).length < 2) return false;
-  if (!/[!@#$%&*_\-]/.test(id)) return false;
-  return true;
-}
-
-export function validatePasscode(value: string) {
-  return /^[0-9]{4}$/.test(value);
-}
-
 export function generateJourneyId() {
   const required = [
     randomChar(UPPER),
     randomChar(LOWER),
     randomChar(DIGITS),
     randomChar(DIGITS),
-    randomChar(ALLOWED_SYMBOLS),
+    randomChar(APPROVED_JOURNEY_ID_SYMBOLS),
   ];
-  while (required.length < GENERATED_ID_LENGTH) required.push(randomChar(ALL));
+  while (required.length < GENERATED_JOURNEY_ID_LENGTH) required.push(randomChar(ALL));
   return shuffle(required);
 }
 
@@ -91,7 +78,7 @@ async function establishSession(journeyUuid: string, remember: boolean) {
     sameSite: "lax",
     path: "/",
     ...(remember
-      ? { maxAge: JOURNEY_SESSION_INACTIVITY_DAYS * 24 * 60 * 60 }
+      ? { maxAge: REMEMBERED_SESSION_INACTIVITY_DAYS * 24 * 60 * 60 }
       : {}),
   });
 }
@@ -113,10 +100,10 @@ export async function createCustomJourney(
   remember = false
 ): Promise<JourneyCredentialsResult> {
   const normalized = normalizeJourneyId(journeyId);
-  if (!validateJourneyId(normalized)) {
+  if (!validateJourneyIdRule(normalized).valid) {
     return { ok: false, message: "That Journey ID does not meet the required format." };
   }
-  if (!validatePasscode(passcode)) {
+  if (!isValidJourneyPasscode(passcode)) {
     return { ok: false, message: "Your passcode must be exactly four numbers." };
   }
 
@@ -133,7 +120,7 @@ export async function createGeneratedJourney(
   passcode: string,
   remember = false
 ): Promise<JourneyCredentialsResult> {
-  if (!validatePasscode(passcode)) {
+  if (!isValidJourneyPasscode(passcode)) {
     return { ok: false, message: "Your passcode must be exactly four numbers." };
   }
 
@@ -154,7 +141,7 @@ export async function accessJourney(
   remember = false
 ): Promise<JourneyCredentialsResult> {
   const normalized = normalizeJourneyId(journeyId);
-  if (!normalized || !validatePasscode(passcode)) {
+  if (!normalized || !isValidJourneyPasscode(passcode)) {
     return { ok: false, message: "The Journey ID or passcode could not be verified." };
   }
 
