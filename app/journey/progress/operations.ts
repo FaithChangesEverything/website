@@ -22,6 +22,15 @@ export type JourneyItemProgress = {
   completionEligible: boolean;
 };
 
+export type JourneyDisplayState = "not_started" | "in_progress" | "completed" | "supporting";
+
+export type JourneyDisplayItem = {
+  state: JourneyDisplayState;
+  tracked: boolean;
+  completed?: number;
+  total?: number;
+};
+
 async function currentJourney() {
   return getCurrentJourneyUuid();
 }
@@ -115,25 +124,104 @@ export async function getJourneyItemProgress(contentKey: string): Promise<Journe
   const supabase = createServiceClient();
   const { data: item, error: itemError } = await supabase
     .from("j2h_content_items")
-    .select("id, completion_tracked, is_active")
+    .select("content_key, completion_tracked, active")
     .eq("content_key", contentKey)
     .maybeSingle();
 
-  if (itemError || !item || !item.completion_tracked || !item.is_active) return null;
+  if (itemError || !item || !item.completion_tracked || !item.active) return null;
 
   const { data: progress, error: progressError } = await supabase
     .from("j2h_progress")
     .select("status, completion_eligible_at")
     .eq("journey_id", journey)
-    .eq("content_item_id", item.id)
+    .eq("content_key", contentKey)
     .maybeSingle();
 
   if (progressError) return null;
   if (!progress) return { status: "not_started", completionEligible: false };
 
   const status = progress.status;
-  if (status !== "not_started" && status !== "in_progress" && status !== "completed") return null;
+  if (status !== "in_progress" && status !== "completed") return null;
   return { status, completionEligible: Boolean(progress.completion_eligible_at) };
+}
+
+export async function getJourneyStepDisplayStates(stepNumber: number): Promise<Record<string, JourneyDisplayItem> | null> {
+  const journey = await currentJourney();
+  if (!journey) return null;
+
+  const supabase = createServiceClient();
+  const { data: items, error: itemError } = await supabase
+    .from("j2h_content_items")
+    .select("content_key, parent_key, item_kind, completion_tracked, active")
+    .eq("step_number", stepNumber)
+    .eq("active", true);
+
+  if (itemError || !items) return null;
+
+  const keys = items.map((item) => item.content_key);
+  const { data: progress, error: progressError } = keys.length
+    ? await supabase.from("j2h_progress").select("content_key, status").eq("journey_id", journey).in("content_key", keys)
+    : { data: [], error: null };
+
+  if (progressError) return null;
+  const progressMap = new Map((progress ?? []).map((row) => [row.content_key, row.status]));
+  const result: Record<string, JourneyDisplayItem> = {};
+
+  for (const item of items) {
+    if (item.completion_tracked) {
+      const status = progressMap.get(item.content_key);
+      result[item.content_key] = {
+        tracked: true,
+        state: status === "completed" ? "completed" : status === "in_progress" ? "in_progress" : "not_started",
+      };
+      continue;
+    }
+
+    if (item.item_kind === "series") {
+      const children = items.filter((child) => child.parent_key === item.content_key && child.completion_tracked);
+      const completed = children.filter((child) => progressMap.get(child.content_key) === "completed").length;
+      const started = children.filter((child) => progressMap.has(child.content_key)).length;
+      result[item.content_key] = {
+        tracked: false,
+        state: children.length > 0 && completed === children.length ? "completed" : started > 0 ? "in_progress" : "not_started",
+        completed,
+        total: children.length,
+      };
+      continue;
+    }
+
+    result[item.content_key] = { tracked: false, state: "supporting" };
+  }
+
+  return result;
+}
+
+export async function getJourneySeriesProgress(parentKey: string) {
+  const stepNumber = Number(parentKey.split(".")[0]);
+  const states = await getJourneyStepDisplayStates(stepNumber);
+  if (!states) return null;
+
+  const supabase = createServiceClient();
+  const { data: children, error } = await supabase
+    .from("j2h_content_items")
+    .select("content_key, title, href, sort_order")
+    .eq("parent_key", parentKey)
+    .eq("completion_tracked", true)
+    .eq("active", true)
+    .order("sort_order");
+
+  if (error || !children) return null;
+  const items = children.map((child) => ({ ...child, state: states[child.content_key]?.state ?? "not_started" as JourneyDisplayState }));
+  const completed = items.filter((item) => item.state === "completed").length;
+  const started = items.filter((item) => item.state !== "not_started").length;
+  const total = items.length;
+  return {
+    items,
+    completed,
+    total,
+    percent: total > 0 ? Math.round((completed / total) * 100) : 0,
+    status: total > 0 && completed === total ? "completed" as const : started > 0 ? "in_progress" as const : "not_started" as const,
+  };
 }
 
 export async function getJourneyProgressSummary(): Promise<JourneyProgressSummary | null> {
