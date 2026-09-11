@@ -22,6 +22,11 @@ export type JourneyCredentialsResult =
   | { ok: true; journeyId?: string }
   | { ok: false; message: string };
 
+type ResolvedSession = {
+  journey_id: string;
+  remember_on_device: boolean;
+};
+
 function normalizeJourneyId(value: string) {
   return value.trim().normalize("NFKC");
 }
@@ -45,6 +50,19 @@ function shuffle(chars: string[]) {
     [chars[index], chars[swap]] = [chars[swap], chars[index]];
   }
   return chars.join("");
+}
+
+async function setSessionCookie(rawToken: string, remember: boolean) {
+  const cookieStore = await cookies();
+  cookieStore.set(SESSION_COOKIE, rawToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    ...(remember
+      ? { maxAge: REMEMBERED_SESSION_INACTIVITY_DAYS * 24 * 60 * 60 }
+      : {}),
+  });
 }
 
 export function generateJourneyId() {
@@ -71,16 +89,7 @@ async function establishSession(journeyUuid: string, remember: boolean) {
   });
   if (error) throw new Error("Unable to establish Journey session.");
 
-  const cookieStore = await cookies();
-  cookieStore.set(SESSION_COOKIE, rawToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    ...(remember
-      ? { maxAge: REMEMBERED_SESSION_INACTIVITY_DAYS * 24 * 60 * 60 }
-      : {}),
-  });
+  await setSessionCookie(rawToken, remember);
 }
 
 async function createJourneyRecord(journeyId: string, passcode: string) {
@@ -165,16 +174,26 @@ export async function getCurrentJourneyUuid() {
   if (!rawToken) return null;
 
   const supabase = createServiceClient();
-  const { data, error } = await supabase.rpc("j2h_resolve_session", {
+  const { data, error } = await supabase.rpc("j2h_resolve_session_info", {
     p_token_digest: toByteaDigest(rawToken),
   });
 
-  if (error || typeof data !== "string") {
+  const session = data as ResolvedSession | null;
+  if (
+    error ||
+    !session ||
+    typeof session.journey_id !== "string" ||
+    typeof session.remember_on_device !== "boolean"
+  ) {
     cookieStore.delete(SESSION_COOKIE);
     return null;
   }
 
-  return data;
+  if (session.remember_on_device) {
+    await setSessionCookie(rawToken, true);
+  }
+
+  return session.journey_id;
 }
 
 export async function exitJourney() {
