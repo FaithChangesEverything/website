@@ -45,7 +45,10 @@ export function SaveProgressClient({ returnTo }: { returnTo?: string }) {
   const [accessState, accessAction, accessPending] = useActionState(accessJourneyAction, initialJourneyActionState);
 
   useEffect(() => {
-    if (accessState.status === "success") router.replace(destination);
+    if (accessState.status === "success") {
+      router.replace(destination);
+      router.refresh();
+    }
   }, [accessState.status, destination, router]);
 
   const createdState = generatedState.status === "success" ? generatedState : customState.status === "success" ? customState : null;
