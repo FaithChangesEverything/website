@@ -13,6 +13,7 @@ import {
   createCustomJourney,
   createGeneratedJourney,
   exitJourney,
+  finalizePendingJourneySession,
 } from "../progress/server";
 
 export type JourneyActionState = {
@@ -54,9 +55,6 @@ export async function createGeneratedJourneyAction(
     );
     if (!result.ok) return { status: "error", message: result.message };
 
-    // Do not revalidate here. The session is already established, but the client must
-    // remain on the acknowledgement screen long enough to show/copy/save the new ID.
-    // Navigation after the required acknowledgement will naturally render the active session.
     return {
       status: "success",
       message: "Your Journey ID has been created. Save it somewhere safe before continuing.",
@@ -83,8 +81,6 @@ export async function createCustomJourneyAction(
     );
     if (!result.ok) return { status: "error", message: result.message };
 
-    // Same acknowledgement rule as generated IDs: preserve the client success state
-    // until the visitor confirms the ID has been saved.
     return {
       status: "success",
       message: "Your Journey ID has been created. Save it somewhere safe before continuing.",
@@ -95,6 +91,26 @@ export async function createCustomJourneyAction(
     return {
       status: "error",
       message: "Saved Journey progress is temporarily unavailable. You can still continue through Journey to Hope without saving.",
+    };
+  }
+}
+
+export async function acknowledgeJourneyCreationAction(): Promise<JourneyActionState> {
+  try {
+    const finalized = await finalizePendingJourneySession();
+    if (!finalized) {
+      return {
+        status: "error",
+        message: "Your Journey could not be activated. Please use Access My Journey with the ID and passcode you saved.",
+      };
+    }
+    refreshJourney();
+    return { status: "success", message: "Your saved Journey is now active on this device." };
+  } catch (error) {
+    logJourneyActionFailure("acknowledgeJourneyCreation", error);
+    return {
+      status: "error",
+      message: "Your Journey could not be activated right now. Please use Access My Journey with the ID and passcode you saved.",
     };
   }
 }
