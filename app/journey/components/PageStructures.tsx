@@ -19,8 +19,12 @@ function ContextNav({ previous, center, next }: { previous?: NavItem; center: Na
 
 function lessonNeighbors(stepNumber: number, lessonId: string) {
   const step = journeySteps[stepNumber - 1];
-  const index = step.lessons.findIndex((lesson) => lesson.id === lessonId);
-  return { previous: index > 0 ? step.lessons[index - 1] : undefined, next: index >= 0 && index < step.lessons.length - 1 ? step.lessons[index + 1] : undefined };
+  const navigableLessons = step.lessons.filter((lesson) => lesson.kind !== "pastor-letter");
+  const index = navigableLessons.findIndex((lesson) => lesson.id === lessonId);
+  return {
+    previous: index > 0 ? navigableLessons[index - 1] : undefined,
+    next: index >= 0 && index < navigableLessons.length - 1 ? navigableLessons[index + 1] : undefined,
+  };
 }
 
 function displayState(state: JourneyDisplayState | undefined, saving: boolean) {
