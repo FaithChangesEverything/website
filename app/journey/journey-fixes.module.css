@@ -147,6 +147,19 @@
   background:#fff8eb!important;
   border:1px solid #e5d7bd!important;
   border-radius:0 0 10px 10px;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  text-align:center;
+}
+.lessonCompletionConcept form{
+  margin:0!important;
+}
+.lessonCompletionConcept p{
+  margin:0!important;
+  max-width:720px;
 }
 .lessonCompletionConcept button:disabled,
 .readableButton:disabled{
