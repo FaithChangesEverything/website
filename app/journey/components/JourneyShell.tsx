@@ -59,6 +59,7 @@ export async function LessonSidebar({ stepNumber, lessons, currentId }: { stepNu
   const step = journeySteps[stepNumber - 1];
   const states = await getJourneyStepDisplayStates(stepNumber);
   const saving = Boolean(states);
+  const sidebarLessons = lessons.filter((lesson) => lesson.kind !== "pastor-letter");
 
   return (
     <nav className={styles.lessonSidebar} aria-label={`Lessons in Step ${stepNumber}`}>
@@ -68,7 +69,7 @@ export async function LessonSidebar({ stepNumber, lessons, currentId }: { stepNu
         <div className={styles.stepIdentityImage} role="img" aria-label={`Approved Step ${stepNumber} identity image position`}><span>Step {stepNumber} image</span></div>
       </div>
       <h2>Lessons in Step {stepNumber}</h2>
-      {lessons.map((lesson) => {
+      {sidebarLessons.map((lesson) => {
         const current = lesson.id === currentId;
         const presentation = statePresentation(states?.[lesson.id]?.state, current, saving);
         return (
