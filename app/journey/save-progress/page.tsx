@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { JourneyFrame } from "../components/JourneyShell";
+import { getCurrentJourneyUuid } from "../progress/server";
+import { ManageJourneyClient } from "./ManageJourneyClient";
 import { SaveProgressClient } from "./SaveProgressClient";
 import styles from "./save-progress.module.css";
 
@@ -8,8 +10,14 @@ export const metadata = {
   description: "Save Journey to Hope progress privately with a Journey ID without creating an FCE account or providing identifying information.",
 };
 
+function safeReturnTo(value?: string) {
+  return value?.startsWith("/journey") ? value : "/journey";
+}
+
 export default async function SaveProgressPage({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
   const { returnTo } = await searchParams;
+  const destination = safeReturnTo(returnTo);
+  const activeJourney = Boolean(await getCurrentJourneyUuid());
 
   return (
     <JourneyFrame>
@@ -17,8 +25,8 @@ export default async function SaveProgressPage({ searchParams }: { searchParams:
         <div className={styles.shell}>
           <header className={styles.hero}>
             <p className={styles.eyebrow}>Journey to Hope</p>
-            <h1>Save Your Journey Progress</h1>
-            <p className={styles.lead}>A Journey ID lets you save your Journey to Hope progress without creating an FCE account or giving us your name, email address, or phone number.</p>
+            <h1>{activeJourney ? "Manage My Saved Journey" : "Save Your Journey Progress"}</h1>
+            <p className={styles.lead}>{activeJourney ? "Your saved Journey is active on this device. Manage it here without adding identifying information to your Journey record." : "A Journey ID lets you save your Journey to Hope progress without creating an FCE account or giving us your name, email address, or phone number."}</p>
           </header>
 
           <section className={styles.privacyCard} aria-labelledby="privacy-title">
@@ -45,10 +53,10 @@ export default async function SaveProgressPage({ searchParams }: { searchParams:
               </article>
             </div>
 
-            <SaveProgressClient returnTo={returnTo} />
+            {activeJourney ? <ManageJourneyClient returnTo={destination} /> : <SaveProgressClient returnTo={destination} />}
           </section>
 
-          <div className={styles.backRow}><Link href={returnTo?.startsWith("/journey") ? returnTo : "/journey"}>← Continue without saving</Link></div>
+          <div className={styles.backRow}><Link href={destination}>← {activeJourney ? "Return to my Journey" : "Continue without saving"}</Link></div>
         </div>
       </main>
     </JourneyFrame>
