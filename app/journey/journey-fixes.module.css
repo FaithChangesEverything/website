@@ -175,6 +175,15 @@
   margin-top:2px;
 }
 
+.overallProgressSection{
+  padding:18px max(5.5vw,32px) 64px!important;
+}
+.overallProgressCard{
+  width:min(100%,1120px);
+  margin:0 auto;
+  box-sizing:border-box;
+}
+
 /* When the shared header brings the logo fully back into the navy bar,
    the crisis strip no longer needs to reserve horizontal logo space. */
 @media(max-width:1240px){
@@ -219,6 +228,7 @@
   }
   .savedJourneyBar{align-items:flex-start;flex-direction:column;padding:9px 14px}.savedJourneyBar div{flex-wrap:wrap}
   .lessonResourceLinks{grid-template-columns:1fr 1fr}
+  .overallProgressSection{padding:14px 18px 54px!important}
 }
 
 @media(max-width:480px){
