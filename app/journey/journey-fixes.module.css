@@ -47,6 +47,18 @@
   white-space:nowrap;
   font-size:.76rem;
 }
+.savedJourneyBar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:8px 24px;
+  background:#edf5ef;
+  border-bottom:1px solid #cfe0d3;
+  color:#274c34;
+  font-size:.78rem;
+}
+.savedJourneyBar div{display:flex;align-items:center;gap:10px}.savedJourneyBar form{margin:0}.savedJourneyBar a,.savedJourneyBar button{border:0;background:transparent;color:#173c63;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer;padding:4px 0}.savedJourneyBar a:focus-visible,.savedJourneyBar button:focus-visible{outline:3px solid #d7a84b;outline-offset:2px}
 
 .interiorHeroCalm,
 .pastorLetterHeroCalm{
@@ -187,6 +199,7 @@
     margin:4px 0 0 40px!important;
     width:max-content;
   }
+  .savedJourneyBar{align-items:flex-start;flex-direction:column;padding:9px 14px}.savedJourneyBar div{flex-wrap:wrap}
   .lessonResourceLinks{grid-template-columns:1fr 1fr}
 }
 
