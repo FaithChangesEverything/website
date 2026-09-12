@@ -54,7 +54,9 @@ export async function createGeneratedJourneyAction(
     );
     if (!result.ok) return { status: "error", message: result.message };
 
-    refreshJourney();
+    // Do not revalidate here. The session is already established, but the client must
+    // remain on the acknowledgement screen long enough to show/copy/save the new ID.
+    // Navigation after the required acknowledgement will naturally render the active session.
     return {
       status: "success",
       message: "Your Journey ID has been created. Save it somewhere safe before continuing.",
@@ -81,7 +83,8 @@ export async function createCustomJourneyAction(
     );
     if (!result.ok) return { status: "error", message: result.message };
 
-    refreshJourney();
+    // Same acknowledgement rule as generated IDs: preserve the client success state
+    // until the visitor confirms the ID has been saved.
     return {
       status: "success",
       message: "Your Journey ID has been created. Save it somewhere safe before continuing.",
