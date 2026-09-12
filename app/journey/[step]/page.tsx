@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { StepOverview } from "../components/PageStructures";
+import { StepOverviewSequence9 } from "../components/StepOverviewSequence9";
 import { journeySteps } from "../data";
 
 function resolveStep(stepSlug: string) {
@@ -31,5 +31,5 @@ export default async function JourneyStepPage({ params }: { params: Promise<{ st
 
   if (!step) notFound();
 
-  return <StepOverview stepNumber={step.number} lessons={step.lessons} />;
+  return <StepOverviewSequence9 stepNumber={step.number} lessons={step.lessons} />;
 }
