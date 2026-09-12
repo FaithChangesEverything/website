@@ -2,13 +2,6 @@ import "server-only";
 
 import { createClient } from "@supabase/supabase-js";
 
-console.info("[J2H_CONFIG]", {
-  hasSupabaseUrl: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL),
-  hasSupabaseSecretKey: Boolean(process.env.SUPABASE_SECRET_KEY),
-  hasLegacyServiceRoleKey: Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY),
-  hasPublishableKey: Boolean(process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
-});
-
 /**
  * Privileged Supabase client for narrowly scoped server-only operations.
  * Never import this module into Client Components or expose its key to NEXT_PUBLIC_*.
