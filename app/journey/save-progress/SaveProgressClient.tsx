@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import {
   accessJourneyAction,
+  acknowledgeJourneyCreationAction,
   createCustomJourneyAction,
   createGeneratedJourneyAction,
   type JourneyActionState,
@@ -37,6 +38,8 @@ export function SaveProgressClient({ returnTo }: { returnTo?: string }) {
   const destination = safeReturnTo(returnTo ?? null);
   const [mode, setMode] = useState<"choose" | "generated" | "custom" | "access">("choose");
   const [acknowledged, setAcknowledged] = useState(false);
+  const [activationError, setActivationError] = useState<string | null>(null);
+  const [activationPending, startActivation] = useTransition();
   const [generatedState, generatedAction, generatedPending] = useActionState(createGeneratedJourneyAction, initialJourneyActionState);
   const [customState, customAction, customPending] = useActionState(createCustomJourneyAction, initialJourneyActionState);
   const [accessState, accessAction, accessPending] = useActionState(accessJourneyAction, initialJourneyActionState);
@@ -46,6 +49,20 @@ export function SaveProgressClient({ returnTo }: { returnTo?: string }) {
   }, [accessState.status, destination, router]);
 
   const createdState = generatedState.status === "success" ? generatedState : customState.status === "success" ? customState : null;
+
+  function beginJourney() {
+    if (!acknowledged || activationPending) return;
+    setActivationError(null);
+    startActivation(async () => {
+      const result = await acknowledgeJourneyCreationAction();
+      if (result.status !== "success") {
+        setActivationError(result.message ?? "Your Journey could not be activated right now.");
+        return;
+      }
+      router.replace(destination);
+      router.refresh();
+    });
+  }
 
   if (createdState?.journeyId) {
     return (
@@ -61,8 +78,9 @@ export function SaveProgressClient({ returnTo }: { returnTo?: string }) {
           <input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} />
           I have saved my Journey ID somewhere safe.
         </label>
-        <button className={styles.primaryButton} type="button" disabled={!acknowledged} onClick={() => router.replace(destination)}>
-          Begin My Journey
+        {activationError && <p className={styles.errorMessage} role="alert">{activationError}</p>}
+        <button className={styles.primaryButton} type="button" disabled={!acknowledged || activationPending} onClick={beginJourney}>
+          {activationPending ? "Activating…" : "Begin My Journey"}
         </button>
       </section>
     );
