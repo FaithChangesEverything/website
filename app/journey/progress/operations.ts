@@ -31,6 +31,16 @@ export type JourneyDisplayItem = {
   total?: number;
 };
 
+export type JourneyEngagementChannel = "written" | "audio" | "video";
+
+export type JourneyEngagementResult = {
+  accepted: boolean;
+  meaningful_view?: boolean;
+  completion_eligible?: boolean;
+  status?: "in_progress" | "completed";
+  reason?: string;
+};
+
 async function currentJourney() {
   return getCurrentJourneyUuid();
 }
@@ -69,7 +79,40 @@ export async function recordMeaningfulJourneyView(contentKey: string) {
   return { saved: true as const };
 }
 
-/** Internal Sequence 8 hook. The engagement evaluator calls this only after the lesson-specific completion rule is satisfied. */
+export async function recordJourneyEngagement(
+  contentKey: string,
+  channel: JourneyEngagementChannel,
+  percent: number,
+  activeSeconds?: number,
+): Promise<{ saved: boolean; result?: JourneyEngagementResult; reason?: "no_journey" | "save_failed" }> {
+  const journey = await currentJourney();
+  if (!journey) return { saved: false, reason: "no_journey" };
+
+  if (!Number.isFinite(percent) || percent < 0 || percent > 100) {
+    return { saved: false, reason: "save_failed" };
+  }
+
+  if (activeSeconds !== undefined && (!Number.isFinite(activeSeconds) || activeSeconds < 0 || activeSeconds > 86400)) {
+    return { saved: false, reason: "save_failed" };
+  }
+
+  const supabase = createServiceClient();
+  const { data, error } = await supabase.rpc("j2h_record_engagement", {
+    p_journey: journey,
+    p_content_key: contentKey,
+    p_channel: channel,
+    p_percent: Math.round(percent),
+    p_active_seconds: activeSeconds === undefined ? null : Math.round(activeSeconds),
+  });
+
+  if (error || !data || typeof data !== "object") {
+    return { saved: false, reason: "save_failed" };
+  }
+
+  return { saved: true, result: data as JourneyEngagementResult };
+}
+
+/** Internal Sequence 8 hook retained for controlled testing only. Do not expose directly to the browser. */
 export async function markJourneyCompletionEligible(contentKey: string) {
   const journey = await currentJourney();
   if (!journey) return false;
