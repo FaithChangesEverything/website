@@ -6,9 +6,11 @@ import {
   accessJourneyAction,
   createCustomJourneyAction,
   createGeneratedJourneyAction,
-  initialJourneyActionState,
+  type JourneyActionState,
 } from "./actions";
 import styles from "./save-progress.module.css";
+
+const initialJourneyActionState: JourneyActionState = { status: "idle" };
 
 function safeReturnTo(value: string | null) {
   if (!value || !value.startsWith("/journey")) return "/journey";
