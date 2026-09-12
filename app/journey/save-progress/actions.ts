@@ -35,6 +35,14 @@ function refreshJourney() {
   revalidatePath("/journey/save-progress");
 }
 
+function logJourneyActionFailure(action: string, error: unknown) {
+  console.error("[J2H_ACTION_FAILURE]", {
+    action,
+    errorName: error instanceof Error ? error.name : "UnknownError",
+    errorMessage: error instanceof Error ? error.message : "Unknown server error",
+  });
+}
+
 export async function createGeneratedJourneyAction(
   _previous: JourneyActionState,
   formData: FormData
@@ -52,7 +60,8 @@ export async function createGeneratedJourneyAction(
       message: "Your Journey ID has been created. Save it somewhere safe before continuing.",
       journeyId: result.journeyId,
     };
-  } catch {
+  } catch (error) {
+    logJourneyActionFailure("createGeneratedJourney", error);
     return {
       status: "error",
       message: "Saved Journey progress is temporarily unavailable. You can still continue through Journey to Hope without saving.",
@@ -78,7 +87,8 @@ export async function createCustomJourneyAction(
       message: "Your Journey ID has been created. Save it somewhere safe before continuing.",
       journeyId: result.journeyId,
     };
-  } catch {
+  } catch (error) {
+    logJourneyActionFailure("createCustomJourney", error);
     return {
       status: "error",
       message: "Saved Journey progress is temporarily unavailable. You can still continue through Journey to Hope without saving.",
@@ -103,7 +113,8 @@ export async function accessJourneyAction(
       status: "success",
       message: "Your saved Journey is ready on this device.",
     };
-  } catch {
+  } catch (error) {
+    logJourneyActionFailure("accessJourney", error);
     return {
       status: "error",
       message: "Saved Journey progress is temporarily unavailable. You can still continue through Journey to Hope without saving.",
