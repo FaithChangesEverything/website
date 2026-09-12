@@ -170,6 +170,11 @@
   color:#fff!important;
 }
 
+.journeyCompletionCount{
+  display:block;
+  margin-top:2px;
+}
+
 /* When the shared header brings the logo fully back into the navy bar,
    the crisis strip no longer needs to reserve horizontal logo space. */
 @media(max-width:1240px){
