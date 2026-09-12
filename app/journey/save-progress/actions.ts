@@ -21,8 +21,6 @@ export type JourneyActionState = {
   journeyId?: string;
 };
 
-export const initialJourneyActionState: JourneyActionState = { status: "idle" };
-
 function text(formData: FormData, name: string) {
   const value = formData.get(name);
   return typeof value === "string" ? value : "";
