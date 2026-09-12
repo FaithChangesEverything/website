@@ -7,10 +7,12 @@ import {
   changeJourneyPasscodeAction,
   deleteJourneyAction,
   exitJourneyAction,
-  initialJourneyActionState,
   resetJourneyAction,
+  type JourneyActionState,
 } from "./actions";
 import styles from "./save-progress.module.css";
+
+const initialJourneyActionState: JourneyActionState = { status: "idle" };
 
 export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: string }) {
   const router = useRouter();
