@@ -15,8 +15,8 @@ export default async function JourneyPage() {
   return <JourneyFrame><main className={styles.journeyLanding}>
     <section className={styles.landingHero}><div><p className={styles.eyebrow}>Welcome to</p><h1>Journey to Hope</h1><span className={styles.goldRule} aria-hidden="true" /><p>You don’t have to walk through life’s questions and struggles alone. Journey to Hope is here to guide you with truth, encouragement, and practical steps to grow closer to Jesus.</p></div></section>
 
-    {summary && <section className={styles.stepsSection} aria-label="Your overall Journey progress">
-      <div className={styles.progressCard}>
+    {summary && <section className={`${styles.stepsSection} ${fixes.overallProgressSection}`} aria-label="Your overall Journey progress">
+      <div className={`${styles.progressCard} ${fixes.overallProgressCard}`}>
         <strong>Your Journey Progress</strong>
         <span>{summary.earned_journey_completion ? "You have earned completion of the Journey to Hope." : "Your saved progress across all six Steps."}</span>
         <div className={styles.progressTrack}><span style={{ width: `${summary.percent}%` }} /></div>
