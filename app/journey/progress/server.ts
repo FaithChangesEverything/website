@@ -13,6 +13,8 @@ import {
 } from "./rules";
 
 const SESSION_COOKIE = "fce_j2h_session";
+const PENDING_SESSION_COOKIE = "fce_j2h_pending_session";
+const PENDING_SESSION_MAX_AGE_SECONDS = 15 * 60;
 const UPPER = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const LOWER = "abcdefghijkmnopqrstuvwxyz";
 const DIGITS = "23456789";
@@ -65,6 +67,17 @@ async function setSessionCookie(rawToken: string, remember: boolean) {
   });
 }
 
+async function setPendingSessionCookie(rawToken: string) {
+  const cookieStore = await cookies();
+  cookieStore.set(PENDING_SESSION_COOKIE, rawToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/journey",
+    maxAge: PENDING_SESSION_MAX_AGE_SECONDS,
+  });
+}
+
 export function generateJourneyId() {
   const required = [
     randomChar(UPPER),
@@ -77,7 +90,7 @@ export function generateJourneyId() {
   return shuffle(required);
 }
 
-async function establishSession(journeyUuid: string, remember: boolean) {
+async function createSessionRecord(journeyUuid: string, remember: boolean) {
   const rawToken = sessionToken();
   const tokenDigest = toByteaDigest(rawToken);
   const supabase = createServiceClient();
@@ -89,7 +102,17 @@ async function establishSession(journeyUuid: string, remember: boolean) {
   });
   if (error) throw new Error("Unable to establish Journey session.");
 
+  return rawToken;
+}
+
+async function establishSession(journeyUuid: string, remember: boolean) {
+  const rawToken = await createSessionRecord(journeyUuid, remember);
   await setSessionCookie(rawToken, remember);
+}
+
+async function establishPendingSession(journeyUuid: string, remember: boolean) {
+  const rawToken = await createSessionRecord(journeyUuid, remember);
+  await setPendingSessionCookie(rawToken);
 }
 
 async function createJourneyRecord(journeyId: string, passcode: string) {
@@ -121,7 +144,7 @@ export async function createCustomJourney(
     return { ok: false, message: "That Journey ID is unavailable. Please choose another." };
   }
 
-  await establishSession(journeyUuid, remember);
+  await establishPendingSession(journeyUuid, remember);
   return { ok: true, journeyId: normalized };
 }
 
@@ -137,11 +160,37 @@ export async function createGeneratedJourney(
     const journeyId = generateJourneyId();
     const journeyUuid = await createJourneyRecord(journeyId, passcode);
     if (!journeyUuid) continue;
-    await establishSession(journeyUuid, remember);
+    await establishPendingSession(journeyUuid, remember);
     return { ok: true, journeyId };
   }
 
   return { ok: false, message: "A Journey ID could not be created right now. Please try again." };
+}
+
+export async function finalizePendingJourneySession() {
+  const cookieStore = await cookies();
+  const rawToken = cookieStore.get(PENDING_SESSION_COOKIE)?.value;
+  if (!rawToken) return false;
+
+  const supabase = createServiceClient();
+  const { data, error } = await supabase.rpc("j2h_resolve_session_info", {
+    p_token_digest: toByteaDigest(rawToken),
+  });
+  const session = data as ResolvedSession | null;
+
+  if (
+    error ||
+    !session ||
+    typeof session.journey_id !== "string" ||
+    typeof session.remember_on_device !== "boolean"
+  ) {
+    cookieStore.delete(PENDING_SESSION_COOKIE);
+    return false;
+  }
+
+  await setSessionCookie(rawToken, session.remember_on_device);
+  cookieStore.delete(PENDING_SESSION_COOKIE);
+  return true;
 }
 
 export async function accessJourney(
@@ -199,11 +248,20 @@ export async function getCurrentJourneyUuid() {
 export async function exitJourney() {
   const cookieStore = await cookies();
   const rawToken = cookieStore.get(SESSION_COOKIE)?.value;
+  const pendingRawToken = cookieStore.get(PENDING_SESSION_COOKIE)?.value;
+  const supabase = createServiceClient();
+
   if (rawToken) {
-    const supabase = createServiceClient();
     await supabase.rpc("j2h_invalidate_session", {
       p_token_digest: toByteaDigest(rawToken),
     });
   }
+  if (pendingRawToken) {
+    await supabase.rpc("j2h_invalidate_session", {
+      p_token_digest: toByteaDigest(pendingRawToken),
+    });
+  }
+
   cookieStore.delete(SESSION_COOKIE);
+  cookieStore.delete(PENDING_SESSION_COOKIE);
 }
