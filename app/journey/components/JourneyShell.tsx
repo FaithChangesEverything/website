@@ -3,6 +3,8 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { journeySteps, type JourneyLesson } from "../data";
 import { getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
+import { getCurrentJourneyUuid } from "../progress/server";
+import { exitJourneyAction } from "../save-progress/actions";
 import styles from "../journey.module.css";
 import fixes from "../journey-fixes.module.css";
 
@@ -20,8 +22,9 @@ export function NeedHelpRightNow() {
   );
 }
 
-export function JourneyFrame({ children }: { children: React.ReactNode }) {
-  return <><Header /><NeedHelpRightNow />{children}<Footer /></>;
+export async function JourneyFrame({ children }: { children: React.ReactNode }) {
+  const activeJourney = Boolean(await getCurrentJourneyUuid());
+  return <><Header /><NeedHelpRightNow />{activeJourney && <aside className={fixes.savedJourneyBar} aria-label="Saved Journey status"><span><strong>Saved Journey active</strong> — your progress can be remembered on this device.</span><div><Link href="/journey/save-progress">Manage My Journey</Link><form action={exitJourneyAction}><button type="submit">Exit My Journey</button></form></div></aside>}{children}<Footer /></>;
 }
 
 export function StepBanner({ currentStep }: { currentStep: number }) {
