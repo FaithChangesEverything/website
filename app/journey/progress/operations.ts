@@ -190,10 +190,7 @@ export async function getJourneyItemProgress(contentKey: string): Promise<Journe
 
 export async function getJourneyStepDisplayStates(stepNumber: number): Promise<Record<string, JourneyDisplayItem> | null> {
   const journey = await currentJourney();
-  if (!journey) {
-    console.warn("[J2H_STEP_STATES]", { stepNumber, stage: "no_journey" });
-    return null;
-  }
+  if (!journey) return null;
 
   const supabase = createServiceClient();
   const { data: items, error: itemError } = await supabase
@@ -202,31 +199,14 @@ export async function getJourneyStepDisplayStates(stepNumber: number): Promise<R
     .eq("step_number", stepNumber)
     .eq("active", true);
 
-  if (itemError || !items) {
-    console.error("[J2H_STEP_STATES]", {
-      stepNumber,
-      stage: "items_query",
-      code: itemError?.code ?? null,
-      message: itemError?.message ?? "No items returned",
-    });
-    return null;
-  }
+  if (itemError || !items) return null;
 
   const keys = items.map((item) => item.content_key);
   const { data: progress, error: progressError } = keys.length
     ? await supabase.from("j2h_progress").select("content_key, status").eq("journey_id", journey).in("content_key", keys)
     : { data: [], error: null };
 
-  if (progressError) {
-    console.error("[J2H_STEP_STATES]", {
-      stepNumber,
-      stage: "progress_query",
-      code: progressError.code ?? null,
-      message: progressError.message,
-      itemCount: keys.length,
-    });
-    return null;
-  }
+  if (progressError) return null;
   const progressMap = new Map((progress ?? []).map((row) => [row.content_key, row.status]));
   const result: Record<string, JourneyDisplayItem> = {};
 
@@ -256,13 +236,6 @@ export async function getJourneyStepDisplayStates(stepNumber: number): Promise<R
     result[item.content_key] = { tracked: false, state: "supporting" };
   }
 
-  console.info("[J2H_STEP_STATES]", {
-    stepNumber,
-    stage: "success",
-    itemCount: items.length,
-    progressCount: progress?.length ?? 0,
-    trackedCount: items.filter((item) => item.completion_tracked).length,
-  });
   return result;
 }
 
