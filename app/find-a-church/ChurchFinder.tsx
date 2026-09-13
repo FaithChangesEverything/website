@@ -206,7 +206,7 @@ export default function ChurchFinder() {
       markersRef.current = [];
 
       nextResults.forEach((church, index) => {
-        const pin = markerLibraryRef.current!.PinElement({ glyphText: String(index + 1), scale: 1.1 });
+        const pin = new markerLibraryRef.current!.PinElement({ glyphText: String(index + 1), scale: 1.1 });
         const marker = new markerLibraryRef.current!.AdvancedMarkerElement({
           map: mapRef.current!,
           position: { lat: church.lat, lng: church.lng },
