@@ -75,8 +75,12 @@ export default function FindAChurchPage() {
             As you visit churches, look beyond building size, music style, programs, or production quality. Those things may have value, but they are not the true measure of a healthy church. Ask whether Christ is being honored and Scripture is being faithfully followed.
           </p>
           <blockquote className={styles.scripture}>
-            <p className={styles.scriptureQuote}>“And they continued stedfastly in the apostles’ doctrine and fellowship, and in breaking of bread, and in prayers.”</p>
-            <p className={styles.scriptureReference}>Acts 2:42 (KJV)</p>
+            <p className={styles.scriptureQuote} style={{ color: "#a51d2a", fontStyle: "italic" }}>
+              “And they continued stedfastly in the apostles’ doctrine and fellowship, and in breaking of bread, and in prayers.”
+            </p>
+            <p className={styles.scriptureReference} style={{ color: "#111", fontStyle: "normal", fontWeight: 800 }}>
+              Acts 2:42 (KJV)
+            </p>
           </blockquote>
         </section>
 
