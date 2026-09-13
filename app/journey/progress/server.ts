@@ -234,14 +234,13 @@ export async function getCurrentJourneyUuid() {
     typeof session.journey_id !== "string" ||
     typeof session.remember_on_device !== "boolean"
   ) {
-    cookieStore.delete(SESSION_COOKIE);
     return null;
   }
 
-  if (session.remember_on_device) {
-    await setSessionCookie(rawToken, true);
-  }
-
+  // This helper is called while Server Components render Journey pages. Next.js
+  // permits reading cookies there, but not mutating them. Remembered-session
+  // inactivity is refreshed authoritatively by j2h_resolve_session_info in the
+  // database; the browser cookie already carries the configured 30-day max age.
   return session.journey_id;
 }
 
