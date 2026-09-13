@@ -10,6 +10,7 @@ import {
   resetJourneyAction,
   type JourneyActionState,
 } from "./actions";
+import { PasscodeInput } from "./PasscodeInput";
 import styles from "./save-progress.module.css";
 
 const initialJourneyActionState: JourneyActionState = { status: "idle" };
@@ -63,9 +64,9 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
         <h3>Change Passcode</h3>
         <p>Changing your passcode ends all active Journey sessions. You will sign in again with the same Journey ID and your new passcode.</p>
         <form action={passcodeAction} className={styles.formStack}>
-          <label>Current 4-digit passcode<input name="currentPasscode" inputMode="numeric" pattern="[0-9]{4}" minLength={4} maxLength={4} required autoComplete="current-password" /></label>
-          <label>New 4-digit passcode<input name="newPasscode" inputMode="numeric" pattern="[0-9]{4}" minLength={4} maxLength={4} required autoComplete="new-password" /></label>
-          <label>Confirm new passcode<input name="confirmPasscode" inputMode="numeric" pattern="[0-9]{4}" minLength={4} maxLength={4} required autoComplete="new-password" /></label>
+          <PasscodeInput name="currentPasscode" label="Current 4-digit passcode" autoComplete="current-password" />
+          <PasscodeInput name="newPasscode" label="New 4-digit passcode" autoComplete="new-password" />
+          <PasscodeInput name="confirmPasscode" label="Confirm new passcode" autoComplete="new-password" />
           {passcodeState.status === "error" && <p className={styles.errorMessage} role="alert">{passcodeState.message}</p>}
           <button className={styles.primaryButton} type="submit" disabled={passcodePending}>{passcodePending ? "Changing…" : "Change Passcode"}</button>
         </form>
@@ -123,7 +124,7 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
       <h3>Delete My Saved Journey</h3>
       <p>This permanently deletes your Journey credentials and reconnectable personal progress. Aggregate non-identifying ministry statistics may remain. This action cannot be undone.</p>
       <form action={deleteAction} className={styles.formStack}>
-        <label>4-digit passcode<input name="passcode" inputMode="numeric" pattern="[0-9]{4}" minLength={4} maxLength={4} required autoComplete="current-password" /></label>
+        <PasscodeInput name="passcode" label="4-digit passcode" autoComplete="current-password" />
         <label>Type DELETE to confirm<input name="confirmation" required autoComplete="off" /></label>
         {deleteState.status === "error" && <p className={styles.errorMessage} role="alert">{deleteState.message}</p>}
         <button className={styles.dangerButton} type="submit" disabled={deletePending}>{deletePending ? "Deleting…" : "Permanently Delete My Saved Journey"}</button>
