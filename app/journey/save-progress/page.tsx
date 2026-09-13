@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { JourneyFrame } from "../components/JourneyShell";
-import { getJourneyProgressSummary } from "../progress/operations";
+import { getJourneyContinueDestination } from "../progress/continue-destination";
 import { getCurrentJourneyUuid } from "../progress/server";
 import { ManageJourneyClient } from "./ManageJourneyClient";
 import { SaveProgressClient } from "./SaveProgressClient";
@@ -19,12 +19,8 @@ export default async function SaveProgressPage({ searchParams }: { searchParams:
   const { returnTo } = await searchParams;
   const requestedDestination = safeReturnTo(returnTo);
   const activeJourney = Boolean(await getCurrentJourneyUuid());
-  const summary = activeJourney ? await getJourneyProgressSummary() : null;
-  const summaryWithContinue = summary as unknown as { continue_href?: unknown } | null;
-  const continueHref = typeof summaryWithContinue?.continue_href === "string"
-    ? safeReturnTo(summaryWithContinue.continue_href)
-    : "/journey";
-  const destination = activeJourney && !returnTo ? continueHref : requestedDestination;
+  const continueDestination = activeJourney ? await getJourneyContinueDestination() : "/journey";
+  const destination = activeJourney && !returnTo ? continueDestination : requestedDestination;
 
   return (
     <JourneyFrame>
