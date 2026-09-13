@@ -130,8 +130,10 @@ export function loadGoogleMaps() {
 }
 
 export function toLiteral(value: LatLngValue): LatLngLiteral {
-  if (typeof value.lat === "function") return { lat: value.lat(), lng: value.lng() };
-  return value;
+  if (typeof value.lat === "function" && typeof value.lng === "function") {
+    return { lat: value.lat(), lng: value.lng() };
+  }
+  return value as LatLngLiteral;
 }
 
 export function makeBounds(center: LatLngLiteral, radiusMiles: number): BoundsLiteral {
