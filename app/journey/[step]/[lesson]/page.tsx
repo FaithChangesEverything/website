@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
+import { startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
 
 const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
@@ -92,6 +93,10 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   }
 
   if (lesson.id === "3.b") {
+    // Sequence 8 rule: first authenticated opening of a tracked lesson is In Progress.
+    // Start it before rendering the sidebar so the same response can show saved state.
+    await startJourneyItem("3.b");
+
     return (
       <IndividualLesson
         stepNumber={3}
