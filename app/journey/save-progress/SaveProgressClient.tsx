@@ -9,6 +9,7 @@ import {
   createGeneratedJourneyAction,
   type JourneyActionState,
 } from "./actions";
+import { PasscodeInput } from "./PasscodeInput";
 import styles from "./save-progress.module.css";
 
 const initialJourneyActionState: JourneyActionState = { status: "idle" };
@@ -21,10 +22,7 @@ function safeReturnTo(value: string | null) {
 function PasscodeFields() {
   return (
     <>
-      <label>
-        4-digit passcode
-        <input name="passcode" inputMode="numeric" pattern="[0-9]{4}" minLength={4} maxLength={4} required autoComplete="new-password" />
-      </label>
+      <PasscodeInput name="passcode" label="4-digit passcode" autoComplete="new-password" />
       <label className={styles.checkLabel}>
         <input type="checkbox" name="remember" />
         Remember My Journey on this device
@@ -150,10 +148,7 @@ export function SaveProgressClient({ returnTo }: { returnTo?: string }) {
           Journey ID
           <input name="journeyId" required autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="username" />
         </label>
-        <label>
-          4-digit passcode
-          <input name="passcode" inputMode="numeric" pattern="[0-9]{4}" minLength={4} maxLength={4} required autoComplete="current-password" />
-        </label>
+        <PasscodeInput name="passcode" label="4-digit passcode" autoComplete="current-password" />
         <label className={styles.checkLabel}>
           <input type="checkbox" name="remember" />
           Remember My Journey on this device
