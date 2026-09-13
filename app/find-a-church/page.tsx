@@ -59,8 +59,8 @@ export default function FindAChurchPage() {
       <Header />
 
       <section className={styles.hero} aria-labelledby="find-church-title">
+        <div className={styles.heroOverlay} />
         <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>FIND A CHURCH HOME</p>
           <h1 id="find-church-title">Find a Healthy Church Home</h1>
           <p className={styles.heroLead}>
             The goal is not to find a perfect church. It is to find a local body that faithfully pursues Christ, honors God’s Word, proclaims the gospel, and helps believers grow together.
@@ -137,6 +137,17 @@ export default function FindAChurchPage() {
         </section>
 
         <ChurchFinder />
+
+        <section className={styles.resourcesCta} aria-labelledby="church-resources-title">
+          <p className={styles.eyebrow}>CONTINUE YOUR RESEARCH</p>
+          <h2 id="church-resources-title">Finding a Church Home Resources</h2>
+          <p>
+            Explore additional FCE guidance and resources designed to help you prayerfully evaluate a church and continue your search with biblical priorities in view.
+          </p>
+          <Link className={styles.resourcesButton} href="/find-a-church/resources">
+            Finding a Church Home Resources →
+          </Link>
+        </section>
 
         <div className={styles.backRow}>
           <Link href="/journey">← Return to Journey to Hope</Link>
