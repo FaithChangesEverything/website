@@ -14,8 +14,8 @@ export function PasscodeInput({ name, label, autoComplete }: PasscodeInputProps)
   const inputId = `journey-${name}`;
 
   return (
-    <label htmlFor={inputId}>
-      {label}
+    <div className={styles.passcodeGroup}>
+      <label htmlFor={inputId}>{label}</label>
       <span className={styles.passcodeField}>
         <input
           id={inputId}
@@ -38,6 +38,6 @@ export function PasscodeInput({ name, label, autoComplete }: PasscodeInputProps)
           {visible ? "Hide" : "Show"}
         </button>
       </span>
-    </label>
+    </div>
   );
 }
