@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";
 import { bibleStudySeries, getJourneyStep, hopeSeries } from "../../../data";
+import { getJourneyItemProgress, startJourneyItem } from "../../../progress/operations";
 
 const hopeSeriesSlug = "what-does-the-bible-say-about-hope";
 const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
@@ -59,10 +60,18 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
   const { step: stepSlug, lesson: lessonSlug, section: sectionSlug } = await params;
   const study = resolveStudy(stepSlug, lessonSlug, sectionSlug);
   if (!study) notFound();
-  if (study.stepNumber === 1) {
-    const index = study.studyNumber - 1; const baseHref = `/journey/step-1/${hopeSeriesSlug}`; const nav = buildSectionNav(baseHref, hopeSeries, index); const startId = hopeSectionIds[index];
-    return <SeriesStudy stepNumber={1} parentId="1.c" sectionId={`1.c.${startId}`} progressKey={`1.c.study-${index + 1}`} title={hopeSeries[index]} parentTitle="What Does the Bible Say About Hope" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next}><HopeStudyBlocks startId={startId} /></SeriesStudy>;
+
+  const index = study.studyNumber - 1;
+  const progressKey = study.stepNumber === 1 ? `1.c.study-${study.studyNumber}` : `4.d.${bibleStudySectionIds[index]}`;
+  const trackedProgress = await getJourneyItemProgress(progressKey);
+  if (trackedProgress) {
+    await startJourneyItem(progressKey);
   }
-  const index = study.studyNumber - 1; const baseHref = "/journey/step-4/how-to-study-the-bible"; const nav = buildSectionNav(baseHref, bibleStudySeries, index);
-  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={`4.d.${bibleStudySectionIds[index]}`} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next}><BibleStudyStudyBlocks studyIndex={index} /></SeriesStudy>;
+
+  if (study.stepNumber === 1) {
+    const baseHref = `/journey/step-1/${hopeSeriesSlug}`; const nav = buildSectionNav(baseHref, hopeSeries, index); const startId = hopeSectionIds[index];
+    return <SeriesStudy stepNumber={1} parentId="1.c" sectionId={`1.c.${startId}`} progressKey={progressKey} title={hopeSeries[index]} parentTitle="What Does the Bible Say About Hope" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next}><HopeStudyBlocks startId={startId} /></SeriesStudy>;
+  }
+  const baseHref = "/journey/step-4/how-to-study-the-bible"; const nav = buildSectionNav(baseHref, bibleStudySeries, index);
+  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next}><BibleStudyStudyBlocks studyIndex={index} /></SeriesStudy>;
 }
