@@ -161,13 +161,16 @@
   margin:0!important;
   max-width:720px;
 }
-.lessonCompletionConcept button:disabled,
 .readableButton:disabled{
   opacity:1!important;
 }
 .lessonCompletionConcept button:disabled{
-  background:#2f783c!important;
-  color:#fff!important;
+  opacity:1!important;
+  background:#d6d9dc!important;
+  border-color:#c3c7cb!important;
+  color:#626a72!important;
+  cursor:not-allowed!important;
+  box-shadow:none!important;
 }
 
 .journeyCompletionCount{
