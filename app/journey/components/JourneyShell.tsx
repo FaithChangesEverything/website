@@ -47,11 +47,15 @@ export function StepBanner({ currentStep }: { currentStep: number }) {
   );
 }
 
-function statePresentation(state: JourneyDisplayState | undefined, current: boolean, saving: boolean) {
+function statePresentation(state: JourneyDisplayState | undefined, current: boolean, saving: boolean, seriesParent = false) {
   if (!saving) return { icon: current ? "●" : "○", label: current ? "Current" : "Available" };
   if (state === "completed") return { icon: "✓", label: "Completed" };
   if (state === "in_progress") return { icon: "●", label: "In Progress" };
   if (state === "supporting") return { icon: "◇", label: "Supporting" };
+  // A series overview is a current location, not its own completion unit.
+  // Before any child study starts, show that location as Current rather than
+  // implying that the visitor has failed to start a separately tracked lesson.
+  if (current && seriesParent) return { icon: "●", label: "Current" };
   return { icon: "○", label: "Not Started" };
 }
 
@@ -71,7 +75,7 @@ export async function LessonSidebar({ stepNumber, lessons, currentId }: { stepNu
       <h2>Lessons in Step {stepNumber}</h2>
       {sidebarLessons.map((lesson) => {
         const current = lesson.id === currentId;
-        const presentation = statePresentation(states?.[lesson.id]?.state, current, saving);
+        const presentation = statePresentation(states?.[lesson.id]?.state, current, saving, lesson.kind === "series");
         return (
           <Link key={lesson.id} href={lesson.href} className={current ? styles.currentLesson : ""} aria-current={current ? "page" : undefined}>
             <span className={styles.lessonState} aria-hidden="true">{presentation.icon}</span>
