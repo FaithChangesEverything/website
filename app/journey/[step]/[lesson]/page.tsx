@@ -136,6 +136,25 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "6.e") {
+    return (
+      <IndividualLesson
+        stepNumber={6}
+        lessonId="6.e"
+        title="Find a Church Home"
+        lessons={step.lessons}
+        intro="Walking with Christ includes growing alongside other believers. Faith Changes Everything provides biblical guidance and a practical church search to help you begin looking for a healthy local church."
+      >
+        <LessonBlock title="Find a Healthy Church Home" icon="◇" tone="highlight">
+          <p>Use the shared FCE Find a Church Home destination to learn what to look for in a healthy, Bible-believing church and search for churches near a ZIP code, city, or address.</p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/find-a-church">Find a Church Home</Link>
+          </div>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "6.f") {
     return (
       <IndividualLesson
@@ -193,6 +212,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <Link href="/resources">Bible Study</Link>
           <Link href="/music">Music</Link>
           <Link href="/prayer">Prayer Support</Link>
+          {(lesson.id === "1.e" || lesson.id === "2.e") && <Link href="/find-a-church">Find a Church Home</Link>}
         </div>
       </LessonBlock>
     </IndividualLesson>
