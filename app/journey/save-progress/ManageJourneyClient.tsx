@@ -91,6 +91,19 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
   }
 
   if (mode === "reset") {
+    if (resetState.status === "success") {
+      return (
+        <section className={styles.formPanel} aria-live="polite">
+          <h3>Start My Journey Over</h3>
+          <p className={styles.successMessage} role="status">{resetState.message}</p>
+          <button className={styles.primaryButton} type="button" onClick={() => router.replace(returnTo)}>
+            Continue My Journey
+          </button>
+          <button className={styles.textButton} type="button" onClick={() => setMode("menu")}>← Back to Manage My Journey</button>
+        </section>
+      );
+    }
+
     return (
       <section className={styles.formPanel}>
         <h3>Start My Journey Over</h3>
@@ -98,7 +111,6 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
         <form action={resetAction} className={styles.formStack}>
           <label>Type RESET to confirm<input name="confirmation" required autoComplete="off" /></label>
           {resetState.status === "error" && <p className={styles.errorMessage} role="alert">{resetState.message}</p>}
-          {resetState.status === "success" && <p className={styles.successMessage} role="status">{resetState.message}</p>}
           <button className={styles.secondaryButton} type="submit" disabled={resetPending}>{resetPending ? "Resetting…" : "Reset My Saved Progress"}</button>
         </form>
         <button className={styles.textButton} type="button" onClick={() => setMode("menu")}>← Back to Manage My Journey</button>
