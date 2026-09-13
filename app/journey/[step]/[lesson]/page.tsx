@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
-import { startJourneyItem } from "../../progress/operations";
+import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
 
 const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
@@ -45,6 +45,16 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
+
+  // Sequence 9 first-render synchronization:
+  // if this route represents an active completion-tracked item for the current
+  // saved Journey, record the start before any sidebar/progress UI renders.
+  // Supporting content, Pastor Letters, series parents, and anonymous visitors
+  // return null here and are left untouched.
+  const trackedProgress = await getJourneyItemProgress(lesson.id);
+  if (trackedProgress) {
+    await startJourneyItem(lesson.id);
+  }
 
   if (lesson.id === "1.c") {
     const sections = hopeSeries.map((title, index) => ({
@@ -93,10 +103,6 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   }
 
   if (lesson.id === "3.b") {
-    // Sequence 8 rule: first authenticated opening of a tracked lesson is In Progress.
-    // Start it before rendering the sidebar so the same response can show saved state.
-    await startJourneyItem("3.b");
-
     return (
       <IndividualLesson
         stepNumber={3}
