@@ -20,8 +20,9 @@ export default async function SaveProgressPage({ searchParams }: { searchParams:
   const requestedDestination = safeReturnTo(returnTo);
   const activeJourney = Boolean(await getCurrentJourneyUuid());
   const summary = activeJourney ? await getJourneyProgressSummary() : null;
-  const continueHref = summary && typeof (summary as { continue_href?: unknown }).continue_href === "string"
-    ? safeReturnTo((summary as { continue_href: string }).continue_href)
+  const summaryWithContinue = summary as unknown as { continue_href?: unknown } | null;
+  const continueHref = typeof summaryWithContinue?.continue_href === "string"
+    ? safeReturnTo(summaryWithContinue.continue_href)
     : "/journey";
   const destination = activeJourney && !returnTo ? continueHref : requestedDestination;
 
