@@ -101,17 +101,20 @@
   font-weight:700;
   letter-spacing:-.02em;
 }
-/* Current-location cue: keep breadcrumb semantics intact while making the
-   visitor's active Journey Step unmistakable without implying a link. */
+/* Location trail: the gold rule identifies the Journey hierarchy, while the
+   warm highlight at the trailing edge makes the current lesson/study token
+   the first thing the eye finds (for example 1.c.1). */
 .individualLessonHeader > div > p:first-child,
 .seriesHeader > div > p:first-child{
   width:max-content;
   max-width:100%;
-  padding:0 0 6px 10px!important;
+  padding:5px 8px 7px 10px!important;
   border-left:3px solid #d3a347;
   border-bottom:2px solid #d3a347;
+  border-radius:0 5px 5px 0;
   color:#9b6d20!important;
   font-weight:800!important;
+  background:linear-gradient(to left,rgba(245,188,72,.28) 0 5.2em,transparent 5.2em);
 }
 .individualLessonHeader > div > p:first-child span,
 .seriesHeader > div > p:first-child span{
@@ -122,6 +125,8 @@
   gap:7px;
   flex-wrap:wrap;
   align-items:center;
+  font-size:.82rem!important;
+  letter-spacing:.14em!important;
 }
 .seriesStudyKicker span{
   color:#7a8793!important;
