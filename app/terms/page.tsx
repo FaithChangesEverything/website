@@ -164,15 +164,15 @@ export default function TermsPage() {
 
           <section id="disclaimers" className={styles.policySection}>
             <h2>14. Disclaimers</h2>
-            <p>The FCE website and its content are provided on an &quot;as available&quot; basis.</p>
-            <p>To the extent permitted by applicable law, FCE does not guarantee that the website will always be uninterrupted, error-free, secure, or free from technical problems.</p>
-            <p>Nothing in these Terms limits responsibilities that cannot lawfully be excluded.</p>
+            <p>THE FCE WEBSITE AND ITS CONTENT ARE PROVIDED ON AN &quot;AS AVAILABLE&quot; BASIS.</p>
+            <p>TO THE EXTENT PERMITTED BY APPLICABLE LAW, FCE DOES NOT GUARANTEE THAT THE WEBSITE WILL ALWAYS BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE FROM TECHNICAL PROBLEMS.</p>
+            <p>NOTHING IN THESE TERMS LIMITS RESPONSIBILITIES THAT CANNOT LAWFULLY BE EXCLUDED.</p>
           </section>
 
           <section id="liability" className={styles.policySection}>
             <h2>15. Limitation of Liability</h2>
-            <p>To the extent permitted by applicable law, Faith Changes Everything will not be responsible for indirect, incidental, special, consequential, or similar damages resulting from use of, inability to use, or reliance upon the website, its resources, external links, or third-party services.</p>
-            <p>This provision is not intended to exclude liability that applicable law does not permit FCE to exclude.</p>
+            <p>TO THE EXTENT PERMITTED BY APPLICABLE LAW, FAITH CHANGES EVERYTHING WILL NOT BE RESPONSIBLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR SIMILAR DAMAGES RESULTING FROM USE OF, INABILITY TO USE, OR RELIANCE UPON THE WEBSITE, ITS RESOURCES, EXTERNAL LINKS, OR THIRD-PARTY SERVICES.</p>
+            <p>THIS PROVISION IS NOT INTENDED TO EXCLUDE LIABILITY THAT APPLICABLE LAW DOES NOT PERMIT FCE TO EXCLUDE.</p>
           </section>
 
           <section id="privacy" className={styles.policySection}>
@@ -197,7 +197,7 @@ export default function TermsPage() {
 
           <section id="governing-law" className={styles.policySection}>
             <h2>19. Governing Law</h2>
-            <p>These Terms are governed by the laws of the State of Illinois, without regard to conflict-of-law principles, except where applicable law requires otherwise.</p>
+            <p>These Terms are governed by the laws of the State of Illinois, without regard to conflict-of-law principles, except where applicable law requires otherwise. Any legal action arising out of or relating to these Terms or the FCE website shall be brought exclusively in the state or federal courts having jurisdiction in Rock Island County, Illinois.</p>
           </section>
 
           <section id="severability" className={styles.policySection}>
