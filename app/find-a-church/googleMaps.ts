@@ -75,6 +75,7 @@ export type MarkerLibrary = {
     position: LatLngLiteral;
     title: string;
     gmpClickable: boolean;
+    content?: Node;
   }) => AdvancedMarkerInstance;
   PinElement: new (options: { glyphText: string; scale: number }) => HTMLElement;
 };
