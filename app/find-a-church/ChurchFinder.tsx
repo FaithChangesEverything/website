@@ -5,6 +5,7 @@ import { GOOGLE_MAPS_API_KEY, GOOGLE_MAPS_MAP_ID } from "./config";
 import {
   AdvancedMarkerInstance,
   Attribution,
+  BoundsLiteral,
   GeocoderInstance,
   GeocodingLibrary,
   MapInstance,
@@ -41,6 +42,28 @@ function directionsUrl(church: ChurchResult) {
     destination_place_id: church.id,
   });
   return `https://www.google.com/maps/dir/?${params.toString()}`;
+}
+
+function boundsForResults(results: ChurchResult[]): BoundsLiteral | null {
+  if (!results.length) return null;
+  if (results.length === 1) {
+    return makeBounds({ lat: results[0].lat, lng: results[0].lng }, 2);
+  }
+
+  return results.reduce<BoundsLiteral>(
+    (bounds, church) => ({
+      north: Math.max(bounds.north, church.lat),
+      south: Math.min(bounds.south, church.lat),
+      east: Math.max(bounds.east, church.lng),
+      west: Math.min(bounds.west, church.lng),
+    }),
+    {
+      north: results[0].lat,
+      south: results[0].lat,
+      east: results[0].lng,
+      west: results[0].lng,
+    },
+  );
 }
 
 export default function ChurchFinder() {
@@ -162,7 +185,6 @@ export default function ChurchFinder() {
 
       const center = toLiteral(firstMatch.geometry.location);
       const bounds = makeBounds(center, radiusMiles);
-      mapRef.current.fitBounds(bounds, 48);
 
       const { Place, SearchByTextRankPreference } = placesRef.current;
       const response = await Place.searchByText({
@@ -212,11 +234,18 @@ export default function ChurchFinder() {
           position: { lat: church.lat, lng: church.lng },
           title: `${index + 1}. ${church.name}`,
           gmpClickable: true,
+          content: pin,
         });
-        marker.append(pin);
         marker.addEventListener("gmp-click", () => void selectChurch(church.id));
         markersRef.current.push(marker);
       });
+
+      const visibleBounds = boundsForResults(nextResults);
+      if (visibleBounds) {
+        mapRef.current.fitBounds(visibleBounds, 64);
+      } else {
+        mapRef.current.fitBounds(bounds, 48);
+      }
 
       setMessage(
         nextResults.length
