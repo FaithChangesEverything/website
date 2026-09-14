@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   changeJourneyIdAction,
@@ -23,10 +23,6 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
   const [resetState, resetAction, resetPending] = useActionState(resetJourneyAction, initialJourneyActionState);
   const [deleteState, deleteAction, deletePending] = useActionState(deleteJourneyAction, initialJourneyActionState);
 
-  useEffect(() => {
-    if (deleteState.status === "success") router.replace("/journey");
-  }, [deleteState.status, router]);
-
   if (passcodeState.status === "success" || idState.status === "success") {
     const message = passcodeState.status === "success" ? passcodeState.message : idState.message;
     return (
@@ -44,14 +40,14 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
     return (
       <section className={styles.managePanel}>
         <div className={styles.manageHeader}>
-          <div><p className={styles.eyebrow}>Saved Journey active</p><h2>Manage My Journey</h2><p>Your saved progress is connected on this device. You can continue your Journey, update credentials, reset progress, or permanently delete the saved Journey.</p></div>
+          <div><p className={styles.eyebrow}>Saved Journey active</p><h2>Manage My Journey</h2><p>Your saved progress is connected on this device. You can continue your Journey, update credentials, reset progress, or permanently delete your Journey.</p></div>
           <form action={exitJourneyAction}><button className={styles.secondaryButton} type="submit">Exit My Journey</button></form>
         </div>
         <div className={styles.manageGrid}>
           <button className={styles.manageChoice} type="button" onClick={() => setMode("passcode")}><strong>Change Passcode</strong><span>Use your current 4-digit passcode to choose a new one.</span></button>
           <button className={styles.manageChoice} type="button" onClick={() => setMode("journeyId")}><strong>Change Journey ID</strong><span>Choose a new private Journey ID. The old ID becomes invalid immediately.</span></button>
           <button className={styles.manageChoice} type="button" onClick={() => setMode("reset")}><strong>Start My Journey Over</strong><span>Clear personal progress and earned acknowledgments while keeping your credentials.</span></button>
-          <button className={`${styles.manageChoice} ${styles.dangerChoice}`} type="button" onClick={() => setMode("delete")}><strong>Delete My Saved Journey</strong><span>Permanently remove reconnectable credentials and saved personal progress.</span></button>
+          <button className={`${styles.manageChoice} ${styles.dangerChoice}`} type="button" onClick={() => setMode("delete")}><strong>Permanently Delete My Journey</strong><span>Delete your Journey ID, saved progress, earned milestones, and active Journey sessions.</span></button>
         </div>
         <button className={styles.primaryButton} type="button" onClick={() => router.replace(returnTo)}>Continue My Journey</button>
       </section>
@@ -121,13 +117,13 @@ export function ManageJourneyClient({ returnTo = "/journey" }: { returnTo?: stri
 
   return (
     <section className={`${styles.formPanel} ${styles.dangerPanel}`}>
-      <h3>Delete My Saved Journey</h3>
-      <p>This permanently deletes your Journey credentials and reconnectable personal progress. Aggregate non-identifying ministry statistics may remain. This action cannot be undone.</p>
+      <h3>Permanently Delete My Journey</h3>
+      <p>This permanently deletes your Journey ID record, all saved Journey progress, earned milestones, and active Journey sessions. Aggregate, non-identifying website and ministry statistics are separate and are not linked to your Journey ID. This action cannot be undone.</p>
       <form action={deleteAction} className={styles.formStack}>
         <PasscodeInput name="passcode" label="4-digit passcode" autoComplete="current-password" />
         <label>Type DELETE to confirm<input name="confirmation" required autoComplete="off" /></label>
         {deleteState.status === "error" && <p className={styles.errorMessage} role="alert">{deleteState.message}</p>}
-        <button className={styles.dangerButton} type="submit" disabled={deletePending}>{deletePending ? "Deleting…" : "Permanently Delete My Saved Journey"}</button>
+        <button className={styles.dangerButton} type="submit" disabled={deletePending}>{deletePending ? "Deleting…" : "Permanently Delete My Journey"}</button>
       </form>
       <button className={styles.textButton} type="button" onClick={() => setMode("menu")}>← Cancel and return to Manage My Journey</button>
     </section>
