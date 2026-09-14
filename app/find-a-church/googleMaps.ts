@@ -89,6 +89,7 @@ declare global {
   interface Window {
     google?: GoogleMapsNamespace;
     __fceGoogleMapsPromise?: Promise<GoogleMapsNamespace>;
+    __fceGoogleMapsReady?: () => void;
   }
 }
 
@@ -105,24 +106,33 @@ export function loadGoogleMaps() {
   if (window.__fceGoogleMapsPromise) return window.__fceGoogleMapsPromise;
 
   window.__fceGoogleMapsPromise = new Promise<GoogleMapsNamespace>((resolve, reject) => {
-    const finish = () => {
-      if (window.google?.maps?.importLibrary) resolve(window.google);
-      else reject(new Error("Google Maps did not initialize."));
+    window.__fceGoogleMapsReady = () => {
+      if (window.google?.maps?.importLibrary) {
+        resolve(window.google);
+      } else {
+        reject(new Error("Google Maps did not initialize."));
+      }
+      delete window.__fceGoogleMapsReady;
     };
 
-    const existing = document.querySelector<HTMLScriptElement>("script[data-fce-google-maps]");
-    if (existing) {
-      existing.addEventListener("load", finish, { once: true });
-      existing.addEventListener("error", () => reject(new Error("Google Maps failed to load.")), { once: true });
-      return;
-    }
-
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&v=weekly&loading=async`;
+    const params = new URLSearchParams({
+      key: GOOGLE_MAPS_API_KEY,
+      v: "weekly",
+      loading: "async",
+      callback: "__fceGoogleMapsReady",
+    });
+    script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
     script.async = true;
     script.dataset.fceGoogleMaps = "true";
-    script.addEventListener("load", finish, { once: true });
-    script.addEventListener("error", () => reject(new Error("Google Maps failed to load.")), { once: true });
+    script.addEventListener(
+      "error",
+      () => {
+        delete window.__fceGoogleMapsReady;
+        reject(new Error("Google Maps failed to load."));
+      },
+      { once: true },
+    );
     document.head.appendChild(script);
   });
 
