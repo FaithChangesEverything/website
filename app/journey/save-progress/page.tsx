@@ -15,12 +15,25 @@ function safeReturnTo(value?: string) {
   return value?.startsWith("/journey") ? value : "/journey";
 }
 
-export default async function SaveProgressPage({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
-  const { returnTo } = await searchParams;
+export default async function SaveProgressPage({ searchParams }: { searchParams: Promise<{ returnTo?: string; deleted?: string }> }) {
+  const { returnTo, deleted } = await searchParams;
+  const deletionConfirmed = deleted === "1";
   const requestedDestination = safeReturnTo(returnTo);
-  const activeJourney = Boolean(await getCurrentJourneyUuid());
+  const activeJourney = deletionConfirmed ? false : Boolean(await getCurrentJourneyUuid());
   const continueDestination = activeJourney ? await getJourneyContinueDestination() : "/journey";
   const destination = activeJourney && !returnTo ? continueDestination : requestedDestination;
+
+  const title = deletionConfirmed
+    ? "Journey Permanently Deleted"
+    : activeJourney
+      ? "Manage My Saved Journey"
+      : "Save Your Journey Progress";
+
+  const lead = deletionConfirmed
+    ? "Your Journey ID and the saved Journey progress connected to it have been permanently removed."
+    : activeJourney
+      ? "Your saved Journey is active on this device. Manage it here without adding identifying information to your Journey record."
+      : "A Journey ID lets you save your Journey to Hope progress without creating an FCE account or giving us your name, email address, or phone number.";
 
   return (
     <JourneyFrame>
@@ -28,8 +41,8 @@ export default async function SaveProgressPage({ searchParams }: { searchParams:
         <div className={styles.shell}>
           <header className={styles.hero}>
             <p className={styles.eyebrow}>Journey to Hope</p>
-            <h1>{activeJourney ? "Manage My Saved Journey" : "Save Your Journey Progress"}</h1>
-            <p className={styles.lead}>{activeJourney ? "Your saved Journey is active on this device. Manage it here without adding identifying information to your Journey record." : "A Journey ID lets you save your Journey to Hope progress without creating an FCE account or giving us your name, email address, or phone number."}</p>
+            <h1>{title}</h1>
+            <p className={styles.lead}>{lead}</p>
           </header>
 
           <section className={styles.privacyCard} aria-labelledby="privacy-title">
@@ -51,15 +64,27 @@ export default async function SaveProgressPage({ searchParams }: { searchParams:
                 <p>Your name, email address, and phone number are not required to save Journey progress.</p>
               </article>
               <article className={styles.point}>
-                <strong>You keep your Journey ID</strong>
-                <p>Because the ID is not tied to identifying information, FCE cannot recover it if it is lost.</p>
+                <strong>You control saved progress</strong>
+                <p>You can exit and return later, or permanently delete your Journey ID and saved progress.</p>
               </article>
             </div>
 
-            {activeJourney ? <ManageJourneyClient returnTo={destination} /> : <SaveProgressClient returnTo={destination} />}
+            {deletionConfirmed ? (
+              <section className={styles.createdCard} aria-live="polite">
+                <h2>Your saved Journey has been permanently deleted</h2>
+                <p className={styles.successMessage} role="status">Your Journey ID record, saved progress, earned milestones, and active Journey sessions have been removed. This Journey cannot be restored.</p>
+                <Link className={styles.primaryButton} href="/journey">Return to Journey to Hope</Link>
+              </section>
+            ) : activeJourney ? (
+              <ManageJourneyClient returnTo={destination} />
+            ) : (
+              <SaveProgressClient returnTo={destination} />
+            )}
           </section>
 
-          <div className={styles.backRow}><Link href={destination}>← {activeJourney ? "Return to my Journey" : "Continue without saving"}</Link></div>
+          {!deletionConfirmed && (
+            <div className={styles.backRow}><Link href={destination}>← {activeJourney ? "Return to my Journey" : "Continue without saving"}</Link></div>
+          )}
         </div>
       </main>
     </JourneyFrame>
