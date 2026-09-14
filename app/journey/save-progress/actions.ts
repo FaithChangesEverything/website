@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 import {
   changeJourneyId,
@@ -201,17 +202,23 @@ export async function deleteJourneyAction(
   formData: FormData
 ): Promise<JourneyActionState> {
   if (text(formData, "confirmation").trim().toUpperCase() !== "DELETE") {
-    return { status: "error", message: "Type DELETE to confirm permanent deletion of your saved Journey." };
+    return { status: "error", message: "Type DELETE to confirm permanent deletion of your Journey ID and saved progress." };
   }
 
+  let deleted = false;
   try {
-    const deleted = await deleteSavedJourney(text(formData, "passcode"));
-    if (!deleted) return { status: "error", message: "The saved Journey could not be deleted. Check your passcode and try again." };
-    refreshJourney();
-    return { status: "success", message: "Your saved Journey has been permanently deleted from FCE's reconnectable progress system." };
-  } catch {
-    return { status: "error", message: "The saved Journey could not be deleted right now." };
+    deleted = await deleteSavedJourney(text(formData, "passcode"));
+  } catch (error) {
+    logJourneyActionFailure("deleteSavedJourney", error);
+    return { status: "error", message: "Your Journey could not be permanently deleted right now." };
   }
+
+  if (!deleted) {
+    return { status: "error", message: "Your Journey could not be deleted. Check your passcode and try again." };
+  }
+
+  refreshJourney();
+  redirect("/journey/save-progress?deleted=1");
 }
 
 export async function exitJourneyAction() {
