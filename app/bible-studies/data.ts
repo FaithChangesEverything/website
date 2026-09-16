@@ -4,6 +4,15 @@ export type BibleStudyGroupId =
   | "books-passages"
   | "fce-tracks";
 
+export type BibleStudyLessonSummary = {
+  slug: string;
+  title: string;
+  summary: string;
+  href?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
 export type BibleStudySeriesSummary = {
   slug: string;
   title: string;
@@ -12,6 +21,20 @@ export type BibleStudySeriesSummary = {
   href?: string;
   imageSrc?: string;
   imageAlt?: string;
+};
+
+export type BibleStudySeriesDetail = {
+  slug: string;
+  title: string;
+  introduction: string;
+  pastorIntroduction: {
+    title: string;
+    excerpt: string;
+    imageSrc: string;
+    videoHref?: string;
+  };
+  lessons: BibleStudyLessonSummary[];
+  sourceNote?: string;
 };
 
 export type BibleStudyGroup = {
@@ -52,6 +75,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "Character of God",
     summary: "Explore what God reveals about His character and learn how those truths shape the way we understand Him.",
     group: "foundations-themes",
+    href: "/bible-studies/character-of-god",
   },
   {
     slug: "all-about-creation",
@@ -126,3 +150,58 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     group: "fce-tracks",
   },
 ];
+
+const characterOfGodLessons: BibleStudyLessonSummary[] = [
+  {
+    slug: "character-of-god-in-exodus",
+    title: "The Character of God in Exodus",
+    summary: "Begin with Exodus 34:6–7, where God reveals the character traits that form the foundation of this series.",
+  },
+  {
+    slug: "compassion",
+    title: "Compassion",
+    summary: "Learning about God’s compassion, or Rachamim (רַחֲמִים).",
+  },
+  {
+    slug: "grace",
+    title: "Grace",
+    summary: "Learning about God’s grace through the Hebrew words khanun and khen.",
+  },
+  {
+    slug: "slow-to-anger",
+    title: "Slow to Anger",
+    summary: "Learning what Scripture means when God is described as ’erek ’apayim—slow to anger.",
+  },
+  {
+    slug: "loyal-love",
+    title: "Loyal Love",
+    summary: "Learning about God’s loyal love, or khesed.",
+  },
+  {
+    slug: "faithful",
+    title: "Faithful",
+    summary: "Learning about God’s faithfulness, or emet.",
+  },
+];
+
+export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
+  {
+    slug: "character-of-god",
+    title: "Character of God",
+    introduction:
+      "Centered on Exodus 34:6–7, this series explores five characteristics God reveals about Himself—compassion, grace, patience, loyal love, and faithfulness—and follows those truths through the biblical story.",
+    pastorIntroduction: {
+      title: "A Personal Introduction from Pastor Richard",
+      excerpt:
+        "Knowing the character of God provides the foundation for a deeper and more stable relationship with Him. This study is designed to help you move beyond simply knowing about God and grow in knowing Him through what He has revealed in Scripture.",
+      imageSrc: "/images/pastor-richard.png",
+    },
+    lessons: characterOfGodLessons,
+    sourceNote:
+      "Some teaching resources in this series are provided by BibleProject. Ownership and attribution will appear with each third-party resource on the individual study pages.",
+  },
+];
+
+export function getBibleStudySeriesDetail(slug: string) {
+  return bibleStudySeriesDetails.find((series) => series.slug === slug);
+}
