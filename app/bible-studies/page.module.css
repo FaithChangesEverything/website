@@ -134,7 +134,9 @@
 }
 
 .seriesArtwork {
-  min-height: 205px;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   display: grid;
   place-items: center;
   padding: 24px;
@@ -146,6 +148,10 @@
   font-size: .84rem;
   font-weight: 700;
   letter-spacing: .025em;
+}
+
+.seriesArtwork img {
+  object-fit: cover;
 }
 
 .seriesCardBody {
@@ -257,10 +263,6 @@
 
   .seriesGrid {
     grid-template-columns: 1fr;
-  }
-
-  .seriesArtwork {
-    min-height: 180px;
   }
 }
 
