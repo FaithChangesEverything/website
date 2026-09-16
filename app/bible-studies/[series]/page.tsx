@@ -57,7 +57,7 @@ export default async function BibleStudySeriesPage({
           title={series.pastorIntroduction.title}
           excerpt={series.pastorIntroduction.excerpt}
           imageSrc={series.pastorIntroduction.imageSrc}
-          videoHref={series.pastorIntroduction.videoHref}
+          videoEmbedUrl={series.pastorIntroduction.videoEmbedUrl}
         />
 
         <section className={styles.studiesSection} aria-labelledby="series-studies-title">

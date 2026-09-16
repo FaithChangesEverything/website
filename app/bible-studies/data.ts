@@ -31,7 +31,7 @@ export type BibleStudySeriesDetail = {
     title: string;
     excerpt: string;
     imageSrc: string;
-    videoHref?: string;
+    videoEmbedUrl?: string;
   };
   lessons: BibleStudyLessonSummary[];
   sourceNote?: string;
@@ -195,6 +195,8 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
       excerpt:
         "Knowing the character of God provides the foundation for a deeper and more stable relationship with Him. This study is designed to help you move beyond simply knowing about God and grow in knowing Him through what He has revealed in Scripture.",
       imageSrc: "/images/pastor-richard.png",
+      videoEmbedUrl:
+        "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/51bacf0888847506af85d4a1c813d9a7/iframe",
     },
     lessons: characterOfGodLessons,
     sourceNote:
