@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           <p className={styles.heroLead}>
             We believe privacy is part of treating people with care and respect. Our goal is to collect as little personal information as reasonably possible while providing a useful, secure, and trustworthy ministry website.
           </p>
-          <p className={styles.updated}>Last Updated: September 14, 2026</p>
+          <p className={styles.updated}>Last Updated: September 16, 2026</p>
         </div>
       </section>
 
@@ -113,13 +113,13 @@ export default function PrivacyPage() {
 
           <section id="media" className={styles.policySection}>
             <h2>7. Video and Media</h2>
-            <p>FCE may use <strong>Cloudflare Stream</strong> to deliver video content directly through the website. Cloudflare may process technical information necessary to transmit and operate video services.</p>
+            <p>FCE uses <strong>Cloudflare Stream</strong> to deliver video content directly through the website. Cloudflare may process technical information necessary to transmit and operate video services.</p>
             <p>FCE may also provide links to external services such as YouTube, Spotify, Apple Music, Amazon Music, and other third-party websites. If you choose to visit an external service, that service&apos;s own privacy policy and terms apply. FCE does not control the privacy practices of third-party websites.</p>
           </section>
 
           <section id="service-providers" className={styles.policySection}>
             <h2>8. Website Hosting, Security, and Service Providers</h2>
-            <p>FCE uses third-party service providers to operate and protect the website. These currently include Vercel for website hosting and delivery, Cloudflare for website infrastructure and security, Supabase for protected database functionality, and Google Maps Platform for church-location searches. Cloudflare Web Analytics and Cloudflare Stream are described separately above and apply when those services are enabled.</p>
+            <p>FCE uses third-party service providers to operate and protect the website. These currently include Vercel for website hosting and delivery, Cloudflare for website infrastructure, security, and video delivery through Cloudflare Stream, Supabase for protected database functionality, and Google Maps Platform for church-location searches. Cloudflare Web Analytics is described separately above and has not yet been enabled.</p>
             <p>These providers may process limited technical information necessary to provide their services, such as IP addresses, browser or device information, request logs, security information, and performance information.</p>
             <p>FCE seeks to configure these services using privacy-conscious and secure settings and limits the information provided to third parties to what is reasonably necessary for the service being used.</p>
           </section>
