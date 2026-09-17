@@ -133,49 +133,19 @@
   box-shadow: 0 14px 34px rgba(7, 18, 38, .08);
 }
 
-.seriesArtwork,
-.seriesArtworkPlaceholder {
+.seriesArtwork {
+  position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
   flex: 0 0 auto;
+  overflow: hidden;
+  background: #e9e5dc;
 }
 
-.seriesArtwork {
-  background-image: url('/images/bible-studies/page1-card-sprite.jpg');
-  background-repeat: no-repeat;
-  background-size: 400% 400%;
+.seriesArtwork img {
+  object-fit: cover;
+  display: block;
 }
-
-.seriesArtworkPlaceholder {
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background:
-    linear-gradient(145deg, rgba(7, 18, 38, .96), rgba(23, 52, 86, .9)),
-    radial-gradient(circle at 75% 22%, rgba(201, 162, 77, .28), transparent 28%);
-  color: rgba(255, 255, 255, .72);
-  text-align: center;
-  font-size: .84rem;
-  font-weight: 700;
-  letter-spacing: .025em;
-}
-
-.artCharacterOfGod { background-position: 0% 0%; }
-.artAllAboutCreation { background-position: 33.333333% 0%; }
-.artHowToReadTheBible { background-position: 66.666667% 0%; }
-.artHowToStudyTheBible { background-position: 100% 0%; }
-
-.artSermonOnTheMount { background-position: 0% 33.333333%; }
-.artSermonOnTheMountVisualCommentaries { background-position: 33.333333% 33.333333%; }
-.artBiblicalThemes { background-position: 66.666667% 33.333333%; }
-.artTenCommandments { background-position: 100% 33.333333%; }
-
-.artOldTestament { background-position: 0% 66.666667%; }
-.artNewTestament { background-position: 33.333333% 66.666667%; }
-.artFceBeginner { background-position: 66.666667% 66.666667%; }
-.artFceIntermediate { background-position: 100% 66.666667%; }
-
-.artFceAdvanced { background-position: 0% 100%; }
 
 .seriesCardBody {
   flex: 1;
