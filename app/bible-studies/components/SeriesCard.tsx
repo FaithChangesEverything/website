@@ -4,19 +4,17 @@ import styles from "../page.module.css";
 import type { BibleStudySeriesSummary } from "../data";
 
 export default function SeriesCard({ series }: { series: BibleStudySeriesSummary }) {
+  const imageSrc = series.imageSrc ?? `/images/bible-studies/page1/${series.slug}.jpg`;
+
   return (
     <article className={styles.seriesCard}>
       <div className={styles.seriesArtwork}>
-        {series.imageSrc ? (
-          <Image
-            src={series.imageSrc}
-            alt={series.imageAlt ?? `${series.title} Bible study series`}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
-          />
-        ) : (
-          <span>Approved series image will appear here</span>
-        )}
+        <Image
+          src={imageSrc}
+          alt={series.imageAlt ?? `${series.title} Bible study series artwork`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
+        />
       </div>
 
       <div className={styles.seriesCardBody}>
