@@ -435,8 +435,54 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "faithful",
     title: "Faithful",
     summary: "Learning about God’s faithfulness, or emet.",
+    primaryScripture: "Exodus 34:6",
+    href: "/bible-studies/character-of-god/faithful",
     imageSrc: "/images/bible-studies/character-of-god/faithful.jpg",
     imageAlt: "A faithful shepherd watching over sheep at sunset",
+    video: {
+      title: "Emet / Faithfulness",
+      description:
+        "Explore the Hebrew word emet and see how Scripture reveals God as faithful, reliable, and worthy of our trust.",
+      href: "https://bibleproject.com/videos/faithful/",
+      streamSrc:
+        "https://stream.mux.com/gmD02AQLqIQ008hWiZiSn5p00teQKSEWtz5E01myRidVEjY/high.mp4?download=emet-faithfulness.mp4",
+      endPosterSrc:
+        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/faithful/06-img-2026-00096-cog-faithful-poster.png",
+      endPosterAlt: "BibleProject Character of God Faithful study poster",
+      ownerName: "BibleProject",
+      ownerUrl: "https://bibleproject.com/",
+      attribution: "BibleProject is the author and owner of this video.",
+    },
+    resourcesOwnerName: "BibleProject",
+    resourcesOwnerUrl: "https://bibleproject.com/",
+    resourcesAttribution:
+      "BibleProject is the author and owner of these resources. These materials are provided in their original, unaltered form.",
+    resources: [
+      {
+        title: "Video Transcript",
+        description:
+          "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/faithful/06-doc-2026-00074-cog-faithful-script.pdf",
+        actionLabel: "Open Transcript",
+      },
+      {
+        title: "Study Poster",
+        description:
+          "Open the original visual summary that accompanies this BibleProject lesson on God’s faithfulness.",
+        href:
+          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/faithful/06-img-2026-00096-cog-faithful-poster.png",
+        actionLabel: "Open Poster",
+      },
+      {
+        title: "Study Guide",
+        description:
+          "Go deeper into the biblical language, passages, and themes developed in the teaching on God’s faithfulness.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/faithful/06-doc-2026-00174-cog-faithful-studyguide.pdf",
+        actionLabel: "Open Study Guide",
+      },
+    ],
   },
 ];
 
