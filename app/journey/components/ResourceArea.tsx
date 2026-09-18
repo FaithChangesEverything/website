@@ -1,9 +1,12 @@
 import type {
   JourneyResourceReference,
-  ResolvedResource,
   ResourceCategory,
 } from "../resources/types";
 import { getResourceById } from "../resources/resourceRegistry";
+import {
+  getPublishedStepResourceAssignments,
+  type JourneyStepId,
+} from "../resources/stepResourceAssignments";
 import styles from "./ResourceArea.module.css";
 
 const categoryHeadings: Record<ResourceCategory, string> = {
@@ -17,29 +20,39 @@ const categoryHeadings: Record<ResourceCategory, string> = {
   "additional-resource": "Additional Ministry Resource",
 };
 
-type ResolvedCard = {
-  reference: JourneyResourceReference;
-  resource: ResolvedResource;
-};
-
 interface ResourceAreaProps {
   resources: JourneyResourceReference[];
   heading?: string;
   introduction?: string;
 }
 
-interface ResourceAreaPreviewProps {
-  items: ResolvedCard[];
+interface JourneyStepResourceAreaProps {
+  stepId: JourneyStepId;
   heading?: string;
   introduction?: string;
 }
 
-function ResourceAreaLayout({
-  items,
+export default function ResourceArea({
+  resources,
   heading = "Continue Your Journey",
   introduction,
-}: ResourceAreaPreviewProps) {
-  if (items.length === 0) return null;
+}: ResourceAreaProps) {
+  const resolved = resources.flatMap((reference) => {
+    const resource = getResourceById(reference.id);
+
+    if (!resource) {
+      if (process.env.NODE_ENV !== "production") {
+        console.warn(
+          `[J2H ResourceArea] No verified registry record found for ${reference.id}.`,
+        );
+      }
+      return [];
+    }
+
+    return [{ reference, resource }];
+  });
+
+  if (resolved.length === 0) return null;
 
   return (
     <section className={styles.area} aria-labelledby="j2h-resource-heading">
@@ -50,7 +63,7 @@ function ResourceAreaLayout({
       </div>
 
       <div className={styles.grid}>
-        {items.map(({ reference, resource }) => (
+        {resolved.map(({ reference, resource }) => (
           <article
             className={styles.card}
             key={`${reference.category}-${reference.id}`}
@@ -76,48 +89,14 @@ function ResourceAreaLayout({
   );
 }
 
-export default function ResourceArea({
-  resources,
+export function JourneyStepResourceArea({
+  stepId,
   heading,
   introduction,
-}: ResourceAreaProps) {
-  const resolved = resources.flatMap((reference) => {
-    const resource = getResourceById(reference.id);
-
-    if (!resource) {
-      if (process.env.NODE_ENV !== "production") {
-        console.warn(
-          `[J2H ResourceArea] No verified registry record found for ${reference.id}.`,
-        );
-      }
-      return [];
-    }
-
-    return [{ reference, resource }];
-  });
-
+}: JourneyStepResourceAreaProps) {
   return (
-    <ResourceAreaLayout
-      items={resolved}
-      heading={heading}
-      introduction={introduction}
-    />
-  );
-}
-
-/**
- * Temporary reconciliation-preview helper.
- * It renders through the same presentation layer without adding preview-only
- * records to the production resource registry.
- */
-export function ResourceAreaPreview({
-  items,
-  heading,
-  introduction,
-}: ResourceAreaPreviewProps) {
-  return (
-    <ResourceAreaLayout
-      items={items}
+    <ResourceArea
+      resources={getPublishedStepResourceAssignments(stepId)}
       heading={heading}
       introduction={introduction}
     />

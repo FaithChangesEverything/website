@@ -118,8 +118,33 @@ export const stepResourceAssignments: Record<
   ],
 };
 
+const publishedStepResourceAssignments: Record<
+  JourneyStepId,
+  JourneyResourceReference[]
+> = {
+  "step-1": [
+    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
+    {
+      id: "j2h-find-a-church",
+      type: "ministry",
+      category: "additional-resource",
+    },
+  ],
+  "step-2": [],
+  "step-3": [],
+  "step-4": [],
+  "step-5": [],
+  "step-6": [],
+};
+
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
   return stepResourceAssignments[stepId];
+}
+
+export function getPublishedStepResourceAssignments(
+  stepId: JourneyStepId,
+): JourneyResourceReference[] {
+  return publishedStepResourceAssignments[stepId];
 }

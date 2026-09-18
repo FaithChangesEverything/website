@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
+import { JourneyStepResourceArea } from "../../components/ResourceArea";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
@@ -99,6 +100,35 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       <PastorLetter stepNumber={stepNumber} lessonId={lesson.id} title={lesson.title} lessons={step.lessons}>
         <p>The approved Pastor Letter manuscript for this Step will be integrated here from the authoritative Doctrine during content implementation.</p>
       </PastorLetter>
+    );
+  }
+
+  if (lesson.id === "1.g") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.g"
+        title="Continue Your Journey"
+        lessons={step.lessons}
+        intro="As you continue growing in your faith, you may find these additional resources helpful."
+      >
+        <LessonBlock title="Continue Exploring" icon="→" tone="highlight">
+          <p>Wherever you are on your spiritual journey, there is always another step to take. Choose the next area that best fits where you are today.</p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/journey/step-2">Learn About Salvation</Link>
+            <Link href="/journey/step-3">Know the Heart of God</Link>
+            <Link href="/journey/step-4">Grow Your Faith</Link>
+            <Link href="/journey/step-5">Walk Through a Difficult Season</Link>
+            <Link href="/prayer">Request Prayer</Link>
+          </div>
+        </LessonBlock>
+
+        <JourneyStepResourceArea
+          stepId="step-1"
+          heading="Resources to Help You Keep Going"
+          introduction="These current Faith Changes Everything resources are available to support you as you take your next step."
+        />
+      </IndividualLesson>
     );
   }
 
