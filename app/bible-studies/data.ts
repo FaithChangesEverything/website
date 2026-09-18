@@ -27,6 +27,7 @@ export type BibleStudyLessonSummary = {
   slug: string;
   title: string;
   summary: string;
+  primaryScripture?: string;
   href?: string;
   imageSrc?: string;
   imageAlt?: string;
@@ -180,6 +181,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "character-of-god-in-exodus",
     title: "The Character of God in Exodus",
     summary: "Begin with Exodus 34:6–7, where God reveals the character traits that form the foundation of this series.",
+    primaryScripture: "Exodus 34:6–7",
     href: "/bible-studies/character-of-god/character-of-god-in-exodus",
     imageSrc: "/images/bible-studies/character-of-god/the-character-of-god-in-exodus.jpg",
     imageAlt: "Moses before Mount Sinai beneath radiant light",
@@ -221,8 +223,54 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "compassion",
     title: "Compassion",
     summary: "Learning about God’s compassion, or Rachamim (רַחֲמִים).",
+    primaryScripture: "Exodus 34:6",
+    href: "/bible-studies/character-of-god/compassion",
     imageSrc: "/images/bible-studies/character-of-god/compassion.jpg",
     imageAlt: "Jesus showing compassion to a person in need",
+    video: {
+      title: "Rakhamim / Compassion",
+      description:
+        "Explore the Hebrew word for compassion and see how God’s deep care moves Him to act throughout Scripture and is embodied in Jesus.",
+      href: "https://bibleproject.com/videos/character-of-god-compassion/",
+      streamSrc:
+        "https://stream.mux.com/JpuAhWojl2jdvdmGRvMrUnS9NDB1JA8RuoVNw1z4xJk/high.mp4",
+      endPosterSrc:
+        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/compassion/compassion-poster.png",
+      endPosterAlt: "BibleProject Character of God Compassion study poster",
+      ownerName: "BibleProject",
+      ownerUrl: "https://bibleproject.com/",
+      attribution: "BibleProject is the author and owner of this video.",
+    },
+    resourcesOwnerName: "BibleProject",
+    resourcesOwnerUrl: "https://bibleproject.com/",
+    resourcesAttribution:
+      "BibleProject is the author and owner of these resources. These materials are provided in their original, unaltered form.",
+    resources: [
+      {
+        title: "Video Transcript",
+        description:
+          "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/compassion/02-doc-cog-compassion-script.pdf",
+        actionLabel: "Open Transcript",
+      },
+      {
+        title: "Study Poster",
+        description:
+          "Open the original visual summary that accompanies this BibleProject lesson on God’s compassion.",
+        href:
+          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/compassion/compassion-poster.png",
+        actionLabel: "Open Poster",
+      },
+      {
+        title: "Study Guide",
+        description:
+          "Go deeper into the biblical language, passages, and themes developed in the teaching on God’s compassion.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/compassion/02-doc-cog-compassion-studyguide.pdf",
+        actionLabel: "Open Study Guide",
+      },
+    ],
   },
   {
     slug: "grace",
