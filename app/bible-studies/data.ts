@@ -235,7 +235,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
       streamSrc:
         "https://stream.mux.com/JpuAhWojl2jdvdmGRvMrUnS9NDB1JA8RuoVNw1z4xJk/high.mp4",
       endPosterSrc:
-        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/compassion/compassion-poster.png",
+        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/compassion/02-img-2026-00092-cog-compassion-poster.png",
       endPosterAlt: "BibleProject Character of God Compassion study poster",
       ownerName: "BibleProject",
       ownerUrl: "https://bibleproject.com/",
@@ -251,7 +251,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
         description:
           "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
         href:
-          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/compassion/02-doc-cog-compassion-script.pdf",
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/compassion/02-doc-2026-00070-cog-compassion-script.pdf",
         actionLabel: "Open Transcript",
       },
       {
@@ -267,7 +267,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
         description:
           "Go deeper into the biblical language, passages, and themes developed in the teaching on God’s compassion.",
         href:
-          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/compassion/02-doc-cog-compassion-studyguide.pdf",
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/compassion/02-doc-2026-00071-cog-compassion-studyguide.pdf",
         actionLabel: "Open Study Guide",
       },
     ],
