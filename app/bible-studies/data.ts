@@ -156,31 +156,43 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "character-of-god-in-exodus",
     title: "The Character of God in Exodus",
     summary: "Begin with Exodus 34:6–7, where God reveals the character traits that form the foundation of this series.",
+    imageSrc: "/images/bible-studies/character-of-god/the-character-of-god-in-exodus.jpg",
+    imageAlt: "Moses before Mount Sinai beneath radiant light",
   },
   {
     slug: "compassion",
     title: "Compassion",
     summary: "Learning about God’s compassion, or Rachamim (רַחֲמִים).",
+    imageSrc: "/images/bible-studies/character-of-god/compassion.jpg",
+    imageAlt: "Jesus showing compassion to a person in need",
   },
   {
     slug: "grace",
     title: "Grace",
     summary: "Learning about God’s grace through the Hebrew words khanun and khen.",
+    imageSrc: "/images/bible-studies/character-of-god/grace.jpg",
+    imageAlt: "Jesus extending a helping hand in grace",
   },
   {
     slug: "slow-to-anger",
     title: "Slow to Anger",
     summary: "Learning what Scripture means when God is described as ’erek ’apayim—slow to anger.",
+    imageSrc: "/images/bible-studies/character-of-god/slow-to-anger.jpg",
+    imageAlt: "Jesus responding calmly during a tense confrontation",
   },
   {
     slug: "loyal-love",
     title: "Loyal Love",
     summary: "Learning about God’s loyal love, or khesed.",
+    imageSrc: "/images/bible-studies/character-of-god/loyal-love.jpg",
+    imageAlt: "Jesus surrounded by a family in warm evening light",
   },
   {
     slug: "faithful",
     title: "Faithful",
     summary: "Learning about God’s faithfulness, or emet.",
+    imageSrc: "/images/bible-studies/character-of-god/faithful.jpg",
+    imageAlt: "A faithful shepherd watching over sheep at sunset",
   },
 ];
 
