@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "../series-page.module.css";
 
 export default function BibleStudySeriesHeader({ title }: { title: string }) {
@@ -14,8 +15,14 @@ export default function BibleStudySeriesHeader({ title }: { title: string }) {
           <h1 id="bible-study-series-title">{title}</h1>
         </div>
 
-        <div className={styles.seriesHeroArtwork} aria-label="Open Bible and lighthouse artwork placeholder">
-          <span>Approved open Bible + lighthouse artwork will appear here</span>
+        <div className={styles.seriesHeroArtwork}>
+          <Image
+            src="/images/bible-studies/character-of-god/character-of-god-series-header.jpg"
+            alt="Open Bible beside the sea with a lighthouse shining in the distance"
+            fill
+            priority
+            sizes="(max-width: 720px) 100vw, 40vw"
+          />
         </div>
       </div>
     </section>
