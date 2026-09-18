@@ -4,8 +4,13 @@ export default function BibleStudySeriesHeader({ title }: { title: string }) {
   return (
     <section className={styles.seriesHero} aria-labelledby="bible-study-series-title">
       <div className={styles.seriesHeroInner}>
+        <div className={styles.seriesIdentity} aria-label="FCE Bible Study">
+          <span>FCE</span>
+          <strong>Bible Study</strong>
+        </div>
+
         <div className={styles.seriesHeroCopy}>
-          <p className={styles.seriesEyebrow}>FCE BIBLE STUDY</p>
+          <p className={styles.seriesEyebrow}>BIBLE STUDY SERIES</p>
           <h1 id="bible-study-series-title">{title}</h1>
         </div>
 
