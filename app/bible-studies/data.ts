@@ -15,6 +15,9 @@ export type BibleStudyLessonVideo = {
   title: string;
   description: string;
   href?: string;
+  streamSrc?: string;
+  endPosterSrc?: string;
+  endPosterAlt?: string;
   ownerName?: string;
   ownerUrl?: string;
   attribution?: string;
@@ -185,6 +188,8 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
       description:
         "Watch the primary teaching for this study and explore the passage that introduces the character traits developed throughout the series.",
       href: "https://bibleproject.com/videos/character-of-god-exodus/",
+      streamSrc:
+        "https://stream.mux.com/uT027UvyOqrajQXVB00DVN73NYfkwm9PO7nbLkrbXYkMI/high.mp4",
       ownerName: "BibleProject",
       ownerUrl: "https://bibleproject.com/",
       attribution: "BibleProject is the author and owner of this video.",
