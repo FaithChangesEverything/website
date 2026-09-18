@@ -244,6 +244,23 @@
   margin: 0;
 }
 
+.attribution a {
+  color: #173c63;
+  font-weight: 850;
+  text-underline-offset: 2px;
+}
+
+.attribution a:hover,
+.attribution a:focus-visible {
+  color: #204f80;
+}
+
+.attribution a:focus-visible {
+  outline: 3px solid #c9a24d;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
 .resourcesSection {
   margin-top: 68px;
 }
