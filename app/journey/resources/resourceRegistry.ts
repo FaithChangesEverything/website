@@ -3,28 +3,21 @@ import type { ResolvedResource, ResourceId } from "./types";
 /**
  * Journey to Hope resource-resolution registry.
  *
- * Only verified current FCE destinations belong here. Legacy destinations
- * remain excluded until they are intentionally republished on the current
- * website.
+ * The step assignment files carry the authoritative FCE resource IDs.
+ * A card becomes visitor-facing only after that ID has a current verified
+ * destination here. This keeps Journey pages stable while downstream FCE
+ * libraries are built.
  */
 const resourceRegistry: Record<ResourceId, ResolvedResource> = {
-  "j2h-prayer-support": {
-    id: "j2h-prayer-support",
-    type: "prayer",
-    title: "Prayer Support",
-    description:
-      "If you'd like someone to pray with you as you continue your journey, we'd be honored to pray for you.",
-    href: "/prayer",
-    actionLabel: "Submit a Prayer Request",
-  },
-  "j2h-find-a-church": {
-    id: "j2h-find-a-church",
+  "external-tim-mackie-living-hope": {
+    id: "external-tim-mackie-living-hope",
     type: "ministry",
-    title: "Find a Church Home",
+    title: "A Living Hope - Living in the Light of the Resurrection",
     description:
-      "Learn what to look for in a healthy, Bible-believing church and search for churches near you.",
-    href: "/find-a-church",
-    actionLabel: "Find a Church Home",
+      "A teaching from Tim Mackie offered as an additional ministry resource for further study.",
+    href: "https://www.youtube.com/watch?v=rXs-w1gjmL8&t=1s",
+    actionLabel: "Watch the Resource",
+    external: true,
   },
 };
 

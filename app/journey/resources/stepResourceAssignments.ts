@@ -24,12 +24,22 @@ export const stepResourceAssignments: Record<
     { id: "song-2026-0009", type: "song", category: "related-song" },
     { id: "song-2026-0008", type: "song", category: "related-song" },
     { id: "song-2026-0012", type: "song", category: "related-song" },
-    { id: "ser-2026-0003", type: "sermon", category: "related-sermon" },
-    { id: "ser-2026-0007", type: "sermon", category: "related-sermon" },
-    { id: "vid-2026-00182", type: "video", category: "testimony" },
-    { id: "vid-2026-00027", type: "video", category: "related-video" },
-    { id: "vid-2026-00044", type: "video", category: "related-video" },
-    { id: "doc-2026-00017", type: "document", category: "bible-study" },
+    { id: "vid-2026-00184", type: "video", category: "related-sermon" },
+    { id: "vid-2026-00188", type: "video", category: "related-sermon" },
+    { id: "vid-2026-00182", type: "video", category: "related-sermon" },
+    { id: "vid-2026-00027", type: "video", category: "companion-resource" },
+    { id: "vid-2026-00044", type: "video", category: "companion-resource" },
+    {
+      id: "doc-2026-00017",
+      type: "document",
+      category: "companion-resource",
+      label: "How to Study the Bible",
+    },
+    {
+      id: "external-tim-mackie-living-hope",
+      type: "ministry",
+      category: "additional-resource",
+    },
   ],
 
   "step-2": [
@@ -118,33 +128,8 @@ export const stepResourceAssignments: Record<
   ],
 };
 
-const publishedStepResourceAssignments: Record<
-  JourneyStepId,
-  JourneyResourceReference[]
-> = {
-  "step-1": [
-    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
-    {
-      id: "j2h-find-a-church",
-      type: "ministry",
-      category: "additional-resource",
-    },
-  ],
-  "step-2": [],
-  "step-3": [],
-  "step-4": [],
-  "step-5": [],
-  "step-6": [],
-};
-
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
   return stepResourceAssignments[stepId];
-}
-
-export function getPublishedStepResourceAssignments(
-  stepId: JourneyStepId,
-): JourneyResourceReference[] {
-  return publishedStepResourceAssignments[stepId];
 }

@@ -4,7 +4,7 @@ import type {
 } from "../resources/types";
 import { getResourceById } from "../resources/resourceRegistry";
 import {
-  getPublishedStepResourceAssignments,
+  getStepResourceAssignments,
   type JourneyStepId,
 } from "../resources/stepResourceAssignments";
 import styles from "./ResourceArea.module.css";
@@ -96,7 +96,7 @@ export function JourneyStepResourceArea({
 }: JourneyStepResourceAreaProps) {
   return (
     <ResourceArea
-      resources={getPublishedStepResourceAssignments(stepId)}
+      resources={getStepResourceAssignments(stepId)}
       heading={heading}
       introduction={introduction}
     />
