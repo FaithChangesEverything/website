@@ -276,8 +276,54 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "grace",
     title: "Grace",
     summary: "Learning about God’s grace through the Hebrew words khanun and khen.",
+    primaryScripture: "Exodus 34:6",
+    href: "/bible-studies/character-of-god/grace",
     imageSrc: "/images/bible-studies/character-of-god/grace.jpg",
     imageAlt: "Jesus extending a helping hand in grace",
+    video: {
+      title: "Khen / Grace",
+      description:
+        "Explore the Hebrew words khanun and khen and see how Scripture reveals God as gracious, generous, and full of undeserved favor.",
+      href: "https://bibleproject.com/videos/character-of-god-grace/",
+      streamSrc:
+        "https://stream.mux.com/Tkl7o1XsC5oPuOUD4eXjzBCkh6KwagG9XQJsjM01300eo/high.mp4?download=khen-grace.mp4",
+      endPosterSrc:
+        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/grace/03-img-2026-00093-cog-grace-poster.png",
+      endPosterAlt: "BibleProject Character of God Grace study poster",
+      ownerName: "BibleProject",
+      ownerUrl: "https://bibleproject.com/",
+      attribution: "BibleProject is the author and owner of this video.",
+    },
+    resourcesOwnerName: "BibleProject",
+    resourcesOwnerUrl: "https://bibleproject.com/",
+    resourcesAttribution:
+      "BibleProject is the author and owner of these resources. These materials are provided in their original, unaltered form.",
+    resources: [
+      {
+        title: "Video Transcript",
+        description:
+          "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/grace/03-doc-2026-00071-cog-grace-script.pdf",
+        actionLabel: "Open Transcript",
+      },
+      {
+        title: "Study Poster",
+        description:
+          "Open the original visual summary that accompanies this BibleProject lesson on God’s grace.",
+        href:
+          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/grace/03-img-2026-00093-cog-grace-poster.png",
+        actionLabel: "Open Poster",
+      },
+      {
+        title: "Study Guide",
+        description:
+          "Go deeper into the biblical language, passages, and themes developed in the teaching on God’s grace.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/grace/03-doc-2026-00173-cog-grace-studyguide.pdf",
+        actionLabel: "Open Study Guide",
+      },
+    ],
   },
   {
     slug: "slow-to-anger",
