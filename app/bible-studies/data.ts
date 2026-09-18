@@ -184,6 +184,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
       title: "Exodus 34:6–7",
       description:
         "Watch the primary teaching for this study and explore the passage that introduces the character traits developed throughout the series.",
+      href: "https://bibleproject.com/videos/character-of-god-exodus/",
       ownerName: "BibleProject",
       ownerUrl: "https://bibleproject.com/",
       attribution: "BibleProject is the author and owner of this video.",
@@ -197,12 +198,16 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
         title: "Video Transcript",
         description:
           "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/character-of-god-in-exodus/01-doc-2026-00075-cog-exodus-script.pdf",
         actionLabel: "Open Transcript",
       },
       {
         title: "Study Guide",
         description:
           "Go deeper into Exodus 34:6–7 with companion notes and study material that expand on the passage and its biblical context.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/character-of-god-in-exodus/01-doc-2026-00076-cog-exodus-studyguide.pdf",
         actionLabel: "Open Study Guide",
       },
     ],
