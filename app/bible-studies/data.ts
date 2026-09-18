@@ -16,6 +16,7 @@ export type BibleStudyLessonVideo = {
   description: string;
   href?: string;
   ownerName?: string;
+  ownerUrl?: string;
   attribution?: string;
 };
 
@@ -28,6 +29,9 @@ export type BibleStudyLessonSummary = {
   imageAlt?: string;
   video?: BibleStudyLessonVideo;
   resources?: BibleStudyLessonResource[];
+  resourcesOwnerName?: string;
+  resourcesOwnerUrl?: string;
+  resourcesAttribution?: string;
 };
 
 export type BibleStudySeriesSummary = {
@@ -181,9 +185,13 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
       description:
         "Watch the primary teaching for this study and explore the passage that introduces the character traits developed throughout the series.",
       ownerName: "BibleProject",
-      attribution:
-        "This teaching resource is owned by BibleProject. Faith Changes Everything will link to the approved official source rather than rehosting or altering the video.",
+      ownerUrl: "https://bibleproject.com/",
+      attribution: "BibleProject is the author and owner of this video.",
     },
+    resourcesOwnerName: "BibleProject",
+    resourcesOwnerUrl: "https://bibleproject.com/",
+    resourcesAttribution:
+      "BibleProject is the author and owner of these resources. These materials are provided in their original, unaltered form.",
     resources: [
       {
         title: "Video Transcript",
