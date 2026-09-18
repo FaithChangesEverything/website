@@ -479,7 +479,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
         description:
           "Go deeper into the biblical language, passages, and themes developed in the teaching on God’s faithfulness.",
         href:
-          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/faithful/06-doc-2026-00174-cog-faithful-studyguide.pdf",
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/faithful/06-doc-2026-00176-cog-faithful-studyguide.pdf",
         actionLabel: "Open Study Guide",
       },
     ],
