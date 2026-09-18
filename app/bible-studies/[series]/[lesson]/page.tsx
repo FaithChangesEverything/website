@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import BibleProjectVideoPlayer from "../../components/BibleProjectVideoPlayer";
 import { bibleStudySeriesDetails, getBibleStudySeriesDetail } from "../../data";
 import styles from "../../lesson-page.module.css";
 
@@ -91,36 +92,42 @@ export default async function BibleStudyLessonPage({
             <p>{lesson.video?.description ?? "The primary teaching video for this lesson will appear here."}</p>
           </div>
 
-          <div className={styles.videoPanel}>
-            {lesson.imageSrc && (
-              <Image
-                src={lesson.imageSrc}
-                alt=""
-                fill
-                sizes="(max-width: 760px) 100vw, 900px"
-                className={styles.videoBackdrop}
-              />
-            )}
-            <div className={styles.videoOverlay} />
-            <div className={styles.videoAction}>
-              <span className={styles.playIcon} aria-hidden="true">▶</span>
-              <strong>{lesson.video?.href ? "Watch Teaching Video" : "Teaching Video Link Coming Next"}</strong>
-              <span>
-                {lesson.video?.href
-                  ? "Open the official teaching video."
-                  : "The approved official video source will be connected here."}
-              </span>
-            </div>
-          </div>
-
-          {lesson.video?.href ? (
-            <a className={styles.primaryButton} href={lesson.video.href} target="_blank" rel="noreferrer">
-              Watch Video <span aria-hidden="true">→</span>
-            </a>
+          {lesson.imageSrc && lesson.video?.streamSrc ? (
+            <BibleProjectVideoPlayer
+              title={lesson.video.title}
+              imageSrc={lesson.imageSrc}
+              imageAlt={lesson.imageAlt ?? ""}
+              streamSrc={lesson.video.streamSrc}
+              endPosterSrc={lesson.video.endPosterSrc}
+              endPosterAlt={lesson.video.endPosterAlt}
+            />
           ) : (
-            <span className={`${styles.primaryButton} ${styles.disabledButton}`} aria-disabled="true">
-              Watch Video <span aria-hidden="true">→</span>
-            </span>
+            <div className={styles.videoPanel}>
+              {lesson.imageSrc && (
+                <Image
+                  src={lesson.imageSrc}
+                  alt=""
+                  fill
+                  sizes="(max-width: 760px) 100vw, 900px"
+                  className={styles.videoBackdrop}
+                />
+              )}
+              <div className={styles.videoOverlay} />
+              <div className={styles.videoAction}>
+                <span className={styles.playIcon} aria-hidden="true">▶</span>
+                <strong>Teaching Video Coming Soon</strong>
+                <span>The approved teaching video source will be connected here.</span>
+              </div>
+            </div>
+          )}
+
+          {lesson.video?.href && (
+            <div className={styles.externalVideoRow}>
+              <p>Prefer to watch this video on BibleProject&apos;s website?</p>
+              <a className={styles.primaryButton} href={lesson.video.href} target="_blank" rel="noreferrer">
+                Watch on BibleProject <span aria-hidden="true">→</span>
+              </a>
+            </div>
           )}
 
           {lesson.video?.attribution && (
