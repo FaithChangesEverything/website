@@ -70,20 +70,18 @@
 }
 
 .seriesHeroArtwork {
+  position: relative;
   min-height: 235px;
-  display: grid;
-  place-items: center;
-  padding: 30px;
+  overflow: hidden;
   border-radius: 22px;
   border: 1px solid rgba(16, 44, 80, .14);
-  background:
-    radial-gradient(circle at 72% 34%, rgba(201, 162, 77, .26), transparent 34%),
-    linear-gradient(145deg, #102c50, #071226 72%);
+  background: #102c50;
   box-shadow: 0 18px 42px rgba(7, 18, 38, .12);
-  color: rgba(255, 255, 255, .75);
-  text-align: center;
-  font-size: .88rem;
-  font-weight: 800;
+}
+
+.seriesHeroArtwork img {
+  object-fit: cover;
+  object-position: center;
 }
 
 .content {
