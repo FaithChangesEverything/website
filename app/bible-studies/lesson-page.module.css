@@ -245,14 +245,15 @@
 }
 
 .attribution a {
-  color: #173c63;
+  color: #0b5ed7;
   font-weight: 850;
+  text-decoration-thickness: 2px;
   text-underline-offset: 2px;
 }
 
 .attribution a:hover,
 .attribution a:focus-visible {
-  color: #204f80;
+  color: #084298;
 }
 
 .attribution a:focus-visible {
