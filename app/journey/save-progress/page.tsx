@@ -1,21 +1,48 @@
 import Link from "next/link";
 import { JourneyFrame } from "../components/JourneyShell";
+import { getJourneyContinueDestination } from "../progress/continue-destination";
+import { getCurrentJourneyUuid } from "../progress/server";
+import { ManageJourneyClient } from "./ManageJourneyClient";
+import { SaveProgressClient } from "./SaveProgressClient";
 import styles from "./save-progress.module.css";
 
 export const metadata = {
   title: "Save Your Journey Progress | Journey to Hope",
-  description: "Learn how the private Journey ID will save Journey to Hope progress without creating an FCE account or collecting identifying information.",
+  description: "Save Journey to Hope progress privately with a Journey ID without creating an FCE account or providing identifying information.",
 };
 
-export default function SaveProgressPage() {
+function safeReturnTo(value?: string) {
+  return value?.startsWith("/journey") ? value : "/journey";
+}
+
+export default async function SaveProgressPage({ searchParams }: { searchParams: Promise<{ returnTo?: string; deleted?: string }> }) {
+  const { returnTo, deleted } = await searchParams;
+  const deletionConfirmed = deleted === "1";
+  const requestedDestination = safeReturnTo(returnTo);
+  const activeJourney = deletionConfirmed ? false : Boolean(await getCurrentJourneyUuid());
+  const continueDestination = activeJourney ? await getJourneyContinueDestination() : "/journey";
+  const destination = activeJourney && !returnTo ? continueDestination : requestedDestination;
+
+  const title = deletionConfirmed
+    ? "Journey Permanently Deleted"
+    : activeJourney
+      ? "Manage My Saved Journey"
+      : "Save Your Journey Progress";
+
+  const lead = deletionConfirmed
+    ? "Your Journey ID and the saved Journey progress connected to it have been permanently removed."
+    : activeJourney
+      ? "Your saved Journey is active on this device. Manage it here without adding identifying information to your Journey record."
+      : "A Journey ID lets you save your Journey to Hope progress without creating an FCE account or giving us your name, email address, or phone number.";
+
   return (
     <JourneyFrame>
       <main className={styles.page}>
         <div className={styles.shell}>
           <header className={styles.hero}>
             <p className={styles.eyebrow}>Journey to Hope</p>
-            <h1>Save Your Journey Progress</h1>
-            <p className={styles.lead}>A Journey ID will let you save completed Journey to Hope lessons without creating an FCE account or giving us your name, email address, or phone number.</p>
+            <h1>{title}</h1>
+            <p className={styles.lead}>{lead}</p>
           </header>
 
           <section className={styles.privacyCard} aria-labelledby="privacy-title">
@@ -37,28 +64,27 @@ export default function SaveProgressPage() {
                 <p>Your name, email address, and phone number are not required to save Journey progress.</p>
               </article>
               <article className={styles.point}>
-                <strong>You keep your Journey ID</strong>
-                <p>Because the ID is not tied to identifying information, FCE will not be able to recover it if it is lost.</p>
+                <strong>You control saved progress</strong>
+                <p>You can exit and return later, or permanently delete your Journey ID and saved progress.</p>
               </article>
             </div>
 
-            <div className={styles.actions} aria-label="Journey ID actions">
-              <article className={styles.actionCard}>
-                <h3>Create My Journey ID</h3>
-                <p>A secure, randomly generated Journey ID will be created for you when progress persistence is enabled.</p>
-                <button type="button" disabled title="Journey ID creation is implemented in Sequence 8">Create My Journey ID</button>
-              </article>
-              <article className={styles.actionCard}>
-                <h3>I Already Have a Journey ID</h3>
-                <p>You will be able to restore your saved Journey progress on another browser or device using the ID you kept.</p>
-                <button type="button" disabled title="Journey ID restoration is implemented in Sequence 8">Use My Journey ID</button>
-              </article>
-            </div>
-
-            <p className={styles.sequenceNote}>Sequence #6 establishes this approved page structure only. Secure Journey ID creation, browser remembrance, and Supabase progress persistence remain intentionally deferred to Sequence #8 so no visitor data is collected prematurely.</p>
+            {deletionConfirmed ? (
+              <section className={styles.createdCard} aria-live="polite">
+                <h2>Your saved Journey has been permanently deleted</h2>
+                <p className={styles.successMessage} role="status">Your Journey ID record, saved progress, earned milestones, and active Journey sessions have been removed. This Journey cannot be restored.</p>
+                <Link className={styles.primaryButton} href="/journey">Return to Journey to Hope</Link>
+              </section>
+            ) : activeJourney ? (
+              <ManageJourneyClient returnTo={destination} />
+            ) : (
+              <SaveProgressClient returnTo={destination} />
+            )}
           </section>
 
-          <div className={styles.backRow}><Link href="/journey">← Back to Journey to Hope</Link></div>
+          {!deletionConfirmed && (
+            <div className={styles.backRow}><Link href={destination}>← {activeJourney ? "Return to my Journey" : "Continue without saving"}</Link></div>
+          )}
         </div>
       </main>
     </JourneyFrame>

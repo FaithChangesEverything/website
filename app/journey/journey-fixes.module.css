@@ -47,6 +47,18 @@
   white-space:nowrap;
   font-size:.76rem;
 }
+.savedJourneyBar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:8px 24px;
+  background:#edf5ef;
+  border-bottom:1px solid #cfe0d3;
+  color:#274c34;
+  font-size:.78rem;
+}
+.savedJourneyBar div{display:flex;align-items:center;gap:10px}.savedJourneyBar form{margin:0}.savedJourneyBar a,.savedJourneyBar button{border:0;background:transparent;color:#173c63;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer;padding:4px 0}.savedJourneyBar a:focus-visible,.savedJourneyBar button:focus-visible{outline:3px solid #d7a84b;outline-offset:2px}
 
 .interiorHeroCalm,
 .pastorLetterHeroCalm{
@@ -89,14 +101,35 @@
   font-weight:700;
   letter-spacing:-.02em;
 }
+/* Location trail: the gold rule identifies the Journey hierarchy, while the
+   warm highlight at the trailing edge makes the current lesson/study token
+   the first thing the eye finds (for example 1.c.1). */
+.individualLessonHeader > div > p:first-child,
+.seriesHeader > div > p:first-child{
+  width:max-content;
+  max-width:100%;
+  padding:5px 8px 7px 10px!important;
+  border-left:3px solid #d3a347;
+  border-bottom:2px solid #d3a347;
+  border-radius:0 5px 5px 0;
+  color:#9b6d20!important;
+  font-weight:800!important;
+  background:linear-gradient(to left,rgba(245,188,72,.28) 0 5.2em,transparent 5.2em);
+}
+.individualLessonHeader > div > p:first-child span,
+.seriesHeader > div > p:first-child span{
+  color:#7a8793!important;
+}
 .seriesStudyKicker{
   display:flex;
   gap:7px;
   flex-wrap:wrap;
   align-items:center;
+  font-size:.82rem!important;
+  letter-spacing:.14em!important;
 }
 .seriesStudyKicker span{
-  color:#9b6d20;
+  color:#7a8793!important;
 }
 .lessonAudioNotice{
   margin:18px 0 4px!important;
@@ -135,14 +168,44 @@
   background:#fff8eb!important;
   border:1px solid #e5d7bd!important;
   border-radius:0 0 10px 10px;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  text-align:center;
 }
-.lessonCompletionConcept button:disabled,
+.lessonCompletionConcept form{
+  margin:0!important;
+}
+.lessonCompletionConcept p{
+  margin:0!important;
+  max-width:720px;
+}
 .readableButton:disabled{
   opacity:1!important;
 }
 .lessonCompletionConcept button:disabled{
-  background:#2f783c!important;
-  color:#fff!important;
+  opacity:1!important;
+  background:#d6d9dc!important;
+  border-color:#c3c7cb!important;
+  color:#626a72!important;
+  cursor:not-allowed!important;
+  box-shadow:none!important;
+}
+
+.journeyCompletionCount{
+  display:block;
+  margin-top:2px;
+}
+
+.overallProgressSection{
+  padding:18px max(5.5vw,32px) 64px!important;
+}
+.overallProgressCard{
+  width:min(100%,1120px);
+  margin:0 auto;
+  box-sizing:border-box;
 }
 
 /* When the shared header brings the logo fully back into the navy bar,
@@ -187,7 +250,11 @@
     margin:4px 0 0 40px!important;
     width:max-content;
   }
+  .savedJourneyBar{align-items:flex-start;flex-direction:column;padding:9px 14px}.savedJourneyBar div{flex-wrap:wrap}
   .lessonResourceLinks{grid-template-columns:1fr 1fr}
+  .overallProgressSection{padding:14px 18px 54px!important}
+  .individualLessonHeader > div > p:first-child,
+  .seriesHeader > div > p:first-child{width:auto}
 }
 
 @media(max-width:480px){

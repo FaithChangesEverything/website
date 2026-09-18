@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
+import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
 
 const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
@@ -44,6 +45,16 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
+
+  // Sequence 9 first-render synchronization:
+  // if this route represents an active completion-tracked item for the current
+  // saved Journey, record the start before any sidebar/progress UI renders.
+  // Supporting content, Pastor Letters, series parents, and anonymous visitors
+  // return null here and are left untouched.
+  const trackedProgress = await getJourneyItemProgress(lesson.id);
+  if (trackedProgress) {
+    await startJourneyItem(lesson.id);
+  }
 
   if (lesson.id === "1.c") {
     const sections = hopeSeries.map((title, index) => ({
@@ -125,6 +136,25 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "6.e") {
+    return (
+      <IndividualLesson
+        stepNumber={6}
+        lessonId="6.e"
+        title="Find a Church Home"
+        lessons={step.lessons}
+        intro="Walking with Christ includes growing alongside other believers. Faith Changes Everything provides biblical guidance and a practical church search to help you begin looking for a healthy local church."
+      >
+        <LessonBlock title="Find a Healthy Church Home" icon="◇" tone="highlight">
+          <p>Use the shared FCE Find a Church Home destination to learn what to look for in a healthy, Bible-believing church and search for churches near a ZIP code, city, or address.</p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/find-a-church">Find a Church Home</Link>
+          </div>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "6.f") {
     return (
       <IndividualLesson
@@ -182,6 +212,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <Link href="/resources">Bible Study</Link>
           <Link href="/music">Music</Link>
           <Link href="/prayer">Prayer Support</Link>
+          {(lesson.id === "1.e" || lesson.id === "2.e") && <Link href="/find-a-church">Find a Church Home</Link>}
         </div>
       </LessonBlock>
     </IndividualLesson>
