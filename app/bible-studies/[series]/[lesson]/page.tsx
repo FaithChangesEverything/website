@@ -126,7 +126,17 @@ export default async function BibleStudyLessonPage({
           {lesson.video?.attribution && (
             <aside className={styles.attribution} aria-label="Video ownership information">
               <strong>{lesson.video.ownerName ?? "Resource ownership"}</strong>
-              <p>{lesson.video.attribution}</p>
+              <p>
+                {lesson.video.attribution}{" "}
+                {lesson.video.ownerUrl && (
+                  <>
+                    To find more BibleProject resources, visit{" "}
+                    <a href={lesson.video.ownerUrl} target="_blank" rel="noreferrer">
+                      BibleProject.com
+                    </a>.
+                  </>
+                )}
+              </p>
             </aside>
           )}
         </section>
@@ -157,6 +167,23 @@ export default async function BibleStudyLessonPage({
               </article>
             ))}
           </div>
+
+          {lesson.resourcesAttribution && (
+            <aside className={styles.attribution} aria-label="Study resource ownership information">
+              <strong>{lesson.resourcesOwnerName ?? "Resource ownership"}</strong>
+              <p>
+                {lesson.resourcesAttribution}{" "}
+                {lesson.resourcesOwnerUrl && (
+                  <>
+                    To find more BibleProject resources, visit{" "}
+                    <a href={lesson.resourcesOwnerUrl} target="_blank" rel="noreferrer">
+                      BibleProject.com
+                    </a>.
+                  </>
+                )}
+              </p>
+            </aside>
+          )}
         </section>
 
         <nav className={styles.lessonNavigation} aria-label="Bible study lesson navigation">
