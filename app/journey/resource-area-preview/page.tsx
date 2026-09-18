@@ -96,9 +96,10 @@ export default function ResourceAreaPreviewPage() {
           </span>
         </div>
 
-        <aside className={styles.previewNotice}>
-          This is a temporary review page. The cards below use verified current
-          FCE destinations only; no legacy YouTube links have been restored.
+        <aside className={styles.previewNotice} aria-label="Sequence 1 reconciliation notice">
+          This is a temporary Sequence 1 review page. The cards below use
+          verified current FCE destinations only; no legacy YouTube links have
+          been restored.
         </aside>
 
         <ResourceAreaPreview
