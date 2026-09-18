@@ -329,8 +329,54 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "slow-to-anger",
     title: "Slow to Anger",
     summary: "Learning what Scripture means when God is described as ’erek ’apayim—slow to anger.",
+    primaryScripture: "Exodus 34:6",
+    href: "/bible-studies/character-of-god/slow-to-anger",
     imageSrc: "/images/bible-studies/character-of-god/slow-to-anger.jpg",
     imageAlt: "Jesus responding calmly during a tense confrontation",
+    video: {
+      title: "’Erek ’Appayim / Slow to Anger",
+      description:
+        "Explore the Hebrew phrase ’erek ’appayim and see how Scripture reveals God as patient, giving people time to respond while remaining just in the face of evil.",
+      href: "https://bibleproject.com/videos/slow-to-anger/",
+      streamSrc:
+        "https://stream.mux.com/2kAHepEr200X6njitmKW6uhKRaAvZL3m4CqvEGq6F3nU/high.mp4?download=erek-appayim-slow-to-anger.mp4",
+      endPosterSrc:
+        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/slow-to-anger/04-img-2026-00094-cog-slow2anger-poster.png",
+      endPosterAlt: "BibleProject Character of God Slow to Anger study poster",
+      ownerName: "BibleProject",
+      ownerUrl: "https://bibleproject.com/",
+      attribution: "BibleProject is the author and owner of this video.",
+    },
+    resourcesOwnerName: "BibleProject",
+    resourcesOwnerUrl: "https://bibleproject.com/",
+    resourcesAttribution:
+      "BibleProject is the author and owner of these resources. These materials are provided in their original, unaltered form.",
+    resources: [
+      {
+        title: "Video Transcript",
+        description:
+          "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/slow-to-anger/04-doc-2026-00073-cog-slow2anger-script.pdf",
+        actionLabel: "Open Transcript",
+      },
+      {
+        title: "Study Poster",
+        description:
+          "Open the original visual summary that accompanies this BibleProject lesson on God’s patience and what it means for Him to be slow to anger.",
+        href:
+          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/slow-to-anger/04-img-2026-00094-cog-slow2anger-poster.png",
+        actionLabel: "Open Poster",
+      },
+      {
+        title: "Study Guide",
+        description:
+          "Go deeper into the biblical language, passages, and themes developed in the teaching on God being slow to anger.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/slow-to-anger/04-doc-2026-00172-cog-slow2anger-studyguide.pdf",
+        actionLabel: "Open Study Guide",
+      },
+    ],
   },
   {
     slug: "loyal-love",
