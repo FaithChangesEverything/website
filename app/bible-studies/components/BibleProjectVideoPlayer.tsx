@@ -13,7 +13,7 @@ type BibleProjectVideoPlayerProps = {
   endPosterAlt?: string;
 };
 
-type PlayerMode = "idle" | "playing" | "poster" | "returning";
+type PlayerMode = "idle" | "playing" | "poster" | "poster-fade" | "image-return";
 
 export default function BibleProjectVideoPlayer({
   title,
@@ -32,25 +32,35 @@ export default function BibleProjectVideoPlayer({
     };
   }, []);
 
+  const returnToLessonImage = () => {
+    setMode("image-return");
+
+    const resetTimer = window.setTimeout(() => {
+      setMode("idle");
+    }, 700);
+
+    timers.current.push(resetTimer);
+  };
+
   const handleEnded = () => {
     if (!endPosterSrc) {
-      setMode("idle");
+      returnToLessonImage();
       return;
     }
 
     setMode("poster");
 
-    const fadeTimer = window.setTimeout(() => {
-      setMode("returning");
+    const posterTimer = window.setTimeout(() => {
+      setMode("poster-fade");
 
-      const resetTimer = window.setTimeout(() => {
-        setMode("idle");
+      const returnTimer = window.setTimeout(() => {
+        returnToLessonImage();
       }, 700);
 
-      timers.current.push(resetTimer);
+      timers.current.push(returnTimer);
     }, 2800);
 
-    timers.current.push(fadeTimer);
+    timers.current.push(posterTimer);
   };
 
   if (mode === "playing") {
@@ -71,13 +81,27 @@ export default function BibleProjectVideoPlayer({
     );
   }
 
-  if ((mode === "poster" || mode === "returning") && endPosterSrc) {
+  if ((mode === "poster" || mode === "poster-fade") && endPosterSrc) {
     return (
       <div className={styles.videoPanel}>
         <img
           src={endPosterSrc}
           alt={endPosterAlt}
-          className={`${styles.endPoster} ${mode === "returning" ? styles.endPosterFade : ""}`}
+          className={`${styles.endPoster} ${mode === "poster-fade" ? styles.endPosterFade : ""}`}
+        />
+      </div>
+    );
+  }
+
+  if (mode === "image-return") {
+    return (
+      <div className={styles.videoPanel}>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          sizes="(max-width: 760px) 100vw, 900px"
+          className={`${styles.videoBackdrop} ${styles.lessonImageReturn}`}
         />
       </div>
     );
