@@ -64,10 +64,12 @@ export default async function BibleStudyLessonPage({
             <p className={styles.eyebrow}>{series.title.toUpperCase()} BIBLE STUDY SERIES</p>
             <h1 id="lesson-title">{lesson.title}</h1>
             <p className={styles.lessonSummary}>{lesson.summary}</p>
-            <p className={styles.primaryScripture}>
-              <span>Primary Scripture</span>
-              <strong>Exodus 34:6–7</strong>
-            </p>
+            {lesson.primaryScripture && (
+              <p className={styles.primaryScripture}>
+                <span>Primary Scripture</span>
+                <strong>{lesson.primaryScripture}</strong>
+              </p>
+            )}
           </div>
 
           {lesson.imageSrc && (
@@ -163,7 +165,13 @@ export default async function BibleStudyLessonPage({
                 <h3>{resource.title}</h3>
                 <p>{resource.description}</p>
                 {resource.href ? (
-                  <a href={resource.href} className={styles.resourceAction}>
+                  <a
+                    href={resource.href}
+                    className={styles.resourceAction}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${resource.actionLabel ?? "Open Resource"} (opens in a new tab)`}
+                  >
                     {resource.actionLabel ?? "Open Resource"} <span aria-hidden="true">→</span>
                   </a>
                 ) : (
