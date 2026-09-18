@@ -4,6 +4,21 @@ export type BibleStudyGroupId =
   | "books-passages"
   | "fce-tracks";
 
+export type BibleStudyLessonResource = {
+  title: string;
+  description: string;
+  href?: string;
+  actionLabel?: string;
+};
+
+export type BibleStudyLessonVideo = {
+  title: string;
+  description: string;
+  href?: string;
+  ownerName?: string;
+  attribution?: string;
+};
+
 export type BibleStudyLessonSummary = {
   slug: string;
   title: string;
@@ -11,6 +26,8 @@ export type BibleStudyLessonSummary = {
   href?: string;
   imageSrc?: string;
   imageAlt?: string;
+  video?: BibleStudyLessonVideo;
+  resources?: BibleStudyLessonResource[];
 };
 
 export type BibleStudySeriesSummary = {
@@ -156,8 +173,31 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "character-of-god-in-exodus",
     title: "The Character of God in Exodus",
     summary: "Begin with Exodus 34:6–7, where God reveals the character traits that form the foundation of this series.",
+    href: "/bible-studies/character-of-god/character-of-god-in-exodus",
     imageSrc: "/images/bible-studies/character-of-god/the-character-of-god-in-exodus.jpg",
     imageAlt: "Moses before Mount Sinai beneath radiant light",
+    video: {
+      title: "Exodus 34:6–7",
+      description:
+        "Watch the primary teaching for this study and explore the passage that introduces the character traits developed throughout the series.",
+      ownerName: "BibleProject",
+      attribution:
+        "This teaching resource is owned by BibleProject. Faith Changes Everything will link to the approved official source rather than rehosting or altering the video.",
+    },
+    resources: [
+      {
+        title: "Video Transcript",
+        description:
+          "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        actionLabel: "Open Transcript",
+      },
+      {
+        title: "Study Guide",
+        description:
+          "Go deeper into Exodus 34:6–7 with companion notes and study material that expand on the passage and its biblical context.",
+        actionLabel: "Open Study Guide",
+      },
+    ],
   },
   {
     slug: "compassion",
