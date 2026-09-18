@@ -40,6 +40,13 @@ export const stepResourceAssignments: Record<
       type: "ministry",
       category: "additional-resource",
     },
+    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
+    {
+      id: "j2h-find-a-church",
+      type: "ministry",
+      category: "additional-resource",
+      label: "Find a Church Home",
+    },
   ],
 
   "step-2": [

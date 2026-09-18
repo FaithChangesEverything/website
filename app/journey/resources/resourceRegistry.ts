@@ -9,6 +9,24 @@ import type { ResolvedResource, ResourceId } from "./types";
  * libraries are built.
  */
 const resourceRegistry: Record<ResourceId, ResolvedResource> = {
+  "j2h-prayer-support": {
+    id: "j2h-prayer-support",
+    type: "prayer",
+    title: "Prayer Support",
+    description:
+      "If you'd like someone to pray with you as you continue your journey, we'd be honored to pray for you.",
+    href: "/prayer",
+    actionLabel: "Submit a Prayer Request",
+  },
+  "j2h-find-a-church": {
+    id: "j2h-find-a-church",
+    type: "ministry",
+    title: "Find a Church Home",
+    description:
+      "Learn what to look for in a healthy, Bible-believing church and search for churches near you.",
+    href: "/find-a-church",
+    actionLabel: "Find a Church Home",
+  },
   "external-tim-mackie-living-hope": {
     id: "external-tim-mackie-living-hope",
     type: "ministry",
