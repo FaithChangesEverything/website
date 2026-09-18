@@ -382,8 +382,54 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
     slug: "loyal-love",
     title: "Loyal Love",
     summary: "Learning about God’s loyal love, or khesed.",
+    primaryScripture: "Exodus 34:6",
+    href: "/bible-studies/character-of-god/loyal-love",
     imageSrc: "/images/bible-studies/character-of-god/loyal-love.jpg",
     imageAlt: "Jesus surrounded by a family in warm evening light",
+    video: {
+      title: "Khesed / Loyal Love",
+      description:
+        "Explore the Hebrew word khesed and see how Scripture reveals God’s love as loyal, generous, and committed to keeping His promises.",
+      href: "https://bibleproject.com/videos/loyal-love/",
+      streamSrc:
+        "https://stream.mux.com/hpLwKf00Sdlgv01Nwk4pjdoq9BLYOlKTXAjD7J1Cbn8AE/high.mp4?download=khesed-loyal-love.mp4",
+      endPosterSrc:
+        "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/loyal-love/05-img-2026-00095-cog-loyallove-poster.png",
+      endPosterAlt: "BibleProject Character of God Loyal Love study poster",
+      ownerName: "BibleProject",
+      ownerUrl: "https://bibleproject.com/",
+      attribution: "BibleProject is the author and owner of this video.",
+    },
+    resourcesOwnerName: "BibleProject",
+    resourcesOwnerUrl: "https://bibleproject.com/",
+    resourcesAttribution:
+      "BibleProject is the author and owner of these resources. These materials are provided in their original, unaltered form.",
+    resources: [
+      {
+        title: "Video Transcript",
+        description:
+          "Read the complete teaching transcript if you prefer to read instead of, or in addition to, watching the video.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/loyal-love/05-doc-2026-00073-cog-loyallove-script.pdf",
+        actionLabel: "Open Transcript",
+      },
+      {
+        title: "Study Poster",
+        description:
+          "Open the original visual summary that accompanies this BibleProject lesson on God’s loyal love.",
+        href:
+          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/loyal-love/05-img-2026-00095-cog-loyallove-poster.png",
+        actionLabel: "Open Poster",
+      },
+      {
+        title: "Study Guide",
+        description:
+          "Go deeper into the biblical language, passages, and themes developed in the teaching on God’s loyal love.",
+        href:
+          "https://resources.faithchangeseverything.org/documents/bible-studies/character-of-god/loyal-love/05-doc-2026-00175-cog-loyallove-studyguide.pdf",
+        actionLabel: "Open Study Guide",
+      },
+    ],
   },
   {
     slug: "faithful",
