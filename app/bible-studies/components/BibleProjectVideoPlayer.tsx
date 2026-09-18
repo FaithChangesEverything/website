@@ -77,6 +77,14 @@ export default function BibleProjectVideoPlayer({
         >
           Your browser does not support embedded video playback.
         </video>
+        <button
+          type="button"
+          className={styles.closeVideoButton}
+          onClick={() => setMode("idle")}
+          aria-label={`Close ${title} video`}
+        >
+          Close Video
+        </button>
       </div>
     );
   }
