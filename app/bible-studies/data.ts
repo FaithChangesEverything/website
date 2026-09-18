@@ -259,7 +259,7 @@ const characterOfGodLessons: BibleStudyLessonSummary[] = [
         description:
           "Open the original visual summary that accompanies this BibleProject lesson on God’s compassion.",
         href:
-          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/compassion/compassion-poster.png",
+          "https://resources.faithchangeseverything.org/images/bible-studies/character-of-god/compassion/02-img-2026-00092-cog-compassion-poster.png",
         actionLabel: "Open Poster",
       },
       {
