@@ -45,8 +45,8 @@ export interface ResolvedResource {
   type: ResourceType;
   title: string;
   description?: string;
-  href: string;
-  actionLabel: string;
+  href?: string;
+  actionLabel?: string;
   imageSrc?: string;
   imageAlt?: string;
   external?: boolean;

@@ -43,7 +43,7 @@ export default function ResourceArea({
     if (!resource) {
       if (process.env.NODE_ENV !== "production") {
         console.warn(
-          `[J2H ResourceArea] No verified registry record found for ${reference.id}.`,
+          `[J2H ResourceArea] No registry metadata found for ${reference.id}.`,
         );
       }
       return [];
@@ -73,15 +73,17 @@ export default function ResourceArea({
             </p>
             <h3>{resource.title}</h3>
             {resource.description ? <p>{resource.description}</p> : null}
-            <a
-              className={styles.action}
-              href={resource.href}
-              target={resource.external ? "_blank" : undefined}
-              rel={resource.external ? "noopener noreferrer" : undefined}
-            >
-              {resource.actionLabel}
-              <span className={styles.srOnly}>: {resource.title}</span>
-            </a>
+            {resource.href && resource.actionLabel ? (
+              <a
+                className={styles.action}
+                href={resource.href}
+                target={resource.external ? "_blank" : undefined}
+                rel={resource.external ? "noopener noreferrer" : undefined}
+              >
+                {resource.actionLabel}
+                <span className={styles.srOnly}>: {resource.title}</span>
+              </a>
+            ) : null}
           </article>
         ))}
       </div>

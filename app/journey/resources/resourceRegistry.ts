@@ -3,12 +3,97 @@ import type { ResolvedResource, ResourceId } from "./types";
 /**
  * Journey to Hope resource-resolution registry.
  *
- * The step assignment files carry the authoritative FCE resource IDs.
- * A card becomes visitor-facing only after that ID has a current verified
- * destination here. This keeps Journey pages stable while downstream FCE
- * libraries are built.
+ * Resource metadata can be registered before its final FCE destination page
+ * exists. This lets the approved resource appear on the Step page immediately
+ * without creating a dead link. When the destination is published, add href
+ * and actionLabel here; no Journey page changes are required.
  */
 const resourceRegistry: Record<ResourceId, ResolvedResource> = {
+  "song-2026-0009": {
+    id: "song-2026-0009",
+    type: "song",
+    title: "Saved by Your Grace",
+  },
+  "song-2026-0008": {
+    id: "song-2026-0008",
+    type: "song",
+    title: "In the Quiet You’re Still There",
+  },
+  "song-2026-0012": {
+    id: "song-2026-0012",
+    type: "song",
+    title: "Come as You Are",
+  },
+  "song-2026-0007": {
+    id: "song-2026-0007",
+    type: "song",
+    title: "It Should Have Been Me",
+  },
+  "vid-2026-00184": {
+    id: "vid-2026-00184",
+    type: "video",
+    title: "Hope in Hard Times",
+  },
+  "vid-2026-00188": {
+    id: "vid-2026-00188",
+    type: "video",
+    title: "Navigating Storms of Life",
+  },
+  "vid-2026-00182": {
+    id: "vid-2026-00182",
+    type: "video",
+    title: "Alaska Testimony",
+  },
+  "vid-2026-00027": {
+    id: "vid-2026-00027",
+    type: "video",
+    title: "Image of God",
+  },
+  "vid-2026-00044": {
+    id: "vid-2026-00044",
+    type: "video",
+    title: "01-god",
+  },
+  "vid-2026-00190": {
+    id: "vid-2026-00190",
+    type: "video",
+    title: "Salvation",
+  },
+  "vid-2026-00189": {
+    id: "vid-2026-00189",
+    type: "video",
+    title: "How to Have a Personal Relationship with Christ",
+  },
+  "vid-2026-00187": {
+    id: "vid-2026-00187",
+    type: "video",
+    title: "The Mercy Principle",
+  },
+  "vid-2026-00019": {
+    id: "vid-2026-00019",
+    type: "video",
+    title: "Eternal Life",
+  },
+  "vid-2026-00023": {
+    id: "vid-2026-00023",
+    type: "video",
+    title: "Gospel of the Kingdom",
+  },
+  "vid-2026-00038": {
+    id: "vid-2026-00038",
+    type: "video",
+    title: "The Messiah",
+  },
+  "vid-2026-00196": {
+    id: "vid-2026-00196",
+    type: "video",
+    title: "Prayer of Salvation",
+  },
+  "doc-2026-00017": {
+    id: "doc-2026-00017",
+    type: "document",
+    title: "How to Study the Bible — Printable Guide",
+  },
   "j2h-prayer-support": {
     id: "j2h-prayer-support",
     type: "prayer",
