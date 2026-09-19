@@ -158,6 +158,11 @@
   margin: 0 0 1rem;
 }
 
+.stepPastorScripture {
+  color: #a61b1b;
+  font-style: italic;
+}
+
 .overviewAfterPastorWelcome {
   margin-top: 0;
 }
