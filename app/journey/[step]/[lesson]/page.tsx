@@ -245,15 +245,6 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       <LessonBlock title="A Prayer for Today" icon="◇">
         <p>The approved lesson prayer will appear here during content integration.</p>
       </LessonBlock>
-      <LessonBlock title="Related Resources" icon="↗">
-        <div className={fixes.lessonResourceLinks}>
-          <Link href="/sermons">Sermons</Link>
-          <Link href="/resources">Bible Study</Link>
-          <Link href="/music">Music</Link>
-          <Link href="/prayer">Prayer Support</Link>
-          {(lesson.id === "1.e" || lesson.id === "2.e") && <Link href="/find-a-church">Find a Church Home</Link>}
-        </div>
-      </LessonBlock>
     </IndividualLesson>
   );
 }
