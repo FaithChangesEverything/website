@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
+import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
 import { journeySteps, type JourneyLesson } from "../data";
 import styles from "../journey.module.css";
@@ -14,6 +16,18 @@ type LowerWindow = {
   id: string;
   title: string;
   body: string;
+};
+
+const lessonCardImages: Partial<Record<string, string>> = {
+  "1.b": "/images/journey/lesson-cards/journey_toward_the_sunrise_cross.png",
+  "1.c": "/images/journey/lesson-cards/open_bible_at_golden_valley_sunrise.png",
+  "1.d": "/images/journey/lesson-cards/golden_reflection_by_the_mountain_lake.png",
+  "1.e": "/images/journey/lesson-cards/golden_hour_devotional_study_nook.png",
+  "2.b": "/images/journey/lesson-cards/kneeling_before_the_sunrise_cross.png",
+  "2.c": "/images/journey/lesson-cards/bible_and_cross_at_golden_sunrise.png",
+  "2.d": "/images/journey/lesson-cards/golden_reflection_by_the_mountain_lake.png",
+  "2.e": "/images/journey/lesson-cards/sunrise_journey_across_the_valley.png",
+  "3.b": "/images/journey/lesson-cards/golden_hour_prayer_overlook.png",
 };
 
 function ContextNav({ previous, center, next }: { previous?: NavItem; center: NavItem; next?: NavItem }) {
@@ -30,7 +44,8 @@ function displayState(state: JourneyDisplayState | undefined, saving: boolean) {
 
 function LessonCard({ lesson, state, saving }: { lesson: JourneyLesson; state?: JourneyDisplayState; saving: boolean }) {
   const presentation = displayState(state, saving);
-  return <article className={styles.card}><div className={styles.cardImageSlot} aria-hidden="true"><span>Approved lesson image</span></div><span className={styles.lessonBadge}>{lesson.id}</span><div className={styles.cardBody}><h3>{lesson.title}</h3><div className={styles.cardStatus}><span aria-hidden="true">{presentation.icon}</span> {presentation.label}</div><Link href={lesson.href}>{presentation.action} {state === "supporting" ? "Resource" : "Lesson"} <span aria-hidden="true">→</span></Link></div></article>;
+  const image = lessonCardImages[lesson.id];
+  return <article className={styles.card}><div className={styles.cardImageSlot} aria-hidden="true">{image ? <Image src={image} alt="" fill sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 25vw" className={styles.cardImage} /> : <span>Approved lesson image</span>}</div><span className={styles.lessonBadge}>{lesson.id}</span><div className={styles.cardBody}><h3>{lesson.title}</h3><div className={styles.cardStatus}><span aria-hidden="true">{presentation.icon}</span> {presentation.label}</div><Link href={lesson.href}>{presentation.action} {state === "supporting" ? "Resource" : "Lesson"} <span aria-hidden="true">→</span></Link></div></article>;
 }
 
 function cardsForStep(stepNumber: number, lessons: JourneyLesson[]) {
@@ -63,27 +78,60 @@ function lowerWindowsForStep(stepNumber: number): LowerWindow[] {
     ];
   }
 
-  if (stepNumber === 2) {
-    return [
-      {
-        id: "2.f",
-        title: "Bible Study Resources",
-        body: "The approved Journey to Hope manuscript text and Bible study resource guidance will appear here during final content integration.",
-      },
-      {
-        id: "2.g",
-        title: "Final Encouragement",
-        body: "The approved Journey to Hope Final Encouragement manuscript text will appear here during final content integration.",
-      },
-      {
-        id: "2.h",
-        title: "Continue Your Journey",
-        body: "The approved Journey to Hope manuscript text for Continue Your Journey will appear here during final content integration.",
-      },
-    ];
-  }
-
   return [];
+}
+
+function Step2ClosingWindows() {
+  return (
+    <section className={sequence9.lowerWindows} aria-label="Step 2 closing content">
+      <article className={sequence9.lowerWindow}>
+        <div className={sequence9.windowContent}>
+          <span className={sequence9.windowBadge}>2.f</span>
+          <div className={sequence9.windowBody}>
+            <h2>Bible Study Online Resources</h2>
+            <p>
+              As you continue growing in your faith, you'll discover that there are many helpful resources available to deepen your understanding of God's Word. We've created a collection of carefully selected Bible study resources to help you continue growing in your knowledge of God's Word. Explore our collection of Faith Changes Everything Bible study resources.
+            </p>
+            <Link className={sequence9.resourceButton} href="/bible-studies">
+              FCE Bible Study Resources
+            </Link>
+          </div>
+        </div>
+        <button type="button" disabled aria-label="Listen to Bible Study Online Resources">◖ Listen</button>
+      </article>
+
+      <article className={sequence9.lowerWindow}>
+        <div className={sequence9.windowContent}>
+          <span className={sequence9.windowBadge}>2.g</span>
+          <div className={sequence9.windowBody}>
+            <h2>Final Encouragement</h2>
+            <p>As you continue your journey of faith, may this prayer from the Apostle Paul encourage your heart.</p>
+            <blockquote className={sequence9.scriptureQuote}>
+              “I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being, so that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power, together with all the Lord's holy people, to grasp how wide and long and high and deep is the love of Christ, and to know this love that surpasses knowledge—that you may be filled to the measure of all the fullness of God. Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen.”
+              <strong>Ephesians 3:16–21 (NIV)</strong>
+            </blockquote>
+            <p className={sequence9.copyrightNotice}>
+              Scripture quotations taken from The Holy Bible, New International Version® NIV®. Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.® Used by permission. All rights reserved worldwide.
+            </p>
+          </div>
+        </div>
+        <button type="button" disabled aria-label="Listen to Final Encouragement">◖ Listen</button>
+      </article>
+
+      <article className={sequence9.lowerWindow}>
+        <div className={sequence9.windowContent}>
+          <span className={sequence9.windowBadge}>2.h</span>
+          <div className={sequence9.windowBody}>
+            <h2>Continue Your Journey - Congratulations on completing this part of your journey!!</h2>
+            <p>
+              Whether you have recently placed your faith in Jesus Christ or are still seeking to know Him better, I hope this chapter has helped you take another step toward a deeper understanding of God's love and His plan for your life. Remember, following Jesus is not a destination—it is a lifelong journey of growing in faith, trusting God's promises, and becoming more like Christ each day. When you're ready, return to the Journey Hub to continue your journey. There you'll find additional paths designed to help you grow, answer questions you may still have, and encourage you wherever you are in your walk with God. As you continue growing in your faith, you may find these additional resources helpful.
+            </p>
+          </div>
+        </div>
+        <button type="button" disabled aria-label="Listen to Continue Your Journey">◖ Listen</button>
+      </article>
+    </section>
+  );
 }
 
 export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumber: number; lessons: JourneyLesson[] }) {
@@ -107,12 +155,20 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
       <section className={styles.lessonCards} aria-labelledby="lessons-title"><div className={styles.lessonHeading}><span className={styles.lessonHeadingIcon} aria-hidden="true">▣</span><div><h2 id="lessons-title">Your Lessons in This Step</h2><p>Complete any lesson in any order. Supporting resources remain available without affecting your completion percentage.</p></div></div><div className={styles.cardGrid}>{cardLessons.map((lesson) => <LessonCard key={lesson.id} lesson={lesson} state={lessonStates?.[lesson.id]?.state} saving={saving} />)}</div>{!summary && <ProgressSavePrompt />}</section>
     </div>
 
+    {stepNumber === 2 && <Step2ClosingWindows />}
+
     {lowerWindows.length > 0 && <section className={sequence9.lowerWindows} aria-label={`Step ${stepNumber} closing content`}>
       {lowerWindows.map((window) => <article className={sequence9.lowerWindow} key={window.id}>
-        <div><span className={sequence9.windowId}>{window.id}</span><h2>{window.title}</h2><p>{window.body}</p></div>
+        <div className={sequence9.windowContent}><span className={sequence9.windowBadge}>{window.id}</span><div className={sequence9.windowBody}><h2>{window.title}</h2><p>{window.body}</p></div></div>
         <button type="button" disabled aria-label={`Listen to ${window.title}`}>◖ Listen</button>
       </article>)}
     </section>}
+
+    <JourneyStepResourceArea
+      stepId={`step-${stepNumber}` as "step-1" | "step-2" | "step-3" | "step-4" | "step-5" | "step-6"}
+      heading="Resources to Help You Keep Going"
+      introduction="These resources are connected to this Step and are available to support you as you continue your Journey."
+    />
 
     <ContextNav previous={previousStep ? { href: previousStep.href, label: "Previous Step", detail: previousStep.title } : undefined} center={{ href: "/journey", label: "You’re on your Journey", detail: "Keep going, stay encouraged, and continue with Christ." }} next={nextStep ? { href: nextStep.href, label: "Next Step", detail: nextStep.title } : undefined} />
   </main></JourneyFrame>;
