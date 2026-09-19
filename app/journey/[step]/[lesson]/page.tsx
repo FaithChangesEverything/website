@@ -132,6 +132,24 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "2.h") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.h"
+        title="Continue Your Journey"
+        lessons={step.lessons}
+        intro="As you continue growing in your faith, these resources can help you take the next step after learning about salvation."
+      >
+        <JourneyStepResourceArea
+          stepId="step-2"
+          heading="Resources to Help You Keep Going"
+          introduction="These current Faith Changes Everything resources are available to support you as you continue your salvation journey."
+        />
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "3.b") {
     return (
       <IndividualLesson
@@ -160,8 +178,14 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <p>The approved final encouragement will appear here as part of the same 3.b lesson.</p>
         </LessonBlock>
         <LessonBlock title="3.b.7 Continue Your Journey" icon="→">
-          <p>The approved Continue Your Journey content and Step 3 resources will close this lesson during content implementation.</p>
+          <p>The approved Continue Your Journey content will close this lesson during content implementation.</p>
         </LessonBlock>
+
+        <JourneyStepResourceArea
+          stepId="step-3"
+          heading="Resources to Help You Keep Going"
+          introduction="These current Faith Changes Everything resources are available to support you as you continue learning the heart of God."
+        />
       </IndividualLesson>
     );
   }
