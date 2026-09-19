@@ -112,13 +112,18 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
         <p className={styles.eyebrow}>A Message from Pastor Richard</p>
         <h2 id={`step-${stepNumber}-pastor-message`}>{title}</h2>
         <span className={styles.goldRule} aria-hidden="true" />
-        <p>
-          Before you begin Step {stepNumber}, take a moment to hear from Pastor Richard
-          and prepare your heart for this part of your Journey to Hope.
-        </p>
-        <Link className={sequence9.stepPastorButton} href={introLesson.href}>
-          View Pastor Richard&apos;s Message <span aria-hidden="true">→</span>
-        </Link>
+        <div className={sequence9.stepPastorActions}>
+          <button className={sequence9.stepPastorVideoButton} type="button" disabled>
+            ▶ Watch Pastor Richard&apos;s Message
+          </button>
+        </div>
+        <div className={sequence9.stepPastorManuscript}>
+          <p>
+            The approved Step {stepNumber} introduction from Pastor Richard will appear
+            here in full. This area is intentionally allowed to grow with the message so
+            longer Step introductions remain readable without being truncated.
+          </p>
+        </div>
       </div>
     </section>
   );
