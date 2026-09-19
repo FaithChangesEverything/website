@@ -29,6 +29,11 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "song",
     title: "It Should Have Been Me",
   },
+  "song-2026-0014": {
+    id: "song-2026-0014",
+    type: "song",
+    title: "Teach Me to Trust",
+  },
   "vid-2026-00184": {
     id: "vid-2026-00184",
     type: "video",
@@ -89,6 +94,21 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "video",
     title: "Prayer of Salvation",
   },
+  "vid-2026-00206": {
+    id: "vid-2026-00206",
+    type: "video",
+    title: "God Wants to Be Known — Knowing the Heart of God 1",
+  },
+  "vid-2026-00207": {
+    id: "vid-2026-00207",
+    type: "video",
+    title: "Jesus Reveals the Father’s Heart — Knowing the Heart of God 2",
+  },
+  "vid-2026-00208": {
+    id: "vid-2026-00208",
+    type: "video",
+    title: "God’s Heart Changes Lives — Knowing the Heart of God 3",
+  },
   "doc-2026-00017": {
     id: "doc-2026-00017",
     type: "document",
@@ -111,6 +131,15 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
       "Learn what to look for in a healthy, Bible-believing church and search for churches near you.",
     href: "/find-a-church",
     actionLabel: "Find a Church Home",
+  },
+  "j2h-character-of-god-series": {
+    id: "j2h-character-of-god-series",
+    type: "ministry",
+    title: "Character of God Bible Study Series",
+    description:
+      "Continue exploring what Scripture reveals about God’s character through the Faith Changes Everything Character of God Bible Study Series.",
+    href: "/bible-studies/character-of-god",
+    actionLabel: "Explore the Series",
   },
   "external-tim-mackie-living-hope": {
     id: "external-tim-mackie-living-hope",
