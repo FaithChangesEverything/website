@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
-import { JourneyStepResourceArea } from "../../components/ResourceArea";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
@@ -122,12 +121,6 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
             <Link href="/prayer">Request Prayer</Link>
           </div>
         </LessonBlock>
-
-        <JourneyStepResourceArea
-          stepId="step-1"
-          heading="Resources to Help You Keep Going"
-          introduction="These current Faith Changes Everything resources are available to support you as you take your next step."
-        />
       </IndividualLesson>
     );
   }
@@ -139,13 +132,11 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="2.h"
         title="Continue Your Journey"
         lessons={step.lessons}
-        intro="As you continue growing in your faith, these resources can help you take the next step after learning about salvation."
+        intro="As you continue growing in your faith, the approved Continue Your Journey content will appear here during final content integration."
       >
-        <JourneyStepResourceArea
-          stepId="step-2"
-          heading="Resources to Help You Keep Going"
-          introduction="These current Faith Changes Everything resources are available to support you as you continue your salvation journey."
-        />
+        <LessonBlock title="Continue Your Journey" icon="→" tone="highlight">
+          <p>The approved Step 2 closing encouragement will remain here, while the related resources now appear on the main Step 2 page.</p>
+        </LessonBlock>
       </IndividualLesson>
     );
   }
@@ -180,12 +171,6 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         <LessonBlock title="3.b.7 Continue Your Journey" icon="→">
           <p>The approved Continue Your Journey content will close this lesson during content implementation.</p>
         </LessonBlock>
-
-        <JourneyStepResourceArea
-          stepId="step-3"
-          heading="Resources to Help You Keep Going"
-          introduction="These current Faith Changes Everything resources are available to support you as you continue learning the heart of God."
-        />
       </IndividualLesson>
     );
   }

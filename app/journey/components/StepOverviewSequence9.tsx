@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
+import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
 import { journeySteps, type JourneyLesson } from "../data";
 import styles from "../journey.module.css";
@@ -113,6 +114,12 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
         <button type="button" disabled aria-label={`Listen to ${window.title}`}>◖ Listen</button>
       </article>)}
     </section>}
+
+    <JourneyStepResourceArea
+      stepId={`step-${stepNumber}` as "step-1" | "step-2" | "step-3" | "step-4" | "step-5" | "step-6"}
+      heading="Resources to Help You Keep Going"
+      introduction="These resources are connected to this Step and are available to support you as you continue your Journey."
+    />
 
     <ContextNav previous={previousStep ? { href: previousStep.href, label: "Previous Step", detail: previousStep.title } : undefined} center={{ href: "/journey", label: "You’re on your Journey", detail: "Keep going, stay encouraged, and continue with Christ." }} next={nextStep ? { href: nextStep.href, label: "Next Step", detail: nextStep.title } : undefined} />
   </main></JourneyFrame>;
