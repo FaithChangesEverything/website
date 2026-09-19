@@ -18,6 +18,14 @@ const stepCardImages: Record<number, { src: string; alt: string }> = {
   6: { src: "/images/journey/step-cards/reaching_hands_at_golden_sunset.png", alt: "Two hands reaching toward each other in golden light" },
 };
 
+const resourceCards = [
+  { title: "Music Library", href: "/music", image: "/images/journey/resource-cards/music_library_bible_and_headphones.png", alt: "Headphones beside an open Bible" },
+  { title: "Sermon Library", href: "/sermons", image: "/images/journey/resource-cards/sermon_library_open_bible_at_pulpit.png", alt: "An open Bible at a church pulpit" },
+  { title: "Bible Study", href: "/resources", image: "/images/journey/resource-cards/bible_study_open_bible_notebook_notes.png", alt: "An open Bible with a notebook and study notes" },
+  { title: "Walking with Christ", href: "/resources", image: "/images/journey/resource-cards/walking_with_christ_golden_path.png", alt: "A peaceful golden walking path" },
+  { title: "Bible Journal", href: "/journal", image: "/images/journey/resource-cards/bible_journal_open_bible_and_journal.png", alt: "An open Bible beside a journal and pen" },
+];
+
 export default async function JourneyPage() {
   const summary = await getJourneyProgressSummary();
 
@@ -57,6 +65,22 @@ export default async function JourneyPage() {
       <div><strong>Resources</strong><p>Helpful tools to support your Journey.</p><Link href="/resources">Explore Resources →</Link></div>
     </section>
 
-    <section className={styles.resources}><p className={styles.eyebrow}>Continue Growing</p><h2>FCE Resources</h2><div className={styles.resourceLinks}><Link href="/music">Music Library</Link><Link href="/sermons">Sermon Library</Link><Link href="/resources">Bible Study</Link><Link href="/resources">Walking with Christ</Link><Link href="/journal">Bible Journal</Link></div></section>
+    <section className={styles.resources}>
+      <p className={styles.eyebrow}>Continue Growing</p>
+      <h2>FCE Resources</h2>
+      <div className={styles.resourceLinks}>
+        {resourceCards.map((resource) => (
+          <Link key={resource.title} href={resource.href} className={styles.resourceCard}>
+            <div className={styles.resourceImageSlot}>
+              <Image src={resource.image} alt={resource.alt} fill sizes="(max-width: 480px) 100vw, (max-width: 760px) 50vw, (max-width: 1100px) 33vw, 20vw" className={styles.resourceCardImage} />
+            </div>
+            <div className={styles.resourceCardBody}>
+              <h3>{resource.title}</h3>
+              <span className={styles.resourceCardAction}>Explore <span aria-hidden="true">→</span></span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
   </main></JourneyFrame>;
 }
