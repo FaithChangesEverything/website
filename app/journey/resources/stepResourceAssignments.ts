@@ -139,6 +139,13 @@ export const stepResourceAssignments: Record<
       category: "additional-resource",
       label: "Character of God Bible Study Series",
     },
+    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
+    {
+      id: "j2h-find-a-church",
+      type: "ministry",
+      category: "additional-resource",
+      label: "Find a Church Home",
+    },
   ],
 
   "step-5": [
