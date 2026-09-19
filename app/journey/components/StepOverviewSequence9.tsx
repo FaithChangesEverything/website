@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
+import { PastorMessageVideo } from "./PastorMessageVideo";
 import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
 import { journeySteps, type JourneyLesson } from "../data";
@@ -16,6 +17,14 @@ type LowerWindow = {
   id: string;
   title: string;
   body: string;
+};
+
+const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: string }>> = {
+  4: {
+    title: "Step 4: Before We Begin — A Message from Pastor Richard",
+    embedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/b575a6593cd36a290fe8f3be5c577fd6/iframe",
+  },
 };
 
 const lessonCardImages: Partial<Record<string, string>> = {
@@ -89,6 +98,7 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
   if (!introLesson) return null;
 
   const title = introLesson.title === "Before We Begin" ? "Before We Begin" : introLesson.title;
+  const pastorVideo = pastorMessageVideos[stepNumber];
 
   return (
     <section className={sequence9.stepPastorWelcome} aria-labelledby={`step-${stepNumber}-pastor-message`}>
@@ -116,9 +126,13 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
         <h2 id={`step-${stepNumber}-pastor-message`}>{title}</h2>
         <span className={styles.goldRule} aria-hidden="true" />
         <div className={sequence9.stepPastorActions}>
-          <button className={sequence9.stepPastorVideoButton} type="button" disabled>
-            ▶ Watch Pastor Richard&apos;s Message
-          </button>
+          {pastorVideo ? (
+            <PastorMessageVideo title={pastorVideo.title} embedUrl={pastorVideo.embedUrl} />
+          ) : (
+            <button className={sequence9.stepPastorVideoButton} type="button" disabled>
+              ▶ Watch Pastor Richard&apos;s Message
+            </button>
+          )}
         </div>
         <div className={sequence9.stepPastorManuscript}>
           {stepNumber === 4 ? (
