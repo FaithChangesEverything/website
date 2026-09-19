@@ -139,42 +139,32 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
             <>
               <p><em>Dear Friend,</em></p>
               <p>
-                One of the greatest invitations in all of Scripture is not simply to know
-                about God, but to know Him personally.
+                Welcome to step 4 in your journey of faith. I&apos;m honored that you&apos;ve
+                chosen to continue growing in your relationship with Jesus Christ. No
+                matter where you are in your walk—whether you&apos;re a new believer or
+                have followed Christ for many years—God is always inviting us to know Him
+                more deeply. Growing in faith isn&apos;t about becoming perfect; it&apos;s
+                about learning to trust Him more each day and allowing Him to transform
+                our hearts.
               </p>
               <p>
-                Many people have heard the name of Jesus. Some know parts of His story,
-                while others know Him only through what they&apos;ve seen or heard from
-                other people. Yet the Bible invites us to discover who Jesus truly is and
-                what He has revealed about God the Father.
+                As you explore this section, my prayer is that you&apos;ll not only learn
+                more about God&apos;s Word but also experience His presence in a deeper
+                way. Take your time, pray as you read, and let the Holy Spirit guide you.
+                Remember, you don&apos;t have to walk this journey alone. I&apos;m grateful
+                to walk alongside you, and I pray that your faith will continue to grow as
+                you discover that with God, all things are possible.
               </p>
               <p>
-                As we come to know Jesus, we begin to understand the heart, character,
-                and love of God in a deeper way. We discover that He is not distant or
-                uncaring, but a loving Father who desires a relationship with His
-                children.
-              </p>
-              <p>
-                In this section, we&apos;ll explore what the Bible teaches about Jesus
-                Christ and God the Father. My prayer is that as you read God&apos;s Word,
-                your faith will grow, your understanding will deepen, and your
-                relationship with Him will become more personal each day.
-              </p>
-              <p>
-                Whether you are just beginning your journey of faith or have followed
-                Christ for many years, there is always more to discover about the
-                greatness of God and the love He has shown us through His Son, Jesus
-                Christ.
-              </p>
-              <p>
-                Thank you for spending this time with me today. I&apos;m Pastor Richard.
-                My prayer is that every visit to Faith Changes Everything brings you one
-                step closer to Jesus, because faith in Him truly changes everything. And
-                remember... God loves you so very much... and so do I.
+                &quot;Thank you for spending this time with me today. My prayer is that
+                every visit to Faith Changes Everything brings you one step closer to
+                Jesus, because faith in Him truly changes everything. And remember... God
+                loves you so very much... and so do I.&quot;
               </p>
               <p>
                 In His Service<br />
-                <strong>Pastor Richard</strong>
+                <strong>Pastor Richard</strong><br />
+                Faith Changes Everything
               </p>
             </>
           ) : (
