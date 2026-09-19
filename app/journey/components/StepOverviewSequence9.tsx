@@ -197,9 +197,12 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 has carried me through difficult seasons of life.
               </p>
               <p>
-                &quot;May the God of hope fill you with all joy and peace as you trust in
-                Him, so that you may overflow with hope by the power of the Holy
-                Spirit.&quot; — <strong>Romans 15:13 (NIV)</strong>
+                <span className={sequence9.stepPastorScripture}>
+                  &quot;May the God of hope fill you with all joy and peace as you trust in
+                  Him, so that you may overflow with hope by the power of the Holy
+                  Spirit.&quot;
+                </span>{" "}
+                — <strong>Romans 15:13 (NIV)</strong>
               </p>
               <p>
                 Thank you for spending this time with me today. I&apos;m Pastor Richard.
