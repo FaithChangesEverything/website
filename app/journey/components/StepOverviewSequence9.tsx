@@ -156,10 +156,10 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 you discover that with God, all things are possible.
               </p>
               <p>
-                &quot;Thank you for spending this time with me today. My prayer is that
-                every visit to Faith Changes Everything brings you one step closer to
-                Jesus, because faith in Him truly changes everything. And remember... God
-                loves you so very much... and so do I.&quot;
+                Thank you for spending this time with me today. My prayer is that every
+                visit to Faith Changes Everything brings you one step closer to Jesus,
+                because faith in Him truly changes everything. And remember... God loves
+                you so very much... and so do I.
               </p>
               <p>
                 In His Service<br />
