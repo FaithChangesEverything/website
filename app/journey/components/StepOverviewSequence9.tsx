@@ -28,6 +28,9 @@ const lessonCardImages: Partial<Record<string, string>> = {
   "2.d": "/images/journey/lesson-cards/golden_reflection_by_the_mountain_lake.png",
   "2.e": "/images/journey/lesson-cards/sunrise_journey_across_the_valley.png",
   "3.b": "/images/journey/lesson-cards/golden_hour_prayer_overlook.png",
+  "4.b": "/images/journey/lesson-cards/step-4/sunlit_seedling_in_rich_soil.png",
+  "4.c": "/images/journey/lesson-cards/step-4/all-about-creation.jpg",
+  "4.d": "/images/journey/lesson-cards/step-4/bible_journal_open_bible_and_journal copy.png",
 };
 
 function ContextNav({ previous, center, next }: { previous?: NavItem; center: NavItem; next?: NavItem }) {
