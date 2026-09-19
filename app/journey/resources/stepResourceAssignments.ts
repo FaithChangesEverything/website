@@ -123,19 +123,22 @@ export const stepResourceAssignments: Record<
 
   "step-4": [
     { id: "song-2026-0014", type: "song", category: "related-song" },
-    { id: "song-2026-0018", type: "song", category: "related-song" },
-    { id: "song-2026-0012", type: "song", category: "related-song" },
-    { id: "ser-2026-0016", type: "sermon", category: "related-sermon" },
-    { id: "ser-2026-0010", type: "sermon", category: "related-sermon" },
-    { id: "ser-2026-0012", type: "sermon", category: "related-sermon" },
-    { id: "ser-2026-0008", type: "sermon", category: "related-sermon" },
-    { id: "doc-2026-00017", type: "document", category: "bible-study" },
+    { id: "vid-2026-00206", type: "video", category: "related-sermon" },
+    { id: "vid-2026-00207", type: "video", category: "related-sermon" },
+    { id: "vid-2026-00208", type: "video", category: "related-sermon" },
+    {
+      id: "doc-2026-00017",
+      type: "document",
+      category: "bible-study",
+      label: "Related Bible Study",
+    },
     { id: "vid-2026-00182", type: "video", category: "testimony" },
-    { id: "vid-2026-00026", type: "video", category: "related-video" },
-    { id: "vid-2026-00050", type: "video", category: "related-video" },
-    { id: "vid-2026-00056", type: "video", category: "related-video" },
-    { id: "vid-2026-00057", type: "video", category: "related-video" },
-    { id: "vid-2026-00164", type: "video", category: "related-video" },
+    {
+      id: "j2h-character-of-god-series",
+      type: "ministry",
+      category: "additional-resource",
+      label: "Character of God Bible Study Series",
+    },
   ],
 
   "step-5": [
