@@ -20,6 +20,11 @@ type LowerWindow = {
 };
 
 const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: string }>> = {
+  1: {
+    title: "Step 1: Before We Begin — A Message from Pastor Richard",
+    embedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/1170e21c10b941ac5b7024ad7860c4e7/iframe",
+  },
   4: {
     title: "Step 4: Before We Begin — A Message from Pastor Richard",
     embedUrl:
@@ -135,7 +140,82 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
           )}
         </div>
         <div className={sequence9.stepPastorManuscript}>
-          {stepNumber === 4 ? (
+          {stepNumber === 1 ? (
+            <>
+              <p><em>Dear Friend, welcome to step 1 in the journey to hope series, I&apos;m so glad you&apos;re here.</em></p>
+              <p>
+                If you&apos;ve found your way to this page, there&apos;s a good chance life
+                isn&apos;t unfolding the way you had hoped. I&apos;m honored that you&apos;ve
+                trusted me with a few moments of your time, and I pray they&apos;ll point
+                you toward the One who never leaves you alone. Perhaps you&apos;re carrying
+                a burden that feels too heavy to bear. Maybe you&apos;re grieving the loss
+                of someone you love, facing uncertainty about the future, struggling with
+                loneliness, or simply feeling worn down by the weight of life. Whatever
+                brought you here today, I want you to know that you are not alone.
+              </p>
+              <p>
+                There are moments in life when hope feels distant. Questions begin to fill
+                our minds. We wonder if things will ever get better, if anyone truly
+                understands what we&apos;re going through, or if God even sees our pain.
+                If you&apos;ve asked those questions, you&apos;re not the first—and you
+                certainly won&apos;t be the last. Many of God&apos;s people in Scripture
+                walked through seasons of fear, sorrow, disappointment, and uncertainty.
+                Yet time and again, they discovered that God was faithful, even when they
+                couldn&apos;t see what He was doing.
+              </p>
+              <p>
+                One of the greatest misconceptions about hope is that it depends on our
+                circumstances. The Bible teaches something different. Biblical hope is not
+                wishful thinking or blind optimism. It is a confident trust in the
+                character and promises of God. It is the quiet assurance that even in our
+                darkest moments, God is present, He is working, and He has not abandoned
+                His children.
+              </p>
+              <p>
+                I don&apos;t know exactly what you&apos;re facing today, and I won&apos;t
+                pretend to have simple answers for every difficult situation. But I do
+                know this: God invites us to come to Him just as we are. We don&apos;t
+                have to hide our fears, our doubts, or our tears. He already knows our
+                hearts, and He lovingly meets us in our greatest moments of need.
+              </p>
+              <p>
+                As you continue through this journey, my prayer is that you&apos;ll
+                discover more than encouraging words. I pray you&apos;ll discover the hope
+                that is found in Jesus Christ—a hope that remains steady even when life
+                feels uncertain.
+              </p>
+              <p>
+                Along the way, you&apos;ll find biblical encouragement, practical
+                guidance, and opportunities to pray and reflect. Take your time. There is
+                no rush. Healing and hope are often found one step at a time. Before we
+                take this next step together, I&apos;d like to leave you with one of my
+                favorite verses about hope. It reminds us that true hope doesn&apos;t
+                come from our circumstances—it comes from God Himself.
+              </p>
+              <p>
+                Before we continue, I&apos;d like to share one passage of Scripture that
+                has carried me through difficult seasons of life.
+              </p>
+              <p>
+                &quot;May the God of hope fill you with all joy and peace as you trust in
+                Him, so that you may overflow with hope by the power of the Holy
+                Spirit.&quot; — <strong>Romans 15:13 (NIV)</strong>
+              </p>
+              <p>
+                Thank you for spending this time with me today. I&apos;m Pastor Richard.
+                My prayer is that every visit to Faith Changes Everything brings you one
+                step closer to Jesus, because faith in Him truly changes everything. And
+                remember... God loves you so very much... and so do I.
+              </p>
+              <p>
+                <small>
+                  Scripture quotations taken from The Holy Bible, New International
+                  Version® NIV®. Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.™
+                  Used by permission. All rights reserved worldwide.
+                </small>
+              </p>
+            </>
+          ) : stepNumber === 4 ? (
             <>
               <p><em>Dear Friend,</em></p>
               <p>
