@@ -87,6 +87,34 @@
   outline-offset: 3px;
 }
 
+
+.stepPastorActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0.25rem 0 1rem;
+}
+
+.stepPastorVideoButton {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  background: #efbd59;
+  color: #152238;
+  font-weight: 800;
+}
+
+.stepPastorManuscript {
+  padding-top: 0.15rem;
+  color: #283c52;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.stepPastorManuscript p {
+  margin: 0 0 1rem;
+}
+
 .overviewAfterPastorWelcome {
   margin-top: 0;
 }
@@ -241,7 +269,7 @@
     margin-left: 0;
   }
 
-  .stepPastorButton {
+  .stepPastorVideoButton {
     width: 100%;
   }
 }
