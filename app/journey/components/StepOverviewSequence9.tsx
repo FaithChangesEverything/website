@@ -81,6 +81,49 @@ function lowerWindowsForStep(stepNumber: number): LowerWindow[] {
   return [];
 }
 
+function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lessons: JourneyLesson[] }) {
+  const introLesson = lessons.find((lesson) => lesson.kind === "pastor-letter");
+  if (!introLesson) return null;
+
+  const title = introLesson.title === "Before We Begin" ? "Before We Begin" : introLesson.title;
+
+  return (
+    <section className={sequence9.stepPastorWelcome} aria-labelledby={`step-${stepNumber}-pastor-message`}>
+      <div className={sequence9.stepPastorIdentity}>
+        <div className={sequence9.stepPastorPortrait}>
+          <Image
+            src="/images/pastor-richard.png"
+            alt="Pastor Richard"
+            width={220}
+            height={220}
+            sizes="(max-width: 720px) 150px, 210px"
+          />
+        </div>
+        <Image
+          className={`${sequence9.stepPastorSignature} ${fixes.signatureBlend}`}
+          src="/journal/assets/signature.png"
+          alt="Pastor Richard signature"
+          width={190}
+          height={76}
+        />
+        <span>Founder &amp; Pastor</span>
+      </div>
+      <div className={sequence9.stepPastorCopy}>
+        <p className={styles.eyebrow}>A Message from Pastor Richard</p>
+        <h2 id={`step-${stepNumber}-pastor-message`}>{title}</h2>
+        <span className={styles.goldRule} aria-hidden="true" />
+        <p>
+          Before you begin Step {stepNumber}, take a moment to hear from Pastor Richard
+          and prepare your heart for this part of your Journey to Hope.
+        </p>
+        <Link className={sequence9.stepPastorButton} href={introLesson.href}>
+          View Pastor Richard&apos;s Message <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 function Step2ClosingWindows() {
   return (
     <section className={sequence9.lowerWindows} aria-label="Step 2 closing content">
@@ -149,7 +192,9 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
   return <JourneyFrame><main className={styles.stepOverviewPage}>
     <section className={`${styles.interiorHero} ${fixes.interiorHeroCalm}`}><div className={styles.heroCopy}><p className={styles.crumb}>Journey to Hope <span>›</span> Step {step.number}</p><h1>Step {step.number}: {step.title}</h1><span className={styles.goldRule} aria-hidden="true" /><p>{step.summary}</p></div><aside className={styles.progressCard} aria-label={`Step ${step.number} progress`}><strong>Step Progress</strong><span>{stepProgress ? "Your saved progress in this Step." : "Progress will appear here after you choose to save your Journey."}</span><div className={styles.progressTrack}><span style={{ width: `${percent}%` }} /></div><b>{progressLabel}</b></aside></section>
 
-    <div className={styles.overviewPanel}>
+    <StepPastorWelcome stepNumber={stepNumber} lessons={lessons} />
+
+    <div className={`${styles.overviewPanel} ${sequence9.overviewAfterPastorWelcome}`}>
       <aside className={styles.yourJourney}><h2>Your Journey</h2>{journeySteps.map((item) => { const state = summary?.steps.find((s) => s.step === item.number); const marker = state?.status === "completed" ? "✓" : state?.status === "in_progress" ? "●" : "○"; const label = state ? state.status.replace("_", " ") : "not tracking"; return <Link key={item.id} href={item.href} className={item.id === step.id ? styles.currentJourneyItem : ""} aria-current={item.id === step.id ? "page" : undefined}><span className={`${styles.journeyNumber} ${item.id === step.id ? "" : refined.journeyNumberNeutral}`}>{item.number}</span><span>{item.title}<small className={fixes.journeyCompletionCount}>{state ? `${state.completed} of ${state.total} complete` : ""}</small></span><span className={`${refined.journeyState} ${item.id === step.id ? refined.journeyStateCurrent : ""}`} aria-label={label}>{marker}</span></Link>; })}<div className={styles.sidebarSupport}><span className={styles.supportIcon} aria-hidden="true">♡</span><strong>You Are Not Alone</strong><p>Whatever you’re facing, we’re here to walk with you and point you to hope.</p><a href="https://988lifeline.org/" rel="noreferrer">Need Help Right Now →</a></div></aside>
 
       <section className={styles.lessonCards} aria-labelledby="lessons-title"><div className={styles.lessonHeading}><span className={styles.lessonHeadingIcon} aria-hidden="true">▣</span><div><h2 id="lessons-title">Your Lessons in This Step</h2><p>Complete any lesson in any order. Supporting resources remain available without affecting your completion percentage.</p></div></div><div className={styles.cardGrid}>{cardLessons.map((lesson) => <LessonCard key={lesson.id} lesson={lesson} state={lessonStates?.[lesson.id]?.state} saving={saving} />)}</div>{!summary && <ProgressSavePrompt />}</section>
