@@ -53,6 +53,7 @@
 .lowerWindow p {
   margin: 0;
   max-width: 82ch;
+  color: #52606d;
   line-height: 1.7;
 }
 
