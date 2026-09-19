@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
@@ -17,6 +18,18 @@ type LowerWindow = {
   body: string;
 };
 
+const lessonCardImages: Partial<Record<string, string>> = {
+  "1.b": "/images/journey/lesson-cards/journey_toward_the_sunrise_cross.png",
+  "1.c": "/images/journey/lesson-cards/open_bible_at_golden_valley_sunrise.png",
+  "1.d": "/images/journey/lesson-cards/golden_reflection_by_the_mountain_lake.png",
+  "1.e": "/images/journey/lesson-cards/golden_hour_devotional_study_nook.png",
+  "2.b": "/images/journey/lesson-cards/kneeling_before_the_sunrise_cross.png",
+  "2.c": "/images/journey/lesson-cards/bible_and_cross_at_golden_sunrise.png",
+  "2.d": "/images/journey/lesson-cards/golden_reflection_by_the_mountain_lake.png",
+  "2.e": "/images/journey/lesson-cards/sunrise_journey_across_the_valley.png",
+  "3.b": "/images/journey/lesson-cards/golden_hour_prayer_overlook.png",
+};
+
 function ContextNav({ previous, center, next }: { previous?: NavItem; center: NavItem; next?: NavItem }) {
   return <nav className={styles.contextNav} aria-label="Journey navigation"><div>{previous ? <Link href={previous.href}>← <span><strong>{previous.label}</strong>{previous.detail && <small>{previous.detail}</small>}</span></Link> : <span />}</div><Link className={styles.contextNavCenter} href={center.href}><strong>{center.label}</strong>{center.detail && <small>{center.detail}</small>}</Link><div>{next ? <Link href={next.href}><span><strong>{next.label}</strong>{next.detail && <small>{next.detail}</small>}</span> →</Link> : <span />}</div></nav>;
 }
@@ -31,7 +44,8 @@ function displayState(state: JourneyDisplayState | undefined, saving: boolean) {
 
 function LessonCard({ lesson, state, saving }: { lesson: JourneyLesson; state?: JourneyDisplayState; saving: boolean }) {
   const presentation = displayState(state, saving);
-  return <article className={styles.card}><div className={styles.cardImageSlot} aria-hidden="true"><span>Approved lesson image</span></div><span className={styles.lessonBadge}>{lesson.id}</span><div className={styles.cardBody}><h3>{lesson.title}</h3><div className={styles.cardStatus}><span aria-hidden="true">{presentation.icon}</span> {presentation.label}</div><Link href={lesson.href}>{presentation.action} {state === "supporting" ? "Resource" : "Lesson"} <span aria-hidden="true">→</span></Link></div></article>;
+  const image = lessonCardImages[lesson.id];
+  return <article className={styles.card}><div className={styles.cardImageSlot} aria-hidden="true">{image ? <Image src={image} alt="" fill sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 25vw" className={styles.cardImage} /> : <span>Approved lesson image</span>}</div><span className={styles.lessonBadge}>{lesson.id}</span><div className={styles.cardBody}><h3>{lesson.title}</h3><div className={styles.cardStatus}><span aria-hidden="true">{presentation.icon}</span> {presentation.label}</div><Link href={lesson.href}>{presentation.action} {state === "supporting" ? "Resource" : "Lesson"} <span aria-hidden="true">→</span></Link></div></article>;
 }
 
 function cardsForStep(stepNumber: number, lessons: JourneyLesson[]) {
