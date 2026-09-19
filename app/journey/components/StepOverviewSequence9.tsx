@@ -121,11 +121,55 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
           </button>
         </div>
         <div className={sequence9.stepPastorManuscript}>
-          <p>
-            The approved Step {stepNumber} introduction from Pastor Richard will appear
-            here in full. This area is intentionally allowed to grow with the message so
-            longer Step introductions remain readable without being truncated.
-          </p>
+          {stepNumber === 4 ? (
+            <>
+              <p><em>Dear Friend,</em></p>
+              <p>
+                One of the greatest invitations in all of Scripture is not simply to know
+                about God, but to know Him personally.
+              </p>
+              <p>
+                Many people have heard the name of Jesus. Some know parts of His story,
+                while others know Him only through what they&apos;ve seen or heard from
+                other people. Yet the Bible invites us to discover who Jesus truly is and
+                what He has revealed about God the Father.
+              </p>
+              <p>
+                As we come to know Jesus, we begin to understand the heart, character,
+                and love of God in a deeper way. We discover that He is not distant or
+                uncaring, but a loving Father who desires a relationship with His
+                children.
+              </p>
+              <p>
+                In this section, we&apos;ll explore what the Bible teaches about Jesus
+                Christ and God the Father. My prayer is that as you read God&apos;s Word,
+                your faith will grow, your understanding will deepen, and your
+                relationship with Him will become more personal each day.
+              </p>
+              <p>
+                Whether you are just beginning your journey of faith or have followed
+                Christ for many years, there is always more to discover about the
+                greatness of God and the love He has shown us through His Son, Jesus
+                Christ.
+              </p>
+              <p>
+                Thank you for spending this time with me today. I&apos;m Pastor Richard.
+                My prayer is that every visit to Faith Changes Everything brings you one
+                step closer to Jesus, because faith in Him truly changes everything. And
+                remember... God loves you so very much... and so do I.
+              </p>
+              <p>
+                In His Service<br />
+                <strong>Pastor Richard</strong>
+              </p>
+            </>
+          ) : (
+            <p>
+              The approved Step {stepNumber} introduction from Pastor Richard will appear
+              here in full. This area is intentionally allowed to grow with the message
+              so longer Step introductions remain readable without being truncated.
+            </p>
+          )}
         </div>
       </div>
     </section>
