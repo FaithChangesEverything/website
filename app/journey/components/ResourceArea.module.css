@@ -42,14 +42,12 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: 1rem;
 }
 
 .card {
-  display: flex;
-  min-height: 13rem;
-  flex-direction: column;
+  min-height: 11rem;
   padding: 1.25rem;
   border: 1px solid #e1d7c8;
   border-radius: 0.8rem;
@@ -61,28 +59,58 @@
   color: #a66d07;
 }
 
-.card h3 {
-  margin: 0.5rem 0 0.65rem;
-  color: #071426;
-  font-family: Georgia, serif;
-  font-size: 1.15rem;
-  line-height: 1.25;
+.resourceList {
+  display: grid;
+  gap: 0;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.card > p:not(.category) {
-  margin: 0 0 1rem;
+.resourceItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid #eee4d7;
+}
+
+.resourceItem:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.resourceItem:last-child {
+  padding-bottom: 0;
+}
+
+.resourceCopy {
+  min-width: 0;
+}
+
+.resourceCopy strong {
+  color: #071426;
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.resourceCopy p {
+  margin: 0.35rem 0 0;
   color: #52606d;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .action {
+  flex: 0 0 auto;
   width: fit-content;
-  margin-top: auto;
-  padding: 0.65rem 0.85rem;
+  padding: 0.55rem 0.75rem;
   border-radius: 0.45rem;
   background: #102b49;
   color: #ffffff;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-decoration: none;
 }
@@ -113,5 +141,9 @@
   .area {
     margin-top: 1.75rem;
     padding: 1.15rem;
+  }
+
+  .resourceItem {
+    flex-direction: column;
   }
 }

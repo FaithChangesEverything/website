@@ -32,6 +32,11 @@ interface JourneyStepResourceAreaProps {
   introduction?: string;
 }
 
+function groupHeading(reference: JourneyResourceReference) {
+  if (reference.category === "prayer") return categoryHeadings.prayer;
+  return reference.label ?? categoryHeadings[reference.category];
+}
+
 export default function ResourceArea({
   resources,
   heading = "Continue Your Journey",
@@ -54,6 +59,24 @@ export default function ResourceArea({
 
   if (resolved.length === 0) return null;
 
+  const grouped = resolved.reduce<
+    Array<{
+      heading: string;
+      items: typeof resolved;
+    }>
+  >((groups, item) => {
+    const heading = groupHeading(item.reference);
+    const existing = groups.find((group) => group.heading === heading);
+
+    if (existing) {
+      existing.items.push(item);
+    } else {
+      groups.push({ heading, items: [item] });
+    }
+
+    return groups;
+  }, []);
+
   return (
     <section className={styles.area} aria-labelledby="j2h-resource-heading">
       <div className={styles.header}>
@@ -63,27 +86,33 @@ export default function ResourceArea({
       </div>
 
       <div className={styles.grid}>
-        {resolved.map(({ reference, resource }) => (
-          <article
-            className={styles.card}
-            key={`${reference.category}-${reference.id}`}
-          >
-            <p className={styles.category}>
-              {reference.label ?? categoryHeadings[reference.category]}
-            </p>
-            <h3>{resource.title}</h3>
-            {resource.description ? <p>{resource.description}</p> : null}
-            {resource.href && resource.actionLabel ? (
-              <a
-                className={styles.action}
-                href={resource.href}
-                target={resource.external ? "_blank" : undefined}
-                rel={resource.external ? "noopener noreferrer" : undefined}
-              >
-                {resource.actionLabel}
-                <span className={styles.srOnly}>: {resource.title}</span>
-              </a>
-            ) : null}
+        {grouped.map((group) => (
+          <article className={styles.card} key={group.heading}>
+            <h3 className={styles.category}>{group.heading}</h3>
+            <ul className={styles.resourceList}>
+              {group.items.map(({ reference, resource }, index) => (
+                <li
+                  className={styles.resourceItem}
+                  key={`${reference.category}-${reference.id}-${index}`}
+                >
+                  <div className={styles.resourceCopy}>
+                    <strong>{resource.title}</strong>
+                    {resource.description ? <p>{resource.description}</p> : null}
+                  </div>
+                  {resource.href && resource.actionLabel ? (
+                    <a
+                      className={styles.action}
+                      href={resource.href}
+                      target={resource.external ? "_blank" : undefined}
+                      rel={resource.external ? "noopener noreferrer" : undefined}
+                    >
+                      {resource.actionLabel}
+                      <span className={styles.srOnly}>: {resource.title}</span>
+                    </a>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
           </article>
         ))}
       </div>
