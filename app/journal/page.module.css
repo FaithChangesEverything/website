@@ -577,3 +577,282 @@
     box-sizing: border-box;
   }
 }
+
+
+/* ===========================
+   Online Journal Controls
+=========================== */
+
+.journalToolbar {
+  width: min(850px, calc(100% - 32px));
+  margin: 0 auto 28px;
+  padding: 26px 28px;
+  box-sizing: border-box;
+  border: 1px solid #d7c18b;
+  border-radius: 8px;
+  background: #fffdf8;
+  box-shadow: 0 8px 24px rgba(23, 58, 99, 0.08);
+  color: #333333;
+  font-family: Georgia, serif;
+}
+
+.journalToolbarEyebrow {
+  margin: 0 0 6px;
+  color: #8b6a1f;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journalToolbar h1 {
+  margin: 0 0 10px;
+  color: #173a63;
+  font-size: 26px;
+  line-height: 1.25;
+}
+
+.journalToolbar > p {
+  line-height: 1.65;
+}
+
+.journalPrivacyNotice {
+  display: grid;
+  gap: 5px;
+  margin: 20px 0 10px;
+  padding: 16px 18px;
+  border-left: 4px solid #c39a3a;
+  background: #ffffff;
+  line-height: 1.55;
+}
+
+.journalPrivacyNotice strong {
+  color: #173a63;
+}
+
+.journalStorageCaution {
+  margin: 10px 0 0;
+  color: #5f5f5f;
+  font-size: 14px;
+}
+
+.journalStorageWarning {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #b86a33;
+  border-radius: 5px;
+  background: #fff8f2;
+  color: #653819;
+  font-size: 14px;
+}
+
+.journalToolbarActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.journalControl,
+.journalControlPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid #173a63;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.journalControl {
+  background: #ffffff;
+  color: #173a63;
+}
+
+.journalControlPrimary {
+  background: #173a63;
+  color: #ffffff;
+}
+
+.journalControl:hover,
+.journalControl:focus-visible {
+  background: #f3f7fb;
+}
+
+.journalControlPrimary:hover,
+.journalControlPrimary:focus-visible {
+  background: #0f2947;
+}
+
+.journalControl:focus-visible,
+.journalControlPrimary:focus-visible,
+.savedStudyActions button:focus-visible {
+  outline: 3px solid #c39a3a;
+  outline-offset: 2px;
+}
+
+.journalControl:disabled,
+.journalControlPrimary:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.journalStatus {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+  color: #5b5b5b;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+.savedStudies {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #dfd4b8;
+}
+
+.savedStudies h2 {
+  margin: 0 0 12px;
+  color: #173a63;
+  font-size: 20px;
+}
+
+.savedStudyList {
+  display: grid;
+  gap: 10px;
+}
+
+.savedStudyCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.savedStudyCard > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.savedStudyCard span {
+  color: #666666;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.savedStudyActions {
+  display: flex;
+  gap: 8px;
+}
+
+.savedStudyActions button {
+  min-height: 36px;
+  padding: 6px 11px;
+  border: 1px solid #173a63;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #173a63;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.savedStudyActions .savedStudyDelete {
+  border-color: #8a3434;
+  color: #8a3434;
+}
+
+@media (max-width: 900px) {
+  .printableDocument {
+    padding: 20px 16px;
+  }
+
+  .printablePage {
+    width: 100%;
+    min-height: 0;
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 620px) {
+  .journalToolbar {
+    width: 100%;
+    padding: 22px 18px;
+  }
+
+  .journalToolbarActions {
+    flex-direction: column;
+  }
+
+  .journalControl,
+  .journalControlPrimary {
+    width: 100%;
+  }
+
+  .savedStudyCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .savedStudyActions {
+    width: 100%;
+  }
+
+  .savedStudyActions button {
+    flex: 1;
+  }
+
+  .studyBasicsRow {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .studyField {
+    flex: 1 1 100%;
+  }
+
+  .studyFieldSmall {
+    flex: 1 1 calc(50% - 7px);
+  }
+
+  .printablePage {
+    padding: 26px 18px;
+  }
+}
+
+@media print {
+  .journalToolbar {
+    display: none;
+  }
+
+  .printableDocument {
+    padding: 0;
+  }
+
+  .printablePage {
+    width: 8.5in;
+    height: 11in;
+    min-height: 11in;
+    margin: 0;
+    padding: 0.5in 0.75in;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .printablePage:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
