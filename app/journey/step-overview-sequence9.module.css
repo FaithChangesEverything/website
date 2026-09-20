@@ -226,6 +226,35 @@
   line-height: 1.7;
 }
 
+.windowAudio {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 680px;
+  margin: 0.8rem 0 1.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(20, 33, 61, 0.12);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.windowAudio strong {
+  color: #14213d;
+  font-size: 0.9rem;
+}
+
+.windowAudio audio {
+  width: 100%;
+}
+
+.windowManuscript {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.windowManuscript p {
+  margin: 0;
+}
+
 .lowerWindow button {
   flex: 0 0 auto;
   min-width: 7rem;
