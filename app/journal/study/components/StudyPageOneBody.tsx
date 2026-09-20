@@ -1,10 +1,27 @@
-import styles from "../../page.module.css";
+"use client";
 
-export default function StudyPageOneBody() {
+import styles from "../../page.module.css";
+import type { JournalFieldName, JournalFields } from "../../lib/journalModel";
+
+type StudyBodyProps = {
+  values?: JournalFields;
+  onFieldChange?: (field: JournalFieldName, value: string) => void;
+};
+
+export default function StudyPageOneBody({
+  values,
+  onFieldChange,
+}: StudyBodyProps) {
+  const bind = (field: JournalFieldName) => ({
+    value: values?.[field],
+    onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      onFieldChange?.(field, event.target.value),
+  });
+
   return (
     <section className={styles.studyPageBody}>
       <h2 className={styles.studySectionHeading}>
-        Scripture, Observation & Context
+        Scripture, Observation &amp; Context
       </h2>
 
       <div className={styles.studyBasicsRow}>
@@ -17,6 +34,7 @@ export default function StudyPageOneBody() {
             name="book"
             type="text"
             className={styles.studyInput}
+            {...bind("book")}
           />
         </div>
 
@@ -29,6 +47,7 @@ export default function StudyPageOneBody() {
             name="chapter"
             type="text"
             className={styles.studyInput}
+            {...bind("chapter")}
           />
         </div>
 
@@ -41,6 +60,7 @@ export default function StudyPageOneBody() {
             name="verses"
             type="text"
             className={styles.studyInput}
+            {...bind("verses")}
           />
         </div>
       </div>
@@ -54,6 +74,7 @@ export default function StudyPageOneBody() {
           name="theme"
           type="text"
           className={styles.studyInput}
+          {...bind("theme")}
         />
       </div>
 
@@ -66,6 +87,7 @@ export default function StudyPageOneBody() {
           name="keyVerse"
           className={styles.studyTextArea}
           rows={3}
+          {...bind("keyVerse")}
         />
       </div>
 
@@ -78,46 +100,48 @@ export default function StudyPageOneBody() {
           name="memoryVerse"
           className={styles.studyTextArea}
           rows={3}
+          {...bind("memoryVerse")}
         />
       </div>
+
       <div className={styles.studyTextAreaFieldLarge}>
-  <label className={styles.studyLabel} htmlFor="historicalContext">
-    Historical & Cultural Context
-  </label>
+        <label className={styles.studyLabel} htmlFor="historicalContext">
+          Historical &amp; Cultural Context
+        </label>
+        <textarea
+          id="historicalContext"
+          name="historicalContext"
+          className={styles.studyTextAreaLarge}
+          rows={5}
+          {...bind("historicalContext")}
+        />
+      </div>
 
-  <textarea
-    id="historicalContext"
-    name="historicalContext"
-    className={styles.studyTextAreaLarge}
-    rows={5}
-  />
-</div>
+      <div className={styles.studyTextAreaField}>
+        <label className={styles.studyLabel} htmlFor="wordStudy">
+          Hebrew / Greek Word Study
+        </label>
+        <textarea
+          id="wordStudy"
+          name="wordStudy"
+          className={styles.studyTextArea}
+          rows={3}
+          {...bind("wordStudy")}
+        />
+      </div>
 
-<div className={styles.studyTextAreaField}>
-  <label className={styles.studyLabel} htmlFor="wordStudy">
-    Hebrew / Greek Word Study
-  </label>
-
-  <textarea
-    id="wordStudy"
-    name="wordStudy"
-    className={styles.studyTextArea}
-    rows={3}
-  />
-</div>
-
-<div className={styles.studyTextAreaField}>
-  <label className={styles.studyLabel} htmlFor="crossReferences">
-    Cross References
-  </label>
-
-  <textarea
-    id="crossReferences"
-    name="crossReferences"
-    className={styles.studyTextArea}
-    rows={3}
-  />
-</div>
+      <div className={styles.studyTextAreaField}>
+        <label className={styles.studyLabel} htmlFor="crossReferences">
+          Cross References
+        </label>
+        <textarea
+          id="crossReferences"
+          name="crossReferences"
+          className={styles.studyTextArea}
+          rows={3}
+          {...bind("crossReferences")}
+        />
+      </div>
     </section>
   );
 }

@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/downloads/faith-changes-everything-bible-journal-pages.pdf",
+        destination:
+          "https://resources.faithchangeseverything.org/documents/doc-2026-00003-fce-three-page-bible-study.pdf",
+        permanent: true,
+      },
+      {
         source: "/need-help-now",
         destination: "/help-support",
         permanent: true,

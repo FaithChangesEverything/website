@@ -1,38 +1,13 @@
-import styles from "../page.module.css";
+import type { Metadata } from "next";
 
-import JournalHeader from "../components/JournalHeader";
-import SectionTitle from "../components/SectionTitle";
-import GoldDivider from "../components/GoldDivider";
+import OnlineJournal from "./OnlineJournal";
 
-import StudyPageOneBody from "../study/components/StudyPageOneBody";
-import StudyPageTwoBody from "../study/components/StudyPageTwoBody";
-import StudyPageThreeBody from "../study/components/StudyPageThreeBody";
+export const metadata: Metadata = {
+  title: "Online Bible Journal | Faith Changes Everything",
+  description:
+    "Write, save locally, print, and revisit a three-page Faith Changes Everything Bible Journal study.",
+};
 
 export default function PrintableJournalPage() {
-  return (
-    <main className={styles.printableDocument}>
-
-      <section className={styles.printablePage}>
-        <JournalHeader />
-        <SectionTitle title="Bible Study – Page 1" />
-        <GoldDivider />
-        <StudyPageOneBody />
-      </section>
-
-      <section className={styles.printablePage}>
-        <JournalHeader />
-        <SectionTitle title="Bible Study – Page 2" />
-        <GoldDivider />
-        <StudyPageTwoBody />
-      </section>
-
-      <section className={styles.printablePage}>
-        <JournalHeader />
-        <SectionTitle title="Bible Study – Page 3" />
-        <GoldDivider />
-        <StudyPageThreeBody />
-      </section>
-
-    </main>
-  );
+  return <OnlineJournal />;
 }
