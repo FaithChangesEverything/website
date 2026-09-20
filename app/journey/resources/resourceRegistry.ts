@@ -139,6 +139,26 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "video",
     title: "How to Have a Personal Relationship with Christ",
   },
+  "vid-2026-00205": {
+    id: "vid-2026-00205",
+    type: "video",
+    title: "Being Rooted in Christ",
+  },
+  "vid-2026-00191": {
+    id: "vid-2026-00191",
+    type: "video",
+    title: "Trust in the Lord with All Your Heart",
+  },
+  "vid-2026-00193": {
+    id: "vid-2026-00193",
+    type: "video",
+    title: "What Is Faith",
+  },
+  "vid-2026-00186": {
+    id: "vid-2026-00186",
+    type: "video",
+    title: "Keeping God Centered in Our Lives",
+  },
   "vid-2026-00187": {
     id: "vid-2026-00187",
     type: "video",
