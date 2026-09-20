@@ -17,7 +17,7 @@ export function NeedHelpRightNow() {
         <span>If you are in immediate danger, call <span className={fixes.crisisEmphasis}>911</span>. If you are in crisis, you are not alone.</span>
         <span>Call or text <span className={fixes.crisisEmphasis}>988 (24/7)</span> or visit <span className={fixes.crisisEmphasis}>988lifeline.org</span>.</span>
       </span>
-      <a className={fixes.crisisAction} href="https://988lifeline.org/" rel="noreferrer">Get Help Now →</a>
+      <Link className={fixes.crisisAction} href="/help-support">Get Help Now →</Link>
     </aside>
   );
 }

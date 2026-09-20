@@ -102,6 +102,45 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "1.g") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.g"
+        title="Continue Your Journey"
+        lessons={step.lessons}
+        intro="As you continue growing in your faith, you may find these additional resources helpful."
+      >
+        <LessonBlock title="Continue Exploring" icon="→" tone="highlight">
+          <p>Wherever you are on your spiritual journey, there is always another step to take. Choose the next area that best fits where you are today.</p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/journey/step-2">Learn About Salvation</Link>
+            <Link href="/journey/step-3">Know the Heart of God</Link>
+            <Link href="/journey/step-4">Grow Your Faith</Link>
+            <Link href="/journey/step-5">Walk Through a Difficult Season</Link>
+            <Link href="/prayer">Request Prayer</Link>
+          </div>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.h") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.h"
+        title="Continue Your Journey"
+        lessons={step.lessons}
+        intro="As you continue growing in your faith, the approved Continue Your Journey content will appear here during final content integration."
+      >
+        <LessonBlock title="Continue Your Journey" icon="→" tone="highlight">
+          <p>The approved Step 2 closing encouragement will remain here, while the related resources now appear on the main Step 2 page.</p>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "3.b") {
     return (
       <IndividualLesson
@@ -130,7 +169,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <p>The approved final encouragement will appear here as part of the same 3.b lesson.</p>
         </LessonBlock>
         <LessonBlock title="3.b.7 Continue Your Journey" icon="→">
-          <p>The approved Continue Your Journey content and Step 3 resources will close this lesson during content implementation.</p>
+          <p>The approved Continue Your Journey content will close this lesson during content implementation.</p>
         </LessonBlock>
       </IndividualLesson>
     );
@@ -205,15 +244,6 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       </LessonBlock>
       <LessonBlock title="A Prayer for Today" icon="◇">
         <p>The approved lesson prayer will appear here during content integration.</p>
-      </LessonBlock>
-      <LessonBlock title="Related Resources" icon="↗">
-        <div className={fixes.lessonResourceLinks}>
-          <Link href="/sermons">Sermons</Link>
-          <Link href="/resources">Bible Study</Link>
-          <Link href="/music">Music</Link>
-          <Link href="/prayer">Prayer Support</Link>
-          {(lesson.id === "1.e" || lesson.id === "2.e") && <Link href="/find-a-church">Find a Church Home</Link>}
-        </div>
       </LessonBlock>
     </IndividualLesson>
   );

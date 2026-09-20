@@ -9,6 +9,23 @@ import fixes from "./journey-fixes.module.css";
 
 export const metadata = { title: "Journey to Hope | Faith Changes Everything", description: "A Scripture-centered journey of hope, salvation, faith, encouragement, and next steps with Jesus Christ." };
 
+const stepCardImages: Record<number, { src: string; alt: string }> = {
+  1: { src: "/images/journey/step-cards/golden_sunrise_over_mountain_valley.png", alt: "A person looking across a sunlit mountain valley" },
+  2: { src: "/images/journey/step-cards/golden_path_through_the_mountain_valley.png", alt: "A path winding through a mountain valley toward sunrise" },
+  3: { src: "/images/journey/step-cards/cross_of_light_over_mountain_valley.png", alt: "A wooden cross overlooking a mountain valley at sunrise" },
+  4: { src: "/images/journey/step-cards/sunlit_seedling_in_rich_soil.png", alt: "A green seedling growing in sunlit soil" },
+  5: { src: "/images/journey/step-cards/golden_compass_at_sunset.png", alt: "Hands holding a compass at sunset" },
+  6: { src: "/images/journey/step-cards/reaching_hands_at_golden_sunset.png", alt: "Two hands reaching toward each other in golden light" },
+};
+
+const resourceCards = [
+  { title: "Music Library", href: "/music", image: "/images/journey/resource-cards/music_library_bible_and_headphones.png", alt: "Headphones beside an open Bible" },
+  { title: "Sermon Library", href: "/sermons", image: "/images/journey/resource-cards/sermon_library_open_bible_at_pulpit.png", alt: "An open Bible at a church pulpit" },
+  { title: "Bible Study", href: "/resources", image: "/images/journey/resource-cards/bible_study_open_bible_notebook_notes.png", alt: "An open Bible with a notebook and study notes" },
+  { title: "Walking with Christ", href: "/resources", image: "/images/journey/resource-cards/walking_with_christ_golden_path.png", alt: "A peaceful golden walking path" },
+  { title: "Bible Journal", href: "/journal", image: "/images/journey/resource-cards/bible_journal_open_bible_and_journal.png", alt: "An open Bible beside a journal and pen" },
+];
+
 export default async function JourneyPage() {
   const summary = await getJourneyProgressSummary();
 
@@ -36,7 +53,8 @@ export default async function JourneyPage() {
         const icon = progress?.status === "completed" ? "✓" : progress?.status === "in_progress" ? "●" : "○";
         const label = progress?.status === "completed" ? "Completed" : progress?.status === "in_progress" ? "In Progress" : summary ? "Not Started" : "Available";
         const action = progress?.status === "completed" ? "Review This Step" : progress?.status === "in_progress" ? "Continue This Step" : "Start This Step";
-        return <article key={step.id} className={styles.stepCard}><div className={styles.stepImageSlot} role="img" aria-label={`Approved Step ${step.number} image position`}><span>Step {step.number} image</span></div><span className={styles.stepNumberBadge}>{step.number}</span><div className={styles.stepCardBody}><h3>{step.title}</h3><p>{step.summary}</p><div className={styles.cardStatus}><span aria-hidden="true">{icon}</span> {label}{progress ? ` · ${progress.completed} of ${progress.total} complete` : ""}</div><Link href={step.href}>{action} <span aria-hidden="true">→</span></Link></div></article>;
+        const image = stepCardImages[step.number];
+        return <article key={step.id} className={styles.stepCard}><div className={styles.stepImageSlot}><Image src={image.src} alt={image.alt} fill sizes="(max-width: 480px) 100vw, (max-width: 760px) 50vw, (max-width: 1100px) 33vw, 17vw" className={styles.stepCardImage} /></div><span className={styles.stepNumberBadge}>{step.number}</span><div className={styles.stepCardBody}><h3>{step.title}</h3><p>{step.summary}</p><div className={styles.cardStatus}><span aria-hidden="true">{icon}</span> {label}{progress ? ` · ${progress.completed} of ${progress.total} complete` : ""}</div><Link href={step.href}>{action} <span aria-hidden="true">→</span></Link></div></article>;
       })}</div>
       {!summary && <ProgressSavePrompt />}
     </section>
@@ -47,6 +65,22 @@ export default async function JourneyPage() {
       <div><strong>Resources</strong><p>Helpful tools to support your Journey.</p><Link href="/resources">Explore Resources →</Link></div>
     </section>
 
-    <section className={styles.resources}><p className={styles.eyebrow}>Continue Growing</p><h2>FCE Resources</h2><div className={styles.resourceLinks}><Link href="/music">Music Library</Link><Link href="/sermons">Sermon Library</Link><Link href="/resources">Bible Study</Link><Link href="/resources">Walking with Christ</Link><Link href="/journal">Bible Journal</Link></div></section>
+    <section className={styles.resources}>
+      <p className={styles.eyebrow}>Continue Growing</p>
+      <h2>FCE Resources</h2>
+      <div className={styles.resourceLinks}>
+        {resourceCards.map((resource) => (
+          <Link key={resource.title} href={resource.href} className={styles.resourceCard}>
+            <div className={styles.resourceImageSlot}>
+              <Image src={resource.image} alt={resource.alt} fill sizes="(max-width: 480px) 100vw, (max-width: 760px) 50vw, (max-width: 1100px) 33vw, 20vw" className={styles.resourceCardImage} />
+            </div>
+            <div className={styles.resourceCardBody}>
+              <h3>{resource.title}</h3>
+              <span className={styles.resourceCardAction}>Explore <span aria-hidden="true">→</span></span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
   </main></JourneyFrame>;
 }

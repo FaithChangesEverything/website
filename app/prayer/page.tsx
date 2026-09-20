@@ -58,7 +58,7 @@ export default function PrayerPage() {
               <h2>Need Help Now?</h2>
               <p>This prayer form is not monitored as an emergency or crisis service.</p>
               <p>If you or someone you know is in immediate danger, call 911 or your local emergency services. In the United States, call or text 988 for suicide and crisis support.</p>
-              <Link href="/need-help-now">Get Help Now →</Link>
+              <Link href="/help-support">Get Help Now →</Link>
             </section>
 
             <section className="you-matter concept-blue-card">
