@@ -1,6 +1,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+const bibleJournalPdfUrl =
+  "https://resources.faithchangeseverything.org/documents/doc-2026-00003-fce-three-page-bible-study.pdf";
+
 export default function DownloadsPage() {
   return (
     <main className={styles.page}>
@@ -46,9 +49,8 @@ export default function DownloadsPage() {
 
             <p>
               Prefer to write by hand? This free printable set contains
-              the same three study, reflection, prayer, application, and
-              notes pages used in the Faith Changes Everything online
-              Bible Journal.
+              the three study, reflection, prayer, application, and notes
+              pages from the Faith Changes Everything Bible Journal.
             </p>
 
             <p>
@@ -60,7 +62,7 @@ export default function DownloadsPage() {
 
             <div className={styles.buttonArea}>
               <a
-                href="/downloads/faith-changes-everything-bible-journal-pages.pdf"
+                href={bibleJournalPdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.downloadButton}
