@@ -44,26 +44,6 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "song",
     title: "Yesterday Don’t Own Me Anymore",
   },
-  "ser-2026-0016": {
-    id: "ser-2026-0016",
-    type: "sermon",
-    title: "Being Rooted in Christ",
-  },
-  "ser-2026-0010": {
-    id: "ser-2026-0010",
-    type: "sermon",
-    title: "Trust in the Lord with All Your Heart",
-  },
-  "ser-2026-0012": {
-    id: "ser-2026-0012",
-    type: "sermon",
-    title: "What Is Faith",
-  },
-  "ser-2026-0008": {
-    id: "ser-2026-0008",
-    type: "sermon",
-    title: "How to Have a Personal Relationship with God",
-  },
   "vid-2026-00026": {
     id: "vid-2026-00026",
     type: "video",
