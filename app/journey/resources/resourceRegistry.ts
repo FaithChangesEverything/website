@@ -67,7 +67,7 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
   "vid-2026-00050": {
     id: "vid-2026-00050",
     type: "video",
-    title: "06_Faithful",
+    title: "Faithful",
   },
   "vid-2026-00056": {
     id: "vid-2026-00056",
