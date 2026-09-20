@@ -34,6 +34,56 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "song",
     title: "Teach Me to Trust",
   },
+  "song-2026-0018": {
+    id: "song-2026-0018",
+    type: "song",
+    title: "Faith Changes Everything",
+  },
+  "ser-2026-0016": {
+    id: "ser-2026-0016",
+    type: "sermon",
+    title: "Being Rooted in Christ",
+  },
+  "ser-2026-0010": {
+    id: "ser-2026-0010",
+    type: "sermon",
+    title: "Trust in the Lord with All Your Heart",
+  },
+  "ser-2026-0012": {
+    id: "ser-2026-0012",
+    type: "sermon",
+    title: "What Is Faith",
+  },
+  "ser-2026-0008": {
+    id: "ser-2026-0008",
+    type: "sermon",
+    title: "How to Have a Personal Relationship with God",
+  },
+  "vid-2026-00026": {
+    id: "vid-2026-00026",
+    type: "video",
+    title: "Holy Spirit",
+  },
+  "vid-2026-00050": {
+    id: "vid-2026-00050",
+    type: "video",
+    title: "06_Faithful",
+  },
+  "vid-2026-00056": {
+    id: "vid-2026-00056",
+    type: "video",
+    title: "What Is the Bible",
+  },
+  "vid-2026-00057": {
+    id: "vid-2026-00057",
+    type: "video",
+    title: "The Story of the Bible",
+  },
+  "vid-2026-00165": {
+    id: "vid-2026-00165",
+    type: "video",
+    title: "The Lord’s Prayer",
+  },
   "vid-2026-00184": {
     id: "vid-2026-00184",
     type: "video",
@@ -195,6 +245,16 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     description:
       "A teaching from Tim Mackie offered as an additional ministry resource for further study.",
     href: "https://www.youtube.com/watch?v=rXs-w1gjmL8&t=1s",
+    actionLabel: "Watch the Resource",
+    external: true,
+  },
+  "external-tim-mackie-what-is-faith": {
+    id: "external-tim-mackie-what-is-faith",
+    type: "ministry",
+    title: "What Is Faith — Tim Mackie",
+    description:
+      "An additional teaching resource from Tim Mackie exploring the biblical meaning of faith.",
+    href: "https://www.youtube.com/watch?v=A-zK3Uy-QcY",
     actionLabel: "Watch the Resource",
     external: true,
   },
