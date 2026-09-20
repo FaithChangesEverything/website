@@ -57,6 +57,10 @@ export default function OnlineJournal() {
 
       setStore(loaded);
       setCurrent(active ? cloneStudy(active) : newStudy());
+
+      if (active) {
+        setStatus("Saved study restored from this device.");
+      }
     } catch {
       setStorageAvailable(false);
       setStore(emptyJournalStore());
@@ -279,14 +283,29 @@ export default function OnlineJournal() {
             <h2 id="saved-studies-title">Your Saved Journal Studies</h2>
             <div className={styles.savedStudyList}>
               {sortedStudies.map((study) => (
-                <article key={study.id} className={styles.savedStudyCard}>
+                <article
+                  key={study.id}
+                  className={`${styles.savedStudyCard} ${
+                    current?.id === study.id ? styles.savedStudyCardCurrent : ""
+                  }`}
+                >
                   <div>
-                    <strong>{getJournalStudyLabel(study)}</strong>
+                    <div className={styles.savedStudyHeading}>
+                      <strong>{getJournalStudyLabel(study)}</strong>
+                      {current?.id === study.id && (
+                        <span className={styles.currentStudyBadge}>Current Study</span>
+                      )}
+                    </div>
                     <span>Last saved {formatDate(study.updatedAt)}</span>
                   </div>
                   <div className={styles.savedStudyActions}>
-                    <button type="button" onClick={() => handleOpenStudy(study.id)}>
-                      Open
+                    <button
+                      type="button"
+                      onClick={() => handleOpenStudy(study.id)}
+                      disabled={current?.id === study.id}
+                      aria-current={current?.id === study.id ? "true" : undefined}
+                    >
+                      {current?.id === study.id ? "Current" : "Open"}
                     </button>
                     <button
                       type="button"
