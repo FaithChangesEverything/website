@@ -47,6 +47,11 @@ const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: str
     embedUrl:
       "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/af3132fb9ac0d3aa79707d71b9c18343/iframe",
   },
+  6: {
+    title: "Step 6: A Message from Pastor Richard",
+    embedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/85cf60c75c6d1979fc0fe4c402e072d2/iframe",
+  },
 };
 
 const lessonCardImages: Partial<Record<string, string>> = {
@@ -69,6 +74,12 @@ const lessonCardImages: Partial<Record<string, string>> = {
   "5.f": "/images/journey/lesson-cards/step-5/when_youre_afraid_of_the_future_concrete_maze.png",
   "5.g": "/images/journey/lesson-cards/step-5/when_relationships_hurt_back_to_back.png",
   "5.h": "/images/journey/lesson-cards/step-5/finding_hope_again_hands_holding_hope.png",
+  "6.b": "/images/journey/lesson-cards/step-6/read_gods_word_morning_bible_reading.png",
+  "6.c": "/images/journey/lesson-cards/step-6/walk_with_christ_guided_by_golden_light.png",
+  "6.d": "/images/journey/lesson-cards/step-6/reflect_on_your_journey_golden_hour_journal.png",
+  "6.e": "/images/journey/lesson-cards/step-6/find_a_church_home_sunlit_country_chapel.png",
+  "6.f": "/images/journey/lesson-cards/step-6/we_would_love_to_pray_for_you_praying_over_bible.png",
+  "6.g": "/images/journey/lesson-cards/step-6/stay_connected_walking_together_toward_the_light.png",
 };
 
 function ContextNav({ previous, center, next }: { previous?: NavItem; center: NavItem; next?: NavItem }) {
@@ -497,6 +508,67 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 My prayer is that every visit to Faith Changes Everything brings you one
                 step closer to Jesus, because faith in Him truly changes everything. And
                 remember... God loves you so very much... and so do I.
+              </p>
+            </>
+          ) : stepNumber === 6 ? (
+            <>
+              <p><em>Hello My Friend and welcome to step 6, the last step in the Journey to Hope Series. First, thank you for taking this journey with me.</em></p>
+              <p>
+                If you&apos;ve spent time walking through these pages, my prayer is that
+                you&apos;ve discovered something far greater than a website. I hope
+                you&apos;ve encountered the love of Jesus Christ and have been reminded
+                that no matter where you&apos;ve been or what you&apos;re facing today,
+                God has not forgotten you. He sees you, He loves you, and He is still
+                writing your story. One of the greatest misconceptions about faith is
+                that it&apos;s a destination—that once we find Christ, the journey is
+                complete. The truth is, coming to Jesus is not the finish line; it&apos;s
+                the beginning of the greatest journey you&apos;ll ever take.
+              </p>
+              <p>
+                Following Christ is a lifelong walk. There will be days filled with joy
+                and celebration. There will also be days of uncertainty, disappointment,
+                and questions. Through every season, one truth remains unchanged: God is
+                faithful. He has promised never to leave you or forsake you, and He will
+                continue the good work He has begun in your life. My hope for the Faith
+                Changes Everything ministry has never been simply to create a website,
+                write sermons, or record songs. My prayer is that these resources become
+                tools God uses to encourage you, strengthen your faith, and remind you
+                that His grace is sufficient for every season of life.
+              </p>
+              <p>
+                As you continue your journey, I encourage you to spend time in God&apos;s
+                Word every day. Even a few minutes with Scripture can transform the
+                direction of your day. Talk with God often through prayer. Write down
+                what He&apos;s teaching you. Surround yourself with other believers who
+                will encourage you and help you grow. Most importantly, keep your eyes
+                on Jesus, because He is the source of our hope, our strength, and our
+                peace.
+              </p>
+              <p>
+                Below you&apos;ll find several resources that we&apos;ve created to help
+                you continue growing in your relationship with Christ. Whether it&apos;s
+                a Bible reading plan, the Walking with Christ devotional, the Bible
+                Journal, our weekly encouragement emails, or simply reaching out for
+                prayer, my prayer is that you&apos;ll take the next step God is leading
+                you to take.
+              </p>
+              <p>
+                Please know this: you are never walking alone. Whether we ever meet in
+                person or only through these pages, my prayer is that every message,
+                every song, every Bible study, and every prayer will continue pointing
+                you toward Jesus Christ. He is the One who changes lives, and He will
+                faithfully continue the work He has begun in yours. God is with you every
+                step of the way, and we would be honored to walk alongside you as well.
+                Thank you for allowing me to be part of your journey.
+              </p>
+              <p>
+                May the Lord bless you, strengthen you, and fill your heart with His
+                peace as you continue walking with Christ.
+              </p>
+              <p>
+                In His Service,<br />
+                <strong>Pastor Richard</strong><br />
+                Founder, Faith Changes Everything
               </p>
             </>
           ) : (
