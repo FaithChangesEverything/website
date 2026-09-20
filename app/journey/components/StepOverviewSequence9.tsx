@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
+import { JourneyAudioPlayer } from "./JourneyAudioPlayer";
 import { PastorMessageVideo } from "./PastorMessageVideo";
 import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
@@ -370,13 +371,7 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
           <div className={sequence9.windowBody}>
             <h2>{window.title}</h2>
             {window.audioUrl && (
-              <div className={sequence9.windowAudio}>
-                <strong>Listen to this section</strong>
-                <audio controls preload="metadata" controlsList="nodownload" aria-label={`Listen to ${window.title}`}>
-                  <source src={window.audioUrl} type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
+              <JourneyAudioPlayer src={window.audioUrl} title={window.title} />
             )}
             <div className={sequence9.windowManuscript}>
               {window.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
