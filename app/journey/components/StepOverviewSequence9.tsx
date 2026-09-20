@@ -27,6 +27,11 @@ const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: str
     embedUrl:
       "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/1170e21c10b941ac5b7024ad7860c4e7/iframe",
   },
+  2: {
+    title: "Step 2: Before We Begin — A Message from Pastor Richard",
+    embedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/91eb13788249bcf2cfbaa2a1b99aa4a9/iframe",
+  },
   4: {
     title: "Step 4: Before We Begin — A Message from Pastor Richard",
     embedUrl:
@@ -241,6 +246,74 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 </small>
               </p>
             </>
+          ) : stepNumber === 2 ? (
+            <>
+              <p><em>Dear Friend, Welcome to step 2 in the journey to hope series.</em></p>
+              <p>
+                If you&apos;ve found your way to this page, there&apos;s a good chance
+                you&apos;re searching for answers about salvation. Perhaps you&apos;ve
+                heard the word in church, read it in the Bible, or heard someone speak
+                about being &quot;saved.&quot; Maybe you&apos;ve wondered what it really
+                means or whether it has anything to do with your own life. You may not
+                realize it yet, but the questions you&apos;re asking today have changed
+                countless lives throughout history.
+              </p>
+              <p>If that&apos;s where you are today, I&apos;m glad you&apos;re here.</p>
+              <p>
+                The questions you&apos;re asking are among the most important questions
+                anyone will ever face. Why do we need salvation? Who is Jesus Christ?
+                Why did He die on the cross? Can my past really be forgiven? Is it
+                possible to know God personally? What happens after this life is over?
+                These are not merely theological questions. They are deeply personal
+                because they concern our relationship with the God who created us, loves
+                us, and desires that we know Him.
+              </p>
+              <p>
+                As you journey through this section, my prayer is that you will come to
+                understand why every one of us needs salvation, who Jesus Christ is, what
+                He accomplished through His death and resurrection, and how God offers
+                the gift of eternal life by His grace through faith.
+              </p>
+              <p>
+                More than that, my prayer is that you will discover that Christianity is
+                not simply a religion built on rules or rituals. At its heart is an
+                invitation into a relationship with the living God through His Son, Jesus
+                Christ. Perhaps you&apos;ve carried questions for many years. Perhaps
+                you&apos;ve made mistakes you believe can never be forgiven. Maybe
+                you&apos;ve wondered whether God could ever love someone like you.
+              </p>
+              <p>
+                The wonderful message of the Gospel is that God&apos;s love is greater
+                than our failures, His grace is greater than our sin, and His mercy is
+                available to everyone who comes to Him through Jesus Christ. None of us
+                can earn God&apos;s favor by being good enough. Salvation is His gift,
+                offered freely because of what Jesus accomplished on the cross.
+              </p>
+              <p>
+                As you continue reading, I encourage you to keep an open heart. Read the
+                Scriptures carefully. Ask honest questions. Take time to reflect on what
+                you discover. If you sincerely seek God, I believe you will find that He
+                has been seeking you all along.
+              </p>
+              <p>
+                Whether you are simply curious, returning to God after many years, or
+                taking your very first steps toward faith, know that you are welcome here.
+                It is a privilege to walk alongside you as you explore these life-changing
+                truths. May God bless you, give you wisdom, and open your heart to the
+                incredible gift of salvation that He offers through Jesus Christ.
+              </p>
+              <p>
+                Thank you for spending this time with me today. My prayer is that every
+                visit to Faith Changes Everything brings you one step closer to Jesus,
+                because faith in Him truly changes everything. And remember... God loves
+                you so very much... and so do I.
+              </p>
+              <p>
+                In His Service<br />
+                <strong>Pastor Richard</strong><br />
+                Faith Changes Everything
+              </p>
+            </>
           ) : stepNumber === 4 ? (
             <>
               <p><em>Dear Friend,</em></p>
@@ -294,6 +367,10 @@ function Step2ClosingWindows() {
           <span className={sequence9.windowBadge}>2.f</span>
           <div className={sequence9.windowBody}>
             <h2>Bible Study Online Resources</h2>
+            <JourneyAudioPlayer
+              src="https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources.mp3"
+              title="Bible Study Online Resources"
+            />
             <p>
               As you continue growing in your faith, you'll discover that there are many helpful resources available to deepen your understanding of God's Word. We've created a collection of carefully selected Bible study resources to help you continue growing in your knowledge of God's Word. Explore our collection of Faith Changes Everything Bible study resources.
             </p>
@@ -302,7 +379,6 @@ function Step2ClosingWindows() {
             </Link>
           </div>
         </div>
-        <button type="button" disabled aria-label="Listen to Bible Study Online Resources">◖ Listen</button>
       </article>
 
       <article className={sequence9.lowerWindow}>
@@ -310,6 +386,10 @@ function Step2ClosingWindows() {
           <span className={sequence9.windowBadge}>2.g</span>
           <div className={sequence9.windowBody}>
             <h2>Final Encouragement</h2>
+            <JourneyAudioPlayer
+              src="https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement.mp3"
+              title="Final Encouragement"
+            />
             <p>As you continue your journey of faith, may this prayer from the Apostle Paul encourage your heart.</p>
             <blockquote className={sequence9.scriptureQuote}>
               “I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being, so that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power, together with all the Lord's holy people, to grasp how wide and long and high and deep is the love of Christ, and to know this love that surpasses knowledge—that you may be filled to the measure of all the fullness of God. Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen.”
@@ -320,7 +400,6 @@ function Step2ClosingWindows() {
             </p>
           </div>
         </div>
-        <button type="button" disabled aria-label="Listen to Final Encouragement">◖ Listen</button>
       </article>
 
       <article className={sequence9.lowerWindow}>
@@ -328,12 +407,15 @@ function Step2ClosingWindows() {
           <span className={sequence9.windowBadge}>2.h</span>
           <div className={sequence9.windowBody}>
             <h2>Continue Your Journey - Congratulations on completing this part of your journey!!</h2>
+            <JourneyAudioPlayer
+              src="https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey.mp3"
+              title="Continue Your Journey"
+            />
             <p>
               Whether you have recently placed your faith in Jesus Christ or are still seeking to know Him better, I hope this chapter has helped you take another step toward a deeper understanding of God's love and His plan for your life. Remember, following Jesus is not a destination—it is a lifelong journey of growing in faith, trusting God's promises, and becoming more like Christ each day. When you're ready, return to the Journey Hub to continue your journey. There you'll find additional paths designed to help you grow, answer questions you may still have, and encourage you wherever you are in your walk with God. As you continue growing in your faith, you may find these additional resources helpful.
             </p>
           </div>
         </div>
-        <button type="button" disabled aria-label="Listen to Continue Your Journey">◖ Listen</button>
       </article>
     </section>
   );
