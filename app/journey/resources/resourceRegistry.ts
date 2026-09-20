@@ -112,7 +112,7 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
   "vid-2026-00204": {
     id: "vid-2026-00204",
     type: "video",
-    title: "Bad Things — Good People",
+    title: "Bad Things-Good People",
   },
   "vid-2026-00182": {
     id: "vid-2026-00182",
