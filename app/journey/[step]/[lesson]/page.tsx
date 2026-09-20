@@ -175,6 +175,29 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "6.d") {
+    return (
+      <IndividualLesson
+        stepNumber={6}
+        lessonId="6.d"
+        title="Reflect on Your Journey"
+        lessons={step.lessons}
+        intro="Take time to reflect on what God has been teaching you and record the Scriptures, prayers, and lessons you want to remember."
+      >
+        <LessonBlock title="Faith Changes Everything Bible Journal" icon="▣" tone="highlight">
+          <p>
+            Use the shared Faith Changes Everything Bible Journal as a simple
+            place to record what you are learning, reflect on Scripture, write
+            your prayers, and remember how God has been faithful along the way.
+          </p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/journal">Open the FCE Bible Journal</Link>
+          </div>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "6.e") {
     return (
       <IndividualLesson
