@@ -16,7 +16,8 @@ type NavItem = { href: string; label: string; detail?: string };
 type LowerWindow = {
   id: string;
   title: string;
-  body: string;
+  paragraphs: string[];
+  audioUrl?: string;
 };
 
 const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: string }>> = {
@@ -85,12 +86,33 @@ function lowerWindowsForStep(stepNumber: number): LowerWindow[] {
       {
         id: "1.f",
         title: "A Prayer for Today",
-        body: "The approved Journey to Hope manuscript text for A Prayer for Today will appear here during final content integration.",
+        audioUrl:
+          "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer.mp3",
+        paragraphs: [
+          "No matter what has brought you here today, God knows your heart. He sees your joys, your fears, your questions, and your struggles. You do not need perfect words or a polished prayer. He simply invites you to come to Him with honesty and faith. If you would like, make this prayer your own.",
+          "Heavenly Father,",
+          "Thank You for reminding me that true hope is found in You alone. There are times when life feels uncertain, and I don't always understand the circumstances I face. Yet today I choose to place my trust in You rather than in my fears.",
+          "Thank You for Your unfailing love, your faithfulness, and the promises You have given through Your Word. Thank You for sending Jesus Christ so that I can know the hope of forgiveness, new life, and the assurance of Your presence every day.",
+          "Please strengthen my faith when I am weak. Fill my heart with Your peace when I am anxious. Help me to remember that You are always working, even when I cannot see what You are doing.",
+          "Guide my steps as I continue this journey. Help me to grow in my relationship with You, to trust You more each day, and to become a reflection of Your love to those around me.",
+          "Thank You for never leaving me and for being the source of a hope that never fails.",
+          "In the name of Jesus Christ, I pray.",
+          "Amen.",
+        ],
       },
       {
         id: "1.g",
         title: "Continue Your Journey",
-        body: "The approved Journey to Hope manuscript text for Continue Your Journey will appear here during final content integration.",
+        audioUrl:
+          "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey.mp3",
+        paragraphs: [
+          "Congratulations for completing the Step 1, Journey to Hope. Thank you for spending this time exploring what the Bible says about hope.",
+          "My prayer is that you leave here encouraged, knowing that no matter what you are facing today, you do not have to face it alone. God sees you, loves you, and invites you to place your hope in Him.",
+          "If this is your first time exploring the Christian faith, remember that every journey begins with a single step. You do not need to have all the answers today. Continue seeking God, reading His Word, and asking Him to reveal Himself to you.",
+          "If you already know Jesus Christ as your Savior, I encourage you to keep growing in your faith. Spend time with God each day through prayer and Bible reading. Become part of a Bible-believing church where you can worship, learn, and serve alongside other believers.",
+          "Wherever you are on your spiritual journey, there is always another step to take.",
+          "I’ll leave you at the end of your step one journey with this message, \"Wherever God is leading you next, don't feel pressured to do everything today. Simply take the next step He places before you.\" – From Pastor Richard at Faith Changes Everything, congratulations for completing Step 1, and I hope to see you on Step 2.",
+        ],
       },
     ];
   }
@@ -343,8 +365,24 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
 
     {lowerWindows.length > 0 && <section className={sequence9.lowerWindows} aria-label={`Step ${stepNumber} closing content`}>
       {lowerWindows.map((window) => <article className={sequence9.lowerWindow} key={window.id}>
-        <div className={sequence9.windowContent}><span className={sequence9.windowBadge}>{window.id}</span><div className={sequence9.windowBody}><h2>{window.title}</h2><p>{window.body}</p></div></div>
-        <button type="button" disabled aria-label={`Listen to ${window.title}`}>◖ Listen</button>
+        <div className={sequence9.windowContent}>
+          <span className={sequence9.windowBadge}>{window.id}</span>
+          <div className={sequence9.windowBody}>
+            <h2>{window.title}</h2>
+            {window.audioUrl && (
+              <div className={sequence9.windowAudio}>
+                <strong>Listen to this section</strong>
+                <audio controls preload="metadata" controlsList="nodownload" aria-label={`Listen to ${window.title}`}>
+                  <source src={window.audioUrl} type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            )}
+            <div className={sequence9.windowManuscript}>
+              {window.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            </div>
+          </div>
+        </div>
       </article>)}
     </section>}
 
