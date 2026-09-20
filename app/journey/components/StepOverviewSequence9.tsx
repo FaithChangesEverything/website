@@ -32,6 +32,11 @@ const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: str
     embedUrl:
       "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/91eb13788249bcf2cfbaa2a1b99aa4a9/iframe",
   },
+  3: {
+    title: "Step 3: Before We Begin — A Message from Pastor Richard",
+    embedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/bfebf600884acde5c8a207ad185c6ca8/iframe",
+  },
   4: {
     title: "Step 4: Before We Begin — A Message from Pastor Richard",
     embedUrl:
@@ -312,6 +317,49 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 In His Service<br />
                 <strong>Pastor Richard</strong><br />
                 Faith Changes Everything
+              </p>
+            </>
+          ) : stepNumber === 3 ? (
+            <>
+              <p><em>Dear Friend,</em></p>
+              <p>
+                One of the greatest invitations in all of Scripture is not simply to know
+                about God, but to know Him personally.
+              </p>
+              <p>
+                Many people have heard the name of Jesus. Some know parts of His story,
+                while others know Him only through what they&apos;ve seen or heard from
+                other people. Yet the Bible invites us to discover who Jesus truly is and
+                what He has revealed about God the Father.
+              </p>
+              <p>
+                As we come to know Jesus, we begin to understand the heart, character,
+                and love of God in a deeper way. We discover that He is not distant or
+                uncaring, but a loving Father who desires a relationship with His
+                children.
+              </p>
+              <p>
+                In this section, we&apos;ll explore what the Bible teaches about Jesus
+                Christ and God the Father. My prayer is that as you read God&apos;s Word,
+                your faith will grow, your understanding will deepen, and your
+                relationship with Him will become more personal each day.
+              </p>
+              <p>
+                Whether you are just beginning your journey of faith or have followed
+                Christ for many years, there is always more to discover about the
+                greatness of God and the love He has shown us through His Son, Jesus
+                Christ.
+              </p>
+              <p>
+                Thank you for spending this time with me today. I&apos;m Pastor Richard.
+                My prayer is that every visit to Faith Changes Everything brings you one
+                step closer to Jesus, because faith in Him truly changes everything. And
+                remember... God loves you so very much... and so do I.
+              </p>
+              <p>
+                In His Service<br />
+                <strong>Pastor Richard</strong><br />
+                Founder - Faith Changes Everything
               </p>
             </>
           ) : stepNumber === 4 ? (
