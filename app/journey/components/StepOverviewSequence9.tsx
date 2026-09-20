@@ -42,6 +42,11 @@ const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: str
     embedUrl:
       "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/b575a6593cd36a290fe8f3be5c577fd6/iframe",
   },
+  5: {
+    title: "Step 5: Before We Begin — A Message from Pastor Richard",
+    embedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/af3132fb9ac0d3aa79707d71b9c18343/iframe",
+  },
 };
 
 const lessonCardImages: Partial<Record<string, string>> = {
@@ -399,6 +404,99 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 In His Service<br />
                 <strong>Pastor Richard</strong><br />
                 Faith Changes Everything
+              </p>
+            </>
+          ) : stepNumber === 5 ? (
+            <>
+              <p><em>Dear Friend, Welcome to Step 5 of the Journey to Hope Series.</em></p>
+              <p>
+                If you&apos;ve found your way to this page, chances are life hasn&apos;t
+                been easy lately. Perhaps you&apos;ve lost someone you love. Maybe
+                you&apos;re carrying a burden that feels too heavy to bear. You may be
+                facing uncertainty about your future, struggling with fear, wrestling
+                with regret, or simply wondering how much longer you can keep going.
+                Whatever brought you here, I&apos;m grateful you came. That tells me that
+                even though this life feels like it is too much, you still know, and
+                need, a voice, a hand, encouragement, a small ray of hope that there is
+                a reason for all you are going through. And if you will give me 5
+                minutes, I will do my very best to help you realize that there is an
+                answer.
+              </p>
+              <p>
+                First, I want you to know something that I hope you&apos;ll never forget:
+                You are not alone. Although I may never meet you this side of heaven,
+                God knows exactly who you are. He knows your name, your story, every tear
+                you&apos;ve cried, every sleepless night you&apos;ve endured, and every
+                question you&apos;ve carried in your heart. Nothing about your life has
+                escaped His notice.
+              </p>
+              <p>
+                One of the greatest lies we can believe during difficult seasons is that
+                we&apos;re alone or that no one understands what we&apos;re feeling. The
+                truth is that every person who has ever walked with God has faced seasons
+                of pain, uncertainty, disappointment, and loss. Even some of the greatest
+                men and women in Scripture experienced moments when life felt
+                overwhelming.
+              </p>
+              <p>
+                The encouraging news is this: God never abandoned them, and He won&apos;t
+                abandon you either. I wish I could promise that following Christ means
+                life will always be easy. It doesn&apos;t. There will be days when
+                prayers seem to go unanswered. There will be days when your heart feels
+                broken. There will be days when you wonder why God has allowed something
+                to happen. I&apos;ve asked those questions myself.
+              </p>
+              <p>
+                Yet I&apos;ve also discovered that God often does some of His greatest
+                work during the seasons we would never choose for ourselves. He
+                doesn&apos;t always remove the storm immediately, but He faithfully
+                walks with us through it. Wherever this season has found you, remember
+                that difficult chapters do not define the rest of your story. God has a
+                remarkable way of bringing hope into places that once seemed beyond
+                repair. Even if you cannot see what He is doing today, you can trust that
+                He has not stopped working.
+              </p>
+              <p>
+                That is my prayer for you. Not that you&apos;ll simply get through this
+                difficult season, but that somewhere along the journey you&apos;ll
+                discover the peace, strength, hope, and presence of Jesus Christ in a way
+                you&apos;ve never experienced before. I encourage you to walk through the
+                lessons provided on this ministry website.
+              </p>
+              <p>
+                As you continue through these lessons, I don&apos;t want you to think of
+                them as chapters in a book. Think of them as conversations. Together
+                we&apos;ll open God&apos;s Word. Together we&apos;ll pray. Together
+                we&apos;ll look at the promises that have carried believers through
+                every generation. Most importantly, together we&apos;ll remember that
+                our hope has never been found in our circumstances—it has always been
+                found in Christ.
+              </p>
+              <p>
+                If at any point you need someone to pray with you, please don&apos;t
+                hesitate to submit a prayer request. We&apos;d be honored to pray for you.
+              </p>
+              <p>
+                And if the burden you&apos;re carrying feels overwhelming, please
+                don&apos;t try to carry it alone. Reach out to someone you trust—a family
+                member, a friend, your pastor, or a counselor. God often works through the
+                people He places around us, and asking for help is not a sign of weakness.
+                It&apos;s often the first step toward healing. I feel just by the fact
+                that you clicked on this video, there is a part of you that wanted to
+                hear that voice from someone who truly believes in you, in your heart and
+                in the fact that you are a child of God, and he loves you so very much.
+              </p>
+              <p>
+                No matter what you&apos;re facing today, I know God still has a purpose
+                for your life. I know He still loves you. I know He still has hope for
+                your future. And I believe this difficult season does not have the final
+                word, but Jesus does.
+              </p>
+              <p>
+                Thank you for spending this time with me today. I&apos;m Pastor Richard.
+                My prayer is that every visit to Faith Changes Everything brings you one
+                step closer to Jesus, because faith in Him truly changes everything. And
+                remember... God loves you so very much... and so do I.
               </p>
             </>
           ) : (
