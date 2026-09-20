@@ -39,6 +39,11 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "song",
     title: "Faith Changes Everything",
   },
+  "song-2026-0005": {
+    id: "song-2026-0005",
+    type: "song",
+    title: "Yesterday Don’t Own Me Anymore",
+  },
   "ser-2026-0016": {
     id: "ser-2026-0016",
     type: "sermon",
@@ -89,10 +94,25 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "video",
     title: "Hope in Hard Times",
   },
+  "vid-2026-00133": {
+    id: "vid-2026-00133",
+    type: "video",
+    title: "Job",
+  },
+  "vid-2026-00134": {
+    id: "vid-2026-00134",
+    type: "video",
+    title: "Psalms",
+  },
   "vid-2026-00188": {
     id: "vid-2026-00188",
     type: "video",
     title: "Navigating Storms of Life",
+  },
+  "vid-2026-00204": {
+    id: "vid-2026-00204",
+    type: "video",
+    title: "Bad Things — Good People",
   },
   "vid-2026-00182": {
     id: "vid-2026-00182",
@@ -107,7 +127,7 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
   "vid-2026-00044": {
     id: "vid-2026-00044",
     type: "video",
-    title: "01-god",
+    title: "God",
   },
   "vid-2026-00190": {
     id: "vid-2026-00190",
@@ -254,6 +274,16 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     title: "What Is Faith — Tim Mackie",
     description:
       "An additional teaching resource from Tim Mackie exploring the biblical meaning of faith.",
+    href: "https://www.youtube.com/watch?v=A-zK3Uy-QcY",
+    actionLabel: "Watch the Resource",
+    external: true,
+  },
+  "external-tim-mackie-what-is-hope": {
+    id: "external-tim-mackie-what-is-hope",
+    type: "ministry",
+    title: "What Is Hope — Tim Mackie",
+    description:
+      "An additional teaching resource from Tim Mackie exploring the biblical meaning of hope.",
     href: "https://www.youtube.com/watch?v=A-zK3Uy-QcY",
     actionLabel: "Watch the Resource",
     external: true,
