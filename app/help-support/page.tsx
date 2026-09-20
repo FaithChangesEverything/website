@@ -5,7 +5,6 @@ import NeedHelpNow from "./NeedHelpNow";
 import SupportIcon from "./SupportIcon";
 import { supportCategories } from "./resources";
 import styles from "./helpSupport.module.css";
-import enhancements from "./helpSupportEnhancements.module.css";
 
 
 const cardImages: Record<string, { src: string; alt: string }> = {
