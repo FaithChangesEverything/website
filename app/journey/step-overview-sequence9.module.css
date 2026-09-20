@@ -188,9 +188,11 @@
 
 .windowContent {
   display: flex;
+  flex: 1 1 auto;
   align-items: flex-start;
   gap: 1rem;
   min-width: 0;
+  width: 100%;
 }
 
 .windowBadge {
@@ -210,7 +212,9 @@
 }
 
 .windowBody {
+  flex: 1 1 auto;
   min-width: 0;
+  width: 100%;
 }
 
 .lowerWindow h2 {
@@ -246,12 +250,31 @@
   width: 100%;
 }
 
+.windowAudioRestart {
+  justify-self: start;
+  min-width: 0 !important;
+  padding: 0.55rem 0.9rem !important;
+  cursor: pointer;
+}
+
+.windowAudioRestart:hover {
+  background: #eef1f5;
+}
+
+.windowAudioRestart:focus-visible {
+  outline: 3px solid #d7a84b;
+  outline-offset: 3px;
+}
+
 .windowManuscript {
   display: grid;
   gap: 0.9rem;
+  width: 100%;
 }
 
 .windowManuscript p {
+  width: 100%;
+  max-width: none;
   margin: 0;
 }
 
