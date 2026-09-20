@@ -281,9 +281,9 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
   "external-tim-mackie-what-is-hope": {
     id: "external-tim-mackie-what-is-hope",
     type: "ministry",
-    title: "What Is Hope — Tim Mackie",
+    title: "What Is Faith — Tim Mackie",
     description:
-      "An additional teaching resource from Tim Mackie exploring the biblical meaning of hope.",
+      "An additional teaching resource from Tim Mackie exploring the biblical meaning of faith.",
     href: "https://www.youtube.com/watch?v=A-zK3Uy-QcY",
     actionLabel: "Watch the Resource",
     external: true,
