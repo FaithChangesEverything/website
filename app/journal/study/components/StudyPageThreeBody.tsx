@@ -1,10 +1,27 @@
-import styles from "../../page.module.css";
+"use client";
 
-export default function StudyPageThreeBody() {
+import styles from "../../page.module.css";
+import type { JournalFieldName, JournalFields } from "../../lib/journalModel";
+
+type StudyBodyProps = {
+  values?: JournalFields;
+  onFieldChange?: (field: JournalFieldName, value: string) => void;
+};
+
+export default function StudyPageThreeBody({
+  values,
+  onFieldChange,
+}: StudyBodyProps) {
+  const bind = (field: JournalFieldName) => ({
+    value: values?.[field],
+    onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) =>
+      onFieldChange?.(field, event.target.value),
+  });
+
   return (
     <section className={styles.studyPageBody}>
       <h2 className={styles.studySectionHeading}>
-        Meditation & Additional Notes
+        Meditation &amp; Additional Notes
       </h2>
 
       <p className={styles.studyIntro}>
@@ -17,6 +34,7 @@ export default function StudyPageThreeBody() {
           name="additionalNotes"
           className={styles.studyNotesArea}
           aria-label="Meditation and Additional Notes"
+          {...bind("additionalNotes")}
         />
       </div>
 
@@ -24,12 +42,12 @@ export default function StudyPageThreeBody() {
         <label className={styles.studyLabel} htmlFor="relatedStudy">
           Related Study
         </label>
-
         <textarea
           id="relatedStudy"
           name="relatedStudy"
           className={styles.studyTextArea}
           rows={3}
+          {...bind("relatedStudy")}
         />
       </div>
     </section>
