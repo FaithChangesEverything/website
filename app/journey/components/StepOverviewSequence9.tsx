@@ -57,6 +57,13 @@ const lessonCardImages: Partial<Record<string, string>> = {
   "4.b": "/images/journey/lesson-cards/step-4/sunlit_seedling_in_rich_soil.png",
   "4.c": "/images/journey/lesson-cards/step-4/all-about-creation.jpg",
   "4.d": "/images/journey/lesson-cards/step-4/bible_journal_open_bible_and_journal copy.png",
+  "5.b": "/images/journey/lesson-cards/step-5/when_life_feels_overwhelming_quiet_desk.png",
+  "5.c": "/images/journey/lesson-cards/step-5/when_youre_grieving_misty_lake_bench.png",
+  "5.d": "/images/journey/lesson-cards/step-5/when_god_feels_silent_golden_bench_overlook.png",
+  "5.e": "/images/journey/lesson-cards/step-5/when_you_think_you_have_failed_turning_failure_into_hope.png",
+  "5.f": "/images/journey/lesson-cards/step-5/when_youre_afraid_of_the_future_concrete_maze.png",
+  "5.g": "/images/journey/lesson-cards/step-5/when_relationships_hurt_back_to_back.png",
+  "5.h": "/images/journey/lesson-cards/step-5/finding_hope_again_hands_holding_hope.png",
 };
 
 function ContextNav({ previous, center, next }: { previous?: NavItem; center: NavItem; next?: NavItem }) {
