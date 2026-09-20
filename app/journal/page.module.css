@@ -856,3 +856,41 @@
     page-break-after: auto;
   }
 }
+
+
+/* Current saved journal study feedback */
+
+.savedStudyCardCurrent {
+  border-color: #c39a3a;
+  box-shadow: 0 0 0 2px rgba(195, 154, 58, 0.14);
+}
+
+.savedStudyHeading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.currentStudyBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f5ead0;
+  color: #6d5218 !important;
+  font-family: Arial, sans-serif;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.savedStudyActions button:disabled {
+  cursor: default;
+  opacity: 0.65;
+  background: #f3f3f3;
+  color: #666666;
+  border-color: #bcbcbc;
+}
