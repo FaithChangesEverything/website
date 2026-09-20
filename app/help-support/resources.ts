@@ -72,7 +72,7 @@ export const supportCategories: SupportCategory[] = [
     resources: [
       { title: "Celebrate Recovery", description: "Christ-centered recovery support offered through churches and groups.", href: "https://celebraterecovery.com/" },
       { title: "Pure Desire Ministries", description: "Christian resources addressing pornography and sexual brokenness for individuals, spouses, and churches.", href: "https://puredesire.org/" },
-      { title: "The Salvation Army Adult Rehabilitation Centers", description: "Faith-based residential rehabilitation programs and recovery support.", href: "https://www.salvationarmyusa.org/usa-central-territory/adult-rehabilitation-centers/" },
+      { title: "The Salvation Army Adult Rehabilitation Centers", description: "Faith-based residential rehabilitation programs and recovery support.", href: "https://www.salvationarmyusa.org/recovery/" },
       { title: "SAMHSA Treatment Locator", description: "Find U.S. treatment for substance-use and mental-health needs.", href: "https://www.samhsa.gov/find-help/locators" },
     ],
   },
