@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/need-help-now",
+        destination: "/help-support",
+        permanent: true,
+      },
+      {
         source: "/journey/step-1/hope-for-today",
         destination: "/journey/step-1/understanding-hope",
         permanent: true,
