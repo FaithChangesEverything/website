@@ -42,7 +42,7 @@ export default async function BibleStudySeriesPage({
   if (!series) notFound();
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${series.slug === "ten-commandments" ? styles.compactSeries : ""}`}>
       <Header />
       <BibleStudySeriesHeader title={series.title} />
 
