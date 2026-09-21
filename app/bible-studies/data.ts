@@ -499,7 +499,7 @@ const tenCommandmentsLessons: BibleStudyLessonSummary[] = [
       "Begin by seeing the Ten Commandments as more than a list of rules—as wisdom that invites God’s people into faithful, life-giving relationship with Him and with one another.",
     primaryScripture: "Exodus 20:1–17",
     href: "/bible-studies/ten-commandments/introduction",
-    imageSrc: "/images/bible-studies/ten-commandments/img-202600096-10command-intro.png",
+    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00096-10command-intro.png",
     imageAlt: "Visual introduction to the Ten Commandments Bible study series",
     video: {
       title: "The 10 Commandments as Wisdom",
@@ -814,7 +814,7 @@ const tenCommandmentsLessons: BibleStudyLessonSummary[] = [
       "Explore the communal harm caused by false witness and how truthful speech can protect our neighbor, especially the vulnerable.",
     primaryScripture: "Exodus 20:16",
     href: "/bible-studies/ten-commandments/command-9-do-not-bear-false-witness",
-    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00103-command9.png",
+    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00104-command9.png",
     imageAlt: "Illustration for the ninth commandment, do not bear false witness",
     video: {
       title: "9th Commandment: Do Not Bear False Witness",
@@ -849,7 +849,7 @@ const tenCommandmentsLessons: BibleStudyLessonSummary[] = [
       "Examine the desires beneath our actions and consider what it means to align what we want with God’s good purposes.",
     primaryScripture: "Exodus 20:17",
     href: "/bible-studies/ten-commandments/command-10-do-not-covet",
-    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00104-command10.png",
+    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00105-command10.png",
     imageAlt: "Illustration for the tenth commandment, do not covet",
     video: {
       title: "10th Commandment: Do Not Desire Your Neighbor’s Possessions",
@@ -884,7 +884,7 @@ const tenCommandmentsLessons: BibleStudyLessonSummary[] = [
       "Look back across all ten commands and see the unified vision of wisdom, love, truth, generosity, and faithful relationship they present.",
     primaryScripture: "Exodus 20:1–17",
     href: "/bible-studies/ten-commandments/summary",
-    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00105-10command-summary.png",
+    imageSrc: "/images/bible-studies/ten-commandments/img-2026-00106-10command-summary.png",
     imageAlt: "Summary illustration for the Ten Commandments Bible study series",
     video: {
       title: "Looking Back on the 10 Commandments",
