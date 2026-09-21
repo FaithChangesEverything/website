@@ -87,7 +87,11 @@ export default async function BibleStudyLessonPage({
       </section>
 
       <div className={styles.content}>
-        <section className={styles.videoSection} aria-labelledby="teaching-video-title">
+        <section
+          id="primary-teaching"
+          className={styles.videoSection}
+          aria-labelledby="teaching-video-title"
+        >
           <div className={styles.sectionHeading}>
             <p className={styles.sectionEyebrow}>PRIMARY TEACHING</p>
             <h2 id="teaching-video-title">{lesson.video?.title ?? lesson.title}</h2>
