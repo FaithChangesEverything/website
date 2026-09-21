@@ -456,3 +456,150 @@
     width: 100%;
   }
 }
+
+
+/* Ten Commandments uses a denser card layout because the series contains 12 lessons.
+   Keep this scoped so the approved Character of God series remains unchanged. */
+.compactSeries .content {
+  width: min(1380px, calc(100% - 36px));
+}
+
+.compactSeries .pastorCard {
+  grid-template-columns: 220px minmax(0, 1fr);
+  max-width: 1180px;
+  align-items: start;
+}
+
+.compactSeries .pastorPortraitWrap {
+  min-height: 0;
+  align-self: start;
+  padding: 18px;
+  background: #fff;
+}
+
+.compactSeries .pastorPortrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 14px;
+}
+
+.compactSeries .pastorCardBody {
+  justify-content: flex-start;
+  padding: 34px 38px 36px;
+}
+
+.compactSeries .pastorCard h2 {
+  font-size: clamp(1.75rem, 2.7vw, 2.45rem);
+}
+
+.compactSeries .pastorIntroductionBody {
+  margin: 14px 0 22px;
+}
+
+.compactSeries .pastorIntroductionBody p {
+  margin-bottom: 12px;
+  font-size: .96rem;
+  line-height: 1.62;
+}
+
+.compactSeries .studiesSection {
+  gap: 22px;
+}
+
+.compactSeries .studyGrid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.compactSeries .studyCard {
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(7, 18, 38, .065);
+}
+
+.compactSeries .studyArtworkImageWrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  background: #fff;
+}
+
+.compactSeries .studyArtworkImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.compactSeries .studyCardBody {
+  padding: 14px;
+}
+
+.compactSeries .studyCard h3 {
+  font-size: .98rem;
+  line-height: 1.28;
+}
+
+.compactSeries .studyCardBody p {
+  margin: 9px 0 14px;
+  font-size: .79rem;
+  line-height: 1.48;
+}
+
+.compactSeries .studyButton {
+  min-height: 36px;
+  padding: 8px 11px;
+  font-size: .78rem;
+}
+
+@media (max-width: 1049px) {
+  .compactSeries .studyGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .compactSeries .pastorCard {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .compactSeries .pastorCardBody {
+    padding: 28px 30px 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .compactSeries .pastorCard {
+    grid-template-columns: 1fr;
+  }
+
+  .compactSeries .pastorPortraitWrap {
+    width: min(240px, 72%);
+    margin: 20px auto 0;
+    padding: 0;
+  }
+
+  .compactSeries .studyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .compactSeries .studyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .compactSeries .studyCardBody {
+    padding: 16px;
+  }
+
+  .compactSeries .studyCard h3 {
+    font-size: 1.08rem;
+  }
+
+  .compactSeries .studyCardBody p {
+    font-size: .88rem;
+  }
+}
