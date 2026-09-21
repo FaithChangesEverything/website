@@ -159,6 +159,21 @@
   font-size: 1.02rem;
 }
 
+.pastorIntroductionBody {
+  margin: 18px 0 26px;
+}
+
+.pastorIntroductionBody p {
+  margin: 0 0 16px;
+  color: #4b5968;
+  line-height: 1.72;
+  font-size: 1.02rem;
+}
+
+.pastorIntroductionBody p:last-child {
+  margin-bottom: 0;
+}
+
 .primaryButton,
 .studyButton {
   align-self: flex-start;
