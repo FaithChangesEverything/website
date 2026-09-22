@@ -18,6 +18,7 @@ export default function PastorIntroductionCard({
   videoEmbedUrl,
 }: PastorIntroductionCardProps) {
   const [videoOpen, setVideoOpen] = useState(false);
+  const paragraphs = excerpt.split(/\n\s*\n/).filter(Boolean);
 
   return (
     <section className={styles.pastorCard} aria-labelledby="pastor-series-introduction">
@@ -34,7 +35,12 @@ export default function PastorIntroductionCard({
       <div className={styles.pastorCardBody}>
         <p className={styles.cardEyebrow}>SERIES INTRODUCTION</p>
         <h2 id="pastor-series-introduction">{title}</h2>
-        <p>{excerpt}</p>
+
+        <div className={styles.pastorMessage}>
+          {paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
 
         {videoEmbedUrl ? (
           <>
