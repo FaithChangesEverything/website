@@ -103,6 +103,28 @@ export default async function BibleStudyLessonPage({
               endPosterSrc={lesson.video.endPosterSrc}
               endPosterAlt={lesson.video.endPosterAlt}
             />
+          ) : lesson.imageSrc && lesson.video?.href ? (
+            <a
+              className={`${styles.videoPanel} ${styles.videoLaunch} ${styles.externalVideoPanel}`}
+              href={lesson.video.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Watch ${lesson.video.title} on BibleProject (opens in a new tab)`}
+            >
+              <Image
+                src={lesson.imageSrc}
+                alt=""
+                fill
+                sizes="(max-width: 760px) 100vw, 900px"
+                className={styles.videoBackdrop}
+              />
+              <div className={styles.videoOverlay} />
+              <div className={styles.videoAction}>
+                <span className={styles.playIcon} aria-hidden="true">▶</span>
+                <strong>Watch on BibleProject</strong>
+                <span>The original BibleProject teaching opens in a new tab.</span>
+              </div>
+            </a>
           ) : (
             <div className={styles.videoPanel}>
               {lesson.imageSrc && (
@@ -123,7 +145,7 @@ export default async function BibleStudyLessonPage({
             </div>
           )}
 
-          {lesson.video?.href && (
+          {lesson.video?.href && lesson.video.streamSrc && (
             <div className={styles.externalVideoRow}>
               <p>Prefer to watch this video on BibleProject&apos;s website?</p>
               <a className={styles.primaryButton} href={lesson.video.href} target="_blank" rel="noreferrer">
