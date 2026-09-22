@@ -528,3 +528,20 @@
     width: 100%;
   }
 }
+
+
+.externalVideoPanel {
+  color: inherit;
+  text-decoration: none;
+}
+
+.externalVideoPanel:hover .videoOverlay,
+.externalVideoPanel:focus-visible .videoOverlay {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 18, 38, .92) 0%,
+    rgba(7, 18, 38, .76) 38%,
+    rgba(7, 18, 38, .44) 70%,
+    rgba(7, 18, 38, .3) 100%
+  );
+}
