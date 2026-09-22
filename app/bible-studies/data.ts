@@ -1,3 +1,5 @@
+import { biblicalThemesSeriesDetail } from "./biblicalThemesData";
+
 export type BibleStudyGroupId =
   | "study-skills"
   | "foundations-themes"
@@ -48,10 +50,21 @@ export type BibleStudySeriesSummary = {
   imageAlt?: string;
 };
 
+export type BibleStudyLessonGroup = {
+  id: string;
+  label: string;
+  description?: string;
+  lessonSlugs: string[];
+};
+
 export type BibleStudySeriesDetail = {
   slug: string;
   title: string;
   introduction: string;
+  overviewTitle?: string;
+  lessonsTitle?: string;
+  lessonsDescription?: string;
+  lessonGroups?: BibleStudyLessonGroup[];
   pastorIntroduction: {
     title: string;
     excerpt: string;
@@ -137,6 +150,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "Biblical Themes",
     summary: "Trace important themes through Scripture and see how they contribute to the Bible’s unified story.",
     group: "foundations-themes",
+    href: "/bible-studies/biblical-themes",
   },
   {
     slug: "ten-commandments",
@@ -504,6 +518,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
     sourceNote:
       "Some teaching resources in this series are provided by BibleProject. Ownership and attribution will appear with each third-party resource on the individual study pages.",
   },
+  biblicalThemesSeriesDetail,
 ];
 
 export function getBibleStudySeriesDetail(slug: string) {
