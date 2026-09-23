@@ -7,6 +7,7 @@ type BiblicalThemeSeed = {
   scriptUrl: string;
   studyGuideUrl?: string;
   image: string;
+  imagePosition?: string;
 };
 
 const biblicalThemeSeeds: BiblicalThemeSeed[] = [
@@ -28,7 +29,7 @@ const biblicalThemeSeeds: BiblicalThemeSeed[] = [
   { slug: "justice", title: "Justice", videoUrl: "https://bibleproject.com/videos/justice/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00041-justice-script.pdf", studyGuideUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00042-justice-studyguide.pdf", image: "justice.png" },
   { slug: "last-will-be-first", title: "Last Will Be First", videoUrl: "https://bibleproject.com/videos/last-will-be-first/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00043-last-first-script.pdf", image: "last-will-be-first.png" },
   { slug: "law", title: "Law", videoUrl: "https://bibleproject.com/videos/law/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00044-law-script.pdf", image: "law.png" },
-  { slug: "messiah", title: "Messiah", videoUrl: "https://bibleproject.com/videos/messiah/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00045-messiah-script.pdf", studyGuideUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00046-messiah-studyguide.pdf", image: "messiah.png" },
+  { slug: "messiah", title: "Messiah", videoUrl: "https://bibleproject.com/videos/messiah/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00045-messiah-script.pdf", studyGuideUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00046-messiah-studyguide.pdf", image: "messiah.png", imagePosition: "center 18%" },
   { slug: "mountain", title: "Mountain", videoUrl: "https://bibleproject.com/videos/the-mountain/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00047-mountain-script.pdf", studyGuideUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00048-mountain-studyguide.pdf", image: "mountain.png" },
   { slug: "public-reading-of-scripture", title: "Public Reading of Scripture", videoUrl: "https://bibleproject.com/videos/public-reading-scripture/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00049-public-reading-of-scripture-script.pdf", studyGuideUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00050-public-reading-of-scripture-studyguide.pdf", image: "public-reading-of-scripture.png" },
   { slug: "redemption", title: "Redemption", videoUrl: "https://bibleproject.com/videos/redemption/", scriptUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00052-redemption-script.pdf", studyGuideUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/biblical-themes/doc-2026-00051-redemption-group-studyguide.pdf", image: "redemption.png" },
@@ -50,6 +51,7 @@ export const biblicalThemesLessons: BibleStudyLessonSummary[] = biblicalThemeSee
   href: `/bible-studies/biblical-themes/${theme.slug}`,
   imageSrc: `/images/bible-studies/biblical-themes/${theme.image}`,
   imageAlt: `${theme.title} biblical theme study artwork`,
+  imagePosition: theme.imagePosition,
   video: {
     title: theme.title,
     description: `Watch BibleProject’s teaching on ${theme.title} and then use the supporting resources below to continue your study.`,
