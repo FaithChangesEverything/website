@@ -225,7 +225,6 @@ export const creationSeriesDetail: BibleStudySeriesDetail = {
   lessonsTitle: "Explore the Creation Series",
   lessonsDescription:
     "Begin with Genesis 1 and follow the theme of creation through the Psalms, Proverbs, and John’s Gospel.",
-  reducedCards: true,
   pastorIntroduction: {
     title: "A Personal Introduction from Pastor Richard",
     excerpt: `When we hear the word creation, our minds often go immediately to the opening words of the Bible: “In the beginning God created…” And that is exactly where this study begins.
