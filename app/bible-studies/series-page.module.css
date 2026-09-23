@@ -312,6 +312,52 @@
   line-height: 1.62;
 }
 
+.studyGridReduced {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.studyGridReduced .studyCard {
+  flex: 0 1 280px;
+  width: 100%;
+  min-height: 0;
+}
+
+.studyGridReduced .studyArtworkPlaceholder,
+.studyGridReduced .studyArtworkImageWrap {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.studyGridReduced .studyArtworkImage {
+  min-height: 0;
+  height: 100%;
+}
+
+.studyGridReduced .studyCardBody {
+  padding: 18px;
+}
+
+.studyGridReduced .studyCard h3 {
+  font-size: 1.16rem;
+}
+
+.studyGridReduced .studyCardBody p {
+  margin: 10px 0 17px;
+  font-size: .94rem;
+  line-height: 1.5;
+}
+
+.studyGridReduced .studyButton {
+  min-height: 40px;
+  padding: 9px 14px;
+  font-size: .9rem;
+}
+
 .sourceNote {
   max-width: 900px;
   margin: 42px auto 0;
@@ -374,6 +420,10 @@
 }
 
 @media (max-width: 720px) {
+  .studyGridReduced .studyCard {
+    flex-basis: min(360px, 100%);
+  }
+
   .seriesHeroInner {
     width: min(100% - 28px, 1180px);
     grid-template-columns: 1fr;
