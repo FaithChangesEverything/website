@@ -450,8 +450,7 @@
     font-size: clamp(2.65rem, 13vw, 4rem);
   }
 
-  .pastorCardBody,
-  .studyCardBody {
+  .pastorCardBody {
     padding: 22px;
   }
 
