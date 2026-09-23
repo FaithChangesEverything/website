@@ -120,7 +120,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
   },
   {
     slug: "all-about-creation",
-    title: "All About Creation",
+    title: "Creation",
     summary: "Explore the biblical account of creation and the truths Scripture reveals about God, humanity, and the world He made.",
     group: "foundations-themes",
     href: "/bible-studies/all-about-creation",
