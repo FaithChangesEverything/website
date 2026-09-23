@@ -9,6 +9,7 @@ type PastorIntroductionCardProps = {
   excerpt: string;
   imageSrc: string;
   videoEmbedUrl?: string;
+  compactLayout?: boolean;
 };
 
 export default function PastorIntroductionCard({
@@ -16,12 +17,16 @@ export default function PastorIntroductionCard({
   excerpt,
   imageSrc,
   videoEmbedUrl,
+  compactLayout = false,
 }: PastorIntroductionCardProps) {
   const [videoOpen, setVideoOpen] = useState(false);
   const paragraphs = excerpt.split(/\n\s*\n/).filter(Boolean);
 
   return (
-    <section className={styles.pastorCard} aria-labelledby="pastor-series-introduction">
+    <section
+      className={`${styles.pastorCard} ${compactLayout ? styles.pastorCardCompact : ""}`}
+      aria-labelledby="pastor-series-introduction"
+    >
       <div className={styles.pastorPortraitWrap}>
         <Image
           src={imageSrc}
