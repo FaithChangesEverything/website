@@ -58,7 +58,7 @@ export default async function BibleStudySeriesPage({
           excerpt={series.pastorIntroduction.excerpt}
           imageSrc={series.pastorIntroduction.imageSrc}
           videoEmbedUrl={series.pastorIntroduction.videoEmbedUrl}
-          compactLayout={Boolean(series.lessonGroups)}
+          compactLayout={series.pastorIntroduction.compactLayout ?? Boolean(series.lessonGroups)}
         />
 
         <section id="series-studies" className={styles.studiesSection} aria-labelledby="series-studies-title">
