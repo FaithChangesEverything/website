@@ -1,4 +1,5 @@
 import { biblicalThemesSeriesDetail } from "./biblicalThemesData";
+import { creationSeriesDetail } from "./creationData";
 
 export type BibleStudyGroupId =
   | "study-skills"
@@ -71,6 +72,7 @@ export type BibleStudySeriesDetail = {
     excerpt: string;
     imageSrc: string;
     videoEmbedUrl?: string;
+    compactLayout?: boolean;
   };
   lessons: BibleStudyLessonSummary[];
   sourceNote?: string;
@@ -121,6 +123,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "All About Creation",
     summary: "Explore the biblical account of creation and the truths Scripture reveals about God, humanity, and the world He made.",
     group: "foundations-themes",
+    href: "/bible-studies/all-about-creation",
   },
   {
     slug: "how-to-read-the-bible",
@@ -519,6 +522,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
     sourceNote:
       "Some teaching resources in this series are provided by BibleProject. Ownership and attribution will appear with each third-party resource on the individual study pages.",
   },
+  creationSeriesDetail,
   biblicalThemesSeriesDetail,
 ];
 
