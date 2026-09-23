@@ -105,11 +105,11 @@ export const biblicalThemesSeriesDetail: BibleStudySeriesDetail = {
   },
   lessons: biblicalThemesLessons,
   lessonGroups: [
-    { id: "group-1", label: "Themes A–D", description: "Anointing through Day of the Lord", lessonSlugs: ["anointing","blessing-and-curse","chaos-dragon","city","covenants","day-of-the-lord"] },
-    { id: "group-2", label: "Themes E–H", description: "Eternal Life through Heaven and Earth", lessonSlugs: ["eternal-life","exile","exodus-way","generosity","gospel-of-the-kingdom","heaven-and-earth"] },
-    { id: "group-3", label: "Themes H–L", description: "Holiness through Law", lessonSlugs: ["holiness","holy-spirit","image-of-god","justice","last-will-be-first","law"] },
-    { id: "group-4", label: "Themes M–S", description: "Messiah through Sacrifice and Atonement", lessonSlugs: ["messiah","mountain","public-reading-of-scripture","redemption","sabbath","sacrifice-and-atonement"] },
-    { id: "group-5", label: "Themes S–W", description: "Son of Man through Wilderness", lessonSlugs: ["son-of-man","temple","test","tree-of-life","water-of-life","way-of-the-exile","wilderness"] },
+    { id: "group-1", label: "Themes A–D", description: "Anointing / Blessing and Curse / Chaos Dragon / City / Covenants / Day of the Lord", lessonSlugs: ["anointing","blessing-and-curse","chaos-dragon","city","covenants","day-of-the-lord"] },
+    { id: "group-2", label: "Themes E–H", description: "Eternal Life / Exile / Exodus Way / Generosity / Gospel of the Kingdom / Heaven and Earth", lessonSlugs: ["eternal-life","exile","exodus-way","generosity","gospel-of-the-kingdom","heaven-and-earth"] },
+    { id: "group-3", label: "Themes H–L", description: "Holiness / Holy Spirit / Image of God / Justice / Last Will Be First / Law", lessonSlugs: ["holiness","holy-spirit","image-of-god","justice","last-will-be-first","law"] },
+    { id: "group-4", label: "Themes M–S", description: "Messiah / Mountain / Public Reading of Scripture / Redemption / Sabbath / Sacrifice and Atonement", lessonSlugs: ["messiah","mountain","public-reading-of-scripture","redemption","sabbath","sacrifice-and-atonement"] },
+    { id: "group-5", label: "Themes S–W", description: "Son of Man / Temple / Test / Tree of Life / Water of Life / Way of the Exile / Wilderness", lessonSlugs: ["son-of-man","temple","test","tree-of-life","water-of-life","way-of-the-exile","wilderness"] },
   ],
   sourceNote:
     "The teaching videos and supporting resources in this series are provided by BibleProject. Ownership and attribution appear with each lesson. Faith Changes Everything links to the original BibleProject teaching and hosts approved supporting documents for convenient study access.",
