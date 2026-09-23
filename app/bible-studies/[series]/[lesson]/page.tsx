@@ -237,7 +237,10 @@ export default async function BibleStudyLessonPage({
               ))}
           </div>
 
-          <Link className={styles.backToSeries} href={`/bible-studies/${series.slug}`}>
+          <Link
+            className={styles.backToSeries}
+            href={series.lessonGroups ? `/bible-studies/${series.slug}#series-studies` : `/bible-studies/${series.slug}`}
+          >
             Back to {series.title}
           </Link>
 
