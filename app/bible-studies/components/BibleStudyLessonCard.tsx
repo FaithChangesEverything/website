@@ -3,9 +3,15 @@ import Link from "next/link";
 import styles from "../series-page.module.css";
 import type { BibleStudyLessonSummary } from "../data";
 
-export default function BibleStudyLessonCard({ lesson }: { lesson: BibleStudyLessonSummary }) {
+export default function BibleStudyLessonCard({
+  lesson,
+  compact = false,
+}: {
+  lesson: BibleStudyLessonSummary;
+  compact?: boolean;
+}) {
   return (
-    <article className={styles.studyCard}>
+    <article className={`${styles.studyCard} ${compact ? styles.studyCardCompact : ""}`}>
       {lesson.imageSrc ? (
         <div className={styles.studyArtworkImageWrap}>
           <Image
@@ -24,7 +30,7 @@ export default function BibleStudyLessonCard({ lesson }: { lesson: BibleStudyLes
 
       <div className={styles.studyCardBody}>
         <h3>{lesson.title}</h3>
-        <p>{lesson.summary}</p>
+        {!compact && <p>{lesson.summary}</p>}
 
         {lesson.href ? (
           <Link className={styles.studyButton} href={lesson.href}>
