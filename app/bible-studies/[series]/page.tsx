@@ -99,7 +99,7 @@ export default async function BibleStudySeriesPage({
               ))}
             </div>
           ) : (
-            <div className={styles.studyGrid}>
+            <div className={`${styles.studyGrid} ${series.reducedCards ? styles.studyGridReduced : ""}`}>
               {series.lessons.map((lesson) => (
                 <BibleStudyLessonCard key={lesson.slug} lesson={lesson} />
               ))}
