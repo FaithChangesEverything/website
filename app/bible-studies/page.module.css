@@ -119,7 +119,7 @@
 .seriesGrid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 14px;
   max-width: 1180px;
 }
