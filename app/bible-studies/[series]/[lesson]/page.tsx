@@ -55,7 +55,7 @@ export default async function BibleStudyLessonPage({
     lessonIndex < series.lessons.length - 1 ? series.lessons[lessonIndex + 1] : undefined;
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${series.slug === "ten-commandments" ? styles.compactLesson : ""}`}>
       <Header />
 
       <section className={styles.lessonHero} aria-labelledby="lesson-title">
@@ -87,7 +87,11 @@ export default async function BibleStudyLessonPage({
       </section>
 
       <div className={styles.content}>
-        <section className={styles.videoSection} aria-labelledby="teaching-video-title">
+        <section
+          id="primary-teaching"
+          className={styles.videoSection}
+          aria-labelledby="teaching-video-title"
+        >
           <div className={styles.sectionHeading}>
             <p className={styles.sectionEyebrow}>PRIMARY TEACHING</p>
             <h2 id="teaching-video-title">{lesson.video?.title ?? lesson.title}</h2>

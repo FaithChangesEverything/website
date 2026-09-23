@@ -27,7 +27,7 @@ export default function BibleStudyLessonCard({ lesson }: { lesson: BibleStudyLes
         <p>{lesson.summary}</p>
 
         {lesson.href ? (
-          <Link className={styles.studyButton} href={lesson.href}>
+          <Link className={styles.studyButton} href={`${lesson.href}#primary-teaching`}>
             Begin Study <span aria-hidden="true">→</span>
           </Link>
         ) : (

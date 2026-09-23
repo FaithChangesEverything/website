@@ -42,20 +42,21 @@ export default async function BibleStudySeriesPage({
   if (!series) notFound();
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${series.slug === "ten-commandments" ? styles.compactSeries : ""}`}>
       <Header />
       <BibleStudySeriesHeader title={series.title} />
 
       <div className={styles.content}>
         <section className={styles.seriesIntro} aria-labelledby="about-series-title">
           <p className={styles.sectionEyebrow}>ABOUT THIS SERIES</p>
-          <h2 id="about-series-title">Knowing the Character of God</h2>
+          <h2 id="about-series-title">{series.aboutTitle ?? `About ${series.title}`}</h2>
           <p>{series.introduction}</p>
         </section>
 
         <PastorIntroductionCard
           title={series.pastorIntroduction.title}
           excerpt={series.pastorIntroduction.excerpt}
+          body={series.pastorIntroduction.body}
           imageSrc={series.pastorIntroduction.imageSrc}
           videoEmbedUrl={series.pastorIntroduction.videoEmbedUrl}
         />
@@ -63,9 +64,10 @@ export default async function BibleStudySeriesPage({
         <section className={styles.studiesSection} aria-labelledby="series-studies-title">
           <div className={styles.studiesHeading}>
             <p className={styles.sectionEyebrow}>CONTINUE THE SERIES</p>
-            <h2 id="series-studies-title">Explore the Character of God</h2>
+            <h2 id="series-studies-title">{series.studiesTitle ?? `Explore ${series.title}`}</h2>
             <p>
-              Begin with the foundation in Exodus, then continue through the characteristics God reveals about Himself.
+              {series.studiesIntroduction ??
+                "Choose a study below and continue through the series at your own pace."}
             </p>
           </div>
 

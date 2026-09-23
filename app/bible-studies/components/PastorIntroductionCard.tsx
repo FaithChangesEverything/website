@@ -7,6 +7,7 @@ import styles from "../series-page.module.css";
 type PastorIntroductionCardProps = {
   title: string;
   excerpt: string;
+  body?: string[];
   imageSrc: string;
   videoEmbedUrl?: string;
 };
@@ -14,6 +15,7 @@ type PastorIntroductionCardProps = {
 export default function PastorIntroductionCard({
   title,
   excerpt,
+  body,
   imageSrc,
   videoEmbedUrl,
 }: PastorIntroductionCardProps) {
@@ -34,7 +36,15 @@ export default function PastorIntroductionCard({
       <div className={styles.pastorCardBody}>
         <p className={styles.cardEyebrow}>SERIES INTRODUCTION</p>
         <h2 id="pastor-series-introduction">{title}</h2>
-        <p>{excerpt}</p>
+        {body?.length ? (
+          <div className={styles.pastorIntroductionBody}>
+            {body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        ) : (
+          <p>{excerpt}</p>
+        )}
 
         {videoEmbedUrl ? (
           <>
