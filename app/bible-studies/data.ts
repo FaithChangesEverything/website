@@ -67,7 +67,6 @@ export type BibleStudySeriesDetail = {
   lessonsTitle?: string;
   lessonsDescription?: string;
   lessonGroups?: BibleStudyLessonGroup[];
-  reducedCards?: boolean;
   pastorIntroduction: {
     title: string;
     excerpt: string;
