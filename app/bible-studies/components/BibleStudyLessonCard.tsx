@@ -20,6 +20,7 @@ export default function BibleStudyLessonCard({
             width={900}
             height={560}
             className={styles.studyArtworkImage}
+            style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
           />
         </div>
       ) : (
@@ -33,7 +34,7 @@ export default function BibleStudyLessonCard({
         {!compact && <p>{lesson.summary}</p>}
 
         {lesson.href ? (
-          <Link className={styles.studyButton} href={lesson.href}>
+          <Link className={styles.studyButton} href={`${lesson.href}#teaching-video`}>
             Begin Study <span aria-hidden="true">→</span>
           </Link>
         ) : (
