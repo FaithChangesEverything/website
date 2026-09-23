@@ -578,3 +578,74 @@
     transition: none;
   }
 }
+
+
+.pastorCardCompact {
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+}
+
+.pastorCardCompact .pastorPortraitWrap {
+  min-height: 0;
+  height: 220px;
+  margin: 26px 0 0 26px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.pastorCardCompact .pastorPortrait {
+  min-height: 0;
+  height: 220px;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.pastorCardCompact .pastorCardBody {
+  justify-content: flex-start;
+  padding-top: 28px;
+}
+
+.studyCardCompact .studyArtworkImageWrap,
+.studyCardCompact .studyArtworkPlaceholder {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.studyCardCompact .studyArtworkImage {
+  min-height: 0;
+  height: 100%;
+}
+
+.studyCardCompact .studyCardBody {
+  padding: 16px;
+}
+
+.studyCardCompact h3 {
+  font-size: 1.12rem;
+}
+
+.studyCardCompact .studyButton {
+  min-height: 40px;
+  padding: 9px 14px;
+  font-size: .92rem;
+}
+
+@media (max-width: 720px) {
+  .pastorCardCompact {
+    grid-template-columns: 1fr;
+  }
+
+  .pastorCardCompact .pastorPortraitWrap {
+    width: min(220px, calc(100% - 44px));
+    height: 220px;
+    margin: 22px auto 0;
+  }
+
+  .pastorCardCompact .pastorPortrait {
+    height: 220px;
+  }
+
+  .pastorCardCompact .pastorCardBody {
+    padding-top: 22px;
+  }
+}
