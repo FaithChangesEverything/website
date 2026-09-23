@@ -80,6 +80,7 @@ export default async function BibleStudyLessonPage({
                 fill
                 priority
                 sizes="(max-width: 760px) 100vw, 44vw"
+                style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
               />
             </div>
           )}
@@ -87,7 +88,7 @@ export default async function BibleStudyLessonPage({
       </section>
 
       <div className={styles.content}>
-        <section className={styles.videoSection} aria-labelledby="teaching-video-title">
+        <section id="teaching-video" className={styles.videoSection} aria-labelledby="teaching-video-title">
           <div className={styles.sectionHeading}>
             <p className={styles.sectionEyebrow}>PRIMARY TEACHING</p>
             <h2 id="teaching-video-title">{lesson.video?.title ?? lesson.title}</h2>
@@ -117,6 +118,7 @@ export default async function BibleStudyLessonPage({
                 fill
                 sizes="(max-width: 760px) 100vw, 900px"
                 className={styles.videoBackdrop}
+                style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
               />
               <div className={styles.videoOverlay} />
               <div className={styles.videoAction}>
