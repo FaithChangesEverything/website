@@ -58,6 +58,7 @@ export default async function BibleStudySeriesPage({
           excerpt={series.pastorIntroduction.excerpt}
           imageSrc={series.pastorIntroduction.imageSrc}
           videoEmbedUrl={series.pastorIntroduction.videoEmbedUrl}
+          compactLayout={Boolean(series.lessonGroups)}
         />
 
         <section className={styles.studiesSection} aria-labelledby="series-studies-title">
@@ -90,7 +91,7 @@ export default async function BibleStudySeriesPage({
                     <div className={styles.studyGrid}>
                       {group.lessonSlugs.map((slug) => {
                         const lesson = series.lessons.find((item) => item.slug === slug);
-                        return lesson ? <BibleStudyLessonCard key={lesson.slug} lesson={lesson} /> : null;
+                        return lesson ? <BibleStudyLessonCard key={lesson.slug} lesson={lesson} compact /> : null;
                       })}
                     </div>
                   </div>
