@@ -159,21 +159,6 @@
   font-size: 1.02rem;
 }
 
-.pastorIntroductionBody {
-  margin: 18px 0 26px;
-}
-
-.pastorIntroductionBody p {
-  margin: 0 0 16px;
-  color: #4b5968;
-  line-height: 1.72;
-  font-size: 1.02rem;
-}
-
-.pastorIntroductionBody p:last-child {
-  margin-bottom: 0;
-}
-
 .primaryButton,
 .studyButton {
   align-self: flex-start;
@@ -241,6 +226,7 @@
 .studiesSection {
   display: grid;
   gap: 28px;
+  scroll-margin-top: 96px;
 }
 
 .studiesHeading {
@@ -458,148 +444,209 @@
 }
 
 
-/* Ten Commandments uses a denser card layout because the series contains 12 lessons.
-   Keep this scoped so the approved Character of God series remains unchanged. */
-.compactSeries .content {
-  width: min(1380px, calc(100% - 36px));
+.pastorMessage {
+  margin: 18px 0 26px;
 }
 
-.compactSeries .pastorCard {
+.pastorMessage p {
+  margin: 0;
+  color: #4b5968;
+  line-height: 1.72;
+  font-size: 1.02rem;
+}
+
+.pastorMessage p + p {
+  margin-top: 16px;
+}
+
+.lessonGroups {
+  display: grid;
+  gap: 18px;
+}
+
+.lessonGroup {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ded2c1;
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(7, 18, 38, .06);
+}
+
+.lessonGroupSummary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 112px;
+  padding: 24px 28px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.lessonGroupSummary::-webkit-details-marker {
+  display: none;
+}
+
+.lessonGroupSummary:hover {
+  background: #fffaf0;
+}
+
+.lessonGroupSummary:focus-visible {
+  outline: 3px solid #c9a24d;
+  outline-offset: -3px;
+}
+
+.groupNumber {
+  display: block;
+  margin-bottom: 6px;
+  color: #a77820;
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.lessonGroupSummary h3 {
+  margin: 0;
+  color: #102c50;
+  font-family: Georgia, serif;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+}
+
+.lessonGroupSummary p {
+  margin: 7px 0 0;
+  color: #5b6672;
+  line-height: 1.5;
+}
+
+.groupMeta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #536170;
+  font-size: .9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.groupChevron {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eef2f5;
+  color: #173c63;
+  font-size: 1.15rem;
+  transition: transform .18s ease;
+}
+
+.lessonGroup[open] .groupChevron {
+  transform: rotate(180deg);
+}
+
+.lessonGroupBody {
+  padding: 0 24px 28px;
+  border-top: 1px solid rgba(16, 44, 80, .1);
+}
+
+.lessonGroupBody .studyGrid {
+  padding-top: 24px;
+}
+
+@media (max-width: 720px) {
+  .lessonGroupSummary {
+    align-items: flex-start;
+    padding: 22px;
+  }
+
+  .groupMeta {
+    font-size: 0;
+  }
+
+  .groupChevron {
+    font-size: 1.15rem;
+  }
+
+  .lessonGroupBody {
+    padding: 0 18px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .groupChevron {
+    transition: none;
+  }
+}
+
+
+.pastorCardCompact {
   grid-template-columns: 220px minmax(0, 1fr);
-  max-width: 1180px;
   align-items: start;
 }
 
-.compactSeries .pastorPortraitWrap {
+.pastorCardCompact .pastorPortraitWrap {
   min-height: 0;
-  align-self: start;
-  padding: 18px;
-  background: #fff;
-}
-
-.compactSeries .pastorPortrait {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  object-fit: contain;
-  object-position: center top;
+  height: 220px;
+  margin: 26px 0 0 26px;
+  overflow: hidden;
   border-radius: 14px;
 }
 
-.compactSeries .pastorCardBody {
+.pastorCardCompact .pastorPortrait {
+  min-height: 0;
+  height: 220px;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.pastorCardCompact .pastorCardBody {
   justify-content: flex-start;
-  padding: 34px 38px 36px;
+  padding-top: 28px;
 }
 
-.compactSeries .pastorCard h2 {
-  font-size: clamp(1.75rem, 2.7vw, 2.45rem);
-}
-
-.compactSeries .pastorIntroductionBody {
-  margin: 14px 0 22px;
-}
-
-.compactSeries .pastorIntroductionBody p {
-  margin-bottom: 12px;
-  font-size: .96rem;
-  line-height: 1.62;
-}
-
-.compactSeries .studiesSection {
-  gap: 22px;
-}
-
-.compactSeries .studyGrid {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.compactSeries .studyCard {
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(7, 18, 38, .065);
-}
-
-.compactSeries .studyArtworkImageWrap {
-  position: relative;
-  aspect-ratio: 1 / 1;
+.studyCardCompact .studyArtworkImageWrap,
+.studyCardCompact .studyArtworkPlaceholder {
   min-height: 0;
-  background: #fff;
+  aspect-ratio: 16 / 9;
 }
 
-.compactSeries .studyArtworkImage {
-  display: block;
-  width: 100%;
+.studyCardCompact .studyArtworkImage {
+  min-height: 0;
   height: 100%;
-  min-height: 0;
-  object-fit: contain;
 }
 
-.compactSeries .studyCardBody {
-  padding: 14px;
+.studyCardCompact .studyCardBody {
+  padding: 16px;
 }
 
-.compactSeries .studyCard h3 {
-  font-size: .98rem;
-  line-height: 1.28;
+.studyCardCompact h3 {
+  font-size: 1.12rem;
 }
 
-.compactSeries .studyCardBody p {
-  margin: 9px 0 14px;
-  font-size: .79rem;
-  line-height: 1.48;
+.studyCardCompact .studyButton {
+  min-height: 40px;
+  padding: 9px 14px;
+  font-size: .92rem;
 }
 
-.compactSeries .studyButton {
-  min-height: 36px;
-  padding: 8px 11px;
-  font-size: .78rem;
-}
-
-@media (max-width: 1049px) {
-  .compactSeries .studyGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .compactSeries .pastorCard {
-    grid-template-columns: 190px minmax(0, 1fr);
-  }
-
-  .compactSeries .pastorCardBody {
-    padding: 28px 30px 30px;
-  }
-}
-
-@media (max-width: 760px) {
-  .compactSeries .pastorCard {
+@media (max-width: 720px) {
+  .pastorCardCompact {
     grid-template-columns: 1fr;
   }
 
-  .compactSeries .pastorPortraitWrap {
-    width: min(240px, 72%);
-    margin: 20px auto 0;
-    padding: 0;
+  .pastorCardCompact .pastorPortraitWrap {
+    width: min(220px, calc(100% - 44px));
+    height: 220px;
+    margin: 22px auto 0;
   }
 
-  .compactSeries .studyGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .compactSeries .studyGrid {
-    grid-template-columns: 1fr;
+  .pastorCardCompact .pastorPortrait {
+    height: 220px;
   }
 
-  .compactSeries .studyCardBody {
-    padding: 16px;
-  }
-
-  .compactSeries .studyCard h3 {
-    font-size: 1.08rem;
-  }
-
-  .compactSeries .studyCardBody p {
-    font-size: .88rem;
+  .pastorCardCompact .pastorCardBody {
+    padding-top: 22px;
   }
 }

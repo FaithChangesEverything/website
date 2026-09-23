@@ -42,40 +42,69 @@ export default async function BibleStudySeriesPage({
   if (!series) notFound();
 
   return (
-    <main className={`${styles.page} ${series.slug === "ten-commandments" ? styles.compactSeries : ""}`}>
+    <main className={styles.page}>
       <Header />
       <BibleStudySeriesHeader title={series.title} />
 
       <div className={styles.content}>
         <section className={styles.seriesIntro} aria-labelledby="about-series-title">
           <p className={styles.sectionEyebrow}>ABOUT THIS SERIES</p>
-          <h2 id="about-series-title">{series.aboutTitle ?? `About ${series.title}`}</h2>
+          <h2 id="about-series-title">{series.overviewTitle ?? series.title}</h2>
           <p>{series.introduction}</p>
         </section>
 
         <PastorIntroductionCard
           title={series.pastorIntroduction.title}
           excerpt={series.pastorIntroduction.excerpt}
-          body={series.pastorIntroduction.body}
           imageSrc={series.pastorIntroduction.imageSrc}
           videoEmbedUrl={series.pastorIntroduction.videoEmbedUrl}
+          compactLayout={Boolean(series.lessonGroups)}
         />
 
-        <section className={styles.studiesSection} aria-labelledby="series-studies-title">
+        <section id="series-studies" className={styles.studiesSection} aria-labelledby="series-studies-title">
           <div className={styles.studiesHeading}>
             <p className={styles.sectionEyebrow}>CONTINUE THE SERIES</p>
-            <h2 id="series-studies-title">{series.studiesTitle ?? `Explore ${series.title}`}</h2>
+            <h2 id="series-studies-title">{series.lessonsTitle ?? `Explore ${series.title}`}</h2>
             <p>
-              {series.studiesIntroduction ??
+              {series.lessonsDescription ??
                 "Choose a study below and continue through the series at your own pace."}
             </p>
           </div>
 
-          <div className={styles.studyGrid}>
-            {series.lessons.map((lesson) => (
-              <BibleStudyLessonCard key={lesson.slug} lesson={lesson} />
-            ))}
-          </div>
+          {series.lessonGroups ? (
+            <div className={styles.lessonGroups}>
+              {series.lessonGroups.map((group, index) => (
+                <details className={styles.lessonGroup} key={group.id}>
+                  <summary className={styles.lessonGroupSummary}>
+                    <div>
+                      <span className={styles.groupNumber}>GROUP {index + 1}</span>
+                      <h3>{group.label}</h3>
+                      {group.description && <p>{group.description}</p>}
+                    </div>
+                    <span className={styles.groupMeta}>
+                      {group.lessonSlugs.length} {group.lessonSlugs.length === 1 ? "theme" : "themes"}
+                      <span className={styles.groupChevron} aria-hidden="true">⌄</span>
+                    </span>
+                  </summary>
+
+                  <div className={styles.lessonGroupBody}>
+                    <div className={styles.studyGrid}>
+                      {group.lessonSlugs.map((slug) => {
+                        const lesson = series.lessons.find((item) => item.slug === slug);
+                        return lesson ? <BibleStudyLessonCard key={lesson.slug} lesson={lesson} compact /> : null;
+                      })}
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+          ) : (
+            <div className={styles.studyGrid}>
+              {series.lessons.map((lesson) => (
+                <BibleStudyLessonCard key={lesson.slug} lesson={lesson} />
+              ))}
+            </div>
+          )}
         </section>
 
         {series.sourceNote && (

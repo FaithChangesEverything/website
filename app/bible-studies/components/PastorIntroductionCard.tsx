@@ -7,22 +7,26 @@ import styles from "../series-page.module.css";
 type PastorIntroductionCardProps = {
   title: string;
   excerpt: string;
-  body?: string[];
   imageSrc: string;
   videoEmbedUrl?: string;
+  compactLayout?: boolean;
 };
 
 export default function PastorIntroductionCard({
   title,
   excerpt,
-  body,
   imageSrc,
   videoEmbedUrl,
+  compactLayout = false,
 }: PastorIntroductionCardProps) {
   const [videoOpen, setVideoOpen] = useState(false);
+  const paragraphs = excerpt.split(/\n\s*\n/).filter(Boolean);
 
   return (
-    <section className={styles.pastorCard} aria-labelledby="pastor-series-introduction">
+    <section
+      className={`${styles.pastorCard} ${compactLayout ? styles.pastorCardCompact : ""}`}
+      aria-labelledby="pastor-series-introduction"
+    >
       <div className={styles.pastorPortraitWrap}>
         <Image
           src={imageSrc}
@@ -36,15 +40,12 @@ export default function PastorIntroductionCard({
       <div className={styles.pastorCardBody}>
         <p className={styles.cardEyebrow}>SERIES INTRODUCTION</p>
         <h2 id="pastor-series-introduction">{title}</h2>
-        {body?.length ? (
-          <div className={styles.pastorIntroductionBody}>
-            {body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        ) : (
-          <p>{excerpt}</p>
-        )}
+
+        <div className={styles.pastorMessage}>
+          {paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
 
         {videoEmbedUrl ? (
           <>
