@@ -218,7 +218,7 @@ const creationLessons: BibleStudyLessonSummary[] = [
 
 export const creationSeriesDetail: BibleStudySeriesDetail = {
   slug: "all-about-creation",
-  title: "All About Creation",
+  title: "Creation",
   introduction:
     "Creation is where the biblical story begins. This five-part series follows Genesis 1, Psalm 8, Proverbs 8, Psalm 148, and John 1 to explore God as Creator, humanity’s calling within His world, the wisdom woven into creation, creation’s praise, and Jesus Christ as the eternal Word through whom all things were made.",
   overviewTitle: "Creation Through the Biblical Story",
