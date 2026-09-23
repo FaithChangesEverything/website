@@ -74,7 +74,7 @@ export default async function BibleStudySeriesPage({
           {series.lessonGroups ? (
             <div className={styles.lessonGroups}>
               {series.lessonGroups.map((group, index) => (
-                <details className={styles.lessonGroup} key={group.id} open={index === 0}>
+                <details className={styles.lessonGroup} key={group.id}>
                   <summary className={styles.lessonGroupSummary}>
                     <div>
                       <span className={styles.groupNumber}>GROUP {index + 1}</span>
