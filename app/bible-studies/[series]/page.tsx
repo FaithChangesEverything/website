@@ -61,7 +61,7 @@ export default async function BibleStudySeriesPage({
           compactLayout={Boolean(series.lessonGroups)}
         />
 
-        <section className={styles.studiesSection} aria-labelledby="series-studies-title">
+        <section id="series-studies" className={styles.studiesSection} aria-labelledby="series-studies-title">
           <div className={styles.studiesHeading}>
             <p className={styles.sectionEyebrow}>CONTINUE THE SERIES</p>
             <h2 id="series-studies-title">{series.lessonsTitle ?? `Explore ${series.title}`}</h2>
