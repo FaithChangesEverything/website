@@ -33,6 +33,7 @@ export type BibleStudyLessonSummary = {
   href?: string;
   imageSrc?: string;
   imageAlt?: string;
+  imagePosition?: string;
   video?: BibleStudyLessonVideo;
   resources?: BibleStudyLessonResource[];
   resourcesOwnerName?: string;
