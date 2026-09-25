@@ -34,6 +34,7 @@ const howToReadBibleSeeds: HowToReadBibleSeed[] = [
     title: "Literary Styles",
     videoUrl: "https://bibleproject.com/videos/literary-styles-bible/",
     streamSrc: "https://stream.mux.com/H00BPqi2gPe7SzlrlqcAmXWSNI02Ofur02H02Gryhtpb594/high.mp4?download=literary-styles.mp4",
+    scriptUrl: "https://d1bsmz3sdihplr.cloudfront.net/media/Script%20References/Literary_Styles_in_the_Bible_Script-References.pdf",
     image: "03-literary-styles.png",
   },
   {
