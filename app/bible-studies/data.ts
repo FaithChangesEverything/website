@@ -1,5 +1,6 @@
 import { biblicalThemesSeriesDetail } from "./biblicalThemesData";
 import { creationSeriesDetail } from "./creationData";
+import { trinitySeriesDetail } from "./trinityData";
 
 export type BibleStudyGroupId =
   | "study-skills"
@@ -131,6 +132,15 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     summary: "Explore the biblical account of creation and the truths Scripture reveals about God, humanity, and the world He made.",
     group: "foundations-themes",
     href: "/bible-studies/all-about-creation",
+  },
+  {
+    slug: "understanding-the-trinity",
+    title: "Understanding the Trinity",
+    summary: "Explore the biblical foundations for one God revealed as Father, Son, and Holy Spirit.",
+    group: "foundations-themes",
+    href: "/bible-studies/understanding-the-trinity",
+    imageSrc: "/images/bible-studies/trinity/god-3-n-1.png",
+    imageAlt: "Artwork for the Understanding the Trinity Bible Study",
   },
   {
     slug: "how-to-read-the-bible",
@@ -530,6 +540,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
       "Some teaching resources in this series are provided by BibleProject. Ownership and attribution will appear with each third-party resource on the individual study pages.",
   },
   creationSeriesDetail,
+  trinitySeriesDetail,
   biblicalThemesSeriesDetail,
 ];
 
