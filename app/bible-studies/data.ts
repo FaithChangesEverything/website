@@ -1,6 +1,7 @@
 import { biblicalThemesSeriesDetail } from "./biblicalThemesData";
 import { creationSeriesDetail } from "./creationData";
 import { trinitySeriesDetail } from "./trinityData";
+import { howToReadBibleSeriesDetail } from "./howToReadBibleData";
 
 export type BibleStudyGroupId =
   | "study-skills"
@@ -147,6 +148,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "How to Read the Bible",
     summary: "Learn practical principles for reading Scripture carefully, understanding context, and seeing how the Bible fits together.",
     group: "study-skills",
+    href: "/bible-studies/how-to-read-the-bible",
   },
   {
     slug: "how-to-study-the-bible",
@@ -541,6 +543,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
   },
   creationSeriesDetail,
   trinitySeriesDetail,
+  howToReadBibleSeriesDetail,
   biblicalThemesSeriesDetail,
 ];
 
