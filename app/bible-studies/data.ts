@@ -144,17 +144,17 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     imageAlt: "Artwork for the Understanding the Trinity Bible Study",
   },
   {
+    slug: "how-to-study-the-bible",
+    title: "How to Study the Bible",
+    summary: "Build practical habits for studying Scripture thoughtfully and applying what you learn to everyday life.",
+    group: "study-skills",
+  },
+  {
     slug: "how-to-read-the-bible",
     title: "How to Read the Bible",
     summary: "Learn practical principles for reading Scripture carefully, understanding context, and seeing how the Bible fits together.",
     group: "study-skills",
     href: "/bible-studies/how-to-read-the-bible",
-  },
-  {
-    slug: "how-to-study-the-bible",
-    title: "How to Study the Bible",
-    summary: "Build practical habits for studying Scripture thoughtfully and applying what you learn to everyday life.",
-    group: "study-skills",
   },
   {
     slug: "sermon-on-the-mount",
