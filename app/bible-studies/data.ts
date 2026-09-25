@@ -59,6 +59,12 @@ export type BibleStudyLessonGroup = {
   lessonSlugs: string[];
 };
 
+export type BibleStudySeriesResource = {
+  title: string;
+  href: string;
+  kind: "Bible Study" | "FCE Paper";
+};
+
 export type BibleStudySeriesDetail = {
   slug: string;
   title: string;
@@ -67,6 +73,7 @@ export type BibleStudySeriesDetail = {
   lessonsTitle?: string;
   lessonsDescription?: string;
   lessonGroups?: BibleStudyLessonGroup[];
+  fceResources?: BibleStudySeriesResource[];
   pastorIntroduction: {
     title: string;
     excerpt: string;
@@ -519,6 +526,18 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
         "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/51bacf0888847506af85d4a1c813d9a7/iframe",
     },
     lessons: characterOfGodLessons,
+    fceResources: [
+      {
+        kind: "Bible Study",
+        title: "Understanding the Trinity",
+        href: "https://resources.faithchangeseverything.org/documents/bible-studies/god%203%20in%201/doc-2026-00188-understanding-trinity.pdf",
+      },
+      {
+        kind: "FCE Paper",
+        title: "God 3 in 1 — Understanding the Trinity",
+        href: "https://resources.faithchangeseverything.org/documents/bible-studies/god%203%20in%201/doc-2026-00187-fce_understanding_trinity.pdf",
+      },
+    ],
     sourceNote:
       "Some teaching resources in this series are provided by BibleProject. Ownership and attribution will appear with each third-party resource on the individual study pages.",
   },
