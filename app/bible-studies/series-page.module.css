@@ -350,6 +350,94 @@
   margin: 0;
 }
 
+.fceResourcesSection {
+  margin: 52px auto 0;
+  padding-top: 8px;
+}
+
+.fceResourcesHeading {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.fceResourcesHeading h2 {
+  margin: 0;
+  color: #071226;
+  font-family: Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+}
+
+.fceResourcesHeading > p:last-child {
+  margin: 12px auto 0;
+  color: #536170;
+  line-height: 1.6;
+}
+
+.fceResourceGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.fceResourceCard {
+  display: flex;
+  flex: 1 1 280px;
+  max-width: 340px;
+  min-height: 180px;
+  flex-direction: column;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #ded2c1;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(7, 20, 38, .065);
+}
+
+.fceResourceCard > span {
+  color: #a77820;
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.fceResourceCard h3 {
+  flex: 1;
+  margin: 9px 0 20px;
+  color: #102c50;
+  font-family: Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.28;
+}
+
+.fceResourceButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: #173c63;
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.fceResourceButton:hover,
+.fceResourceButton:focus-visible {
+  background: #204f80;
+}
+
+.fceResourceButton:focus-visible {
+  outline: 3px solid #c9a24d;
+  outline-offset: 3px;
+}
+
 .backRow {
   margin-top: 38px;
   text-align: center;
@@ -441,6 +529,14 @@
 }
 
 @media (max-width: 460px) {
+  .fceResourcesHeading {
+    text-align: left;
+  }
+
+  .fceResourceCard {
+    max-width: 100%;
+  }
+
   .studyCard {
     flex-basis: min(360px, 100%);
     width: min(360px, 100%);
