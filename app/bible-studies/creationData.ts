@@ -246,6 +246,18 @@ From Pastor Richard at Faith Changes Everything, I hope you enjoy your time in t
     compactLayout: true,
   },
   lessons: creationLessons,
+  fceResources: [
+    {
+      kind: "Bible Study",
+      title: "Creation",
+      href: "https://resources.faithchangeseverything.org/documents/bible-studies/creation/doc-2026-00190_Creation.pdf",
+    },
+    {
+      kind: "FCE Paper",
+      title: "Creation — Six Literal Days",
+      href: "https://resources.faithchangeseverything.org/documents/bible-studies/creation/doc-2026-00189-FCE-Creation.pdf",
+    },
+  ],
   sourceNote:
     "The primary teaching videos, script references, and study notes in this series are provided by BibleProject. Faith Changes Everything supplies the pastoral introduction and series framing. Ownership and attribution appear with each third-party resource.",
 };
