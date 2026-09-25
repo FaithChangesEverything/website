@@ -58,7 +58,7 @@ export default async function BibleStudySeriesPage({
           excerpt={series.pastorIntroduction.excerpt}
           imageSrc={series.pastorIntroduction.imageSrc}
           videoEmbedUrl={series.pastorIntroduction.videoEmbedUrl}
-          compactLayout={Boolean(series.lessonGroups)}
+          compactLayout={series.pastorIntroduction.compactLayout ?? Boolean(series.lessonGroups)}
         />
 
         <section id="series-studies" className={styles.studiesSection} aria-labelledby="series-studies-title">
@@ -112,6 +112,33 @@ export default async function BibleStudySeriesPage({
             <strong>About the teaching resources</strong>
             <p>{series.sourceNote}</p>
           </aside>
+        )}
+
+        {series.fceResources && series.fceResources.length > 0 && (
+          <section className={styles.fceResourcesSection} aria-labelledby="fce-resource-title">
+            <div className={styles.fceResourcesHeading}>
+              <p className={styles.sectionEyebrow}>FCE-CREATED RESOURCES</p>
+              <h2 id="fce-resource-title">For Additional Study Material</h2>
+              <p>Please see these Faith Changes Everything resources created to accompany this study.</p>
+            </div>
+
+            <div className={styles.fceResourceGrid}>
+              {series.fceResources.map((resource) => (
+                <article className={styles.fceResourceCard} key={resource.href}>
+                  <span>{resource.kind}</span>
+                  <h3>{resource.title}</h3>
+                  <a
+                    className={styles.fceResourceButton}
+                    href={resource.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open PDF <span aria-hidden="true">→</span>
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
         )}
 
         <div className={styles.backRow}>
