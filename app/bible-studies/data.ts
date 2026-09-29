@@ -1,6 +1,7 @@
 import { biblicalThemesSeriesDetail } from "./biblicalThemesData";
 import { creationSeriesDetail } from "./creationData";
 import { trinitySeriesDetail } from "./trinityData";
+import { howToReadBibleSeriesDetail } from "./howToReadBibleData";
 
 export type BibleStudyGroupId =
   | "study-skills"
@@ -143,16 +144,17 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     imageAlt: "Artwork for the Understanding the Trinity Bible Study",
   },
   {
-    slug: "how-to-read-the-bible",
-    title: "How to Read the Bible",
-    summary: "Learn practical principles for reading Scripture carefully, understanding context, and seeing how the Bible fits together.",
-    group: "study-skills",
-  },
-  {
     slug: "how-to-study-the-bible",
     title: "How to Study the Bible",
     summary: "Build practical habits for studying Scripture thoughtfully and applying what you learn to everyday life.",
     group: "study-skills",
+  },
+  {
+    slug: "how-to-read-the-bible",
+    title: "How to Read the Bible",
+    summary: "Learn practical principles for reading Scripture carefully, understanding context, and seeing how the Bible fits together.",
+    group: "study-skills",
+    href: "/bible-studies/how-to-read-the-bible",
   },
   {
     slug: "sermon-on-the-mount",
@@ -541,6 +543,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
   },
   creationSeriesDetail,
   trinitySeriesDetail,
+  howToReadBibleSeriesDetail,
   biblicalThemesSeriesDetail,
 ];
 

@@ -54,6 +54,29 @@ export default function BibleStudiesPage() {
             );
           })}
         </div>
+
+        <section className={styles.resourcesSection} aria-labelledby="landing-resource-title">
+          <div className={styles.resourcesHeading}>
+            <p className={styles.resourceEyebrow}>FCE-CREATED RESOURCES</p>
+            <h2 id="landing-resource-title">For Additional Study Material</h2>
+            <p>Please see this Faith Changes Everything resource created to support your Bible study.</p>
+          </div>
+
+          <div className={styles.resourceGrid}>
+            <article className={styles.resourceCard}>
+              <span>FCE Resource</span>
+              <h3>Bible Study Resources</h3>
+              <a
+                className={styles.resourceButton}
+                href="https://resources.faithchangeseverything.org/documents/bible-studies/bible-studies-landing/doc-2026-00159-online-resources.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open PDF <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          </div>
+        </section>
       </div>
 
       <Footer />
