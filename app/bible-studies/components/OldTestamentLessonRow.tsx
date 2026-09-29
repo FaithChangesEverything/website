@@ -36,7 +36,7 @@ export default function OldTestamentLessonRow({
 
       <div className={styles.studyRowAction}>
         {lesson.href ? (
-          <Link className={styles.studyButton} href={`${lesson.href}#primary-teaching`}>
+          <Link className={styles.studyButton} href={`${lesson.href}#teaching-video`}>
             Begin Study <span aria-hidden="true">→</span>
           </Link>
         ) : (
