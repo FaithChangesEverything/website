@@ -2,6 +2,7 @@ import { biblicalThemesSeriesDetail } from "./biblicalThemesData";
 import { creationSeriesDetail } from "./creationData";
 import { trinitySeriesDetail } from "./trinityData";
 import { howToReadBibleSeriesDetail } from "./howToReadBibleData";
+import { oldTestamentSeriesDetail } from "./oldTestamentData";
 
 export type BibleStudyGroupId =
   | "study-skills"
@@ -186,6 +187,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "Old Testament",
     summary: "Explore the books, story, themes, and covenant history of the Old Testament as they prepare the way for Christ.",
     group: "books-passages",
+    href: "/bible-studies/old-testament",
   },
   {
     slug: "new-testament",
@@ -544,6 +546,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
   creationSeriesDetail,
   trinitySeriesDetail,
   howToReadBibleSeriesDetail,
+  oldTestamentSeriesDetail,
   biblicalThemesSeriesDetail,
 ];
 
