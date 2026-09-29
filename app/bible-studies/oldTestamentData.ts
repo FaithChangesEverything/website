@@ -408,21 +408,18 @@ export const oldTestamentSeriesDetail: BibleStudySeriesDetail = {
   title: "Old Testament",
   introduction:
     "The Old Testament is the foundation of the biblical story. This 41-lesson series follows its books and major movements as one unfolding story, helping us see God’s character, covenant purposes, and the hope that prepares the way for Christ.",
-  aboutTitle: "Understanding the Old Testament",
-  studiesTitle: "Explore the Old Testament",
-  studiesIntroduction:
+  overviewTitle: "Understanding the Old Testament",
+  lessonsTitle: "Explore the Old Testament",
+  lessonsDescription:
     "Begin with the TaNaK overview, then continue through the Old Testament lessons in order at your own pace.",
   pastorIntroduction: {
     title: "A Personal Introduction from Pastor Richard",
-    excerpt: "The Old Testament is the foundation of the biblical story. It introduces us to creation, humanity’s rebellion, God’s covenant promises, the nation of Israel, the law, the prophets, the wisdom writings, and the long expectation that God would one day bring restoration and redemption. Yet many of us have learned to read the Old Testament simply as a collection of individual books rather than as one unfolding story. This series is designed to help us step back and see that larger picture.",
-    body: [
-      "The Old Testament is the foundation of the biblical story. It introduces us to creation, humanity’s rebellion, God’s covenant promises, the nation of Israel, the law, the prophets, the wisdom writings, and the long expectation that God would one day bring restoration and redemption. Yet many of us have learned to read the Old Testament simply as a collection of individual books rather than as one unfolding story. This series is designed to help us step back and see that larger picture.",
-      "We will begin with the TaNaK, the traditional three-part arrangement of the Hebrew Scriptures: the Torah, the Nevi’im, and the Ketuvim. This ordering differs from the arrangement most Christians are familiar with today, and understanding it can help us see connections, themes, and patterns that are easy to miss when we read the books only in isolation. The opening BibleProject video explains why this ancient structure matters, and the remaining videos will then guide us through the Old Testament story from Genesis through Malachi, helping us see how each book contributes to the larger biblical narrative.",
-      "As you move through these 41 lessons, I encourage you not to rush. Read the Scriptures alongside the videos, take notes, ask questions, and pay attention to the themes that continue to appear again and again—God’s faithfulness, covenant, holiness, human rebellion, judgment, mercy, hope, and the promise of restoration. My prayer is that this series will help you see the Old Testament not as a distant collection of ancient writings, but as a unified story that reveals the character of God, prepares us to understand the coming of Jesus Christ, and deepens our understanding of the entire Bible.",
-    ],
+    excerpt:
+      "The Old Testament is the foundation of the biblical story. It introduces us to creation, humanity’s rebellion, God’s covenant promises, the nation of Israel, the law, the prophets, the wisdom writings, and the long expectation that God would one day bring restoration and redemption. Yet many of us have learned to read the Old Testament simply as a collection of individual books rather than as one unfolding story. This series is designed to help us step back and see that larger picture.\n\nWe will begin with the TaNaK, the traditional three-part arrangement of the Hebrew Scriptures: the Torah, the Nevi’im, and the Ketuvim. This ordering differs from the arrangement most Christians are familiar with today, and understanding it can help us see connections, themes, and patterns that are easy to miss when we read the books only in isolation. The opening BibleProject video explains why this ancient structure matters, and the remaining videos will then guide us through the Old Testament story from Genesis through Malachi, helping us see how each book contributes to the larger biblical narrative.\n\nAs you move through these 41 lessons, I encourage you not to rush. Read the Scriptures alongside the videos, take notes, ask questions, and pay attention to the themes that continue to appear again and again—God’s faithfulness, covenant, holiness, human rebellion, judgment, mercy, hope, and the promise of restoration. My prayer is that this series will help you see the Old Testament not as a distant collection of ancient writings, but as a unified story that reveals the character of God, prepares us to understand the coming of Jesus Christ, and deepens our understanding of the entire Bible.",
     imageSrc: "/images/pastor-richard.png",
     videoEmbedUrl:
       "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/2f86be6db1166bca169b5b298542ffad/iframe",
+    compactLayout: true,
   },
   lessons: oldTestamentLessons,
   sourceNote:
