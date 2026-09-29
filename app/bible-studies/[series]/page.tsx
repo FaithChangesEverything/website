@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import BibleStudyLessonCard from "../components/BibleStudyLessonCard";
 import BibleStudySeriesHeader from "../components/BibleStudySeriesHeader";
+import OldTestamentLessonRow from "../components/OldTestamentLessonRow";
 import PastorIntroductionCard from "../components/PastorIntroductionCard";
 import { bibleStudySeriesDetails, getBibleStudySeriesDetail } from "../data";
 import styles from "../series-page.module.css";
@@ -42,7 +43,7 @@ export default async function BibleStudySeriesPage({
   if (!series) notFound();
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${series.slug === "old-testament" ? styles.oldTestamentSeries : ""}`}>
       <Header />
       <BibleStudySeriesHeader title={series.title} />
 
@@ -96,6 +97,12 @@ export default async function BibleStudySeriesPage({
                     </div>
                   </div>
                 </details>
+              ))}
+            </div>
+          ) : series.slug === "old-testament" ? (
+            <div className={styles.studyRows}>
+              {series.lessons.map((lesson) => (
+                <OldTestamentLessonRow key={lesson.slug} lesson={lesson} />
               ))}
             </div>
           ) : (
