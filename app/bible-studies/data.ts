@@ -1,3 +1,5 @@
+import { oldTestamentSeriesDetail } from "./oldTestamentData";
+
 export type BibleStudyGroupId =
   | "study-skills"
   | "foundations-themes"
@@ -154,6 +156,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "Old Testament",
     summary: "Explore the books, story, themes, and covenant history of the Old Testament as they prepare the way for Christ.",
     group: "books-passages",
+    href: "/bible-studies/old-testament",
   },
   {
     slug: "new-testament",
@@ -961,7 +964,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
     lessons: tenCommandmentsLessons,
     sourceNote:
       "The teaching videos and transcripts in this series are provided by BibleProject. Ownership and attribution appear with each third-party resource on the individual study pages.",
-  },
+  },  oldTestamentSeriesDetail,
 ];
 
 export function getBibleStudySeriesDetail(slug: string) {
