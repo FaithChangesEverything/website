@@ -603,3 +603,169 @@
     font-size: .88rem;
   }
 }
+
+
+/* Old Testament uses a horizontal lesson-row layout because the series contains 41 lessons.
+   Keep this scoped so the approved Character of God and Ten Commandments layouts remain unchanged. */
+.oldTestamentSeries .content {
+  width: min(1240px, calc(100% - 40px));
+}
+
+.oldTestamentSeries .pastorCard {
+  max-width: 1120px;
+}
+
+.oldTestamentSeries .studiesSection {
+  gap: 24px;
+}
+
+.oldTestamentSeries .studiesHeading {
+  max-width: 900px;
+}
+
+.studyRows {
+  display: grid;
+  gap: 16px;
+}
+
+.studyRow {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr) auto;
+  align-items: stretch;
+  min-height: 150px;
+  background: #fff;
+  border: 1px solid #ded2c1;
+  border-radius: 16px;
+  box-shadow: 0 9px 24px rgba(7, 18, 38, .065);
+}
+
+.studyRowArtwork,
+.studyRowArtworkPlaceholder {
+  min-height: 150px;
+  background: #eef1f3;
+}
+
+.studyRowArtwork {
+  overflow: hidden;
+}
+
+.studyRowImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.studyRowArtworkPlaceholder {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background:
+    linear-gradient(145deg, rgba(16, 44, 80, .98), rgba(7, 18, 38, .94)),
+    radial-gradient(circle at 72% 22%, rgba(201, 162, 77, .28), transparent 28%);
+  color: rgba(255, 255, 255, .72);
+  text-align: center;
+  font-size: .82rem;
+  font-weight: 750;
+}
+
+.studyRowBody {
+  align-self: center;
+  min-width: 0;
+  padding: 22px 26px;
+}
+
+.studyRowBody h3 {
+  margin: 0;
+  color: #102c50;
+  font-family: Georgia, serif;
+  font-size: 1.38rem;
+  line-height: 1.22;
+}
+
+.studyRowBody p {
+  margin: 10px 0 0;
+  color: #536170;
+  font-size: .94rem;
+  line-height: 1.58;
+}
+
+.studyRowAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 20px 24px 20px 6px;
+}
+
+.studyRowAction .studyButton {
+  white-space: nowrap;
+}
+
+@media (max-width: 920px) {
+  .studyRow {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .studyRowArtwork,
+  .studyRowArtworkPlaceholder,
+  .studyRowImage {
+    min-height: 145px;
+  }
+
+  .studyRowBody {
+    padding: 20px 22px 10px;
+  }
+
+  .studyRowAction {
+    grid-column: 2;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 0 22px 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .oldTestamentSeries .content {
+    width: min(100% - 28px, 1240px);
+  }
+
+  .studyRow {
+    grid-template-columns: 1fr;
+  }
+
+  .studyRowArtwork,
+  .studyRowArtworkPlaceholder {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .studyRowImage {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .studyRowBody {
+    padding: 20px 20px 12px;
+  }
+
+  .studyRowBody h3 {
+    font-size: 1.28rem;
+  }
+
+  .studyRowBody p {
+    font-size: .92rem;
+  }
+
+  .studyRowAction {
+    grid-column: 1;
+    padding: 0 20px 20px;
+  }
+
+  .studyRowAction .studyButton {
+    width: 100%;
+  }
+}
