@@ -964,7 +964,8 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
     lessons: tenCommandmentsLessons,
     sourceNote:
       "The teaching videos and transcripts in this series are provided by BibleProject. Ownership and attribution appear with each third-party resource on the individual study pages.",
-  },  oldTestamentSeriesDetail,
+  },
+  oldTestamentSeriesDetail,
 ];
 
 export function getBibleStudySeriesDetail(slug: string) {
