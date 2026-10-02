@@ -3,6 +3,8 @@ import Link from "next/link";
 import styles from "../page.module.css";
 import type { BibleStudySeriesSummary } from "../data";
 
+// Supports both Bible study series links and the FCE Bible entry.
+
 export default function SeriesCard({ series }: { series: BibleStudySeriesSummary }) {
   const imageSrc = series.imageSrc ?? `/images/bible-studies/page1/${series.slug}.jpg`;
 
