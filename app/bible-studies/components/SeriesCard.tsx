@@ -23,11 +23,11 @@ export default function SeriesCard({ series }: { series: BibleStudySeriesSummary
 
         {series.href ? (
           <Link className={styles.seriesAction} href={series.href}>
-            Explore Series <span aria-hidden="true">→</span>
+            {series.actionLabel ?? "Explore Series"} <span aria-hidden="true">→</span>
           </Link>
         ) : (
           <span className={`${styles.seriesAction} ${styles.seriesActionDisabled}`} aria-disabled="true">
-            Explore Series <span aria-hidden="true">→</span>
+            {series.actionLabel ?? "Explore Series"} <span aria-hidden="true">→</span>
           </span>
         )}
       </div>
