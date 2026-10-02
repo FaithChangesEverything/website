@@ -8,6 +8,7 @@ import styles from "./Header.module.css";
 const navItems = [
   ["Home", "/"],
   ["Journey to Hope", "/journey"],
+  ["Bible Study", "/bible-studies"],
   ["Music", "/music"],
   ["Sermons", "/sermons"],
   ["Prayer", "/prayer"],
