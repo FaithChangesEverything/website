@@ -92,6 +92,11 @@
   padding: 62px 0 84px;
 }
 
+.videoCollection {
+  display: grid;
+  gap: 72px;
+}
+
 .videoSection,
 .resourcesSection {
   display: grid;
