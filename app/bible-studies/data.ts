@@ -56,6 +56,7 @@ export type BibleStudySeriesSummary = {
   href?: string;
   imageSrc?: string;
   imageAlt?: string;
+  actionLabel?: string;
 };
 
 export type BibleStudyLessonGroup = {
@@ -148,10 +149,14 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     imageAlt: "Artwork for the Understanding the Trinity Bible Study",
   },
   {
-    slug: "how-to-study-the-bible",
-    title: "How to Study the Bible",
-    summary: "Build practical habits for studying Scripture thoughtfully and applying what you learn to everyday life.",
+    slug: "fce-bible",
+    title: "Open the FCE Bible",
+    summary: "Read and explore the King James Version of the Bible directly on Faith Changes Everything, with easy navigation by book and chapter.",
     group: "study-skills",
+    href: "/bible",
+    imageSrc: "/images/bible-studies/page1/how-to-study-the-bible.jpg",
+    imageAlt: "Open Bible with study notes",
+    actionLabel: "Open FCE Bible",
   },
   {
     slug: "how-to-read-the-bible",
