@@ -68,7 +68,7 @@ export const sermonOnTheMountLessons: BibleStudyLessonSummary[] = [
     summary:
       "Explore the opening blessings of Jesus’ sermon and then go deeper into Matthew 5:3–16 through the companion visual commentary.",
     href: "/bible-studies/sermon-on-the-mount/the-beatitudes",
-    imageSrc: "/images/bible-studies/sermon-on-the-mount/02_beautitudes.png",
+    imageSrc: "/images/bible-studies/sermon-on-the-mount/02-beautitudes.png",
     imageAlt: "Beatitudes study artwork",
     videos: [
       {
@@ -116,7 +116,7 @@ export const sermonOnTheMountLessons: BibleStudyLessonSummary[] = [
     summary:
       "Study Jesus’ teaching about righteousness and the Torah and Prophets, followed by commentary on Matthew 5:17–20.",
     href: "/bible-studies/sermon-on-the-mount/jesus-fulfills-the-law",
-    imageSrc: "/images/bible-studies/sermon-on-the-mount/03-JesusFulfillsLaw.png",
+    imageSrc: "/images/bible-studies/sermon-on-the-mount/03-jesusfulfillslaw.png",
     imageAlt: "Jesus fulfills the law study artwork",
     videos: [
       {
