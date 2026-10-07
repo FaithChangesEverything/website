@@ -126,11 +126,11 @@ const intermediateSeeds: FceStudySeed[] = [
     summary: "Consider biblical principles for seeking God’s will with wisdom, obedience, prayer, and trust.",
   },
   {
-    slug: "the-fruit-of-the-spirit",
-    title: "The Fruit of the Spirit",
+    slug: "the-fruits-of-the-spirit",
+    title: "The Fruits of the Spirit",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00196-the-fruits-of-the-spirit.pdf",
-    coverImage: "the-fruit-of-the-spirit-cover.jpg",
-    headerImage: "the-fruit-of-the-spirit-header.jpg",
+    coverImage: "the-fruits-of-the-spirit-cover.jpg",
+    headerImage: "the-fruits-of-the-spirit-header.jpg",
     summary: "Study the fruit the Holy Spirit produces as believers grow in Christlike character.",
   },
   {
