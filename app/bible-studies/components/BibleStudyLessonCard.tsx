@@ -12,10 +12,10 @@ export default function BibleStudyLessonCard({
 }) {
   return (
     <article className={`${styles.studyCard} ${compact ? styles.studyCardCompact : ""}`}>
-      {lesson.imageSrc ? (
+      {lesson.cardImageSrc || lesson.imageSrc ? (
         <div className={styles.studyArtworkImageWrap}>
           <Image
-            src={lesson.imageSrc}
+            src={lesson.cardImageSrc ?? lesson.imageSrc!}
             alt={lesson.imageAlt ?? ""}
             width={900}
             height={560}
@@ -34,8 +34,11 @@ export default function BibleStudyLessonCard({
         {!compact && <p>{lesson.summary}</p>}
 
         {lesson.href ? (
-          <Link className={styles.studyButton} href={`${lesson.href}#teaching-video`}>
-            Begin Study <span aria-hidden="true">→</span>
+          <Link
+            className={styles.studyButton}
+            href={lesson.pdfUrl ? lesson.href : `${lesson.href}#teaching-video`}
+          >
+            {lesson.pdfUrl ? "Open Study" : "Begin Study"} <span aria-hidden="true">→</span>
           </Link>
         ) : (
           <span className={`${styles.studyButton} ${styles.disabledButton}`} aria-disabled="true">
