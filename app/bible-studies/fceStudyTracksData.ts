@@ -61,7 +61,7 @@ const beginnerSeeds: FceStudySeed[] = [
   {
     slug: "what-is-grace",
     title: "What Is Grace?",
-    pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Beginner%20Bible%20Studies/doc-2026-00186-What_Is_grace.pdf",
+    pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Beginner%20Bible%20Studies/doc-2026-00186-What_Is_Grace.pdf",
     coverImage: "what-is-grace-cover.jpg",
     headerImage: "what-is-grace-header.jpg",
     summary: "Study the biblical meaning of grace and why it stands at the heart of the gospel.",
