@@ -3,6 +3,7 @@ import { creationSeriesDetail } from "./creationData";
 import { trinitySeriesDetail } from "./trinityData";
 import { howToReadBibleSeriesDetail } from "./howToReadBibleData";
 import { oldTestamentSeriesDetail } from "./oldTestamentData";
+import { fceAdvancedSeriesDetail, fceBeginnerSeriesDetail, fceIntermediateSeriesDetail } from "./fceStudyTracksData";
 
 export type BibleStudyGroupId =
   | "study-skills"
@@ -36,8 +37,10 @@ export type BibleStudyLessonSummary = {
   primaryScripture?: string;
   href?: string;
   imageSrc?: string;
+  cardImageSrc?: string;
   imageAlt?: string;
   imagePosition?: string;
+  pdfUrl?: string;
   video?: BibleStudyLessonVideo;
   resources?: BibleStudyLessonResource[];
   resourcesOwnerName?: string;
@@ -200,18 +203,21 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "FCE Bible Studies — Beginner",
     summary: "Foundational Faith Changes Everything studies for visitors who are beginning to explore Scripture and Christian faith.",
     group: "fce-tracks",
+    href: "/bible-studies/fce-beginner",
   },
   {
     slug: "fce-intermediate",
     title: "FCE Bible Studies — Intermediate",
     summary: "Studies designed to deepen biblical understanding and strengthen growing habits of Scripture study.",
     group: "fce-tracks",
+    href: "/bible-studies/fce-intermediate",
   },
   {
     slug: "fce-advanced",
     title: "FCE Bible Studies — Advanced",
     summary: "Deeper FCE studies for visitors ready to explore Scripture, doctrine, and biblical themes in greater detail.",
     group: "fce-tracks",
+    href: "/bible-studies/fce-advanced",
   },
 ];
 
@@ -547,6 +553,9 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
   trinitySeriesDetail,
   howToReadBibleSeriesDetail,
   oldTestamentSeriesDetail,
+  fceBeginnerSeriesDetail,
+  fceIntermediateSeriesDetail,
+  fceAdvancedSeriesDetail,
   biblicalThemesSeriesDetail,
 ];
 
