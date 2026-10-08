@@ -98,30 +98,11 @@
 }
 
 .fceStudyPanel {
-  display: grid;
-  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
-  gap: 34px;
-  align-items: center;
   padding: clamp(24px, 4vw, 40px);
   border: 1px solid #ded2c1;
   border-radius: 22px;
   background: #fff;
   box-shadow: 0 16px 36px rgba(7, 18, 38, .08);
-}
-
-.fceStudyCover {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 17 / 22;
-  overflow: hidden;
-  border: 1px solid rgba(16, 44, 80, .14);
-  border-radius: 12px;
-  background: #e8e1d6;
-  box-shadow: 0 12px 28px rgba(7, 18, 38, .12);
-}
-
-.fceStudyCover img {
-  object-fit: cover;
 }
 
 .fceStudyCopy h3 {
@@ -508,15 +489,6 @@
 }
 
 @media (max-width: 760px) {
-  .fceStudyPanel {
-    grid-template-columns: 1fr;
-  }
-
-  .fceStudyCover {
-    width: min(280px, 78vw);
-    margin: 0 auto;
-  }
-
   .lessonHeroInner {
     width: min(100% - 28px, 1180px);
     grid-template-columns: 1fr;
