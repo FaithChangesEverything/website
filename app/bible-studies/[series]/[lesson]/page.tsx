@@ -53,6 +53,7 @@ export default async function BibleStudyLessonPage({
   const previousLesson = lessonIndex > 0 ? series.lessons[lessonIndex - 1] : undefined;
   const nextLesson =
     lessonIndex < series.lessons.length - 1 ? series.lessons[lessonIndex + 1] : undefined;
+  const lessonVideos = lesson.videos ?? (lesson.video ? [lesson.video] : []);
 
   return (
     <main className={styles.page}>
@@ -116,91 +117,110 @@ export default async function BibleStudyLessonPage({
               </div>
             </div>
           </section>
+        ) : lessonVideos.length > 0 ? (
+          <>
+            {lessonVideos.map((video, videoIndex) => (
+              <section
+                id={videoIndex === 0 ? "teaching-video" : undefined}
+                className={styles.videoSection}
+                aria-labelledby={`teaching-video-title-${videoIndex}`}
+                key={`${video.title}-${videoIndex}`}
+              >
+                <div className={styles.sectionHeading}>
+                  <p className={styles.sectionEyebrow}>
+                    {video.sectionLabel ?? (videoIndex === 0 ? "PRIMARY TEACHING" : "COMMENTARY / DEEPER STUDY")}
+                  </p>
+                  <h2 id={`teaching-video-title-${videoIndex}`}>{video.title}</h2>
+                  <p>{video.description}</p>
+                </div>
+
+                {lesson.imageSrc && video.streamSrc ? (
+                  <BibleProjectVideoPlayer
+                    title={video.title}
+                    imageSrc={lesson.imageSrc}
+                    imageAlt={lesson.imageAlt ?? ""}
+                    streamSrc={video.streamSrc}
+                    endPosterSrc={video.endPosterSrc}
+                    endPosterAlt={video.endPosterAlt}
+                  />
+                ) : lesson.imageSrc && video.href ? (
+                  <a
+                    className={`${styles.videoPanel} ${styles.videoLaunch} ${styles.externalVideoPanel}`}
+                    href={video.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Watch ${video.title} on BibleProject (opens in a new tab)`}
+                  >
+                    <Image
+                      src={lesson.imageSrc}
+                      alt=""
+                      fill
+                      sizes="(max-width: 760px) 100vw, 900px"
+                      className={styles.videoBackdrop}
+                      style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
+                    />
+                    <div className={styles.videoOverlay} />
+                    <div className={styles.videoAction}>
+                      <span className={styles.playIcon} aria-hidden="true">▶</span>
+                      <strong>Watch on BibleProject</strong>
+                      <span>The original BibleProject teaching opens in a new tab.</span>
+                    </div>
+                  </a>
+                ) : (
+                  <div className={styles.videoPanel}>
+                    {lesson.imageSrc && (
+                      <Image
+                        src={lesson.imageSrc}
+                        alt=""
+                        fill
+                        sizes="(max-width: 760px) 100vw, 900px"
+                        className={styles.videoBackdrop}
+                      />
+                    )}
+                    <div className={styles.videoOverlay} />
+                    <div className={styles.videoAction}>
+                      <span className={styles.playIcon} aria-hidden="true">▶</span>
+                      <strong>Teaching Video Coming Soon</strong>
+                      <span>The approved teaching video source will be connected here.</span>
+                    </div>
+                  </div>
+                )}
+
+                {video.href && video.streamSrc && (
+                  <div className={styles.externalVideoRow}>
+                    <p>Prefer to watch this video on BibleProject&apos;s website?</p>
+                    <a className={styles.primaryButton} href={video.href} target="_blank" rel="noreferrer">
+                      Watch on BibleProject <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                )}
+
+                {video.attribution && (
+                  <aside className={styles.attribution} aria-label="Video ownership information">
+                    <strong>{video.ownerName ?? "Resource ownership"}</strong>
+                    <p>
+                      {video.attribution}{" "}
+                      {video.ownerUrl && (
+                        <>
+                          To find more BibleProject resources, visit{" "}
+                          <a href={video.ownerUrl} target="_blank" rel="noreferrer">
+                            BibleProject.com
+                          </a>.
+                        </>
+                      )}
+                    </p>
+                  </aside>
+                )}
+              </section>
+            ))}
+          </>
         ) : (
           <section id="teaching-video" className={styles.videoSection} aria-labelledby="teaching-video-title">
             <div className={styles.sectionHeading}>
               <p className={styles.sectionEyebrow}>PRIMARY TEACHING</p>
-              <h2 id="teaching-video-title">{lesson.video?.title ?? lesson.title}</h2>
-              <p>{lesson.video?.description ?? "The primary teaching video for this lesson will appear here."}</p>
+              <h2 id="teaching-video-title">{lesson.title}</h2>
+              <p>The primary teaching video for this lesson will appear here.</p>
             </div>
-
-            {lesson.imageSrc && lesson.video?.streamSrc ? (
-              <BibleProjectVideoPlayer
-                title={lesson.video.title}
-                imageSrc={lesson.imageSrc}
-                imageAlt={lesson.imageAlt ?? ""}
-                streamSrc={lesson.video.streamSrc}
-                endPosterSrc={lesson.video.endPosterSrc}
-                endPosterAlt={lesson.video.endPosterAlt}
-              />
-            ) : lesson.imageSrc && lesson.video?.href ? (
-              <a
-                className={`${styles.videoPanel} ${styles.videoLaunch} ${styles.externalVideoPanel}`}
-                href={lesson.video.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Watch ${lesson.video.title} on BibleProject (opens in a new tab)`}
-              >
-                <Image
-                  src={lesson.imageSrc}
-                  alt=""
-                  fill
-                  sizes="(max-width: 760px) 100vw, 900px"
-                  className={styles.videoBackdrop}
-                  style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
-                />
-                <div className={styles.videoOverlay} />
-                <div className={styles.videoAction}>
-                  <span className={styles.playIcon} aria-hidden="true">▶</span>
-                  <strong>Watch on BibleProject</strong>
-                  <span>The original BibleProject teaching opens in a new tab.</span>
-                </div>
-              </a>
-            ) : (
-              <div className={styles.videoPanel}>
-                {lesson.imageSrc && (
-                  <Image
-                    src={lesson.imageSrc}
-                    alt=""
-                    fill
-                    sizes="(max-width: 760px) 100vw, 900px"
-                    className={styles.videoBackdrop}
-                  />
-                )}
-                <div className={styles.videoOverlay} />
-                <div className={styles.videoAction}>
-                  <span className={styles.playIcon} aria-hidden="true">▶</span>
-                  <strong>Teaching Video Coming Soon</strong>
-                  <span>The approved teaching video source will be connected here.</span>
-                </div>
-              </div>
-            )}
-
-            {lesson.video?.href && lesson.video.streamSrc && (
-              <div className={styles.externalVideoRow}>
-                <p>Prefer to watch this video on BibleProject&apos;s website?</p>
-                <a className={styles.primaryButton} href={lesson.video.href} target="_blank" rel="noreferrer">
-                  Watch on BibleProject <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            )}
-
-            {lesson.video?.attribution && (
-              <aside className={styles.attribution} aria-label="Video ownership information">
-                <strong>{lesson.video.ownerName ?? "Resource ownership"}</strong>
-                <p>
-                  {lesson.video.attribution}{" "}
-                  {lesson.video.ownerUrl && (
-                    <>
-                      To find more BibleProject resources, visit{" "}
-                      <a href={lesson.video.ownerUrl} target="_blank" rel="noreferrer">
-                        BibleProject.com
-                      </a>.
-                    </>
-                  )}
-                </p>
-              </aside>
-            )}
           </section>
         )}
 
