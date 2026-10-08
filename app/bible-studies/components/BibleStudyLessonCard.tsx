@@ -13,13 +13,15 @@ export default function BibleStudyLessonCard({
   return (
     <article className={`${styles.studyCard} ${compact ? styles.studyCardCompact : ""}`}>
       {lesson.cardImageSrc || lesson.imageSrc ? (
-        <div className={styles.studyArtworkImageWrap}>
+        <div
+          className={`${styles.studyArtworkImageWrap} ${lesson.cardImageSrc ? styles.studyArtworkCoverWrap : ""}`}
+        >
           <Image
             src={lesson.cardImageSrc ?? lesson.imageSrc!}
             alt={lesson.imageAlt ?? ""}
             width={900}
             height={560}
-            className={styles.studyArtworkImage}
+            className={`${styles.studyArtworkImage} ${lesson.cardImageSrc ? styles.studyArtworkCoverImage : ""}`}
             style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
           />
         </div>
