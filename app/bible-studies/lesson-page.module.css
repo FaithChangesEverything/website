@@ -92,6 +92,34 @@
   padding: 62px 0 84px;
 }
 
+.fceStudySection {
+  display: grid;
+  gap: 26px;
+}
+
+.fceStudyPanel {
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid #ded2c1;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(7, 18, 38, .08);
+}
+
+.fceStudyCopy h3 {
+  margin: 0;
+  color: #102c50;
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+  line-height: 1.1;
+}
+
+.fceStudyCopy > p:not(.sectionEyebrow) {
+  max-width: 680px;
+  margin: 14px 0 22px;
+  color: #4d5b6a;
+  line-height: 1.7;
+}
+
 .videoSection,
 .resourcesSection {
   display: grid;

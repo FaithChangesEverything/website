@@ -88,142 +88,174 @@ export default async function BibleStudyLessonPage({
       </section>
 
       <div className={styles.content}>
-        <section id="teaching-video" className={styles.videoSection} aria-labelledby="teaching-video-title">
-          <div className={styles.sectionHeading}>
-            <p className={styles.sectionEyebrow}>PRIMARY TEACHING</p>
-            <h2 id="teaching-video-title">{lesson.video?.title ?? lesson.title}</h2>
-            <p>{lesson.video?.description ?? "The primary teaching video for this lesson will appear here."}</p>
-          </div>
+        {lesson.pdfUrl ? (
+          <section className={styles.fceStudySection} aria-labelledby="fce-study-title">
+            <div className={styles.sectionHeading}>
+              <p className={styles.sectionEyebrow}>FCE-CREATED BIBLE STUDY</p>
+              <h2 id="fce-study-title">Begin This Study</h2>
+              <p>
+                This study was created by Faith Changes Everything. Open the complete PDF to read the Scripture,
+                teaching, reflection material, and study questions at your own pace.
+              </p>
+            </div>
 
-          {lesson.imageSrc && lesson.video?.streamSrc ? (
-            <BibleProjectVideoPlayer
-              title={lesson.video.title}
-              imageSrc={lesson.imageSrc}
-              imageAlt={lesson.imageAlt ?? ""}
-              streamSrc={lesson.video.streamSrc}
-              endPosterSrc={lesson.video.endPosterSrc}
-              endPosterAlt={lesson.video.endPosterAlt}
-            />
-          ) : lesson.imageSrc && lesson.video?.href ? (
-            <a
-              className={`${styles.videoPanel} ${styles.videoLaunch} ${styles.externalVideoPanel}`}
-              href={lesson.video.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`Watch ${lesson.video.title} on BibleProject (opens in a new tab)`}
-            >
-              <Image
-                src={lesson.imageSrc}
-                alt=""
-                fill
-                sizes="(max-width: 760px) 100vw, 900px"
-                className={styles.videoBackdrop}
-                style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
-              />
-              <div className={styles.videoOverlay} />
-              <div className={styles.videoAction}>
-                <span className={styles.playIcon} aria-hidden="true">▶</span>
-                <strong>Watch on BibleProject</strong>
-                <span>The original BibleProject teaching opens in a new tab.</span>
+            <div className={styles.fceStudyPanel}>
+              <div className={styles.fceStudyCopy}>
+                <p className={styles.sectionEyebrow}>{series.title.toUpperCase()}</p>
+                <h3>{lesson.title}</h3>
+                <p>{lesson.summary}</p>
+                <a
+                  className={styles.primaryButton}
+                  href={lesson.pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${lesson.title} Bible Study PDF in a new tab`}
+                >
+                  Open Bible Study PDF <span aria-hidden="true">→</span>
+                </a>
               </div>
-            </a>
-          ) : (
-            <div className={styles.videoPanel}>
-              {lesson.imageSrc && (
+            </div>
+          </section>
+        ) : (
+          <section id="teaching-video" className={styles.videoSection} aria-labelledby="teaching-video-title">
+            <div className={styles.sectionHeading}>
+              <p className={styles.sectionEyebrow}>PRIMARY TEACHING</p>
+              <h2 id="teaching-video-title">{lesson.video?.title ?? lesson.title}</h2>
+              <p>{lesson.video?.description ?? "The primary teaching video for this lesson will appear here."}</p>
+            </div>
+
+            {lesson.imageSrc && lesson.video?.streamSrc ? (
+              <BibleProjectVideoPlayer
+                title={lesson.video.title}
+                imageSrc={lesson.imageSrc}
+                imageAlt={lesson.imageAlt ?? ""}
+                streamSrc={lesson.video.streamSrc}
+                endPosterSrc={lesson.video.endPosterSrc}
+                endPosterAlt={lesson.video.endPosterAlt}
+              />
+            ) : lesson.imageSrc && lesson.video?.href ? (
+              <a
+                className={`${styles.videoPanel} ${styles.videoLaunch} ${styles.externalVideoPanel}`}
+                href={lesson.video.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Watch ${lesson.video.title} on BibleProject (opens in a new tab)`}
+              >
                 <Image
                   src={lesson.imageSrc}
                   alt=""
                   fill
                   sizes="(max-width: 760px) 100vw, 900px"
                   className={styles.videoBackdrop}
+                  style={lesson.imagePosition ? { objectPosition: lesson.imagePosition } : undefined}
                 />
-              )}
-              <div className={styles.videoOverlay} />
-              <div className={styles.videoAction}>
-                <span className={styles.playIcon} aria-hidden="true">▶</span>
-                <strong>Teaching Video Coming Soon</strong>
-                <span>The approved teaching video source will be connected here.</span>
-              </div>
-            </div>
-          )}
-
-          {lesson.video?.href && lesson.video.streamSrc && (
-            <div className={styles.externalVideoRow}>
-              <p>Prefer to watch this video on BibleProject&apos;s website?</p>
-              <a className={styles.primaryButton} href={lesson.video.href} target="_blank" rel="noreferrer">
-                Watch on BibleProject <span aria-hidden="true">→</span>
+                <div className={styles.videoOverlay} />
+                <div className={styles.videoAction}>
+                  <span className={styles.playIcon} aria-hidden="true">▶</span>
+                  <strong>Watch on BibleProject</strong>
+                  <span>The original BibleProject teaching opens in a new tab.</span>
+                </div>
               </a>
+            ) : (
+              <div className={styles.videoPanel}>
+                {lesson.imageSrc && (
+                  <Image
+                    src={lesson.imageSrc}
+                    alt=""
+                    fill
+                    sizes="(max-width: 760px) 100vw, 900px"
+                    className={styles.videoBackdrop}
+                  />
+                )}
+                <div className={styles.videoOverlay} />
+                <div className={styles.videoAction}>
+                  <span className={styles.playIcon} aria-hidden="true">▶</span>
+                  <strong>Teaching Video Coming Soon</strong>
+                  <span>The approved teaching video source will be connected here.</span>
+                </div>
+              </div>
+            )}
+
+            {lesson.video?.href && lesson.video.streamSrc && (
+              <div className={styles.externalVideoRow}>
+                <p>Prefer to watch this video on BibleProject&apos;s website?</p>
+                <a className={styles.primaryButton} href={lesson.video.href} target="_blank" rel="noreferrer">
+                  Watch on BibleProject <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            )}
+
+            {lesson.video?.attribution && (
+              <aside className={styles.attribution} aria-label="Video ownership information">
+                <strong>{lesson.video.ownerName ?? "Resource ownership"}</strong>
+                <p>
+                  {lesson.video.attribution}{" "}
+                  {lesson.video.ownerUrl && (
+                    <>
+                      To find more BibleProject resources, visit{" "}
+                      <a href={lesson.video.ownerUrl} target="_blank" rel="noreferrer">
+                        BibleProject.com
+                      </a>.
+                    </>
+                  )}
+                </p>
+              </aside>
+            )}
+          </section>
+        )}
+
+        {!lesson.pdfUrl && (lesson.resources?.length ?? 0) > 0 && (
+          <section className={styles.resourcesSection} aria-labelledby="additional-resources-title">
+            <div className={styles.sectionHeading}>
+              <p className={styles.sectionEyebrow}>GO DEEPER</p>
+              <h2 id="additional-resources-title">Additional Study Resources</h2>
+              <p>
+                Use the companion resources below to read, review, and continue studying the teaching at your own pace.
+              </p>
             </div>
-          )}
 
-          {lesson.video?.attribution && (
-            <aside className={styles.attribution} aria-label="Video ownership information">
-              <strong>{lesson.video.ownerName ?? "Resource ownership"}</strong>
-              <p>
-                {lesson.video.attribution}{" "}
-                {lesson.video.ownerUrl && (
-                  <>
-                    To find more BibleProject resources, visit{" "}
-                    <a href={lesson.video.ownerUrl} target="_blank" rel="noreferrer">
-                      BibleProject.com
-                    </a>.
-                  </>
-                )}
-              </p>
-            </aside>
-          )}
-        </section>
+            <div className={styles.resourceGrid}>
+              {(lesson.resources ?? []).map((resource) => (
+                <article className={styles.resourceCard} key={resource.title}>
+                  <h3>{resource.title}</h3>
+                  <p>{resource.description}</p>
+                  {resource.href ? (
+                    <a
+                      href={resource.href}
+                      className={styles.resourceAction}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${resource.actionLabel ?? "Open Resource"} (opens in a new tab)`}
+                    >
+                      {resource.actionLabel ?? "Open Resource"} <span aria-hidden="true">→</span>
+                    </a>
+                  ) : (
+                    <span className={`${styles.resourceAction} ${styles.disabledResource}`} aria-disabled="true">
+                      {resource.actionLabel ?? "Open Resource"} <span aria-hidden="true">→</span>
+                    </span>
+                  )}
+                </article>
+              ))}
+            </div>
 
-        <section className={styles.resourcesSection} aria-labelledby="additional-resources-title">
-          <div className={styles.sectionHeading}>
-            <p className={styles.sectionEyebrow}>GO DEEPER</p>
-            <h2 id="additional-resources-title">Additional Study Resources</h2>
-            <p>
-              Use the companion resources below to read, review, and continue studying the teaching at your own pace.
-            </p>
-          </div>
-
-          <div className={styles.resourceGrid}>
-            {(lesson.resources ?? []).map((resource) => (
-              <article className={styles.resourceCard} key={resource.title}>
-                <h3>{resource.title}</h3>
-                <p>{resource.description}</p>
-                {resource.href ? (
-                  <a
-                    href={resource.href}
-                    className={styles.resourceAction}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${resource.actionLabel ?? "Open Resource"} (opens in a new tab)`}
-                  >
-                    {resource.actionLabel ?? "Open Resource"} <span aria-hidden="true">→</span>
-                  </a>
-                ) : (
-                  <span className={`${styles.resourceAction} ${styles.disabledResource}`} aria-disabled="true">
-                    {resource.actionLabel ?? "Open Resource"} <span aria-hidden="true">→</span>
-                  </span>
-                )}
-              </article>
-            ))}
-          </div>
-
-          {lesson.resourcesAttribution && (
-            <aside className={styles.attribution} aria-label="Study resource ownership information">
-              <strong>{lesson.resourcesOwnerName ?? "Resource ownership"}</strong>
-              <p>
-                {lesson.resourcesAttribution}{" "}
-                {lesson.resourcesOwnerUrl && (
-                  <>
-                    To find more BibleProject resources, visit{" "}
-                    <a href={lesson.resourcesOwnerUrl} target="_blank" rel="noreferrer">
-                      BibleProject.com
-                    </a>.
-                  </>
-                )}
-              </p>
-            </aside>
-          )}
-        </section>
+            {lesson.resourcesAttribution && (
+              <aside className={styles.attribution} aria-label="Study resource ownership information">
+                <strong>{lesson.resourcesOwnerName ?? "Resource ownership"}</strong>
+                <p>
+                  {lesson.resourcesAttribution}{" "}
+                  {lesson.resourcesOwnerUrl && (
+                    <>
+                      To find more BibleProject resources, visit{" "}
+                      <a href={lesson.resourcesOwnerUrl} target="_blank" rel="noreferrer">
+                        BibleProject.com
+                      </a>.
+                    </>
+                  )}
+                </p>
+              </aside>
+            )}
+          </section>
+        )}
 
         <nav className={styles.lessonNavigation} aria-label="Bible study lesson navigation">
           <div className={styles.navSlot}>
