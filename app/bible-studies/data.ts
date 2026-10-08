@@ -3,6 +3,8 @@ import { creationSeriesDetail } from "./creationData";
 import { trinitySeriesDetail } from "./trinityData";
 import { howToReadBibleSeriesDetail } from "./howToReadBibleData";
 import { oldTestamentSeriesDetail } from "./oldTestamentData";
+import { sermonOnTheMountSeriesDetail } from "./sermonOnTheMountData";
+import { tenCommandmentsSeriesDetail } from "./tenCommandmentsData";
 import { fceAdvancedSeriesDetail, fceBeginnerSeriesDetail, fceIntermediateSeriesDetail } from "./fceStudyTracksData";
 
 export type BibleStudyGroupId =
@@ -28,6 +30,7 @@ export type BibleStudyLessonVideo = {
   ownerName?: string;
   ownerUrl?: string;
   attribution?: string;
+  sectionLabel?: string;
 };
 
 export type BibleStudyLessonSummary = {
@@ -42,6 +45,7 @@ export type BibleStudyLessonSummary = {
   imagePosition?: string;
   pdfUrl?: string;
   video?: BibleStudyLessonVideo;
+  videos?: BibleStudyLessonVideo[];
   resources?: BibleStudyLessonResource[];
   resourcesOwnerName?: string;
   resourcesOwnerUrl?: string;
@@ -163,14 +167,9 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
   {
     slug: "sermon-on-the-mount",
     title: "Sermon on the Mount",
-    summary: "Study Jesus’ teaching in Matthew 5–7 and consider what it means to live as a citizen of His kingdom.",
+    summary: "Study Jesus’ teaching in Matthew 5–7 through paired primary teachings and visual commentaries.",
     group: "books-passages",
-  },
-  {
-    slug: "sermon-on-the-mount-visual-commentaries",
-    title: "Sermon on the Mount Visual Commentaries",
-    summary: "Explore visual teaching resources that help illuminate the structure, imagery, and message of the Sermon on the Mount.",
-    group: "books-passages",
+    href: "/bible-studies/sermon-on-the-mount",
   },
   {
     slug: "biblical-themes",
@@ -184,6 +183,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "Ten Commandments",
     summary: "Study the Ten Commandments in their biblical setting and consider what they reveal about God and faithful living.",
     group: "foundations-themes",
+    href: "/bible-studies/ten-commandments",
   },
   {
     slug: "old-testament",
@@ -553,6 +553,8 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
   trinitySeriesDetail,
   howToReadBibleSeriesDetail,
   oldTestamentSeriesDetail,
+  sermonOnTheMountSeriesDetail,
+  tenCommandmentsSeriesDetail,
   fceBeginnerSeriesDetail,
   fceIntermediateSeriesDetail,
   fceAdvancedSeriesDetail,
