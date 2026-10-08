@@ -100,17 +100,6 @@ export default async function BibleStudyLessonPage({
             </div>
 
             <div className={styles.fceStudyPanel}>
-              {lesson.cardImageSrc && (
-                <div className={styles.fceStudyCover}>
-                  <Image
-                    src={lesson.cardImageSrc}
-                    alt={`${lesson.title} Bible Study cover`}
-                    fill
-                    sizes="(max-width: 760px) 70vw, 280px"
-                  />
-                </div>
-              )}
-
               <div className={styles.fceStudyCopy}>
                 <p className={styles.sectionEyebrow}>{series.title.toUpperCase()}</p>
                 <h3>{lesson.title}</h3>
