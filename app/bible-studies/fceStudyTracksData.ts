@@ -98,7 +98,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Understanding the Trinity",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00188-understanding-trinity.pdf",
     coverImage: "understanding-trinity-cover.png",
-    headerImage: "understanding-the-trinity-header.jpg",
+    headerImage: "understanding-the-trinity-header.png",
     summary: "Explore the biblical foundations for understanding the one God revealed as Father, Son, and Holy Spirit.",
   },
   {
@@ -106,7 +106,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Creation",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00190_Creation.pdf",
     coverImage: "Creation-cover.png",
-    headerImage: "creation-header.jpg",
+    headerImage: "creation-header.png",
     summary: "Study the biblical account of creation and what it reveals about God, humanity, and the world He made.",
   },
   {
@@ -114,7 +114,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Learning to Trust God",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00194-learning-to-trust-god.pdf",
     coverImage: "learning-to-trust-god-cover.png",
-    headerImage: "learning-to-trust-god-header.jpg",
+    headerImage: "learning-to-trust-god-header.png",
     summary: "Explore what Scripture teaches about trusting God when the way forward is clear and when it is not.",
   },
   {
@@ -122,7 +122,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Understanding God’s Will",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00195-understanding-gods-will.pdf",
     coverImage: "understanding-gods-will-cover.png",
-    headerImage: "understanding-gods-will-header.jpg",
+    headerImage: "understanding-gods-will-header.png",
     summary: "Consider biblical principles for seeking God’s will with wisdom, obedience, prayer, and trust.",
   },
   {
@@ -130,7 +130,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "The Fruits of the Spirit",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00196-the-fruits-of-the-spirit.pdf",
     coverImage: "the-fruits-of-the-spirit-cover.png",
-    headerImage: "the-fruits-of-the-spirit-header.jpg",
+    headerImage: "the-fruits-of-the-spirit-header.png",
     summary: "Study the fruit the Holy Spirit produces as believers grow in Christlike character.",
   },
   {
@@ -138,7 +138,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Forgiveness",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00197-forgiveness.pdf",
     coverImage: "forgiveness-cover.png",
-    headerImage: "forgiveness-header.jpg",
+    headerImage: "forgiveness-header.png",
     summary: "Explore the biblical meaning of receiving forgiveness and extending forgiveness to others.",
   },
   {
@@ -146,7 +146,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Temptation",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00198-temptation.pdf",
     coverImage: "temptation-cover.png",
-    headerImage: "temptation-header.jpg",
+    headerImage: "temptation-header.png",
     summary: "Study how Scripture describes temptation and the ways believers are called to respond faithfully.",
   },
   {
@@ -154,7 +154,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Christian Fellowship",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00199-christian-fellowship.pdf",
     coverImage: "christian-fellowship-cover.png",
-    headerImage: "christian-fellowship-header.jpg",
+    headerImage: "christian-fellowship-header.png",
     summary: "Explore the biblical importance of fellowship, encouragement, worship, service, and life together.",
   },
   {
@@ -162,7 +162,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Biblical Wisdom",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00200-biblical-wisdom.pdf",
     coverImage: "biblical-wisdom-cover.png",
-    headerImage: "biblical-wisdom-header.jpg",
+    headerImage: "biblical-wisdom-header.png",
     summary: "Explore how Scripture describes wisdom and how biblical wisdom shapes everyday decisions and character.",
   },
   {
@@ -170,7 +170,7 @@ const intermediateSeeds: FceStudySeed[] = [
     title: "Trials and Suffering",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Intermediate%20Bible%20Studies/doc-2026-00201-trials-and-suffering.pdf",
     coverImage: "trials-and-suffering-cover.png",
-    headerImage: "trials-and-suffering-header.jpg",
+    headerImage: "trials-and-suffering-header.png",
     summary: "Study biblical truth about trials and suffering while keeping God’s character, presence, and eternal purposes in view.",
   },
 ];
@@ -181,7 +181,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "God’s Sovereignty",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00202-gods-sovereignty.pdf",
     coverImage: "gods-sovereignty-cover.png",
-    headerImage: "gods-sovereignty-header.jpg",
+    headerImage: "gods-sovereignty-header.png",
     summary: "Begin the advanced series by studying Scripture’s teaching about God’s sovereign rule and authority.",
   },
   {
@@ -189,7 +189,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "Justification and Sanctification",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00203-justification-sanctification.pdf",
     coverImage: "justification-sanctification-cover.png",
-    headerImage: "justification-and-sanctification-header.jpg",
+    headerImage: "justification-and-sanctification-header.png",
     summary: "Explore the biblical distinction and relationship between justification and sanctification.",
   },
   {
@@ -197,7 +197,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "The Covenants",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00204-the-covenants.pdf",
     coverImage: "the-covenants-cover.png",
-    headerImage: "the-covenants-header.jpg",
+    headerImage: "covenants-header.png",
     summary: "Trace the biblical covenants and their place in the unfolding story of God’s redemptive purposes.",
   },
   {
@@ -205,7 +205,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "Biblical Theology of Redemption",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00205-biblical-theology-of-redemption.pdf",
     coverImage: "biblical-theology-of-redemption-cover.png",
-    headerImage: "biblical-theology-of-redemption-header.jpg",
+    headerImage: "biblical-theology-of-redemption-header.png",
     summary: "Follow the theme of redemption through Scripture and consider how the biblical story culminates in Christ.",
   },
   {
@@ -213,7 +213,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "The Attributes of God",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00206-the-attributes-of-god.pdf",
     coverImage: "the-attributes-of-god-cover.png",
-    headerImage: "the-attributes-of-god-header.jpg",
+    headerImage: "attributes-of-god-header.png",
     summary: "Study what Scripture reveals about God’s nature and character while respecting the limits of what He has revealed.",
   },
   {
@@ -221,7 +221,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "Christology",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00207-christology.pdf",
     coverImage: "christology-cover.png",
-    headerImage: "christology-header.jpg",
+    headerImage: "christology-header.png",
     summary: "Study the person and work of Jesus Christ through the witness of Scripture.",
   },
   {
@@ -229,7 +229,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "The Doctrine of Scripture",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00208-the-doctrine-of-scripture.pdf",
     coverImage: "the-doctrine-of-scripture-cover.png",
-    headerImage: "the-doctrine-of-scripture-header.jpg",
+    headerImage: "doctrine-of-scripture-header.png",
     summary: "Explore Christian doctrine concerning Scripture and the Bible’s authority, purpose, and place in the life of faith.",
   },
   {
@@ -237,7 +237,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "The Person and Work of the Holy Spirit",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00209-the-person-and-work-of-the-holy-spirit.pdf",
     coverImage: "the-person-and-work-of-the-holy-spirit-cover.png",
-    headerImage: "the-person-and-work-of-the-holy-spirit-header.jpg",
+    headerImage: "person-and-work-of-the-holy-spirit-header.png",
     summary: "Study the person, deity, ministry, and work of the Holy Spirit through Scripture.",
   },
   {
@@ -245,7 +245,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "Biblical Eschatology",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00210-bible-eschatology.pdf",
     coverImage: "bible-eschatology-cover.png",
-    headerImage: "biblical-eschatology-header.jpg",
+    headerImage: "biblical-eschatology-header.png",
     summary: "Explore biblical teaching about the last things with careful attention to what Scripture clearly reveals.",
   },
   {
@@ -253,7 +253,7 @@ const advancedSeeds: FceStudySeed[] = [
     title: "Old Testament Messianic Prophecy",
     pdfUrl: "https://resources.faithchangeseverything.org/documents/bible-studies/FCE%20Bible%20Studies/FCE%20Advanced%20Bible%20Studies/doc-2026-00211-old-testament-messianic-prophecy.pdf",
     coverImage: "old-testament-messianic-prophecy-cover.png",
-    headerImage: "old-testament-messianic-prophecy-header.jpg",
+    headerImage: "old-testament-messianic-prophecy-header.png",
     summary: "Examine Old Testament passages that anticipate the Messiah and consider their fulfillment in Jesus Christ.",
   },
 ];
