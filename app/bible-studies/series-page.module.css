@@ -925,3 +925,159 @@
     width: 100%;
   }
 }
+
+
+/* Ten Commandments approved layout.
+   Keep these rules scoped so FCE track card sizing does not alter this series. */
+.tenCommandmentsSeries .content {
+  width: min(1380px, calc(100% - 36px));
+}
+
+.tenCommandmentsSeries .pastorCard {
+  grid-template-columns: 220px minmax(0, 1fr);
+  max-width: 1180px;
+  align-items: start;
+}
+
+.tenCommandmentsSeries .pastorPortraitWrap {
+  min-height: 0;
+  align-self: start;
+  padding: 18px;
+  background: #fff;
+}
+
+.tenCommandmentsSeries .pastorPortrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 14px;
+}
+
+.tenCommandmentsSeries .pastorCardBody {
+  justify-content: flex-start;
+  padding: 34px 38px 36px;
+}
+
+.tenCommandmentsSeries .pastorCard h2 {
+  font-size: clamp(1.75rem, 2.7vw, 2.45rem);
+}
+
+.tenCommandmentsSeries .pastorMessage {
+  margin: 14px 0 22px;
+}
+
+.tenCommandmentsSeries .pastorMessage p {
+  margin: 0 0 12px;
+  font-size: .96rem;
+  line-height: 1.62;
+}
+
+.tenCommandmentsSeries .pastorMessage p:last-child {
+  margin-bottom: 0;
+}
+
+.tenCommandmentsSeries .studiesSection {
+  gap: 22px;
+}
+
+.tenCommandmentsSeries .studyGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  max-width: none;
+}
+
+.tenCommandmentsSeries .studyCard {
+  flex: initial;
+  width: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(7, 18, 38, .065);
+}
+
+.tenCommandmentsSeries .studyArtworkImageWrap {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+}
+
+.tenCommandmentsSeries .studyArtworkImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.tenCommandmentsSeries .studyCardBody {
+  padding: 14px;
+}
+
+.tenCommandmentsSeries .studyCard h3 {
+  font-size: .98rem;
+  line-height: 1.28;
+}
+
+.tenCommandmentsSeries .studyCardBody p {
+  margin: 9px 0 14px;
+  font-size: .79rem;
+  line-height: 1.48;
+}
+
+.tenCommandmentsSeries .studyButton {
+  min-height: 36px;
+  padding: 8px 11px;
+  font-size: .78rem;
+}
+
+@media (max-width: 1049px) {
+  .tenCommandmentsSeries .studyGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .tenCommandmentsSeries .pastorCard {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .tenCommandmentsSeries .pastorCardBody {
+    padding: 28px 30px 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .tenCommandmentsSeries .pastorCard {
+    grid-template-columns: 1fr;
+  }
+
+  .tenCommandmentsSeries .pastorPortraitWrap {
+    width: min(240px, 72%);
+    margin: 20px auto 0;
+    padding: 0;
+  }
+
+  .tenCommandmentsSeries .studyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .tenCommandmentsSeries .studyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tenCommandmentsSeries .studyCardBody {
+    padding: 16px;
+  }
+
+  .tenCommandmentsSeries .studyCard h3 {
+    font-size: 1.08rem;
+  }
+
+  .tenCommandmentsSeries .studyCardBody p {
+    font-size: .88rem;
+  }
+}
