@@ -13,7 +13,7 @@ const resources = [
  {title:"Read the Bible",desc:"Open God's Word in a calm, comfortable reading experience.",href:bibleHref("john",1),icon:"✦",cta:"Start Reading"},
  {title:"Browse All 66 Books",desc:"Explore the Old and New Testaments, book by book.",href:"#books",icon:"▤",cta:"Browse Books"},
  {title:"How to Use the Bible",desc:"A beginner-friendly guide to finding and reading Scripture.",href:"https://resources.faithchangeseverything.org/documents/bible-studies/bible-project/doc-2026-00212-how-to-read-the-bible.docx",icon:"⌖",cta:"Open Guide"},
- {title:"FCE Bible Journal",desc:"Reflect on what you read and apply God's Word.",href:"/journal",icon:"✎",cta:"Open Journal"},
+ {title:"FCE Bible Journal",desc:"Reflect on what you read and apply God's Word.",href:"https://resources.faithchangeseverything.org/documents/doc-2026-00003-fce-three-page-bible-study.pdf",icon:"✎",cta:"Open Journal"},
  {title:"How to Study the Bible",desc:"Practical guidance for studying Scripture with care.",href:"/resources",icon:"❧",cta:"Study Resources"}
 ];
 export default function BibleHome(){
