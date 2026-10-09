@@ -27,12 +27,12 @@ return <><Header/><main className={styles.page}>
 <div className={styles.jump}><a className={styles.secondary} href="#books">Browse All Books</a><a className={styles.secondary} href={bibleHref("john",1)}>Open Bible Reader</a></div>
 <small>King James Version (KJV)</small>
 </section>
-<section className={styles.intro}><p className={styles.eyebrow}>WELCOME TO THE FCE BIBLE</p><h2>The Faith Changes Everything Bible</h2><p>Explore Scripture clearly and comfortably, and find encouragement and hope in God's Word.</p></section>
+<div className={styles.middleScenery}><section className={styles.intro}><p className={styles.eyebrow}>WELCOME TO THE FCE BIBLE</p><h2>The Faith Changes Everything Bible</h2><p>Explore Scripture clearly and comfortably, and find encouragement and hope in God's Word.</p></section>
 <section className={styles.cards} aria-label="Bible resources">
 {resources.map(r=><a key={r.title} className={styles.card} href={r.href}><span className={styles.icon}><BibleIcon name={r.icon as "read" | "browse" | "guide" | "journal" | "study"} size={54}/></span><h3>{r.title}</h3><p>{r.desc}</p><span className={styles.cardLink}>{r.cta} →</span></a>)}
 </section>
 <section className={styles.books} id="books"><p className={styles.eyebrow}>ALL 66 BOOKS OF SCRIPTURE</p><h2>Choose a Book of the Bible</h2><p>Select a book to open its chapter navigation in the dedicated FCE Bible reader.</p>
-<div className={styles.testaments}>{(["old","new"] as const).map(t=><section className={styles.testament} key={t}><span className={styles.testamentIcon}><BibleIcon name={t==="old"?"old":"new"} size={48}/></span><h3>{t==="old"?"Old Testament":"New Testament"}</h3><small>{t==="old"?"39":"27"} books</small><div className={styles.bookGrid}>{bibleBooks.filter(b=>b.testament===t).map(b=><Link key={b.slug} href={bibleHref(b.slug,1)}>{b.name}</Link>)}</div></section>)}</div></section>
+<div className={styles.testaments}>{(["old","new"] as const).map(t=><section className={styles.testament} key={t}><span className={styles.testamentIcon}><BibleIcon name={t==="old"?"old":"new"} size={48}/></span><h3>{t==="old"?"Old Testament":"New Testament"}</h3><small>{t==="old"?"39":"27"} books</small><div className={styles.bookGrid}>{bibleBooks.filter(b=>b.testament===t).map(b=><Link key={b.slug} href={bibleHref(b.slug,1)}>{b.name}</Link>)}</div></section>)}</div></section></div>
 <section className={styles.hope}><p className={styles.eyebrow}>TAKE THE NEXT STEP</p><h2>Looking for Hope or a Place to Begin?</h2><p>Journey to Hope offers Scripture-based guidance to help you explore faith, understand salvation, and grow in your relationship with God.</p><Link className={styles.primary} href="/journey">Explore Journey to Hope →</Link></section>
 </main><Footer/></>;
 }
