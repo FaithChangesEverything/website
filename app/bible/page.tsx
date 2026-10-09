@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { bibleBooks, bibleHref } from "@/lib/bible/books";
 import styles from "./bible.module.css";
+import BibleJump from "@/components/bible/BibleJump";
 
 export const metadata = {
   title:"Read the Bible | Faith Changes Everything",
@@ -21,10 +22,8 @@ return <><Header/><main className={styles.page}>
 <p className={styles.eyebrow}>GOD'S WORD LIGHTS THE WAY</p>
 <h1>Find Light in God's Word</h1>
 <p>Read the King James Bible, explore every book of Scripture, and go directly to the passage you want to read.</p>
-<form className={styles.jump} action="/bible/john/1" method="get">
-<a className={styles.primary} href={bibleHref("john",3,16)}>Begin with John 3:16</a>
-<a className={styles.secondary} href="#books">Browse All Books</a>
-</form>
+<BibleJump initialBook="john" initialChapter={3}/>
+<div className={styles.jump}><a className={styles.secondary} href="#books">Browse All Books</a><a className={styles.secondary} href={bibleHref("john",1)}>Open Bible Reader</a></div>
 <small>King James Version (KJV)</small>
 </section>
 <section className={styles.intro}><p className={styles.eyebrow}>WELCOME TO THE FCE BIBLE</p><h2>The Faith Changes Everything Bible</h2><p>Explore Scripture clearly and comfortably, and find encouragement and hope in God's Word.</p></section>
