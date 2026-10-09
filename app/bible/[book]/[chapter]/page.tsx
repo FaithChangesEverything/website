@@ -11,9 +11,7 @@ import AllBooksChooser from "@/components/bible/AllBooksChooser";
 import ReadingSurface from "@/components/bible/ReadingSurface";
 
 type RouteProps={params:Promise<{book:string;chapter:string}>};
-export function generateStaticParams(){
- return bibleBooks.flatMap(book=>Array.from({length:book.chapters},(_,i)=>({book:book.slug,chapter:String(i+1)})));
-}
+export const revalidate = 86400;
 export async function generateMetadata({params}:RouteProps){
  const {book,chapter}=await params; const found=findBibleBook(book);
  return {title:found?`${found.name} ${chapter} (KJV) | FCE Bible`:"FCE Bible"};
