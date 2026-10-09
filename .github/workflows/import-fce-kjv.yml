@@ -1,0 +1,25 @@
+name: Import pinned FCE KJV Scripture data
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import-kjv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/fce-bible-reader-v1
+          persist-credentials: true
+      - name: Download pinned source archive
+        run: |
+          curl --fail --location --retry 3 --output /tmp/eng-kjv2006_usfm.zip https://ebible.org/Scriptures/eng-kjv2006_usfm.zip
+          echo '5789dcd000d60a554abb4cf9b37ce10a53628bfc686e11ada2d6c981455239c1  /tmp/eng-kjv2006_usfm.zip' | sha256sum -c -
+      - name: Import and validate complete KJV
+        run: python3 scripts/import_fce_kjv.py /tmp/eng-kjv2006_usfm.zip data/bible/kjv
+      - name: Commit generated Scripture to development branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/bible/kjv
+          git diff --cached --quiet || (git commit -m "data(bible): import validated pinned KJV text" && git push origin HEAD:feature/fce-bible-reader-v1)
