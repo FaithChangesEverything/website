@@ -10,17 +10,18 @@
 .primary{background:linear-gradient(#d9a647,#ab761e);color:#fff}
 .secondary{background:#fcfdff;color:#15355f;border:1px solid #d2dfed}
 .jump .secondary:first-child{background:#0b315b;color:white;border-color:#234c76}
-.intro{text-align:center;padding:3.75rem 1rem 2rem;max-width:100%;margin:auto;background:linear-gradient(#fffffff0,#ffffffe0),url("/images/prayer-request-lighthouse-hero.png") center 58%/cover no-repeat}
+.middleScenery{background:linear-gradient(180deg,rgba(255,247,230,.91) 0%,rgba(250,243,228,.85) 30%,rgba(229,238,244,.84) 75%,rgba(238,242,247,.9) 100%),url("/images/prayer-request-lighthouse-hero.png") center 53%/cover no-repeat;background-color:#f2eee5}
+.intro{text-align:center;padding:3.75rem 1rem 2rem;max-width:100%;margin:auto;background:transparent}
 .intro h2,.books h2,.hope h2{font-size:clamp(2rem,3.3vw,3.1rem);margin:.6rem 0}
 .intro p:last-child,.books>p:not(.eyebrow),.hope>p:not(.eyebrow){line-height:1.7;font-size:1.11rem}
-.cards{margin:0 auto;padding:1.1rem max(18px,4.5%) 3.8rem;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;background:linear-gradient(#ffffffaa,#ffffffc7),url("/images/prayer-request-lighthouse-hero.png") center 65%/cover no-repeat}
+.cards{margin:0 auto;padding:1.1rem max(18px,4.5%) 3.8rem;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;background:transparent}
 .card{min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:inherit;background:#ffffffef;border:1px solid #e1e3e6;border-radius:13px;padding:1.6rem 1rem 1.1rem;box-shadow:0 8px 25px #18344b20;transition:transform .15s,box-shadow .15s}
 .card:hover{transform:translateY(-3px);box-shadow:0 12px 25px #18344b32}
 .card h3{font-size:1.18rem;min-height:2.6em;margin:.45rem 0 .35rem}
 .card p{font:1rem/1.55 Georgia,serif;color:#243b5d;flex:1;margin:0 0 1.15rem}
 .icon{display:grid;place-items:center;height:65px}
 .cardLink{display:block;width:100%;padding:.74rem .25rem;border-radius:7px;background:#dce9f8;font:600 .86rem system-ui,sans-serif;color:#0b315b}
-.books{padding:4.25rem max(18px,3%);text-align:center;background:linear-gradient(#edf4f9cf,#f1f6f9dd),url("/images/prayer-request-lighthouse-hero.png") center/cover no-repeat;scroll-margin-top:110px}
+.books{padding:4.25rem max(18px,3%);text-align:center;background:transparent;scroll-margin-top:110px}
 .testaments{max-width:1400px;margin:2rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:18px;text-align:center}
 .testament{background:#ffffffed;border:1px solid #e1e8ee;border-radius:14px;padding:24px 19px 27px;box-shadow:0 8px 26px #17344b17}
 .testamentIcon{display:grid;place-items:center;height:53px}
