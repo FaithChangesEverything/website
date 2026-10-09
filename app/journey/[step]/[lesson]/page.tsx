@@ -5,6 +5,7 @@ import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
+import ScriptureReference from "@/components/bible/ScriptureReference";
 
 const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
@@ -245,7 +246,9 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       intro="This page now uses the approved continuous-flow Individual Lesson architecture. Final wording and section content remain governed by the authoritative Doctrine manuscript."
     >
       <LessonBlock title="Scripture" icon="▣" tone="scripture">
-        <p>The approved KJV Scripture for this lesson will appear here during content integration.</p>
+        {lesson.id === "2.b" ? (
+          <p>Read <ScriptureReference book="john" chapter={3} startVerse={16} endVerse={17} label="John 3:16–17 (KJV)"/> in the FCE Bible without leaving your lesson. The final approved lesson manuscript will be incorporated here during content integration.</p>
+        ) : <p>The approved KJV Scripture for this lesson will appear here during content integration.</p>}
       </LessonBlock>
       <LessonBlock title="The Heart of the Matter" icon="▤">
         <p>The approved teaching from the Doctrine manuscript will appear here in a readable, continuous section.</p>
