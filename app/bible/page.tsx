@@ -13,7 +13,7 @@ export const metadata = {
 const resources = [
  {title:"Read the Bible",desc:"Open God's Word in a calm, comfortable reading experience.",href:bibleHref("john",1),icon:"read",cta:"Start Reading"},
  {title:"Browse All 66 Books",desc:"Explore the Old and New Testaments, book by book.",href:"#books",icon:"browse",cta:"Browse Books"},
- {title:"How to Use the Bible",desc:"A beginner-friendly guide to finding and reading Scripture.",href:"https://resources.faithchangeseverything.org/documents/bible-studies/bible-project/doc-2026-00212-how-to-use-the-bible.pdf",icon:"guide",cta:"Open Guide"},
+ {title:"How to Read the Bible",desc:"A beginner-friendly guide to finding and reading Scripture.",href:"https://resources.faithchangeseverything.org/documents/bible-studies/bible-project/doc-2026-00212-how-to-read-the-bible.pdf",icon:"guide",cta:"Open Guide"},
  {title:"FCE Bible Journal",desc:"Reflect on what you read and apply God's Word.",href:"https://resources.faithchangeseverything.org/documents/bible-journal/doc-2026-00003-fce-three-page-bible-journal.pdf",icon:"journal",cta:"Open Journal"},
  {title:"How to Study the Bible",desc:"Practical guidance for studying Scripture with care.",href:"https://resources.faithchangeseverything.org/documents/bible-studies/how-to-study-bible/doc-2026-00017-How%20to%20Study%20the%20Bible.pdf",icon:"study",cta:"Open Study"}
 ];
