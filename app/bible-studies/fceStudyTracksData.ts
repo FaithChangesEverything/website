@@ -314,6 +314,8 @@ export const fceBeginnerSeriesDetail: BibleStudySeriesDetail = {
     title: "A Personal Introduction from Pastor Richard",
     excerpt: beginnerPastorMessage,
     imageSrc: "/images/pastor-richard.png",
+    videoEmbedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/949eb9b5337b3a56bb59f7dd2c64ec31/iframe",
     compactLayout: true,
   },
   lessons: fceBeginnerLessons,
@@ -334,6 +336,8 @@ export const fceIntermediateSeriesDetail: BibleStudySeriesDetail = {
     title: "A Personal Introduction from Pastor Richard",
     excerpt: intermediatePastorMessage,
     imageSrc: "/images/pastor-richard.png",
+    videoEmbedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/9901eb09fcc1d7a32a37e0cd10620003/iframe",
     compactLayout: true,
   },
   lessons: fceIntermediateLessons,
@@ -354,6 +358,8 @@ export const fceAdvancedSeriesDetail: BibleStudySeriesDetail = {
     title: "A Personal Introduction from Pastor Richard",
     excerpt: advancedPastorMessage,
     imageSrc: "/images/pastor-richard.png",
+    videoEmbedUrl:
+      "https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/33d0a37bd9605826aeb003a503181100/iframe",
     compactLayout: true,
   },
   lessons: fceAdvancedLessons,

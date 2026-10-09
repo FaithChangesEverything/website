@@ -3,6 +3,7 @@ import { creationSeriesDetail } from "./creationData";
 import { trinitySeriesDetail } from "./trinityData";
 import { howToReadBibleSeriesDetail } from "./howToReadBibleData";
 import { oldTestamentSeriesDetail } from "./oldTestamentData";
+import { newTestamentSeriesDetail } from "./newTestamentData";
 import { sermonOnTheMountSeriesDetail } from "./sermonOnTheMountData";
 import { tenCommandmentsSeriesDetail } from "./tenCommandmentsData";
 import { fceAdvancedSeriesDetail, fceBeginnerSeriesDetail, fceIntermediateSeriesDetail } from "./fceStudyTracksData";
@@ -197,6 +198,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "New Testament",
     summary: "Explore the books and message of the New Testament and the good news of Jesus Christ at its center.",
     group: "books-passages",
+    href: "/bible-studies/new-testament",
   },
   {
     slug: "fce-beginner",
@@ -553,6 +555,7 @@ export const bibleStudySeriesDetails: BibleStudySeriesDetail[] = [
   trinitySeriesDetail,
   howToReadBibleSeriesDetail,
   oldTestamentSeriesDetail,
+  newTestamentSeriesDetail,
   sermonOnTheMountSeriesDetail,
   tenCommandmentsSeriesDetail,
   fceBeginnerSeriesDetail,
