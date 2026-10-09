@@ -99,7 +99,7 @@ export default async function BibleStudySeriesPage({
                 </details>
               ))}
             </div>
-          ) : series.slug === "old-testament" ? (
+          ) : (series.slug === "old-testament" || series.slug === "new-testament") ? (
             <div className={styles.studyRows}>
               {series.lessons.map((lesson) => (
                 <OldTestamentLessonRow key={lesson.slug} lesson={lesson} />
