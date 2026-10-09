@@ -1,0 +1,1 @@
+.controls{display:flex;justify-content:flex-end;gap:8px;align-items:center;margin-bottom:30px;font:600 .8rem system-ui,sans-serif;color:#59717b}.controls button{padding:8px 12px;background:#f7f4eb;border:1px solid #cfd4d0;border-radius:6px;color:#1c3e55;font:700 1rem system-ui,sans-serif;cursor:pointer}.controls button:disabled{opacity:.35;cursor:not-allowed}
