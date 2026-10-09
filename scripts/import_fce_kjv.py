@@ -16,6 +16,7 @@ foot_re=re.compile(r'\\f\s.*?\\f\*',re.S)
 fmt_re=re.compile(r'\\(\+?add|\+?nd|wj|tl)(\*)?')
 other_re=re.compile(r'\\(?:[A-Za-z][A-Za-z0-9]*\*?|\+[A-Za-z][A-Za-z0-9]*\*?)\s*')
 def clean(raw):
+    raw=raw.replace('¶','')
     raw=word_re.sub(lambda m:m.group(1),foot_re.sub("",raw))
     active={'italic':False,'divineName':False,'jesusWords':False}
     runs=[];pos=0
