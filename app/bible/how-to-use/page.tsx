@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./guide.module.css";
 
-const documentUrl = "https://resources.faithchangeseverything.org/documents/bible-studies/bible-project/doc-2026-00212-how-to-read-the-bible.docx";
+const documentUrl = "https://resources.faithchangeseverything.org/documents/bible-studies/bible-project/doc-2026-00212-how-to-use-the-bible.docx";
 const previewUrl = "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(documentUrl);
 
 export const metadata = {
@@ -18,13 +18,10 @@ export default function HowToUseBible() {
       <p>FCE BIBLE RESOURCE</p>
       <h1>How to Read the Bible</h1>
       <span>A Beginner’s Guide to Finding, Reading, and Navigating God’s Word</span>
-      <div className={styles.actions}>
-        <a href={documentUrl} target="_blank" rel="noopener noreferrer">Download Word Document ↗</a>
-      </div>
     </header>
     <section className={styles.viewer} aria-label="How to Read the Bible document viewer">
       <iframe title="How to Read the Bible — FCE guide" src={previewUrl} loading="lazy" referrerPolicy="no-referrer" />
     </section>
-    <p className={styles.note}>This document is previewed using Microsoft’s online Word viewer. If it does not display in your browser, use the Download Word Document link above. The viewer requires sending the public document address to Microsoft.</p>
+    <p className={styles.note}>This document is previewed using Microsoft’s online Word viewer. If the preview cannot display, please try a different browser. The preview service receives the public document address.</p>
   </main><Footer/></>;
 }
