@@ -1,6 +1,11 @@
 name: Import pinned FCE KJV Scripture data
 on:
   workflow_dispatch:
+  push:
+    branches: [feature/fce-bible-reader-v1]
+    paths:
+      - 'scripts/import_fce_kjv.py'
+      - '.github/workflows/import-fce-kjv.yml'
 permissions:
   contents: write
 jobs:
