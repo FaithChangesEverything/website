@@ -38,7 +38,7 @@ function unzipEntries(buffer){
   return result;
 }
 function clean(raw){
-  raw=raw.replace(/\\f\s[\s\S]*?\\f\*/g,'').replace(/\\\+?w\s+([^|]*?)\|[^\\]*?\\\+?w\*/g,'$1');
+  raw=raw.replace(/¶\s*/g,'').replace(/\\f\s[\s\S]*?\\f\*/g,'').replace(/\\\+?w\s+([^|]*?)\|[^\\]*?\\\+?w\*/g,'$1');
   const format=/\\(\+?add|\+?nd|wj|tl)(\*)?/g;
   let match,pos=0;
   const active={italic:false,divineName:false,jesusWords:false};
