@@ -1,5 +1,5 @@
 .page{color:#0d2b51;background:#f8f8f4;font-family:Georgia,"Times New Roman",serif}
-.hero{padding:clamp(2.7rem,4.3vw,4.4rem) max(6%,calc((100% - 1240px)/2));background:linear-gradient(95deg,rgba(4,20,42,.76) 0%,rgba(8,33,58,.46) 54%,rgba(10,30,50,.10) 100%),url("/images/prayer-request-lighthouse-hero.png") center 51%/cover no-repeat;color:#fff;min-height:420px}
+.hero{padding:clamp(2rem,3.2vw,3.2rem) max(6%,calc((100% - 1240px)/2));background:linear-gradient(95deg,rgba(4,20,42,.76) 0%,rgba(8,33,58,.46) 54%,rgba(10,30,50,.10) 100%),url("/images/prayer-request-lighthouse-hero.png") center 51%/cover no-repeat;color:#fff;min-height:365px}
 .hero h1{font-size:clamp(2.35rem,4.2vw,3.9rem);line-height:1.08;max-width:740px;margin:.4rem 0 .7rem;text-shadow:0 2px 10px #0005}
 .hero p:not(.eyebrow){max-width:630px;font-size:1.16rem;line-height:1.48;text-shadow:0 2px 6px #0007}
 .eyebrow{letter-spacing:.18em;text-transform:uppercase;font:700 .79rem system-ui,sans-serif;color:#b98b36}
@@ -35,6 +35,6 @@
 .hope h2{max-width:650px}
 .hope .primary{margin-top:1rem}
 @media(max-width:1080px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.bookGrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:760px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.testaments{grid-template-columns:1fr}.bookGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:3rem 6%;background-position:60% center}.hope{background-position:60% center}}
+@media(max-width:760px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.testaments{grid-template-columns:1fr}.bookGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:2.35rem 6%;background-position:60% center}.hope{background-position:60% center}}
 @media(max-width:480px){.cards{grid-template-columns:1fr}.bookGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{background-position:68% center}.hero h1{font-size:2.55rem}.hope{background:linear-gradient(#fff8e9ed,#fff8e9d8),url("/images/prayer-request-lighthouse-hero.png") 67% center/cover no-repeat}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}}
