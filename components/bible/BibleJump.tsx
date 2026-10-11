@@ -10,7 +10,22 @@ export default function BibleJump({initialBook="john",initialChapter=1,compact=f
  const [chapter,setChapter]=useState(initialChapter);
  const [verse,setVerse]=useState("");
  const meta=bibleBooks.find(b=>b.slug===book)??bibleBooks[0];
- const go=()=>router.push(`/bible/${book}/${chapter}${verse?`#v${verse}`:""}`);
+ const go=()=>{
+  const targetPath=`/bible/${book}/${chapter}`;
+  const fragment=verse?`#v${verse}`:"";
+  // Native hash navigation fires hashchange reliably when staying on the same chapter.
+  // Next.js soft navigation does not always fire that event for hash-only changes.
+  if(window.location.pathname===targetPath&&fragment){
+    if(window.location.hash===fragment){
+      document.getElementById(`v${verse}`)?.scrollIntoView();
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+    }else{
+      window.location.hash=fragment;
+    }
+    return;
+  }
+  router.push(targetPath+fragment);
+ };
  return <form className={compact?styles.compact:styles.jump} onSubmit={e=>{e.preventDefault();go()}}>
  <label>Book<select value={book} onChange={e=>{setBook(e.target.value);setChapter(1);setVerse("");}} aria-label="Choose Bible book">{bibleBooks.map(b=><option value={b.slug} key={b.slug}>{b.name}</option>)}</select></label>
  <label>Chapter<select value={chapter} onChange={e=>{setChapter(Number(e.target.value));setVerse("");}} aria-label="Choose chapter">{Array.from({length:meta.chapters},(_,i)=><option value={i+1} key={i}>{i+1}</option>)}</select></label>
