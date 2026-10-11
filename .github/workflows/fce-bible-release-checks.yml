@@ -38,7 +38,7 @@ jobs:
           fi
       - name: Apply compatible dependency security fixes
         run: |
-          npm audit fix --package-lock-only --ignore-scripts
+          npm audit fix --package-lock-only --ignore-scripts --omit=dev
           git add package-lock.json
           if ! git diff --cached --quiet; then
             git commit -m "security(deps): apply compatible transitive dependency patches"
