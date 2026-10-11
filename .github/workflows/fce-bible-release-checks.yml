@@ -36,6 +36,14 @@ jobs:
             git commit -m "security(deps): upgrade Next.js to patched 16.4.0"
             git push origin HEAD:feature/fce-bible-reader-v1
           fi
+      - name: Apply compatible dependency security fixes
+        run: |
+          npm audit fix --package-lock-only --ignore-scripts
+          git add package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "security(deps): apply compatible transitive dependency patches"
+            git push origin HEAD:feature/fce-bible-reader-v1
+          fi
       - name: Install locked dependencies
         run: npm ci
       - name: Audit production dependencies
