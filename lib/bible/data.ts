@@ -5,7 +5,7 @@ import { findBibleBook } from "./books";
 
 export type VerseRun = {text:string;italic?:boolean;divineName?:boolean;jesusWords?:boolean};
 export type BibleVerse = {verse:number;text:string;runs:VerseRun[]};
-export type BibleParagraph = {kind:string;indent:number;verses:BibleVerse[]};
+export type BibleParagraph = {kind:string;indent:number;heading?:string;verses:BibleVerse[]};
 export type BibleChapter = {number:number;paragraphs:BibleParagraph[]};
 export async function getBibleChapter(slug:string,chapter:number):Promise<BibleChapter|null>{
  const meta=findBibleBook(slug);
