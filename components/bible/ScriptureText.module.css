@@ -2,3 +2,6 @@
 .verse:target{background:#fff0b9;box-shadow:0 0 0 3px #fff0b9;border-radius:3px}
 
 .psalmHeading{font-style:italic;text-align:center;font-size:.94em;line-height:1.55;color:#5f5545;margin:.65em auto 1.15em;max-width:44em}
+
+/* Keep URL-target highlights visible even when a CSS-module class is applied. */
+.scripture :global(span[id^="v"]:target){background:#ffe3a1!important;box-shadow:0 0 0 4px #ffe3a1!important;border-radius:3px}
