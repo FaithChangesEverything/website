@@ -15,6 +15,7 @@ export type DailyAffirmation = {
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Journey to Hope", href: "/journey" },
+  { label: "Bible", href: "/bible" },
   { label: "Music", href: "/music" },
   { label: "Sermons", href: "/sermons" },
   { label: "Prayer", href: "/prayer" },
