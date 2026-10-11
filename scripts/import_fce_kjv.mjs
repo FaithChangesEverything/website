@@ -74,7 +74,7 @@ function parseBook(source,name,idx){
     if(ch){flush();chapter={number:Number(ch[1]),paragraphs:[]};book.chapters.push(chapter);paragraph=null;continue;}
     if(!chapter)continue;
     const p=line.match(/^\\(p|q[1-4]|b|d)\b\s*(.*)/);
-    if(p){const k=p[1];paragraph={kind:k.startsWith('q')?'poetry':k==='b'?'blank':'paragraph',indent:k.startsWith('q')?Number(k[1]):0,verses:[]};chapter.paragraphs.push(paragraph);line=p[2];if(!line)continue;}
+    if(p){const k=p[1];paragraph={kind:k==='d'?'heading':k.startsWith('q')?'poetry':k==='b'?'blank':'paragraph',indent:k.startsWith('q')?Number(k[1]):0,verses:[]};if(k==='d')paragraph.heading=clean(p[2]).map(run=>run.text).join('');chapter.paragraphs.push(paragraph);line=k==='d'?'':p[2];if(!line)continue;}
     const v=line.match(/^\\v\s+(\d+)\s+(.*)/);
     if(v){flush();if(!paragraph){paragraph={kind:'paragraph',indent:0,verses:[]};chapter.paragraphs.push(paragraph);}current={verse:Number(v[1]),_raw:v[2]};paragraph.verses.push(current);}
     else if(current&&!line.startsWith('\\s1 ')&&!line.startsWith('\\mt')&&!line.startsWith('\\id ')&&!line.startsWith('\\h ')&&!line.startsWith('\\toc'))current._raw+=' '+line;
@@ -86,7 +86,7 @@ async function importBible(sourcePath=process.env.FCE_KJV_SOURCE_ZIP){
   const mark=path.join(destination,'source.json');
   if(existsSync(mark)){
     const info=JSON.parse(await readFile(mark,'utf8'));
-    if(info.source_sha256===SOURCE_SHA&&info.books===66&&info.chapters===1189&&info.verses===31102){
+    if(info.importer_version===2&&info.source_sha256===SOURCE_SHA&&info.books===66&&info.chapters===1189&&info.verses===31102){
       console.log('Verified FCE KJV dataset already present; no download needed');return;
     }
   }
@@ -114,7 +114,7 @@ async function importBible(sourcePath=process.env.FCE_KJV_SOURCE_ZIP){
     await writeFile(path.join(destination,book.slug+'.json'),JSON.stringify(book),'utf8');
   }
   if(allChapters!==1189||allVerses!==31102)throw Error('KJV totals mismatch: '+allChapters+', '+allVerses);
-  await writeFile(mark,JSON.stringify({source:'eBible eng-kjv2006 USFM',source_sha256:SOURCE_SHA,books:66,chapters:allChapters,verses:allVerses},null,2));
+  await writeFile(mark,JSON.stringify({importer_version:2,source:'eBible eng-kjv2006 USFM',source_sha256:SOURCE_SHA,books:66,chapters:allChapters,verses:allVerses},null,2));
   console.log('Validated FCE KJV: 66 books, '+allChapters+' chapters, '+allVerses+' verses');
 }
 await importBible();
