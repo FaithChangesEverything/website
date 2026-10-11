@@ -20,7 +20,7 @@ const resources = [
 export default function BibleHome(){
 return <><Header/><main className={styles.page}>
 <section className={styles.hero}>
-<p className={styles.eyebrow}>GOD'S WORD LIGHTS THE WAY</p>
+<p className={styles.eyebrow}>GOD&apos;S WORD LIGHTS THE WAY</p>
 <h1>Find Light in God&apos;s Word</h1>
 <p>Read the King James Bible, explore every book of Scripture, and go directly to the passage you want to read.</p>
 <BibleJump initialBook="john" initialChapter={3}/>
