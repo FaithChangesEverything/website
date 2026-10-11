@@ -1,11 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { bibleBooks } from "@/lib/bible/books";
 import styles from "./BibleJump.module.css";
 
 export default function BibleJump({initialBook="john",initialChapter=1,compact=false}:{initialBook?:string;initialChapter?:number;compact?:boolean}){
- const router=useRouter();
  const [book,setBook]=useState(initialBook);
  const [chapter,setChapter]=useState(initialChapter);
  const [verse,setVerse]=useState("");
@@ -38,7 +36,9 @@ export default function BibleJump({initialBook="john",initialChapter=1,compact=f
     return;
   }
   // A full navigation guarantees the new chapter initializes with its target hash.
-  router.push(targetPath+fragment);
+  // Preserve a full navigation so the verse hash initializes and highlights reliably.
+  // eslint-disable-next-line @next/next/no-assign-module-variable
+  window.location.assign(targetPath+fragment);
  };
  return <form className={compact?styles.compact:styles.jump} onSubmit={e=>{e.preventDefault();go()}}>
  <label>Book<select value={book} onChange={e=>{setBook(e.target.value);setChapter(1);setVerse("");setError("");}} aria-label="Choose Bible book">{bibleBooks.map(b=><option value={b.slug} key={b.slug}>{b.name}</option>)}</select></label>
