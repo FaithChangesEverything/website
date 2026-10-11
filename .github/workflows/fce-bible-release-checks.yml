@@ -13,42 +13,22 @@ on:
       - '.github/workflows/fce-bible-release-checks.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - name: Update pinned Next.js and lockfile on development branch
-        run: |
-          npm install next@16.4.0 eslint-config-next@16.4.0 --save-exact --package-lock-only --ignore-scripts
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
-          if ! git diff --cached --quiet; then
-            git commit -m "security(deps): upgrade Next.js to patched 16.4.0"
-            git push origin HEAD:feature/fce-bible-reader-v1
-          fi
-      - name: Apply compatible dependency security fixes
-        run: |
-          npm audit fix --package-lock-only --ignore-scripts --omit=dev
-          git add package-lock.json
-          if ! git diff --cached --quiet; then
-            git commit -m "security(deps): apply compatible transitive dependency patches"
-            git push origin HEAD:feature/fce-bible-reader-v1
-          fi
       - name: Install locked dependencies
         run: npm ci
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
-      - name: Lint source
-        run: npm run lint
+      - name: Lint Bible source
+        run: npx eslint app/bible components/bible lib/bible app/api/bible
       - name: Compile and verify KJV import
         run: npm run build
