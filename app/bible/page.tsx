@@ -11,23 +11,23 @@ export const metadata = {
   description:"Explore all 66 books of the King James Bible and find a passage by book, chapter, and verse."
 };
 const resources = [
- {title:"Read the Bible",desc:"Open God's Word in a calm, comfortable reading experience.",href:bibleHref("john",1),icon:"read",cta:"Start Reading"},
+ {title:"Read the Bible",desc:"Open God&apos;s Word in a calm, comfortable reading experience.",href:bibleHref("john",1),icon:"read",cta:"Start Reading"},
  {title:"Browse All 66 Books",desc:"Explore the Old and New Testaments, book by book.",href:"#books",icon:"browse",cta:"Browse Books"},
  {title:"How to Read the Bible",desc:"A beginner-friendly guide to finding and reading Scripture.",href:"https://resources.faithchangeseverything.org/documents/bible-studies/bible-project/doc-2026-00212-how-to-read-the-bible.pdf",icon:"guide",cta:"Open Guide"},
- {title:"FCE Bible Journal",desc:"Reflect on what you read and apply God's Word.",href:"https://resources.faithchangeseverything.org/documents/bible-journal/doc-2026-00003-fce-three-page-bible-journal.pdf",icon:"journal",cta:"Open Journal"},
+ {title:"FCE Bible Journal",desc:"Reflect on what you read and apply God&apos;s Word.",href:"https://resources.faithchangeseverything.org/documents/bible-journal/doc-2026-00003-fce-three-page-bible-journal.pdf",icon:"journal",cta:"Open Journal"},
  {title:"How to Study the Bible",desc:"Practical guidance for studying Scripture with care.",href:"https://resources.faithchangeseverything.org/documents/bible-studies/how-to-study-bible/doc-2026-00017-How%20to%20Study%20the%20Bible.pdf",icon:"study",cta:"Open Study"}
 ];
 export default function BibleHome(){
 return <><Header/><main className={styles.page}>
 <section className={styles.hero}>
 <p className={styles.eyebrow}>GOD'S WORD LIGHTS THE WAY</p>
-<h1>Find Light in God's Word</h1>
+<h1>Find Light in God&apos;s Word</h1>
 <p>Read the King James Bible, explore every book of Scripture, and go directly to the passage you want to read.</p>
 <BibleJump initialBook="john" initialChapter={3}/>
 <div className={styles.jump}><a className={styles.secondary} href="#books">Browse All Books</a><a className={styles.secondary} href={bibleHref("john",1)}>Open Bible Reader</a></div>
 <small>King James Version (KJV)</small>
 </section>
-<div className={styles.middleScenery}><section className={styles.intro}><p className={styles.eyebrow}>WELCOME TO THE FCE BIBLE</p><h2>The Faith Changes Everything Bible</h2><p>Explore Scripture clearly and comfortably, and find encouragement and hope in God's Word.</p></section>
+<div className={styles.middleScenery}><section className={styles.intro}><p className={styles.eyebrow}>WELCOME TO THE FCE BIBLE</p><h2>The Faith Changes Everything Bible</h2><p>Explore Scripture clearly and comfortably, and find encouragement and hope in God&apos;s Word.</p></section>
 <section className={styles.cards} aria-label="Bible resources">
 {resources.map(r=><a key={r.title} className={styles.card} href={r.href}><span className={styles.icon}><BibleIcon name={r.icon as "read" | "browse" | "guide" | "journal" | "study"} size={54}/></span><h3>{r.title}</h3><p>{r.desc}</p><span className={styles.cardLink}>{r.cta} →</span></a>)}
 </section>
