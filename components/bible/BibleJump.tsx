@@ -37,7 +37,6 @@ export default function BibleJump({initialBook="john",initialChapter=1,compact=f
   }
   // A full navigation guarantees the new chapter initializes with its target hash.
   // Preserve a full navigation so the verse hash initializes and highlights reliably.
-  // eslint-disable-next-line @next/next/no-assign-module-variable
   window.location.assign(targetPath+fragment);
  };
  return <form className={compact?styles.compact:styles.jump} onSubmit={e=>{e.preventDefault();go()}}>
