@@ -86,7 +86,7 @@ async function importBible(sourcePath=process.env.FCE_KJV_SOURCE_ZIP){
   const mark=path.join(destination,'source.json');
   if(existsSync(mark)){
     const info=JSON.parse(await readFile(mark,'utf8'));
-    if(info.importer_version===2&&info.source_sha256===SOURCE_SHA&&info.books===66&&info.chapters===1189&&info.verses===31102){
+    if(info.importer_version===2&&info.source_sha256===SOURCE_SHA&&info.books===66&&info.chapters===1189&&info.verses===31102&&BOOK_NAMES.every(name=>existsSync(path.join(destination,name.toLowerCase().replace(/\\s+/g,'-')+'.json')))){
       console.log('Verified FCE KJV dataset already present; no download needed');return;
     }
   }
