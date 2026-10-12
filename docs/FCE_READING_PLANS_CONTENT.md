@@ -21,7 +21,7 @@ Source documents:
 ## Code structure
 
 - `lib/reading-plans/types.ts`: typed schema for plans, readings, key verses and each day's approved reflection fields.
-- `lib/reading-plans/source-bundle.ts`: compact, losslessly encoded canonical data extracted from the approved DOCX masters. This is **generated content**, not hand-authored text. The full readable JSON master was also exported for archival/audit.
+- `lib/reading-plans/content.json`: losslessly extracted, **readable** canonical data from the approved DOCX masters. This is **generated content**, not hand-authored text; each daily lesson remains identifiable and diffable in Git.
 - `lib/reading-plans/index.ts`: server-only accessor functions with structural checks and an integration helper linking a reading's **first reference** to the existing `/bible/[book]/[chapter]` reader.
 
 ### How to use from a Next.js Server Component
@@ -51,4 +51,19 @@ The module uses `node:zlib` and must **not** be imported into Client Components.
 
 ## Validation
 
-`node scripts/validate-reading-plans.mjs` checks the committed encoded catalog and its 22/322 inventory, unique IDs, lesson sequences, and required fields. Re-run it whenever content is regenerated.
+`node scripts/validate-reading-plans.mjs` checks the committed JSON catalog and its 22/322 inventory, unique IDs, lesson sequences, and required fields. Re-run it whenever content is regenerated.
+
+## Regenerating from the approved Word masters
+
+Install `python-docx` in a local Python environment. Run:
+
+```bash
+python scripts/export-fce-reading-plans.py \
+  --seven "FCE_7-Day_Bible_Reading_Plans_Approved_Rev1.docx" \
+  --ten "FCE_10-Day_Bible_Reading_Plans_Approved_Rev1.docx" \
+  --thirty "FCE_30-Day_Bible_Reading_Plans_Approved_Master_Rev1.docx" \
+  --output lib/reading-plans/content.json
+node scripts/validate-reading-plans.mjs
+```
+
+Manuscripts are intentionally not copied into the public website repository. Supply their local file paths to this utility. Any future editorial modifications should be approved in the Word masters **before** regenerating and reviewing the content JSON diff.
