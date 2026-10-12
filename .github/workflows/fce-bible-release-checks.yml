@@ -1,0 +1,34 @@
+name: FCE Bible release checks
+on:
+  push:
+    branches: [feature/fce-bible-reader-v1]
+    paths:
+      - 'app/api/bible/**'
+      - 'app/bible/**'
+      - 'components/bible/**'
+      - 'lib/bible/**'
+      - 'scripts/import_fce_kjv.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/fce-bible-release-checks.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+      - name: Lint Bible source
+        run: npx eslint app/bible components/bible lib/bible app/api/bible
+      - name: Compile and verify KJV import
+        run: npm run build

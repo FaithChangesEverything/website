@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Include the verified, versioned KJV files in serverless Bible reader and API functions.
+  outputFileTracingIncludes: {
+    "/bible/**/*": ["./data/bible/kjv/**/*"],
+    "/api/bible/**/*": ["./data/bible/kjv/**/*"],
+  },
   images: {
     remotePatterns: [
       {

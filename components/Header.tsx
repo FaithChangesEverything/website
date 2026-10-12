@@ -8,6 +8,7 @@ import styles from "./Header.module.css";
 const navItems = [
   ["Home", "/"],
   ["Journey to Hope", "/journey"],
+  ["Bible", "/bible"],
   ["Music", "/music"],
   ["Sermons", "/sermons"],
   ["Prayer", "/prayer"],
@@ -51,6 +52,12 @@ export default function Header() {
           );
         })}
       </nav>
+      <details className={styles.mobileMenu} key={pathname}>
+        <summary aria-label="Open website navigation">Menu <span aria-hidden="true">☰</span></summary>
+        <nav className={styles.mobileLinks} aria-label="Mobile primary navigation">
+          {navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActiveSection(pathname, href) ? "page" : undefined} className={isActiveSection(pathname,href) ? styles.active : undefined}>{label}</Link>)}
+        </nav>
+      </details>
     </header>
   );
 }
