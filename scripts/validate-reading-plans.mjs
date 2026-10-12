@@ -1,14 +1,7 @@
 import { readFileSync } from "node:fs";
-import { brotliDecompressSync } from "node:zlib";
 import assert from "node:assert/strict";
 
-const source = readFileSync(new URL("../lib/reading-plans/source-bundle.ts", import.meta.url), "utf8");
-const match = source.match(/APPROVED_FCE_READING_PLANS_BROTLI_BASE64\s*=\s*\[([\s\S]*?)\]\.join\(""\)/);
-assert.ok(match, "Cannot locate FCE encoded source bundle");
-const parts = [...match[1].matchAll(/"([A-Za-z0-9+/=]+)"/g)].map((m) => m[1]);
-assert.ok(parts.length > 0, "Bundle has no parts");
-const payload = brotliDecompressSync(Buffer.from(parts.join(""), "base64")).toString("utf8");
-const catalog = JSON.parse(payload);
+const catalog = JSON.parse(readFileSync(new URL("../lib/reading-plans/content.json", import.meta.url), "utf8"));
 assert.equal(catalog.schemaVersion, 1);
 assert.equal(catalog.translation, "KJV");
 assert.equal(catalog.planCount, 22);
