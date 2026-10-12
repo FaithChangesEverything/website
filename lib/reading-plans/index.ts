@@ -3,11 +3,10 @@
  *
  * Editorial source of truth: the three approved FCE DOCX master manuscripts.
  * Website display should not reword the lessons or generate new Scripture text.
- * This module uses Node's Brotli decoder and must remain on the server.
+ * Import only from Server Components or other server-side code.
  */
-import { brotliDecompressSync } from "node:zlib";
 import { findBibleBook, bibleHref } from "@/lib/bible/books";
-import { APPROVED_FCE_READING_PLANS_BROTLI_BASE64 } from "./source-bundle";
+import approvedContent from "./content.json";
 import type {
   ReadingPlan,
   ReadingPlanCatalog,
@@ -18,9 +17,7 @@ import type {
 export type { ReadingPlan, ReadingPlanCatalog, ReadingPlanDay, ReadingPlanDuration } from "./types";
 
 function parseCatalog(): ReadingPlanCatalog {
-  const encoded = APPROVED_FCE_READING_PLANS_BROTLI_BASE64;
-  const text = brotliDecompressSync(Buffer.from(encoded, "base64")).toString("utf8");
-  const catalog = JSON.parse(text) as ReadingPlanCatalog;
+  const catalog = approvedContent as unknown as ReadingPlanCatalog;
   if (catalog.schemaVersion !== 1 || catalog.translation !== "KJV") {
     throw new Error("Unsupported FCE Reading Plans catalog schema or translation.");
   }
