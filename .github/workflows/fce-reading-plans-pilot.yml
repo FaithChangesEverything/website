@@ -46,6 +46,19 @@ jobs:
             }
           }
           NODE
+      - name: Evaluate safe dependency fixes without modifying lockfile
+        shell: bash
+        run: |
+          npm audit fix --dry-run --json > /tmp/fce-fix-preview.json || true
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const x=JSON.parse(readFileSync('/tmp/fce-fix-preview.json','utf8'));
+          console.log('SECURITY_FIX_DRY_RUN',JSON.stringify({
+            changes:(x.added??[]).concat(x.removed??[]).concat(x.changed??[]).slice(0,50),
+            vulnerabilities:x.audit?.metadata?.vulnerabilities??x.metadata?.vulnerabilities??null,
+            errors:x.error??null
+          }));
+          NODE
       - name: Verify all approved plan data
         run: node scripts/validate-reading-plans.mjs
       - name: Type-check Next.js pilot
