@@ -159,14 +159,14 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       await expect(page.getByRole('heading',{name:'Your Progress'})).toBeVisible();
       await page.goto(url+'/day/1');
       await expect(page.getByText('KEY VERSE')).toBeVisible();
-      await expect(page.getByRole('link',{name:/FCE Bible Reader/}).first()).toHaveAttribute('href',/^\\/bible\\//);
+      await expect(page.getByRole('link',{name:/FCE Bible Reader/}).first()).toHaveAttribute('href',new RegExp('^/bible/'));
     }
   });
   test('multiple Scripture assignments and key verses have separate reader links',async({page})=>{
     await page.goto('/reading-plans/getting-to-know-jesus/day/5');
     await expect(page.getByRole('link',{name:/Read Isaiah 53:3/})).toBeVisible();
     await expect(page.getByRole('link',{name:/Read Mark 15:21/})).toBeVisible();
-    await expect(page.getByRole('link',{name:/Read Key Verse in FCE Bible Reader/})).toHaveAttribute('href',/\\/bible\\/isaiah\\/53/);
+    await expect(page.getByRole('link',{name:/Read Key Verse in FCE Bible Reader/})).toHaveAttribute('href',new RegExp('/bible/isaiah/53'));
   });
   test('progress remains separate for different reading plans',async({page})=>{
     await page.goto('/reading-plans/getting-to-know-jesus/day/1');
