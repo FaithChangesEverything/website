@@ -1,0 +1,44 @@
+name: FCE Website Checks
+
+# This check is deliberately not restricted by paths. Every PR to main is gated.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [security/fce-universal-website-checks]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fce-website-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  website-checks:
+    name: FCE Website Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: website-checks-placeholder
+    steps:
+      - name: Check out proposed website
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact locked dependencies
+        run: npm ci
+      - name: Block high or critical production dependency advisories
+        run: npm audit --omit=dev --audit-level=high
+      - name: Verify TypeScript
+        run: npx tsc --noEmit
+      - name: Verify ESLint
+        run: npm run lint
+      - name: Build production website and verify original KJV archive
+        run: npm run build
