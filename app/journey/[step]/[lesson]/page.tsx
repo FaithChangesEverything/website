@@ -190,6 +190,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <div className={fixes.lessonResourceLinks}>
             <Link href="/reading-plans">Explore FCE Bible Reading Plans</Link>
           </div>
+          <p>To return to this Journey to Hope lesson after visiting the Reading Plan Library, use your browser’s Back button.</p>
         </LessonBlock>
       </IndividualLesson>
     );
