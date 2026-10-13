@@ -1,40 +1,47 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useMemo, useSyncExternalStore } from "react";
 import styles from "@/app/reading-plans/reading-plans.module.css";
 
 const prefix = "fce-reading-plan-progress-v1:";
-function readSaved(slug: string, total: number): number[] {
+const changedEvent = "fce-reading-plan-progress-change";
+function parseDays(serialized:string,total:number):number[] {
   try {
-    const parsed: unknown = JSON.parse(window.localStorage.getItem(prefix + slug) ?? "[]");
-    if (!Array.isArray(parsed)) return [];
-    return Array.from(new Set(parsed.filter((n): n is number => Number.isSafeInteger(n) && n >= 1 && n <= total))).sort((a,b)=>a-b);
-  } catch { return []; }
+    const values:unknown=JSON.parse(serialized);
+    if(!Array.isArray(values))return [];
+    return Array.from(new Set(values.filter((n):n is number=>Number.isSafeInteger(n)&&n>=1&&n<=total))).sort((a,b)=>a-b);
+  } catch {return [];}
 }
-/** Browser-only, device-local completion storage. No account or server requests. */
-export function useReadingProgress(slug: string, total: number) {
-  const [days, setDays] = useState<number[]>([]);
-  const [ready, setReady] = useState(false);
-  const refresh = useCallback(() => setDays(readSaved(slug, total)), [slug,total]);
-  useEffect(() => {
-    refresh(); setReady(true);
-    const onStorage = (event: StorageEvent) => {
-      if (event.key === prefix + slug || event.key === null) refresh();
-    };
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
-  }, [refresh, slug]);
-  const toggle = (day: number) => {
-    if (!Number.isSafeInteger(day) || day < 1 || day > total) return;
-    const current = readSaved(slug,total);
-    const next = current.includes(day) ? current.filter(n=>n!==day) : [...current,day].sort((a,b)=>a-b);
-    try { window.localStorage.setItem(prefix+slug,JSON.stringify(next)); } catch {/* private storage may be disabled */}
-    setDays(next);
+function readString(key:string):string {
+  try {return window.localStorage.getItem(key)??"[]";} catch {return "[]";}
+}
+/** Browser-only completion state. useSyncExternalStore avoids effect state updates and hydration mismatches. */
+export function useReadingProgress(slug:string,total:number){
+  const key=prefix+slug;
+  const subscribe=useCallback((notify:()=>void)=>{
+    const onStorage=(event:StorageEvent)=>{if(event.key===key||event.key===null)notify();};
+    const onLocal=(event:Event)=>{if((event as CustomEvent<string>).detail===key)notify();};
+    window.addEventListener("storage",onStorage);
+    window.addEventListener(changedEvent,onLocal);
+    return ()=>{window.removeEventListener("storage",onStorage);window.removeEventListener(changedEvent,onLocal);};
+  },[key]);
+  const getSnapshot=useCallback(()=>readString(key),[key]);
+  const getServerSnapshot=useCallback(()=>"[]",[]);
+  const value=useSyncExternalStore(subscribe,getSnapshot,getServerSnapshot);
+  const days=useMemo(()=>parseDays(value,total),[value,total]);
+  const update=(next:number[])=>{
+    try {window.localStorage.setItem(key,JSON.stringify(next));}catch{/* Storage can be disabled. */}
+    window.dispatchEvent(new CustomEvent(changedEvent,{detail:key}));
   };
-  const reset = () => {
-    try { window.localStorage.removeItem(prefix+slug); } catch {}
-    setDays([]);
+  const toggle=(day:number)=>{
+    if(!Number.isSafeInteger(day)||day<1||day>total)return;
+    const current=parseDays(readString(key),total);
+    update(current.includes(day)?current.filter(n=>n!==day):[...current,day].sort((a,b)=>a-b));
   };
-  return {days, ready, toggle, reset, count: days.length, percent:Math.round(days.length/total*100)};
+  const reset=()=>{
+    try {window.localStorage.removeItem(key);}catch{}
+    window.dispatchEvent(new CustomEvent(changedEvent,{detail:key}));
+  };
+  return {days,ready:true,toggle,reset,count:days.length,percent:Math.round(days.length/total*100)};
 }
 export function PrivacyNotice() {
   return <aside className={styles.privacy} aria-label="Your progress and privacy">
