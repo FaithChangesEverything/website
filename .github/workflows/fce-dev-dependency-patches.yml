@@ -1,0 +1,81 @@
+name: FCE isolated development dependency patch verification
+on:
+  push:
+    branches:
+      - security/fce-dev-dependency-patches
+permissions:
+  contents: write
+jobs:
+  evaluate-and-patch:
+    if: "!contains(github.event.head_commit.message, '[dep-patch-verified]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked baseline
+        run: npm ci
+      - name: Apply npm non-forced lockfile-only security updates
+        run: |
+          npm audit fix --package-lock-only --ignore-scripts || true
+          git diff --exit-code -- package.json
+      - name: Verify framework version and production dependency constraints
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const pkg=JSON.parse(readFileSync('package.json','utf8'));
+          const lock=JSON.parse(readFileSync('package-lock.json','utf8'));
+          const expected={next:'16.4.0',react:'19.2.4','react-dom':'19.2.4','eslint-config-next':'16.4.0'};
+          for(const [name,version] of Object.entries(expected)){
+            const installed=lock.packages['node_modules/'+name]?.version;
+            if(installed!==version) throw Error(name+' changed from approved '+version+' to '+installed);
+          }
+          for(const [name,version] of Object.entries(pkg.dependencies)){
+            if(lock.packages[''].dependencies?.[name]!==version)throw Error('Direct runtime dependency changed: '+name);
+          }
+          console.log('APPROVED_FRAMEWORK_VERSIONS_PRESERVED',JSON.stringify(expected));
+          const names=['brace-expansion','browserslist','js-yaml','braces','micromatch','fast-glob','@next/eslint-plugin-next','eslint-config-next'];
+          console.log('DEV_DEP_PATCH_VERSIONS',JSON.stringify(names.map(name=>({name,nodes:Object.entries(lock.packages).filter(([p])=>p.endsWith('/'+name)).map(([p,v])=>({p,version:v.version,dev:v.dev}))}))));
+          NODE
+      - name: Reinstall exact updated lockfile
+        run: npm ci
+      - name: Security audit of production and development dependencies
+        run: |
+          npm audit --omit=dev --audit-level=high
+          npm audit --json > /tmp/fce-post-patch-audit.json || true
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const r=JSON.parse(readFileSync('/tmp/fce-post-patch-audit.json','utf8'));
+          console.log('POST_PATCH_AUDIT',JSON.stringify(r.metadata?.vulnerabilities));
+          console.log('REMAINING_FINDINGS',JSON.stringify(Object.entries(r.vulnerabilities??{}).map(([name,v])=>({name,severity:v.severity,fixAvailable:v.fixAvailable}))));
+          NODE
+      - name: Validate plans, types and lint
+        run: |
+          node scripts/validate-reading-plans.mjs
+          npx tsc --noEmit
+          npx eslint app/reading-plans components/reading-plans lib/reading-plans components/Header.tsx components/bible/ScriptureText.tsx app/bible
+      - name: Confirm KJV integrity
+        run: node scripts/import_fce_kjv.mjs
+      - name: Production-equivalent Next.js build
+        run: npm run build
+      - name: Browser regression tests
+        run: |
+          npm install --no-save --ignore-scripts @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+          npx playwright test -c playwright.config.mjs
+      - name: Commit verified lockfile-only updates on isolated security branch
+        run: |
+          if git diff --quiet -- package-lock.json; then
+            echo 'No supported non-forced dependency updates available'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add package-lock.json
+            git commit -m 'chore(security): apply verified non-forced dev dependency patches [dep-patch-verified]'
+            git push origin HEAD:security/fce-dev-dependency-patches
+          fi

@@ -45,7 +45,7 @@ jobs:
         shell: bash
         run: |
           mapfile -t files < <(git diff --name-only --diff-filter=ACMR origin/main...HEAD -- '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' | while IFS= read -r file; do
-            if test -f "$file"; then printf '%s\\n' "$file"; fi
+            if test -f "$file"; then printf '%s\n' "$file"; fi
           done)
           if (( ${#files[@]} )); then
             printf 'Checking %s modified source files\\n' "${#files[@]}"

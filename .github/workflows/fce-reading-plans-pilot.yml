@@ -1,0 +1,72 @@
+name: FCE Reading Plans pilot checks
+on:
+  push:
+    branches: [feature/fce-reading-plans-jesus-pilot]
+  pull_request:
+    paths:
+      - 'app/reading-plans/**'
+      - 'app/bible/**'
+      - 'components/Header.tsx'
+      - 'components/Header.module.css'
+      - 'components/bible/**'
+      - 'scripts/import_fce_kjv.mjs'
+      - 'tests/reading-plans/**'
+      - 'playwright.config.mjs'
+      - 'components/reading-plans/**'
+      - 'lib/reading-plans/**'
+      - 'scripts/validate-reading-plans.mjs'
+      - '.github/workflows/fce-reading-plans-pilot.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Summarize dependency security advisories
+        shell: bash
+        run: |
+          npm audit --json > /tmp/fce-audit-all.json || true
+          npm audit --omit=dev --json > /tmp/fce-audit-prod.json || true
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          for(const scope of ['all','prod']){
+            const d=JSON.parse(readFileSync('/tmp/fce-audit-'+scope+'.json','utf8'));
+            console.log('SECURITY_AUDIT_SCOPE',scope,JSON.stringify(d.metadata?.vulnerabilities??{}));
+            for(const [name,v] of Object.entries(d.vulnerabilities??{})){
+              const via=(v.via??[]).map(x=>typeof x==='string'?x:{name:x.name,title:x.title,url:x.url,range:x.range}).slice(0,12);
+              console.log('SECURITY_AUDIT_PACKAGE',JSON.stringify({scope,name,severity:v.severity,isDirect:v.isDirect,range:v.range,fixAvailable:v.fixAvailable,via,effects:v.effects,nodes:v.nodes}));
+            }
+          }
+          NODE
+      - name: Enforce production dependency security baseline
+        run: npm audit --omit=dev --audit-level=high
+      - name: Verify all approved plan data
+        run: node scripts/validate-reading-plans.mjs
+      - name: Type-check Next.js pilot
+        run: npx tsc --noEmit
+      - name: Lint reading plan pages and components
+        run: npx eslint app/reading-plans components/reading-plans lib/reading-plans components/Header.tsx components/bible/ScriptureText.tsx app/bible
+
+      - name: Install isolated browser test dependencies
+        run: npm install --no-save --ignore-scripts @playwright/test@1.56.1
+      - name: Install Chromium for browser tests
+        run: npx playwright install --with-deps chromium
+      - name: Import and verify exact Cloudflare R2 KJV source
+        run: node scripts/import_fce_kjv.mjs
+      - name: Test 30-day reading-plan visitor journey
+        run: npx playwright test -c playwright.config.mjs
+      - name: Upload test evidence on failures
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reading-plan-browser-test-results
+          path: test-results
+          retention-days: 3

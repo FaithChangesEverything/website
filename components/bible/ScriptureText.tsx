@@ -6,7 +6,7 @@ import styles from "./ScriptureText.module.css";
 export default function ScriptureText({paragraphs, highlight=[]}:{paragraphs:BibleParagraph[];highlight?:number[]}){
 const [targetVerse,setTargetVerse]=useState<number|null>(null);
 useEffect(()=>{
-  const syncTarget=()=>{const match=window.location.hash.match(/^#v([1-9]\\d*)$/);setTargetVerse(match?Number(match[1]):null);};
+  const syncTarget=()=>{const match=window.location.hash.match(/^#v([1-9]\d*)$/);setTargetVerse(match?Number(match[1]):null);};
   syncTarget();
   window.addEventListener("hashchange",syncTarget);
   return ()=>window.removeEventListener("hashchange",syncTarget);

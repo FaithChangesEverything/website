@@ -49,7 +49,7 @@
   padding: 0 clamp(8px, .85vw, 14px);
 }
 
-.nav a + a {
+.nav > * + * {
   border-left: 1px solid rgba(215, 168, 75, .72);
 }
 
@@ -158,4 +158,27 @@
   .mobileMenu summary{font-size:0;gap:0;padding:10px 12px}
   .mobileMenu summary span{font-size:1.3rem}
   .mobileLinks{min-width:220px}
+}
+
+/* Bible remains a normal landing-page link; the adjacent chevron opens its submenu. */
+.bibleNavGroup{position:relative;display:flex;align-items:center}
+.bibleNavGroup > a{padding-right:2px}
+.bibleDropdown{position:static}
+.bibleDropdown > summary{display:flex;align-items:center;justify-content:center;list-style:none;min-width:24px;min-height:32px;cursor:pointer;color:#e8c47a;font-size:1.05rem}
+.bibleDropdown > summary::-webkit-details-marker{display:none}
+.bibleDropdown > summary:hover,.bibleDropdown > summary:focus-visible{color:#fff;outline-offset:2px}
+.bibleDropdownPanel{position:absolute;left:0;top:calc(100% + 19px);z-index:30;min-width:245px;display:flex;flex-direction:column;padding:8px;background:#081b35;border:1px solid #ba9658;border-radius:9px;box-shadow:0 12px 25px #0007;text-transform:none}
+.nav .bibleDropdownPanel a{display:block;min-height:0;padding:12px 14px!important;border-left:0!important;border-radius:5px;color:#fff;font:.88rem/1.35 system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+.nav .bibleDropdownPanel a:hover,.nav .bibleDropdownPanel a:focus-visible{background:#183d67;color:#f6d28c;text-decoration:none}
+.nav .bibleDropdownPanel a[aria-current="page"]{background:#183d67;color:#f6d28c}
+@media(max-width:1240px){.bibleDropdown > summary{min-width:18px}}
+@media(max-width:950px){
+  .mobileBibleGroup{border-radius:5px}
+  .mobileBibleGroup > summary{list-style:none;display:flex;align-items:center;justify-content:space-between;padding:11px 14px;color:#fff;cursor:pointer;font-size:.9rem;border-radius:5px}
+  .mobileBibleGroup > summary::-webkit-details-marker{display:none}
+  .mobileBibleGroup > summary:hover,.mobileBibleGroup > summary:focus-visible,.mobileBibleGroup > summary.active{background:#183d67;color:#f6d28c}
+  .mobileBibleGroup > summary:focus-visible{outline:2px solid #f1cb78;outline-offset:2px}
+  .mobileBibleGroup[open] > summary span{transform:rotate(180deg)}
+  .mobileBibleLinks{display:flex;flex-direction:column;padding-left:12px;border-left:2px solid #ba9658;margin:3px 0 7px 12px}
+  .mobileLinks .mobileBibleLinks a{padding:10px 12px;font-size:.86rem}
 }
