@@ -24,6 +24,7 @@ jobs:
       NEXT_TELEMETRY_DISABLED: "1"
       NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
       NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: website-checks-placeholder
+      FCE_KJV_SOURCE_ZIP: /tmp/fce-kjv-original.zip
     steps:
       - name: Check out proposed website
         uses: actions/checkout@v4
@@ -62,5 +63,11 @@ jobs:
             echo 'Website-wide ESLint has pre-existing findings; changed source files above are enforced.' >> "$GITHUB_STEP_SUMMARY"
             grep -E 'problems? \\(' /tmp/fce-full-lint.txt | tail -1 >> "$GITHUB_STEP_SUMMARY" || true
           fi
+      - name: Download the pinned original KJV from FCE Cloudflare R2
+        run: |
+          curl --fail --show-error --location --retry 3 \
+            --output "$FCE_KJV_SOURCE_ZIP" \
+            "https://resources.faithchangeseverything.org/kjv-bible/eng-kjv2006_usfm.zip"
+          echo "5789dcd000d60a554abb4cf9b37ce10a53628bfc686e11ada2d6c981455239c1  $FCE_KJV_SOURCE_ZIP" | sha256sum --check -
       - name: Build production website and verify original KJV archive
         run: npm run build
