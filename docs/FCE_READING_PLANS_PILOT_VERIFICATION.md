@@ -3,7 +3,7 @@
 ## Isolation and published content
 - Pilot branch: `feature/fce-reading-plans-jesus-pilot` (draft PR #21; based on approved content foundation PR #20).
 - Production site and published Bible Reader Version 1.0 remain unchanged.
-- Pilot demonstrates 22 library entries, first plan enabled, all 30 approved lessons, direct links to the released FCE Bible Reader, browser-only localStorage progress.
+- Pilot demonstrates 22 library entries, first plan enabled, all 30 approved lessons, same-site links to the FCE Bible Reader, browser-only localStorage progress.
 - Progress does not synchronize between devices or browsers and may disappear when site data are removed. No user sign-in is required.
 - The pilot now links Scripture to the same-site `/bible/...` Reader and runs the unchanged KJV import verification with FCE-owned fixed archive.
 
@@ -12,7 +12,7 @@
 - `npx tsc --noEmit`: types compile.
 - `npx eslint app/reading-plans components/reading-plans lib/reading-plans`: clean.
 - Chromium CI (Playwright) tests library search/filter, all 30 daily routes and Reader URL format, schedule group navigation, device-local progress after reload, Continue Reading, protected reset, and mobile overflow. See the branch's GitHub Actions run history.
-- The latest successful Vercel preview deployment from commit 2828e9f: dpl_4NR7UBsTYMtkwAkwMyEFXgMEBPh6, Next.js compiled, generated pages, state READY.
+- Latest confirmed shared-navigation preview: commit 1468e5ab, Vercel READY. Ten browser tests passed for this version.
 
 ## Original KJV source recovered and pinned to FCE Cloudflare R2
 - Original archive supplied by Pastor Richard, local `eng-kjv2006_usfm.zip`.
@@ -31,3 +31,16 @@
 4. Obtain Pastor's approval before merging to main, enabling navigation, or removing production protection.
 
 No production release until the normal build, full integrated suite and user approval have passed.
+
+## Release-readiness audit, October 13, 2026
+- All seven visitor review checks approved for 30 Days with Jesus, including mobile. Shared Bible dropdown also approved.
+- Shared navigation originates in components/Header.tsx; Reading Plan and Bible Study links appear on desktop and mobile.
+- Bible chapter return links only accept validated local plan destinations. Reading progress is stored in browser-local storage without an account.
+- Only the 30 Days with Jesus pilot is enabled; other 21 plans are not yet activated.
+- The preview builds with the unchanged pinned KJV checksum and the R2 source. Retain independent ZIP backup and verify R2 write protection separately.
+- CI now checks shared-header and Bible-related changes, in addition to plans. Recheck latest CI run after change.
+- The test suite runs a development server; Vercel runs an optimized preview build. Final testing against the exact release candidate is still needed.
+- npm install reported eight high-severity dependency advisories; evaluate before publication.
+- GitHub branch protection could not be inspected through current connector permissions; confirm merge safeguards before production release.
+- PR #20 and stacked PR #21 are drafts; verify order and obtain explicit publication approval.
+- The /resources page is not implemented in the inspected branch. Treat as wider website launch readiness issue.
