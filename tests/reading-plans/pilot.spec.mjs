@@ -59,7 +59,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await page.goto('/reading-plans');
     const cards=page.locator('article[class*="planCard"]');
     await expect(cards).toHaveCount(6);
-    await page.getByRole('button',{name:'All 22 Plans'}).click();
+    await page.getByRole('button',{name:'All 22 Plans',exact:true}).click();
     await expect(cards).toHaveCount(22);
     await expect(page.getByText('22 plans found')).toBeVisible();
     await expect(page.getByRole('button',{name:'Show Fewer Plans'})).toBeVisible();
