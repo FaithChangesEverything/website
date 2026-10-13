@@ -44,3 +44,26 @@ No production release until the normal build, full integrated suite and user app
 - GitHub branch protection could not be inspected through current connector permissions; confirm merge safeguards before production release.
 - PR #20 and stacked PR #21 are drafts; verify order and obtain explicit publication approval.
 - The /resources page is not implemented in the inspected branch. Treat as wider website launch readiness issue.
+
+## Security dependency and Cloudflare R2 audit — October 13, 2026
+### Dependency status (from npm audit with the exact branch package-lock)
+- Full install: **8 high**, 0 critical, 0 moderate, 0 low.
+- Production-only install (`npm audit --omit=dev`): **0 findings at all severities**.
+- Direct Next runtime and React versions: Next 16.4.0, React and React DOM 19.2.4. Direct development linter `eslint-config-next@16.4.0`.
+- Eight flagged packages, all tagged `dev: true` in the lockfile: `eslint-config-next@16.4.0`, `@next/eslint-plugin-next@16.4.0`, `fast-glob@3.3.1`, `micromatch@4.0.8`, `braces@3.0.3`, `brace-expansion@1.1.16` and nested `brace-expansion@5.0.7`, `browserslist@4.28.6`, `js-yaml@4.3.0`. The two brace-expansion versions count as **one package** among the eight.
+- Main advisory category: potential denial of service from pathological input for glob, brace, Browserslist or YAML parsing in development tooling; assess the exposure of repository scripts to untrusted inputs.
+- `npm audit` reports ordinary fixes for `brace-expansion`, `browserslist`, and `js-yaml`. These can receive reviewed patch-level lockfile updates, with audit/typecheck/lint/build/browser regression testing.
+- `braces@3.0.3` advisory GHSA-vfj7-8cjw-p6xm has **no patched version** as of this review; it flows through `micromatch` → `fast-glob` → `@next/eslint-plugin-next` → `eslint-config-next`. Do not promise that upgrading one direct package will resolve this chain until patched upstream.
+- `npm audit` suggests `eslint-config-next@14.2.35` as a semver-major change for this chain. **Reject that automated downgrade** because FCE runs Next 16.4.0; do not use `npm audit fix --force`.
+- CI now **fails** on new high/critical production dependency findings via `npm audit --omit=dev --audit-level=high`, while reporting development-only issues for follow-up. Pin and revisit the advisory chain as patched releases arrive.
+
+### Cloudflare R2 KJV master
+- Account's existing shared bucket: `fce-ministry-library`, KJV object key: `kjv-bible/eng-kjv2006_usfm.zip`.
+- The importer pins the original SHA-256 `5789dcd000d60a554abb4cf9b37ce10a53628bfc686e11ada2d6c981455239c1`, so tampering with source bytes breaks subsequent builds instead of silently changing Scripture.
+- The bucket currently reports **no lock rules**. It therefore does **not** yet prevent an authorized actor from overwriting or deleting the master ZIP.
+- Lifecycle configuration has only the default abort-incomplete-multipart-uploads after seven days; there is **no lifecycle rule automatically deleting this ZIP**.
+- Public serving via `resources.faithchangeseverything.org` is enabled; the generic `r2.dev` endpoint is disabled. This file is publicly downloadable by intentional design.
+- Domain settings report minimum TLS **1.0** for the custom R2 resource domain; review raising this to TLS 1.2 across resource consumers during the broader Cloudflare TLS audit.
+- Recommend one R2 bucket-lock rule, prefix **`kjv-bible/eng-kjv2006_usfm.zip`**, to cover only this archive; agree on retention period (e.g. 365 days) before enabling. Cloudflare documents that locks apply to existing objects and prevent overwrites/deletion during retention. Unlike checksum pinning, this prevents accidental destructive storage actions.
+- Keep at least one independently held original ZIP backup outside Cloudflare. Review Cloudflare member permissions, API token scope, MFA, and credential access separately: these are not visible from the R2 bucket configuration API.
+- **No lock rule, domain TLS setting, or account permission was modified during this audit**; obtain approval before altering retention or shared endpoint behavior.
