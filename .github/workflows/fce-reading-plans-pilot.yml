@@ -34,6 +34,8 @@ jobs:
         run: npm install --no-save --ignore-scripts @playwright/test@1.56.1
       - name: Install Chromium for browser tests
         run: npx playwright install --with-deps chromium
+      - name: Import and verify exact Cloudflare R2 KJV source
+        run: node scripts/import_fce_kjv.mjs
       - name: Test 30-day reading-plan visitor journey
         run: npx playwright test -c playwright.config.mjs
       - name: Upload test evidence on failures
