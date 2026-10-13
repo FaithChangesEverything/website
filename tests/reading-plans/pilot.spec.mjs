@@ -176,27 +176,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await link.click();
     await expect(page.getByRole('link',{name:'← Return to Reading Plan'})).toHaveAttribute('href',day);
     await page.getByRole('link',{name:'← Return to Reading Plan'}).click();
-    await expect(page).toHaveURL(new RegExp(day+'
-    await page.goto('/reading-plans/getting-to-know-jesus/day/1');
-    await page.getByRole('button',{name:'Mark Day 1 Complete'}).click();
-    await page.goto('/reading-plans/30-days-of-prayer/day/1');
-    await expect(page.getByText('0 of 30 days complete')).toBeVisible();
-    await page.goto('/reading-plans/getting-to-know-jesus/day/1');
-    await expect(page.getByRole('button',{name:/Day Complete — Undo/})).toBeVisible();
-  });
-  test('mobile layout stays in viewport and privacy text visible',async({page})=>{
-    await page.setViewportSize({width:390,height:844});
-    for(const path of ['/reading-plans',pilot,`${pilot}/day/1`]){
-      await page.goto(path);
-      await expect(page.locator('main')).toBeVisible();
-      const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+2);
-      expect(overflow,`Horizontal overflow on ${path}`).toBe(false);
-    }
-    await expect(page.getByText('Your Progress & Your Privacy')).toBeVisible();
-    await expect(page.getByText(/Refreshing or reopening the page will not erase saved progress/)).toBeVisible();
-  });
-});
-));
+    await expect(page).toHaveURL(day);
     await page.goto('/bible/john/1?returnTo=%2Freading-plans%2Funknown-plan%2Fday%2F1');
     await expect(page.getByRole('link',{name:/Return to Reading Plan/})).toHaveCount(0);
   });
