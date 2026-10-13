@@ -30,3 +30,6 @@
 @media(max-width:800px){.columns{grid-template-columns:1fr}.sidebar{order:2}.paper{order:1;min-height:400px}.titleRow{margin:0 -20px;padding-left:24px}.layout{background-attachment:scroll}}
 
 .stickyChapter{position:sticky;top:0;z-index:3;display:flex;justify-content:center;gap:.75em;align-items:center;width:max-content;max-width:100%;margin:-20px auto 22px;padding:8px 19px;background:#fff8e9f2;border:1px solid #e5cc98;border-radius:0 0 10px 10px;box-shadow:0 3px 10px #17344b18;color:#173750;font:700 .85rem system-ui,sans-serif}.stickyChapter span{font-size:.74rem;font-weight:500;color:#806329}
+
+.returnToPlan{display:inline-flex;align-items:center;justify-content:center;min-height:43px;text-decoration:none;background:#143f70;border:1px solid #143f70;border-radius:7px;padding:10px 16px;font:700 .95rem system-ui,sans-serif;color:#fff}
+.returnToPlan:hover,.returnToPlan:focus-visible{background:#0c2b4c;border-color:#c89c4b;outline-offset:3px}
