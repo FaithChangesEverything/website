@@ -1,0 +1,45 @@
+name: Recover original pinned FCE KJV archive
+on:
+  push:
+    branches: [feature/fce-reading-plans-jesus-pilot]
+    paths: ['.github/workflows/recover-pinned-kjv.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-original-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Attempt authenticated-by-hash historical archive retrieval
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected="5789dcd000d60a554abb4cf9b37ce10a53628bfc686e11ada2d6c981455239c1"
+          success=0
+          for stamp in 20261012000000 20261010000000 20260920000000 20260820000000; do
+            url="https://web.archive.org/web/${stamp}id_/https://ebible.org/Scriptures/eng-kjv2006_usfm.zip"
+            echo "Checking archived KJV source snapshot near ${stamp}"
+            if curl -fsSL --connect-timeout 8 --max-time 55 --retry 0 "$url" -o /tmp/source.zip; then
+              actual="$(sha256sum /tmp/source.zip | cut -d' ' -f1)"
+              echo "Retrieved checksum: ${actual}"
+              if [ "$actual" = "$expected" ]; then
+                cp /tmp/source.zip original-pinned-kjv.zip
+                echo "EXACT PIN VERIFIED"
+                success=1
+                break
+              fi
+            else
+              echo "No accessible matching snapshot at ${stamp}"
+            fi
+          done
+          if [ "$success" -eq 0 ]; then
+            echo "::warning::Original pinned archive not recovered; no source replacement authorized."
+          fi
+      - name: Preserve only the exact verified original if recovered
+        if: ${{ hashFiles('original-pinned-kjv.zip') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: original-pinned-fce-kjv-archive
+          path: original-pinned-kjv.zip
+          retention-days: 7
