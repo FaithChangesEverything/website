@@ -65,6 +65,8 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await expect(page.getByRole('button',{name:'Show Fewer Plans'})).toBeVisible();
     await page.getByRole('button',{name:'Show Fewer Plans'}).click();
     await expect(cards).toHaveCount(6);
+    await expect(page.getByRole('group',{name:'Filter plans by length'})).toBeInViewport();
+    await expect(cards.first()).toBeInViewport();
     await page.getByRole('button',{name:'View All 22 Plans'}).click();
     await expect(cards).toHaveCount(22);
   });
