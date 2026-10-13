@@ -5,6 +5,13 @@ on:
   pull_request:
     paths:
       - 'app/reading-plans/**'
+      - 'app/bible/**'
+      - 'components/Header.tsx'
+      - 'components/Header.module.css'
+      - 'components/bible/**'
+      - 'scripts/import_fce_kjv.mjs'
+      - 'tests/reading-plans/**'
+      - 'playwright.config.mjs'
       - 'components/reading-plans/**'
       - 'lib/reading-plans/**'
       - 'scripts/validate-reading-plans.mjs'
@@ -28,7 +35,7 @@ jobs:
       - name: Type-check Next.js pilot
         run: npx tsc --noEmit
       - name: Lint reading plan pages and components
-        run: npx eslint app/reading-plans components/reading-plans lib/reading-plans
+        run: npx eslint app/reading-plans components/reading-plans lib/reading-plans components/Header.tsx components/bible/ScriptureText.tsx app/bible
 
       - name: Install isolated browser test dependencies
         run: npm install --no-save --ignore-scripts @playwright/test@1.56.1
