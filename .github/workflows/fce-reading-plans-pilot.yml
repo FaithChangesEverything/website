@@ -30,6 +30,22 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Summarize dependency security advisories
+        shell: bash
+        run: |
+          npm audit --json > /tmp/fce-audit-all.json || true
+          npm audit --omit=dev --json > /tmp/fce-audit-prod.json || true
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          for(const scope of ['all','prod']){
+            const d=JSON.parse(readFileSync('/tmp/fce-audit-'+scope+'.json','utf8'));
+            console.log('SECURITY_AUDIT_SCOPE',scope,JSON.stringify(d.metadata?.vulnerabilities??{}));
+            for(const [name,v] of Object.entries(d.vulnerabilities??{})){
+              const via=(v.via??[]).map(x=>typeof x==='string'?x:{name:x.name,title:x.title,url:x.url,range:x.range}).slice(0,12);
+              console.log('SECURITY_AUDIT_PACKAGE',JSON.stringify({scope,name,severity:v.severity,isDirect:v.isDirect,range:v.range,fixAvailable:v.fixAvailable,via,effects:v.effects,nodes:v.nodes}));
+            }
+          }
+          NODE
       - name: Verify all approved plan data
         run: node scripts/validate-reading-plans.mjs
       - name: Type-check Next.js pilot
