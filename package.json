@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/import_fce_kjv.mjs && next build",
+    "build": "node scripts/build_fce.mjs",
     "start": "next start",
     "lint": "eslint"
   },
