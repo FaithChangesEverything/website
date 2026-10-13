@@ -44,10 +44,10 @@
 .progressCard progress{width:100%;height:16px;accent-color:#b48a45;display:block;margin:14px 0}
 .progressCard>p{color:#556777;font-size:.95rem}
 .progressCard .primaryButton{margin-bottom:12px}
-.fce-rp-privacy{border:1px solid #b6cbd5;background:#edf3f5;padding:18px;border-radius:10px;margin-top:20px;color:#294c5f;font-size:.93rem;line-height:1.6}
-.fce-rp-privacy strong{display:block;margin-bottom:8px}
-.fce-rp-privacy p{margin:7px 0}
-.fce-rp-privacy p strong{display:inline}
+.privacy{border:1px solid #b6cbd5;background:#edf3f5;padding:18px;border-radius:10px;margin-top:20px;color:#294c5f;font-size:.93rem;line-height:1.6}
+.privacy strong{display:block;margin-bottom:8px}
+.privacy p{margin:7px 0}
+.privacy p strong{display:inline}
 .resetButton{display:block;background:none;border:0;color:#73542b;padding:8px 0;text-decoration:underline;cursor:pointer}
 .confirm{border:1px solid #bd946a;border-radius:8px;padding:12px;margin:10px 0}
 .confirm strong{display:block}
