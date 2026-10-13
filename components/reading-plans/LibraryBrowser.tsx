@@ -14,7 +14,7 @@ export default function LibraryBrowser({plans}:{plans:PlanSummary[]}) {
     <h2 id="browse-title">Browse Reading Plans</h2>
     <p>Choose a reading length, or search for a subject you would like to explore.</p>
     <div className={styles.filters} role="group" aria-label="Filter plans by length">
-      {[0,7,10,30].map(n=><button type="button" key={n} aria-pressed={duration===n} className={duration===n?styles.filterActive:styles.filter} onClick={()=>{setDuration(n);setShowAll(false);}}>{n===0?"All 22 Plans":n+"-Day Plans"}</button>)}
+      {[0,7,10,30].map(n=><button type="button" key={n} aria-pressed={duration===n} className={duration===n?styles.filterActive:styles.filter} onClick={()=>{setDuration(n);setShowAll(n===0);}}>{n===0?"All 22 Plans":n+"-Day Plans"}</button>)}
     </div>
     <label className={styles.searchLabel} htmlFor="reading-plan-search">Search by plan title or subject</label>
     <input id="reading-plan-search" type="search" className={styles.search} value={search} onChange={e=>{setSearch(e.target.value);setShowAll(false)}} placeholder="Try prayer, Jesus, hope, or wisdom"/>
