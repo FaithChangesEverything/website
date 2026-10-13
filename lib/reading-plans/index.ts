@@ -63,19 +63,45 @@ export function findReadingPlanDay(slugOrId: string, day: number): ReadingPlanDa
   return findReadingPlan(slugOrId)?.lessons[day - 1];
 }
 
-/**
- * Opens the FIRST citation's book/chapter (and verse when one is specified).
- * Multi-passage assignments must retain their complete display text; a future
- * reader UI may expose a separate link for each passage.
- */
+/** Each assigned passage gets its own link, including repeated ranges within a chapter. */
+export function primaryReadingBibleLinks(reading: string): { label: string; href: string }[] {
+  const results: { label: string; href: string }[] = [];
+  // References may be joined by "and", semicolons, or a continuation after a comma.
+  const chunks = reading.split(/\s+(?:and)\s+|\s*;\s*/i);
+  let previousBook = "";
+  let previousChapter = 0;
+  for (const chunk of chunks) {
+    const pieces = chunk.split(/,\s*(?=\d+(?:[–-]\d+)?(?:\s*,|$))/);
+    for (const piece of pieces) {
+      const citation = piece.trim();
+      const m = citation.match(/^((?:[1-3]\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)*)\s+(\d+)(?::(\d+))?/);
+      let bookName = previousBook;
+      let chapter = previousChapter;
+      let verse: number | undefined;
+      if (m) {
+        bookName = m[1] === "Psalm" ? "Psalms" : m[1];
+        chapter = Number(m[2]);
+        verse = m[3] ? Number(m[3]) : undefined;
+      } else {
+        const continuation = citation.match(/^(\d+)(?:[–-]\d+)?$/);
+        if (!continuation || !bookName || !chapter) continue;
+        verse = Number(continuation[1]);
+      }
+      const book = findBibleBook(bookName.toLowerCase().replace(/\s+/g, "-"));
+      if (!book || !Number.isSafeInteger(chapter) || chapter < 1 || chapter > book.chapters) continue;
+      previousBook = bookName;
+      previousChapter = chapter;
+      results.push({ label: m ? citation : `${bookName} ${chapter}:${citation}`, href: bibleHref(book.slug, chapter, verse) });
+    }
+  }
+  return results;
+}
+
 export function primaryReadingFirstBibleHref(reading: string): string | null {
-  const match = reading.match(/^((?:[1-3]\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)*)\s+(\d+)(?::(\d+))?/);
-  if (!match) return null;
-  const bookName = match[1] === "Psalm" ? "Psalms" : match[1];
-  const bookSlug = bookName.toLowerCase().replace(/\s+/g, "-");
-  const book = findBibleBook(bookSlug);
-  const chapter = Number(match[2]);
-  const verse = match[3] ? Number(match[3]) : undefined;
-  if (!book || chapter < 1 || chapter > book.chapters || !Number.isSafeInteger(chapter)) return null;
-  return bibleHref(bookSlug, chapter, verse);
+  return primaryReadingBibleLinks(reading)[0]?.href ?? null;
+}
+
+/** Return the exact KJV key verse in the FCE Bible Reader. */
+export function keyVerseBibleHref(reference: string): string | null {
+  return primaryReadingFirstBibleHref(reference);
 }
