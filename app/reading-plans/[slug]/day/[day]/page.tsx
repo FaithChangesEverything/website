@@ -25,7 +25,7 @@ export default async function DailyPage({params}:Props){
     ["Practical Step",lesson.practicalStep],
   ].filter((entry):entry is [string,string]=>Boolean(entry[1]));
   return <><Header/><main className={styles.page}>
-    <section className={styles.hero}><div className={styles.wrap}><Link className={styles.breadcrumb} href={`/reading-plans/${slug}`}>← Back to {plan.title}</Link><p className={styles.heroEyebrow}>{plan.title.toUpperCase()} · DAY {lesson.day} OF {plan.days}</p><h1>{lesson.title}</h1><p>Take time to read, reflect, and grow in your understanding of Jesus Christ.</p></div></section>
+    <section className={styles.hero}><div className={styles.wrap}><Link className={styles.breadcrumb} href={`/reading-plans/${slug}`}>← Back to {plan.title}</Link><p className={styles.heroEyebrow}>{plan.title.toUpperCase()} · DAY {lesson.day} OF {plan.days}</p><h1>{lesson.title}</h1><p>Take time to read Scripture, reflect, and grow in faith.</p></div></section>
     <div className={styles.wrap}>
       <div className={styles.dailyColumns}>
         <article className={styles.dailyMain}>
