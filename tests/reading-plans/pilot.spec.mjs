@@ -48,6 +48,27 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       }
     }
   });
+  test('completion data stays in local browser storage, isolated per browser context',async({browser})=>{
+    const a=await browser.newContext();
+    const b=await browser.newContext();
+    try {
+      const first=await a.newPage();
+      const other=await b.newPage();
+      const writes=[];
+      first.on('request',request=>{
+        if(request.method()!=='GET' && /reading.plan|progress|completion|save.progress/i.test(request.url()))writes.push(request.url());
+      });
+      await first.goto(`${pilot}/day/1`);
+      await first.getByRole('button',{name:'Mark Day 1 Complete'}).click();
+      const stored=await first.evaluate(()=>Object.entries(localStorage).filter(([k])=>k.startsWith('fce-reading-plan-progress-v1:')));
+      expect(stored).toEqual([['fce-reading-plan-progress-v1:30-days-with-jesus','[1]']]);
+      expect(writes).toEqual([]);
+      await other.goto(pilot);
+      await expect(other.getByText('0 of 30 days complete. Read at your own pace.')).toBeVisible();
+      await first.reload();
+      await expect(first.getByRole('button',{name:/Day Complete — Undo/})).toBeVisible();
+    } finally {await a.close();await b.close();}
+  });
   test('mobile layout stays in viewport and privacy text visible',async({page})=>{
     await page.setViewportSize({width:390,height:844});
     for(const path of ['/reading-plans',pilot,`${pilot}/day/1`]){
