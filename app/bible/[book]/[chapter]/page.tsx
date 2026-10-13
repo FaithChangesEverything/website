@@ -9,15 +9,18 @@ import ScriptureText from "@/components/bible/ScriptureText";
 import BibleJump from "@/components/bible/BibleJump";
 import AllBooksChooser from "@/components/bible/AllBooksChooser";
 import ReadingSurface from "@/components/bible/ReadingSurface";
+import {findReadingPlanDay} from "@/lib/reading-plans";
 import BibleIcon from "@/components/bible/BibleIcon";
 
 type RouteProps={
  params:Promise<{book:string;chapter:string}>;
  searchParams:Promise<{returnTo?:string|string[]}>;
 };
-const validReadingPlanReturn=(value:unknown):value is string=>
- typeof value==="string" &&
- /^\/reading-plans\/30-days-with-jesus\/day\/(?:[1-9]|[12]\d|30)$/.test(value);
+const validReadingPlanReturn=(value:unknown):value is string=>{
+ if(typeof value!=="string")return false;
+ const match=value.match(/^\/reading-plans\/([a-z0-9-]+)\/day\/([1-9]\d*)$/);
+ return Boolean(match && findReadingPlanDay(match[1],Number(match[2])));
+};
 const withReturn=(href:string|null,returnTo:string|null)=>
  href&&returnTo?`${href}?returnTo=${encodeURIComponent(returnTo)}`:href;
 export const revalidate = 86400;
