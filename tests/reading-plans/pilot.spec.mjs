@@ -19,21 +19,104 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       await expect(page.getByText('KEY VERSE')).toBeVisible();
       await expect(page.getByText('Reading Focus')).toBeVisible();
       const href=await page.getByRole('link',{name:/Open in FCE Bible Reader/}).getAttribute('href');
-      expect(href).toMatch(/^\/bible\/[a-z0-9-]+\/\d+(#v\d+)?$/);
+      expect(href).toMatch(new RegExp(`^/bible/[a-z0-9-]+/\\\\d+\\\\?returnTo=%2Freading-plans%2F30-days-with-jesus%2Fday%2F${n}(#v\\\\d+)?import {test,expect} from '@playwright/test';
+const pilot='/reading-plans/30-days-with-jesus';
+test.describe('FCE Bible Reading Plans pilot',()=>{
+  test('library renders and filters approved plan inventory',async({page})=>{
+    await page.goto('/reading-plans');
+    await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
+    await expect(page.getByText('22 plans found')).toBeVisible();
+    await page.getByRole('button',{name:'10-Day Plans'}).click();
+    await expect(page.getByText('10 plans found')).toBeVisible();
+    await page.getByRole('button',{name:'All 22 Plans'}).click();
+    await page.getByRole('searchbox').fill('30 Days with Jesus');
+    await expect(page.getByText('1 plan found')).toBeVisible();
+    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
+  });
+  test('every approved daily reading opens and has FCE Reader link',async({page})=>{
+    for(let n=1;n<=30;n++){
+      await page.goto(`${pilot}/day/${n}`);
+      await expect(page.locator('main h1')).toBeVisible();
+      await expect(page.getByText('KEY VERSE')).toBeVisible();
+      await expect(page.getByText('Reading Focus')).toBeVisible();
+      const href=await page.getByRole('link',{name:/Open in FCE Bible Reader/}).getAttribute('href');
+      ));
     }
   });
   test('daily Scripture link opens integrated KJV chapter and highlights assigned verse',async({page})=>{
     await page.goto(`${pilot}/day/1`);
     const link=page.getByRole('link',{name:/Open in FCE Bible Reader/});
-    await expect(link).toHaveAttribute('href','/bible/john/1#v1');
+    await expect(link).toHaveAttribute('href','/bible/john/1?returnTo=%2Freading-plans%2F30-days-with-jesus%2Fday%2F1#v1');
     await link.click();
-    await expect(page).toHaveURL(/\/bible\/john\/1#v1$/);
+    await expect(page).toHaveURL(/\/bible\/john\/1\?returnTo=.*#v1$/);
     await expect(page.getByRole('heading',{name:'FCE Bible Reader'})).toBeVisible();
     await expect(page.getByText('John — Chapter 1')).toBeVisible();
     await expect(page.locator('#v1')).toContainText('In the beginning was the Word');
     await expect(page.locator('#v1')).toHaveClass(/highlight/);
-    await page.goBack();
+    await page.getByRole('link',{name:'← Return to Reading Plan'}).click();
+    await expect(page).toHaveURL(new RegExp(`${pilot}/day/1import {test,expect} from '@playwright/test';
+const pilot='/reading-plans/30-days-with-jesus';
+test.describe('FCE Bible Reading Plans pilot',()=>{
+  test('library renders and filters approved plan inventory',async({page})=>{
+    await page.goto('/reading-plans');
+    await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
+    await expect(page.getByText('22 plans found')).toBeVisible();
+    await page.getByRole('button',{name:'10-Day Plans'}).click();
+    await expect(page.getByText('10 plans found')).toBeVisible();
+    await page.getByRole('button',{name:'All 22 Plans'}).click();
+    await page.getByRole('searchbox').fill('30 Days with Jesus');
+    await expect(page.getByText('1 plan found')).toBeVisible();
+    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
+  });
+  test('every approved daily reading opens and has FCE Reader link',async({page})=>{
+    for(let n=1;n<=30;n++){
+      await page.goto(`${pilot}/day/${n}`);
+      await expect(page.locator('main h1')).toBeVisible();
+      await expect(page.getByText('KEY VERSE')).toBeVisible();
+      await expect(page.getByText('Reading Focus')).toBeVisible();
+      const href=await page.getByRole('link',{name:/Open in FCE Bible Reader/}).getAttribute('href');
+      expect(href).toMatch(new RegExp(`^/bible/[a-z0-9-]+/\\\\d+\\\\?returnTo=%2Freading-plans%2F30-days-with-jesus%2Fday%2F${n}(#v\\\\d+)?import {test,expect} from '@playwright/test';
+const pilot='/reading-plans/30-days-with-jesus';
+test.describe('FCE Bible Reading Plans pilot',()=>{
+  test('library renders and filters approved plan inventory',async({page})=>{
+    await page.goto('/reading-plans');
+    await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
+    await expect(page.getByText('22 plans found')).toBeVisible();
+    await page.getByRole('button',{name:'10-Day Plans'}).click();
+    await expect(page.getByText('10 plans found')).toBeVisible();
+    await page.getByRole('button',{name:'All 22 Plans'}).click();
+    await page.getByRole('searchbox').fill('30 Days with Jesus');
+    await expect(page.getByText('1 plan found')).toBeVisible();
+    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
+  });
+  test('every approved daily reading opens and has FCE Reader link',async({page})=>{
+    for(let n=1;n<=30;n++){
+      await page.goto(`${pilot}/day/${n}`);
+      await expect(page.locator('main h1')).toBeVisible();
+      await expect(page.getByText('KEY VERSE')).toBeVisible();
+      await expect(page.getByText('Reading Focus')).toBeVisible();
+      const href=await page.getByRole('link',{name:/Open in FCE Bible Reader/}).getAttribute('href');
+      ));
+    }
+  });
+  test('daily Scripture link opens integrated KJV chapter and highlights assigned verse',async({page})=>{
+    await page.goto(`${pilot}/day/1`);
+    const link=page.getByRole('link',{name:/Open in FCE Bible Reader/});
+    await expect(link).toHaveAttribute('href','/bible/john/1?returnTo=%2Freading-plans%2F30-days-with-jesus%2Fday%2F1#v1');
+    await link.click();
+    await expect(page).toHaveURL(/\/bible\/john\/1\?returnTo=.*#v1$/);
+    await expect(page.getByRole('heading',{name:'FCE Bible Reader'})).toBeVisible();
+    await expect(page.getByText('John — Chapter 1')).toBeVisible();
+    await expect(page.locator('#v1')).toContainText('In the beginning was the Word');
+    await expect(page.locator('#v1')).toHaveClass(/highlight/);
+));
     await expect(page.getByRole('heading',{name:'The Word Became Flesh'})).toBeVisible();
+  });
+  test('ordinary Bible visitors do not see lesson-return control',async({page})=>{
+    await page.goto('/bible/john/1');
+    await expect(page.getByRole('link',{name:/Return to Reading Plan/})).toHaveCount(0);
+    await page.goto('/bible/john/1?returnTo=https%3A%2F%2Fevil.example%2F');
+    await expect(page.getByRole('link',{name:/Return to Reading Plan/})).toHaveCount(0);
   });
   test('progress persists after refresh and on plan overview; reset requires confirmation',async({page})=>{
     await page.goto(`${pilot}/day/1`);
