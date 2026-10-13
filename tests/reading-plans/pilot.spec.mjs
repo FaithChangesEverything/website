@@ -44,7 +44,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     for(let i=0;i<3;i++){
       await page.getByRole('button',{name:`Days ${i*10+1}–${(i+1)*10}`}).click();
       for(let n=i*10+1;n<=(i+1)*10;n++){
-        await expect(page.locator(`a[href="${pilot}/day/${n}"]`)).toBeVisible();
+        await expect(page.locator(`a[class*="lessonLink"][href="${pilot}/day/${n}"]`)).toBeVisible();
       }
     }
   });
