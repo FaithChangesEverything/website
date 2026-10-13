@@ -55,6 +55,19 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       expect(response?.status(),`Unexpected route exposure: ${path}`).toBe(404);
     }
   });
+  test('top All 22 Plans control shows the full catalog without the bottom expansion button',async({page})=>{
+    await page.goto('/reading-plans');
+    const cards=page.locator('article[class*="planCard"]');
+    await expect(cards).toHaveCount(6);
+    await page.getByRole('button',{name:'All 22 Plans'}).click();
+    await expect(cards).toHaveCount(22);
+    await expect(page.getByText('22 plans found')).toBeVisible();
+    await expect(page.getByRole('button',{name:'Show Fewer Plans'})).toBeVisible();
+    await page.getByRole('button',{name:'Show Fewer Plans'}).click();
+    await expect(cards).toHaveCount(6);
+    await page.getByRole('button',{name:'View All 22 Plans'}).click();
+    await expect(cards).toHaveCount(22);
+  });
   test('every approved daily reading opens and has FCE Reader link',async({page})=>{
     for(let n=1;n<=30;n++){
       await page.goto(`${pilot}/day/${n}`);
