@@ -92,6 +92,22 @@ export function primaryReadingBibleLinks(reading: string): { label: string; href
       previousBook = bookName;
       previousChapter = chapter;
       results.push({ label: m ? citation : `${bookName} ${chapter}:${citation}`, href: bibleHref(book.slug, chapter, verse) });
+      // A chapter-spanning assignment must not strand its final chapter.
+      if (m) {
+        const crossChapter = citation.match(/\d+:\d+[–-](\d+):(\d+)/);
+        if (crossChapter) {
+          const lastChapter = Number(crossChapter[1]);
+          if (lastChapter > chapter && lastChapter <= book.chapters && lastChapter - chapter <= 4) {
+            for (let followingChapter = chapter + 1; followingChapter <= lastChapter; followingChapter++) {
+              const firstVerse = followingChapter === lastChapter ? 1 : undefined;
+              results.push({
+                label: `${bookName} ${followingChapter}${firstVerse ? ":1" : ""}`,
+                href: bibleHref(book.slug, followingChapter, firstVerse),
+              });
+            }
+          }
+        }
+      }
     }
   }
   return results;
