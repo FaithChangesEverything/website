@@ -199,7 +199,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     const plans=page.getByRole('link',{name:'Explore FCE Bible Reading Plans'});
     await expect(plans).toHaveAttribute('href','/reading-plans');
     await plans.click();
-    await expect(page).toHaveURL(/\\/reading-plans$/);
+    await expect(page).toHaveURL(/\/reading-plans$/);
     await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
     await expect(page.getByText('22 plans found')).toBeVisible();
   });
