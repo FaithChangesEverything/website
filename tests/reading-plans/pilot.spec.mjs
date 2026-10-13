@@ -37,7 +37,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await page.getByRole('button',{name:'All 22 Plans'}).click();
     await page.getByRole('searchbox').fill('30 Days with Jesus');
     await expect(page.getByText('1 plan found')).toBeVisible();
-    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
+    await expect(page.locator('article[class*="planCard"]').getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
   });
   test('all plans are accessible and invalid day URLs remain blocked',async({page})=>{
     await page.goto('/reading-plans');
