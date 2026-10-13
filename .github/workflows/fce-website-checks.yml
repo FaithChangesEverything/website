@@ -1,0 +1,73 @@
+name: FCE Website Checks
+
+# This check is deliberately not restricted by paths. Every PR to main is gated.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fce-website-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  website-checks:
+    name: FCE Website Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: website-checks-placeholder
+      FCE_KJV_SOURCE_ZIP: /tmp/fce-kjv-original.zip
+    steps:
+      - name: Check out proposed website
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact locked dependencies
+        run: npm ci
+      - name: Block high or critical production dependency advisories
+        run: npm audit --omit=dev --audit-level=high
+      - name: Verify TypeScript
+        run: npx tsc --noEmit
+      - name: Enforce ESLint for source files changed against main
+        shell: bash
+        run: |
+          mapfile -t files < <(git diff --name-only --diff-filter=ACMR origin/main...HEAD -- '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' | while IFS= read -r file; do
+            if test -f "$file"; then printf '%s\\n' "$file"; fi
+          done)
+          if (( ${#files[@]} )); then
+            printf 'Checking %s modified source files\\n' "${#files[@]}"
+            printf ' - %s\\n' "${files[@]}"
+            npx eslint "${files[@]}"
+          else
+            echo 'No changed JavaScript or TypeScript sources to lint.'
+          fi
+      - name: Record existing website-wide lint debt (informational)
+        shell: bash
+        run: |
+          if npm run lint > /tmp/fce-full-lint.txt 2>&1; then
+            echo 'Website-wide ESLint baseline: clean' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Website-wide ESLint has pre-existing findings; changed source files above are enforced.' >> "$GITHUB_STEP_SUMMARY"
+            grep -E 'problems? \\(' /tmp/fce-full-lint.txt | tail -1 >> "$GITHUB_STEP_SUMMARY" || true
+          fi
+      - name: Download the pinned original KJV from FCE Cloudflare R2
+        run: |
+          curl --fail --show-error --location --retry 3 \
+            --output "$FCE_KJV_SOURCE_ZIP" \
+            "https://resources.faithchangeseverything.org/kjv-bible/eng-kjv2006_usfm.zip"
+          echo "5789dcd000d60a554abb4cf9b37ce10a53628bfc686e11ada2d6c981455239c1  $FCE_KJV_SOURCE_ZIP" | sha256sum --check -
+      - name: Build production website and verify original KJV archive
+        run: npm run build
