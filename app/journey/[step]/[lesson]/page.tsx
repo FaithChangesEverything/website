@@ -176,6 +176,26 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "6.b") {
+    return (
+      <IndividualLesson
+        stepNumber={6}
+        lessonId="6.b"
+        title="Read God’s Word"
+        lessons={step.lessons}
+        intro="Continue growing in God’s Word with the FCE Bible Reader and our Bible Reading Plan Library."
+      >
+        <LessonBlock title="Continue Reading God’s Word" icon="▣" tone="highlight">
+          <p>Choose a Scripture-guided reading plan to help you keep reading the Bible regularly and growing in your understanding of God’s Word.</p>
+          <div className={fixes.lessonResourceLinks}>
+            <Link href="/reading-plans">Explore FCE Bible Reading Plans</Link>
+          </div>
+          <p>To return to this Journey to Hope lesson after visiting the Reading Plan Library, use your browser’s Back button.</p>
+        </LessonBlock>
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "6.d") {
     return (
       <IndividualLesson
