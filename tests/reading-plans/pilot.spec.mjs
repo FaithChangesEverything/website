@@ -198,6 +198,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await expect(page.getByRole('heading',{name:'Read God’s Word'})).toBeVisible();
     const plans=page.getByRole('link',{name:'Explore FCE Bible Reading Plans'});
     await expect(plans).toHaveAttribute('href','/reading-plans');
+    await expect(page.getByText('To return to this Journey to Hope lesson after visiting the Reading Plan Library, use your browser’s Back button.')).toBeVisible();
     await plans.click();
     await expect(page).toHaveURL(/\/reading-plans$/);
     await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
