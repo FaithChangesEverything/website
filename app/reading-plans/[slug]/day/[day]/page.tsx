@@ -15,6 +15,8 @@ export default async function DailyPage({params}:Props){
   const lesson=plan?findReadingPlanDay(slug,day):undefined;
   if(!plan||!lesson)notFound();
   const href=primaryReadingFirstBibleHref(lesson.primaryReading);
+  const returnTo=`/reading-plans/${slug}/day/${lesson.day}`;
+  const bibleHrefWithReturn=href?(()=>{const [pathname,fragment]=href.split("#");return `${pathname}?returnTo=${encodeURIComponent(returnTo)}${fragment?"#"+fragment:""}`;})():null;
   const sections=[
     ["Devotional Thought",lesson.devotionalThought],
     ["Reading Focus",lesson.readingFocus],
@@ -28,7 +30,7 @@ export default async function DailyPage({params}:Props){
       <div className={styles.dailyColumns}>
         <article className={styles.dailyMain}>
           <section className={styles.contentCard}><p className={styles.eyebrow}>TODAY&apos;S SCRIPTURE READING</p><h2>{lesson.primaryReading}</h2><p>Read the full passage in the FCE Bible Reader. Pay attention to the setting, the people, and what the passage reveals about God.</p>
-            {href?<Link className={styles.primaryButton} href={href}>Open in FCE Bible Reader →</Link>:<p role="status">Bible Reader link is not available for this reference.</p>}
+            {bibleHrefWithReturn?<Link className={styles.primaryButton} href={bibleHrefWithReturn}>Open in FCE Bible Reader →</Link>:<p role="status">Bible Reader link is not available for this reference.</p>}
             <small>King James Version (KJV). Open the FCE Bible Reader to read the assigned Scripture, then return to this lesson to mark your progress.</small>
           </section>
           <section className={styles.contentCard}><p className={styles.eyebrow}>KEY VERSE</p>
