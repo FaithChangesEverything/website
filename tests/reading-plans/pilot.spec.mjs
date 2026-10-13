@@ -39,14 +39,16 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await expect(page.getByText('1 plan found')).toBeVisible();
     await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
   });
-  test('unapproved plans stay unavailable and invalid day URLs do not expose content',async({page})=>{
+  test('all plans are accessible and invalid day URLs remain blocked',async({page})=>{
     await page.goto('/reading-plans');
     await page.getByRole('button',{name:'10-Day Plans'}).click();
     await expect(page.getByText('10 plans found')).toBeVisible();
-    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveCount(0);
+    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveCount(6);
+    await page.goto('/reading-plans/30-days-of-prayer/day/1');
+    await expect(page.getByRole('heading',{name:'Called to Pray'})).toBeVisible();
     for(const path of [
-      '/reading-plans/30-days-of-prayer',
-      '/reading-plans/30-days-of-prayer/day/1',
+      '/reading-plans/unknown-plan',
+      '/reading-plans/30-days-of-prayer/day/31',
       '/reading-plans/30-days-with-jesus/day/31',
       '/reading-plans/30-days-with-jesus/day/0',
       '/reading-plans/30-days-with-jesus/day/not-a-day'
@@ -146,6 +148,33 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       await first.reload();
       await expect(first.getByRole('button',{name:/Day Complete — Undo/})).toBeVisible();
     } finally {await a.close();await b.close();}
+  });
+  test('all 22 plans have working overviews and first and final daily readings',async({page})=>{
+    await page.goto('/reading-plans');
+    await page.getByRole('button',{name:'All 22 Plans',exact:true}).click();
+    const hrefs=await page.locator('article[class*="planCard"] a').evaluateAll(links=>links.map(a=>a.getAttribute('href')));
+    expect(hrefs).toHaveLength(22);
+    for(const url of hrefs){
+      await page.goto(url);
+      await expect(page.getByRole('heading',{name:'Your Progress'})).toBeVisible();
+      await page.goto(url+'/day/1');
+      await expect(page.getByText('KEY VERSE')).toBeVisible();
+      await expect(page.getByRole('link',{name:/FCE Bible Reader/}).first()).toHaveAttribute('href',/^\\/bible\\//);
+    }
+  });
+  test('multiple Scripture assignments and key verses have separate reader links',async({page})=>{
+    await page.goto('/reading-plans/getting-to-know-jesus/day/5');
+    await expect(page.getByRole('link',{name:/Read Isaiah 53:3/})).toBeVisible();
+    await expect(page.getByRole('link',{name:/Read Mark 15:21/})).toBeVisible();
+    await expect(page.getByRole('link',{name:/Read Key Verse in FCE Bible Reader/})).toHaveAttribute('href',/\\/bible\\/isaiah\\/53/);
+  });
+  test('progress remains separate for different reading plans',async({page})=>{
+    await page.goto('/reading-plans/getting-to-know-jesus/day/1');
+    await page.getByRole('button',{name:'Mark Day 1 Complete'}).click();
+    await page.goto('/reading-plans/30-days-of-prayer/day/1');
+    await expect(page.getByText('0 of 30 days complete')).toBeVisible();
+    await page.goto('/reading-plans/getting-to-know-jesus/day/1');
+    await expect(page.getByRole('button',{name:/Day Complete — Undo/})).toBeVisible();
   });
   test('mobile layout stays in viewport and privacy text visible',async({page})=>{
     await page.setViewportSize({width:390,height:844});
