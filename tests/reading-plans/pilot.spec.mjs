@@ -149,7 +149,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       await expect(first.getByRole('button',{name:/Day Complete — Undo/})).toBeVisible();
     } finally {await a.close();await b.close();}
   });
-  test('all 22 plans have working overviews and first and final daily readings',async({page})=>{
+  test('all 22 plans have working overviews and first daily readings',async({page})=>{
     await page.goto('/reading-plans');
     await page.getByRole('button',{name:'All 22 Plans',exact:true}).click();
     const hrefs=await page.locator('article[class*="planCard"] a').evaluateAll(links=>links.map(a=>a.getAttribute('href')));
