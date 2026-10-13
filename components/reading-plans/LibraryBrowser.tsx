@@ -21,9 +21,9 @@ export default function LibraryBrowser({plans}:{plans:PlanSummary[]}) {
     <p className={styles.count}>{visible.length} plan{visible.length===1?"":"s"} found</p>
     {visible.length===0?<p role="status">No plans match your search. Try another topic.</p>:
       <div className={styles.planGrid}>{items.map(p=><article className={styles.planCard} key={p.slug}>
-        <span className={styles.cardKicker}>{p.days} DAYS {p.available?"· PILOT READY":"· COMING AFTER PILOT"}</span>
+        <span className={styles.cardKicker}>{p.days} DAYS {p.available?"· READY TO READ":"· COMING SOON"}</span>
         <h3>{p.title}</h3><p>{p.subtitle}</p>
-        {p.available?<Link className={styles.cardLink} href={"/reading-plans/"+p.slug}>Explore This Plan →</Link>:<span className={styles.cardMuted}>Available after pilot review</span>}
+        {p.available?<Link className={styles.cardLink} href={"/reading-plans/"+p.slug}>Explore This Plan →</Link>:<span className={styles.cardMuted}>Coming soon</span>}
       </article>)}</div>}
     {visible.length>6&&<button type="button" className={styles.secondaryButton} onClick={()=>{
       if(showAll){
