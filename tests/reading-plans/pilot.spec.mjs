@@ -39,6 +39,22 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await expect(page.getByText('1 plan found')).toBeVisible();
     await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveAttribute('href',pilot);
   });
+  test('unapproved plans stay unavailable and invalid day URLs do not expose content',async({page})=>{
+    await page.goto('/reading-plans');
+    await page.getByRole('button',{name:'10-Day Plans'}).click();
+    await expect(page.getByText('10 plans found')).toBeVisible();
+    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveCount(0);
+    for(const path of [
+      '/reading-plans/30-days-of-prayer',
+      '/reading-plans/30-days-of-prayer/day/1',
+      '/reading-plans/30-days-with-jesus/day/31',
+      '/reading-plans/30-days-with-jesus/day/0',
+      '/reading-plans/30-days-with-jesus/day/not-a-day'
+    ]){
+      const response=await page.goto(path);
+      expect(response?.status(),`Unexpected route exposure: ${path}`).toBe(404);
+    }
+  });
   test('every approved daily reading opens and has FCE Reader link',async({page})=>{
     for(let n=1;n<=30;n++){
       await page.goto(`${pilot}/day/${n}`);
