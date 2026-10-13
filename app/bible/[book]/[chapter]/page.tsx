@@ -17,7 +17,7 @@ type RouteProps={
 };
 const validReadingPlanReturn=(value:unknown):value is string=>
  typeof value==="string" &&
- /^\\/reading-plans\\/30-days-with-jesus\\/day\\/(?:[1-9]|[12]\\d|30)$/.test(value);
+ /^\/reading-plans\/30-days-with-jesus\/day\/(?:[1-9]|[12]\d|30)$/.test(value);
 const withReturn=(href:string|null,returnTo:string|null)=>
  href&&returnTo?`${href}?returnTo=${encodeURIComponent(returnTo)}`:href;
 export const revalidate = 86400;
