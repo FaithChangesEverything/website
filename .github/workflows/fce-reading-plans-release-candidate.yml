@@ -1,0 +1,52 @@
+name: FCE Reading Plans Release Candidate Verification
+on:
+  push:
+    branches: [release/fce-reading-plans-final-verification]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify-release-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      FCE_RELEASE_TEST: "1"
+      NEXT_TELEMETRY_DISABLED: "1"
+      NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: release-test-placeholder
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact locked dependencies
+        run: npm ci
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+      - name: Validate plan metadata and approval gates
+        run: node scripts/validate-reading-plans.mjs
+      - name: TypeScript check
+        run: npx tsc --noEmit
+      - name: ESLint for Reading Plans, Bible Reader and shared Header
+        run: npx eslint app/reading-plans components/reading-plans lib/reading-plans components/Header.tsx components/bible/ScriptureText.tsx app/bible
+      - name: Import exact checksum-pinned KJV from FCE Cloudflare R2
+        run: node scripts/import_fce_kjv.mjs
+      - name: Build complete optimized Next.js release candidate
+        run: npm run build
+      - name: Install Playwright testing tools
+        run: |
+          npm install --no-save --ignore-scripts @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser test the optimized release build
+        run: npx playwright test -c playwright.config.mjs
+      - name: Upload browser test artifacts if checks fail
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: fce-reading-plan-release-candidate-failures
+          path: test-results
+          if-no-files-found: ignore
+          retention-days: 3
