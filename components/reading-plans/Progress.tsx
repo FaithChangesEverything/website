@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import styles from "@/app/reading-plans/reading-plans.module.css";
 
 const prefix = "fce-reading-plan-progress-v1:";
 function readSaved(slug: string, total: number): number[] {
@@ -36,7 +37,7 @@ export function useReadingProgress(slug: string, total: number) {
   return {days, ready, toggle, reset, count: days.length, percent:Math.round(days.length/total*100)};
 }
 export function PrivacyNotice() {
-  return <aside className="fce-rp-privacy" aria-label="Your progress and privacy">
+  return <aside className={styles.privacy} aria-label="Your progress and privacy">
     <strong>🛡 Your Progress &amp; Your Privacy</strong>
     <p>Your completed readings are stored only in this browser on this device. No account is required, and FCE does not collect your reading-progress history on its servers.</p>
     <p>Refreshing or reopening the page will not erase saved progress. <strong>Clearing website data, using private browsing, or switching browsers or devices may cause progress to be lost.</strong></p>
