@@ -1,0 +1,31 @@
+name: FCE Reading Plans pilot checks
+on:
+  push:
+    branches: [feature/fce-reading-plans-jesus-pilot]
+  pull_request:
+    paths:
+      - 'app/reading-plans/**'
+      - 'components/reading-plans/**'
+      - 'lib/reading-plans/**'
+      - 'scripts/validate-reading-plans.mjs'
+      - '.github/workflows/fce-reading-plans-pilot.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Verify all approved plan data
+        run: node scripts/validate-reading-plans.mjs
+      - name: Type-check Next.js pilot
+        run: npx tsc --noEmit
+      - name: Lint reading plan pages and components
+        run: npx eslint app/reading-plans components/reading-plans lib/reading-plans
