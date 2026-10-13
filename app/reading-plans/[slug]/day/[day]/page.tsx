@@ -28,8 +28,8 @@ export default async function DailyPage({params}:Props){
       <div className={styles.dailyColumns}>
         <article className={styles.dailyMain}>
           <section className={styles.contentCard}><p className={styles.eyebrow}>TODAY&apos;S SCRIPTURE READING</p><h2>{lesson.primaryReading}</h2><p>Read the full passage in the FCE Bible Reader. Pay attention to the setting, the people, and what the passage reveals about God.</p>
-            {href?<Link className={styles.primaryButton} href={`https://faithchangeseverything.org${href}`}>Open in FCE Bible Reader →</Link>:<p role="status">Bible Reader link is not available for this reference.</p>}
-            <small>King James Version (KJV). During this pilot, the Scripture link opens the existing released FCE Bible Reader. Use your browser Back button to return to the lesson.</small>
+            {href?<Link className={styles.primaryButton} href={href}>Open in FCE Bible Reader →</Link>:<p role="status">Bible Reader link is not available for this reference.</p>}
+            <small>King James Version (KJV). Open the FCE Bible Reader to read the assigned Scripture, then return to this lesson to mark your progress.</small>
           </section>
           <section className={styles.contentCard}><p className={styles.eyebrow}>KEY VERSE</p>
             <blockquote className={styles.keyVerse}><span>“{lesson.keyVerse.text}”</span>{" "}<strong>{lesson.keyVerse.reference} (KJV){lesson.keyVerse.isExcerpt?" — excerpt":""}</strong></blockquote>
