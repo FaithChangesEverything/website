@@ -13,7 +13,7 @@ export default function LibraryBrowser({plans}:{plans:PlanSummary[]}) {
     <p className={styles.eyebrow}>EXPLORE THE COLLECTION</p>
     <h2 id="browse-title">Browse Reading Plans</h2>
     <p>Choose a reading length, or search for a subject you would like to explore.</p>
-    <div className={styles.filters} role="group" aria-label="Filter plans by length">
+    <div id="reading-plan-filters" className={styles.filters} role="group" aria-label="Filter plans by length">
       {[0,7,10,30].map(n=><button type="button" key={n} aria-pressed={duration===n} className={duration===n?styles.filterActive:styles.filter} onClick={()=>{setDuration(n);setShowAll(n===0);}}>{n===0?"All 22 Plans":n+"-Day Plans"}</button>)}
     </div>
     <label className={styles.searchLabel} htmlFor="reading-plan-search">Search by plan title or subject</label>
@@ -25,6 +25,6 @@ export default function LibraryBrowser({plans}:{plans:PlanSummary[]}) {
         <h3>{p.title}</h3><p>{p.subtitle}</p>
         {p.available?<Link className={styles.cardLink} href={"/reading-plans/"+p.slug}>Explore This Plan →</Link>:<span className={styles.cardMuted}>Available after pilot review</span>}
       </article>)}</div>}
-    {visible.length>6&&<button type="button" className={styles.secondaryButton} onClick={()=>setShowAll(v=>!v)}>{showAll?"Show Fewer Plans":`View All ${visible.length} Plans`}</button>}
+    {visible.length>6&&<button type="button" className={styles.secondaryButton} onClick={()=>{\n      if(showAll){\n        setShowAll(false);\n        requestAnimationFrame(()=>document.getElementById("reading-plan-filters")?.scrollIntoView({behavior:"auto",block:"start"}));\n      } else {\n        setShowAll(true);\n      }\n    }}>{showAll?"Show Fewer Plans":`View All ${visible.length} Plans`}</button>}
   </section>;
 }
