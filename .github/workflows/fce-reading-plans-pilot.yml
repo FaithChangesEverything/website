@@ -14,7 +14,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,3 +29,17 @@ jobs:
         run: npx tsc --noEmit
       - name: Lint reading plan pages and components
         run: npx eslint app/reading-plans components/reading-plans lib/reading-plans
+
+      - name: Install isolated browser test dependencies
+        run: npm install --no-save --ignore-scripts @playwright/test@1.56.1
+      - name: Install Chromium for browser tests
+        run: npx playwright install --with-deps chromium
+      - name: Test 30-day reading-plan visitor journey
+        run: npx playwright test -c playwright.config.mjs
+      - name: Upload test evidence on failures
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reading-plan-browser-test-results
+          path: test-results
+          retention-days: 3
