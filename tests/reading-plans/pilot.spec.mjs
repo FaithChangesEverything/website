@@ -19,7 +19,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       await expect(page.getByText('KEY VERSE')).toBeVisible();
       await expect(page.getByText('Reading Focus')).toBeVisible();
       const href=await page.getByRole('link',{name:/Open in FCE Bible Reader/}).getAttribute('href');
-      expect(href).toMatch(/^https:\/\/faithchangeseverything\.org\/bible\/[a-z0-9-]+\/\d+(#v\d+)?$/);
+      expect(href).toMatch(/^\/bible\/[a-z0-9-]+\/\d+(#v\d+)?$/);
     }
   });
   test('progress persists after refresh and on plan overview; reset requires confirmation',async({page})=>{
