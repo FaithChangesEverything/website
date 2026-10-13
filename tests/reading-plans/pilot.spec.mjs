@@ -22,6 +22,19 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       expect(href).toMatch(/^\/bible\/[a-z0-9-]+\/\d+(#v\d+)?$/);
     }
   });
+  test('daily Scripture link opens integrated KJV chapter and highlights assigned verse',async({page})=>{
+    await page.goto(`${pilot}/day/1`);
+    const link=page.getByRole('link',{name:/Open in FCE Bible Reader/});
+    await expect(link).toHaveAttribute('href','/bible/john/1#v1');
+    await link.click();
+    await expect(page).toHaveURL(/\/bible\/john\/1#v1$/);
+    await expect(page.getByRole('heading',{name:'FCE Bible Reader'})).toBeVisible();
+    await expect(page.getByText('John — Chapter 1')).toBeVisible();
+    await expect(page.locator('#v1')).toContainText('In the beginning was the Word');
+    await expect(page.locator('#v1')).toHaveClass(/highlight/);
+    await page.goBack();
+    await expect(page.getByRole('heading',{name:'The Word Became Flesh'})).toBeVisible();
+  });
   test('progress persists after refresh and on plan overview; reset requires confirmation',async({page})=>{
     await page.goto(`${pilot}/day/1`);
     await page.getByRole('button',{name:'Mark Day 1 Complete'}).click();
