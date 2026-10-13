@@ -43,7 +43,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await page.goto('/reading-plans');
     await page.getByRole('button',{name:'10-Day Plans'}).click();
     await expect(page.getByText('10 plans found')).toBeVisible();
-    await expect(page.getByRole('link',{name:/Explore This Plan/})).toHaveCount(6);
+    await expect(page.locator('article[class*="planCard"]').getByRole('link',{name:/Explore This Plan/})).toHaveCount(6);
     await page.goto('/reading-plans/30-days-of-prayer/day/1');
     await expect(page.getByRole('heading',{name:'Called to Pray'})).toBeVisible();
     for(const path of [
@@ -76,7 +76,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     for(let n=1;n<=30;n++){
       await page.goto(`${pilot}/day/${n}`);
       await expect(page.locator('main h1')).toBeVisible();
-      await expect(page.getByText('KEY VERSE')).toBeVisible();
+      await expect(page.getByText('KEY VERSE',{exact:true})).toBeVisible();
       await expect(page.getByText('Reading Focus')).toBeVisible();
       const href=await page.getByRole('link',{name:/Open in FCE Bible Reader/}).getAttribute('href');
       expect(href).toMatch(new RegExp(`^/bible/[a-z0-9-]+/\\d+\\?returnTo=%2Freading-plans%2F30-days-with-jesus%2Fday%2F${n}(#v\\d+)?$`));
@@ -158,7 +158,7 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
       await page.goto(url);
       await expect(page.getByRole('heading',{name:'Your Progress'})).toBeVisible();
       await page.goto(url+'/day/1');
-      await expect(page.getByText('KEY VERSE')).toBeVisible();
+      await expect(page.getByText('KEY VERSE',{exact:true})).toBeVisible();
       await expect(page.getByRole('link',{name:/FCE Bible Reader/}).first()).toHaveAttribute('href',new RegExp('^/bible/'));
     }
   });
