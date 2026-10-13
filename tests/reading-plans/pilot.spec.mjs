@@ -1,6 +1,33 @@
 import {test,expect} from '@playwright/test';
 const pilot='/reading-plans/30-days-with-jesus';
 test.describe('FCE Bible Reading Plans pilot',()=>{
+  test('shared FCE header provides Bible dropdown across different page families',async({page})=>{
+    for(const path of ['/bible','/reading-plans','/bible-studies','/journey']){
+      await page.goto(path);
+      const nav=page.getByRole('navigation',{name:'Primary navigation'});
+      await expect(nav.getByRole('link',{name:'Bible',exact:true})).toHaveAttribute('href','/bible');
+      await nav.getByText('▾').click();
+      await expect(nav.getByRole('link',{name:'Read the Bible'})).toHaveAttribute('href','/bible');
+      await expect(nav.getByRole('link',{name:'Bible Reading Plans'})).toHaveAttribute('href','/reading-plans');
+      await expect(nav.getByRole('link',{name:'Bible Study Library'})).toHaveAttribute('href','/bible-studies');
+    }
+    await page.goto('/journey');
+    const nav=page.getByRole('navigation',{name:'Primary navigation'});
+    await nav.getByText('▾').click();
+    await nav.getByRole('link',{name:'Bible Reading Plans'}).click();
+    await expect(page).toHaveURL(/\/reading-plans$/);
+  });
+  test('shared mobile header lets visitors access Bible menus',async({page})=>{
+    await page.setViewportSize({width:390,height:844});
+    await page.goto('/journey');
+    await page.locator('details[class*="mobileMenu"] > summary').click();
+    const mobile=page.getByRole('navigation',{name:'Mobile primary navigation'});
+    await mobile.locator('details > summary').filter({hasText:'Bible'}).click();
+    await expect(mobile.getByRole('link',{name:'Bible Reading Plans'})).toBeVisible();
+    await expect(mobile.getByRole('link',{name:'Bible Study Library'})).toBeVisible();
+    await mobile.getByRole('link',{name:'Bible Study Library'}).click();
+    await expect(page).toHaveURL(/\/bible-studies$/);
+  });
   test('library renders and filters approved plan inventory',async({page})=>{
     await page.goto('/reading-plans');
     await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
