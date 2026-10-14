@@ -14,11 +14,21 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
+    if (state.status === "idle") return;
+
+    // Cloudflare Turnstile tokens are single-use. Re-arm verification after
+    // every server response, including delivery errors, so visitors can retry
+    // or send another message without refreshing the page.
+    const turnstile = (window as Window & {
+      turnstile?: { reset: () => void };
+    }).turnstile;
+    turnstile?.reset();
+
     if (state.status === "success") {
       formRef.current?.reset();
       setReason("");
     }
-  }, [state.status]);
+  }, [state]);
 
   return (
     <>
