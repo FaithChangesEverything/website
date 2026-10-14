@@ -37,6 +37,30 @@ The feature **must not be merged until these settings are configured and the liv
 
 The outgoing message destination is hardcoded to **faithchangeseverythingministry@gmail.com**. No CRM/Supabase integration is used. The Form is intentionally disabled when the public Turnstile key is absent; the action rejects any submission whose token cannot be verified. Users can still use direct email.
 
+
+## Verified preview tests — October 13, 2026
+
+Pastor Richard personally verified on the Vercel preview:
+
+- Approved original harbor design, sidebar artwork, footer treatment, and form layout visually approved without changes.
+- All five image assets available in `public/images/`; preview build READY.
+- Cloudflare Turnstile Managed widget: visible Success state after correcting a site-key transcription error and redeploying; valid server-verified token required.
+- Test email arrived at `faithchangeseverythingministry@gmail.com`; Gmail Reply populated the visitor-supplied email address.
+- Prayer Request and I Need Help Right Now choices displayed the correct guidance and led to `/prayer` and `/help-support`, with no automatic redirect.
+- Missing email, invalid email and missing message were rejected by browser validation.
+- Two consecutive messages without refreshing (Something Else and Website or Technical Issue), including optional blank name, both arrived at Gmail after a Turnstile-token reset fix.
+- Code inspection: form delivery calls Resend and contains no Supabase data write. This is static inspection, not an independent database audit.
+- The Privacy Policy was updated on this feature branch to disclose Resend, Gmail, and Cloudflare Turnstile; the update is not yet in production.
+
+## Remaining release gates
+
+- Test on at least one mobile viewport and keyboard navigation; visually approved desktop layout should remain unchanged.
+- Explicitly test invalid/expired Turnstile token and Resend failure handling; the code currently returns an error and does not claim delivery, but those failure paths have not been exercised end to end.
+- Review/install production-side abuse rate limiting (Turnstile plus honeypot do not by themselves limit repeated legitimate/automated requests); confirm the correct production traffic path before adding an edge rule.
+- Configure the Turnstile site and secret keys for Production before a production merge; they are currently Preview-only. Check permitted hostnames and verify a real production-domain test when launch is authorized.
+- Review Resend/Gmail message retention and remove temporary test emails if no longer needed.
+- Do not merge draft PR or mark Sequence 27 launch-ready until these checks are completed or explicitly resolved.
+
 ## Review and acceptance checks
 
 - Verify original visual hierarchy, hero composition, right-column illustration crop, footer background, and standard header/footer; check responsive and accessibility (keyboard, contrast, focus states, reduced motion).
