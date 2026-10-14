@@ -36,7 +36,7 @@ export default function Footer() {
           <span aria-hidden="true">|</span>
           <Link href="/terms">Terms</Link>
           <span aria-hidden="true">|</span>
-          <Link href="/contact">Contact</Link>
+          <Link href="/contact">Contact the Ministry</Link>
         </nav>
       </div>
     </footer>
