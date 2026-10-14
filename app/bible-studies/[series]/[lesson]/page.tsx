@@ -56,7 +56,7 @@ export default async function BibleStudyLessonPage({
   const lessonVideos = lesson.videos ?? (lesson.video ? [lesson.video] : []);
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} ${series.slug === "sermon-on-the-mount" ? styles.sermonOnMountPage : ""}`}>
       <Header />
 
       <section className={styles.lessonHero} aria-labelledby="lesson-title">
