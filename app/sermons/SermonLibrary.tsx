@@ -132,7 +132,7 @@ export default function SermonLibrary({ sermons }: Props) {
                       {sermon.part ? " • Part " + sermon.part : ""}
                     </p>
                     <h3 id={"heading-" + sermon.slug}>{sermon.title}</h3>
-                    <p className={styles.attribution}>Pastor Richard{sermon.series === "Testimony" ? " • Guest testimony" : ""}</p>
+                    <p className={styles.attribution}>{sermon.series === "Testimony" ? "Guest Testimony" : "FCE Sermon by Pastor Richard"}</p>
                     <p className={styles.scripture}>{sermon.scripture}</p>
                     <p className={styles.description}>{sermon.description}</p>
                     <div className={styles.actions}>
