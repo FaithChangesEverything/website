@@ -271,7 +271,7 @@ export const sermons: Sermon[] = [
     "slug": "rooted-in-christ",
     "image": "/images/sermons/rooted-in-christ.png",
     "pdf": "https://resources.faithchangeseverything.org/documents/sermons/rooted-in-christ.pdf",
-    "videoId": "c77adb9ed5967f76e414b7cd9409a319"
+    "videoId": "e33647171645f7c23a2f6c98dd3efc74"
   },
   {
     "id": "vid-2026-00206",
