@@ -286,7 +286,7 @@ export const sermons: Sermon[] = [
     ],
     "slug": "god-wants-to-be-known",
     "image": "/images/sermons/god-wants-to-be-known.png",
-    "pdf": "https://resources.faithchangeseverything.org/documents/sermons/kthog1-god-wants-to-be-known.pdf",
+    "pdf": "https://resources.faithchangeseverything.org/documents/sermons/kthog1-god-wants-to-be-known.pdf?v=20261016-144946",
     "videoId": "7ac77d0e429bcce61691cc2ee2040f5d"
   },
   {
