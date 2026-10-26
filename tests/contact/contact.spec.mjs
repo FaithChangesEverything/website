@@ -69,4 +69,15 @@ test.describe('FCE Contact the Ministry release checks', () => {
       await expect(page.locator('.contact-turnstile .cf-turnstile')).toBeVisible();
     }
   });
+  test('invalid security token fails closed without reaching email delivery', async ({ page }) => {
+    await page.goto('/contact');
+    // The release-test environment deliberately has no configured Turnstile key;
+    // this exercises the protected server action, not real email delivery.
+    await expect(page.getByText(/Online message delivery is being configured/)).toBeVisible();
+    await page.locator('#contact-email').fill('contact-security-test@example.org');
+    await page.locator('#contact-reason').selectOption('general');
+    await page.locator('#contact-message').fill('Verify the contact server action rejects missing security verification.');
+    await page.locator('form.contact-form').evaluate(form => form.requestSubmit());
+    await expect(page.locator('.contact-form-feedback.error')).toContainText('Please complete the security check');
+  });
 });
