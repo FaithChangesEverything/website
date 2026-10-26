@@ -14,7 +14,7 @@
 - No contact-form records, messages, or visitor data stored in Supabase; no new admin dashboard. Resend delivers to Gmail; the email provider and Gmail necessarily process/retain correspondence under their policies.
 - Visible privacy notice and success/failure handling. Only report success after Resend accepts the outbound message. Sender must be a verified Resend address; use visitor address solely as reply-to.
 
-## Required image upload before visual review
+## Approved images — upload and visual review completed
 
 Image assets are provided separately in the "FCE_Contact_Ministry_Approved_Assets.zip" handoff. Copy its image files into the repository's **public/images/** directory with these exact filenames:
 
@@ -52,14 +52,25 @@ Pastor Richard personally verified on the Vercel preview:
 - Code inspection: form delivery calls Resend and contains no Supabase data write. This is static inspection, not an independent database audit.
 - The Privacy Policy was updated on this feature branch to disclose Resend, Gmail, and Cloudflare Turnstile; the update is not yet in production.
 
-## Remaining release gates
+## Remaining release gates (reconciled October 26, 2026)
 
 - Test on at least one mobile viewport and keyboard navigation; visually approved desktop layout should remain unchanged.
 - Explicitly test invalid/expired Turnstile token and Resend failure handling; the code currently returns an error and does not claim delivery, but those failure paths have not been exercised end to end.
-- Review/install production-side abuse rate limiting (Turnstile plus honeypot do not by themselves limit repeated legitimate/automated requests); confirm the correct production traffic path before adding an edge rule.
-- Configure the Turnstile site and secret keys for Production before a production merge; they are currently Preview-only. Check permitted hostnames and verify a real production-domain test when launch is authorized.
+- **Completed October 26:** Cloudflare Free-plan rate-limiting rule enabled for `/contact`: 10 requests per 10 seconds per IP, then 10-second block. The rule applies to GET and POST (Free plan supports path, not method matching). Both production domains are proxied; review false positives after launch.
+- **Completed October 26:** Turnstile public and secret Vercel variables now target Production and Preview; Cloudflare widget already includes both production domains. After Contact merges, verify a real production-domain message before launch.
 - Review Resend/Gmail message retention and remove temporary test emails if no longer needed.
 - Do not merge draft PR or mark Sequence 27 launch-ready until these checks are completed or explicitly resolved.
+
+## October 26, 2026 — Pre-merge reconciliation
+
+- Security PR #31 upgraded Next.js and eslint-config-next to 16.4.3 in production `main`, and Contact draft PR #28 is synchronized with it.
+- Original Contact design, five image assets, delivery code, and privacy disclosures preserved. The previously documented image upload was completed; the original pre-upload checklist is historical.
+- React effect / JSX quotation lint errors corrected without changing user-facing design.
+- Contact-specific automated browser tests added for mobile, keyboard, images, links, guidance, and fail-closed Turnstile behavior. Final CI checks must pass before merge.
+- Resend credentials and Turnstile Production/Preview variable assignments confirmed, with no secret values disclosed or rotated.
+- Cloudflare rule ID `0bd80482ad5746d5bb6c9fd50f70c95f` is enabled. Only exact path `/contact` is affected, including GET as well as POST. Direct Vercel preview aliases bypass this domain-specific Cloudflare rule.
+- **Still awaiting release verification:** explicit expired Turnstile token and Resend delivery-failure handling tests; mobile visual/keyboard acceptance; email provider retention and temporary test-message review; final approval.
+- **Post-merge, before public launch:** verify both production Contact URLs, production Turnstile challenge, delivery to Gmail and Reply-To, and runtime logs. This can only be fully confirmed after the production route exists.
 
 ## Review and acceptance checks
 
