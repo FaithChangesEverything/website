@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
 import { submitContactMessage, type ContactFormState } from "./actions";
@@ -10,25 +10,28 @@ const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function ContactForm() {
   const [reason, setReason] = useState("");
-  const [state, formAction, pending] = useActionState(submitContactMessage, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (state.status === "idle") return;
+  // Handle successful submissions inside the form action rather than updating
+  // React state from an effect. Keep Turnstile single-use tokens refreshed on
+  // *every* response so a visitor can send again or retry without reloading.
+  const [state, formAction, pending] = useActionState(
+    async (previousState: ContactFormState, formData: FormData) => {
+      const result = await submitContactMessage(previousState, formData);
 
-    // Cloudflare Turnstile tokens are single-use. Re-arm verification after
-    // every server response, including delivery errors, so visitors can retry
-    // or send another message without refreshing the page.
-    const turnstile = (window as Window & {
-      turnstile?: { reset: () => void };
-    }).turnstile;
-    turnstile?.reset();
+      const turnstile = (window as Window & {
+        turnstile?: { reset: () => void };
+      }).turnstile;
+      turnstile?.reset();
 
-    if (state.status === "success") {
-      formRef.current?.reset();
-      setReason("");
-    }
-  }, [state]);
+      if (result.status === "success") {
+        formRef.current?.reset();
+        setReason("");
+      }
+      return result;
+    },
+    initialState,
+  );
 
   return (
     <>
