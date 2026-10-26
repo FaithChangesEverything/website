@@ -47,7 +47,7 @@ export default function PrivacyPage() {
       <div className={styles.content}>
         <section className={styles.introCard}>
           <p>
-            Faith Changes Everything ("FCE," "we," "us," or "our") operates faithchangeseverything.org. This Privacy Policy explains what information may be processed when you use the FCE website, why it is used, how it is protected, and the choices available to you.
+            Faith Changes Everything (&quot;FCE,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates faithchangeseverything.org. This Privacy Policy explains what information may be processed when you use the FCE website, why it is used, how it is protected, and the choices available to you.
           </p>
         </section>
 
