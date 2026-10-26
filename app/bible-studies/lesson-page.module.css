@@ -130,6 +130,12 @@
   scroll-margin-top: 96px;
 }
 
+/* Restore the approved 72px separation between the primary teaching and
+   commentary videos in the Sermon on the Mount series only. */
+.sermonOnMountPage .videoSection + .videoSection {
+  margin-top: 72px;
+}
+
 .sectionHeading {
   max-width: 820px;
 }

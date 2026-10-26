@@ -1,3 +1,4 @@
+import { getSermonById, getSermonUrl } from "../../sermons/data";
 import type { ResolvedResource, ResourceId } from "./types";
 
 /**
@@ -291,11 +292,24 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
 };
 
 export function getResourceById(id: ResourceId): ResolvedResource | undefined {
+  const sermon = getSermonById(id);
+  if (sermon) return {
+    id,
+    type: sermon.series === "Testimony" ? "testimony" : "sermon",
+    title: sermon.title,
+    description: sermon.series && sermon.series !== "Testimony"
+      ? sermon.series + (sermon.part ? " — Part " + sermon.part : "")
+      : undefined,
+    href: getSermonUrl(sermon),
+    actionLabel: "View Sermon",
+    imageSrc: sermon.image,
+    imageAlt: "Artwork for " + sermon.title,
+  };
   return resourceRegistry[id];
 }
 
 export function hasResource(id: ResourceId): boolean {
-  return Object.prototype.hasOwnProperty.call(resourceRegistry, id);
+  return Boolean(getSermonById(id)) || Object.prototype.hasOwnProperty.call(resourceRegistry, id);
 }
 
 export { resourceRegistry };
