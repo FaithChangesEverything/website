@@ -30,7 +30,7 @@ test.describe('FCE Contact the Ministry release checks', () => {
     const select = page.locator('#contact-reason');
     const message = page.locator('#contact-message');
     await select.selectOption('prayer');
-    await expect(page.getByRole('link', { name: /Go to Prayer Request/ })).toHaveAttribute('href', '/prayer');
+    await expect(page.locator('.contact-guidance').getByRole('link', { name: /Go to Prayer Request/ })).toHaveAttribute('href', '/prayer');
     await expect(message).toBeEditable();
     await select.selectOption('help');
     await expect(page.getByText(/This contact form is not monitored for emergencies/)).toBeVisible();
