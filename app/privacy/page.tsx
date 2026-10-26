@@ -40,14 +40,14 @@ export default function PrivacyPage() {
           <p className={styles.heroLead}>
             We believe privacy is part of treating people with care and respect. Our goal is to collect as little personal information as reasonably possible while providing a useful, secure, and trustworthy ministry website.
           </p>
-          <p className={styles.updated}>Last Updated: September 16, 2026</p>
+          <p className={styles.updated}>Last Updated: October 13, 2026</p>
         </div>
       </section>
 
       <div className={styles.content}>
         <section className={styles.introCard}>
           <p>
-            Faith Changes Everything ("FCE," "we," "us," or "our") operates faithchangeseverything.org. This Privacy Policy explains what information may be processed when you use the FCE website, why it is used, how it is protected, and the choices available to you.
+            Faith Changes Everything (&quot;FCE,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates faithchangeseverything.org. This Privacy Policy explains what information may be processed when you use the FCE website, why it is used, how it is protected, and the choices available to you.
           </p>
         </section>
 
@@ -90,6 +90,8 @@ export default function PrivacyPage() {
           <section id="communications" className={styles.policySection}>
             <h2>4. Communications With FCE</h2>
             <p>If you voluntarily contact FCE by email or through a website communication feature that FCE makes available, we may receive the information you choose to provide, such as your email address, name, message, and any information contained in your communication.</p>
+            <p>The Contact the Ministry form asks for a reply email address, a reason for contact, and a message; a name is optional. Submissions are delivered through our email delivery provider, Resend, to our ministry Gmail inbox. FCE does not create a separate Supabase contact-form database or use these messages to enroll visitors in a mailing list. Resend and Google process message information to deliver and manage correspondence, subject to their applicable services and retention practices.</p>
+            <p>The form uses Cloudflare Turnstile to help prevent automated abuse. Cloudflare may process limited technical or browser information needed to perform security verification. This contact form is not monitored as an emergency service. Please do not include unnecessary sensitive personal information.</p>
             <p>Ordinary correspondence is generally retained only as long as reasonably necessary to respond to or resolve the matter. Communications may be retained longer when reasonably necessary for an ongoing ministry matter, safety concern, legal obligation, recordkeeping need, or similar legitimate purpose.</p>
             <p>FCE does not currently operate a general visitor mailing list or weekly encouragement email program and does not collect visitor email addresses for those purposes.</p>
           </section>
@@ -119,7 +121,7 @@ export default function PrivacyPage() {
 
           <section id="service-providers" className={styles.policySection}>
             <h2>8. Website Hosting, Security, and Service Providers</h2>
-            <p>FCE uses third-party service providers to operate and protect the website. These currently include Vercel for website hosting and delivery, Cloudflare for website infrastructure, security, and video delivery through Cloudflare Stream, Supabase for protected database functionality, and Google Maps Platform for church-location searches. Cloudflare Web Analytics is described separately above and has not yet been enabled.</p>
+            <p>FCE uses third-party service providers to operate and protect the website. These currently include Vercel for website hosting and delivery, Cloudflare for website infrastructure, Turnstile security checks, and video delivery through Cloudflare Stream, Supabase for protected database functionality, Resend for contact-form email transmission, Google for the ministry Gmail inbox, and Google Maps Platform for church-location searches. Cloudflare Web Analytics is described separately above and has not yet been enabled.</p>
             <p>These providers may process limited technical information necessary to provide their services, such as IP addresses, browser or device information, request logs, security information, and performance information.</p>
             <p>FCE seeks to configure these services using privacy-conscious and secure settings and limits the information provided to third parties to what is reasonably necessary for the service being used.</p>
           </section>

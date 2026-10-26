@@ -1,7 +1,7 @@
 import {defineConfig,devices} from '@playwright/test';
 const releaseMode=process.env.FCE_RELEASE_TEST==='1';
 export default defineConfig({
- testDir:'./tests/reading-plans',
+ testDir:'./tests',
  timeout:45000,
  retries:1,
  use:{baseURL:'http://127.0.0.1:3000',trace:'retain-on-failure'},
