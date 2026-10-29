@@ -37,8 +37,7 @@ export default function AboutMinistryPage() {
                 </div>
               </div>
               <div className={styles.videoDetails}>
-                <h3>A Personal Welcome from Pastor Richard</h3>
-                <p className={styles.welcomePurpose}>About the heart and purpose of this ministry.</p>
+                <h3>A Personal Welcome from Pastor Richard about the heart and purpose of this ministry</h3>
                 <p>The welcome video will be available here after recording.</p>
                 <button className={styles.videoButton} type="button" disabled aria-label="Watch Welcome Video — coming soon">
                   <span aria-hidden="true">▶ </span>Watch Welcome Video
