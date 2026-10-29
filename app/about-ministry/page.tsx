@@ -22,16 +22,14 @@ export default function AboutMinistryPage() {
       <main className={styles.page}>
         <section className={styles.hero} aria-labelledby="about-heading">
           <div className={styles.heroContent}>
+            <p className={styles.heroWelcome}>Welcome to</p>
             <h1 id="about-heading">Faith Changes Everything</h1>
-            <p>This ministry exists to open the way toward the cross — toward Jesus Christ and the hope of salvation.</p>
+            <p className={styles.heroSubtitle}>About the Ministry</p>
           </div>
         </section>
 
-        <section className={styles.welcome} aria-labelledby="welcome-title">
+        <section className={styles.welcome} aria-label="A personal welcome from Pastor Richard">
           <div className={styles.container}>
-            <p className={styles.eyebrow}>A PERSONAL WELCOME</p>
-            <h2 id="welcome-title">Welcome to Faith Changes Everything</h2>
-            <p className={styles.sectionLead}>A message from Pastor Richard about the heart and purpose of this ministry.</p>
             <div className={styles.videoCard}>
               <div className={styles.portraitWrap}>
                 <div className={styles.portrait}>
@@ -40,6 +38,7 @@ export default function AboutMinistryPage() {
               </div>
               <div className={styles.videoDetails}>
                 <h3>A Personal Welcome from Pastor Richard</h3>
+                <p className={styles.welcomePurpose}>About the heart and purpose of this ministry.</p>
                 <p>The welcome video will be available here after recording.</p>
                 <button className={styles.videoButton} type="button" disabled aria-label="Watch Welcome Video — coming soon">
                   <span aria-hidden="true">▶ </span>Watch Welcome Video
