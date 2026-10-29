@@ -33,16 +33,16 @@ export default function AboutMinistryPage() {
             <h2 id="welcome-title">Welcome to Faith Changes Everything</h2>
             <p className={styles.sectionLead}>A message from Pastor Richard about the heart and purpose of this ministry.</p>
             <div className={styles.videoCard}>
-              <div className={styles.videoImage}>
-                <Image src="/images/about-ministry/pastor-richard.png" alt="Pastor Richard" fill sizes="(max-width: 760px) 100vw, 900px" style={{objectFit:"cover"}} />
+              <div className={styles.portraitWrap}>
+                <div className={styles.portrait}>
+                  <Image src="/images/about-ministry/pastor-richard.png" alt="Pastor Richard" fill sizes="(max-width: 760px) 190px, 235px" style={{objectFit:"cover"}} />
+                </div>
               </div>
               <div className={styles.videoDetails}>
-                <div>
-                  <h3>A Personal Welcome from Pastor Richard</h3>
-                  <p>The welcome video will be available here after recording.</p>
-                </div>
+                <h3>A Personal Welcome from Pastor Richard</h3>
+                <p>The welcome video will be available here after recording.</p>
                 <button className={styles.videoButton} type="button" disabled aria-label="Watch Welcome Video — coming soon">
-                  Watch Welcome Video <span aria-hidden="true">▶</span>
+                  <span aria-hidden="true">▶ </span>Watch Welcome Video
                 </button>
               </div>
             </div>
