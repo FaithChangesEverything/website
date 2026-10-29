@@ -13,7 +13,7 @@ const navItems = [
   ["Sermons", "/sermons"],
   ["Prayer", "/prayer"],
   ["Resources", "/resources"],
-  ["About", "/about"],
+  ["About", "/about-ministry"],
   ["Contact", "/contact"],
 ];
 
