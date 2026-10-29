@@ -55,3 +55,30 @@
 .prose p{font-size:1rem;line-height:1.55;margin-bottom:12px}
 .nextSteps{padding:22px 0 40px}
 }
+
+/* Fourth design review: more prominent page title, compact vertical rhythm. */
+.hero .heroWelcome{font-family:Georgia,serif;font-size:clamp(2.2rem,4.1vw,3.8rem);line-height:1.12;font-weight:700;margin:0;text-wrap:balance}
+.hero h1{font-size:clamp(2.2rem,4.1vw,3.8rem);margin:0;line-height:1.12}
+.hero .heroSubtitle{font-size:clamp(2.7rem,5vw,4.7rem);font-weight:700;line-height:1.12;margin:5px 0 0;text-wrap:balance}
+.hero{min-height:clamp(310px,31vw,420px)}
+.heroContent{padding:16px 0}
+.welcome{padding:4px 0 4px}
+.welcome .container{width:min(1120px,96%)}
+.videoCard{margin:0 auto;padding:18px 25px}
+.videoDetails h3{font-size:clamp(1.2rem,2vw,1.65rem);line-height:1.35}
+.videoDetails p{margin-top:12px}
+.introduction{padding:4px 0 4px}
+.prose{padding:28px clamp(20px,4vw,45px)}
+.nextSteps{padding:6px 0 25px}
+.nextSteps .sectionLead{margin:5px auto 10px}
+.nextSteps .grid{margin-top:12px}
+@media(max-width:760px){
+.hero .heroWelcome,.hero h1{font-size:clamp(1.65rem,6vw,2.6rem)}
+.hero .heroSubtitle{font-size:clamp(2.15rem,7.6vw,3.15rem)}
+.hero{min-height:350px}
+.welcome{padding:4px 0}
+.videoCard{padding:16px;gap:10px}
+.introduction{padding:4px 0}
+.prose{padding:23px 19px}
+.nextSteps{padding:8px 0 25px}
+}
