@@ -1,1 +1,22 @@
 .page{background:#faf8f3;color:#25334a}.hero{position:relative;min-height:clamp(440px,52vw,690px);background-image:linear-gradient(90deg,rgba(15,20,27,.83) 0%,rgba(15,20,27,.58) 34%,rgba(15,20,27,.04) 72%),url('/images/about-ministry/fce-about-ministry-hero.png');background-position:center;background-size:cover;display:flex;align-items:center}.heroContent{width:min(1100px,92%);margin:0 auto;padding:70px 0;max-width:1100px}.hero h1{font-family:Georgia,serif;color:#fff;font-size:clamp(2.5rem,5vw,4.8rem);line-height:1.12;max-width:630px;text-wrap:balance;text-shadow:0 2px 12px #0006}.hero p{max-width:570px;color:#fff7ea;font-size:clamp(1.05rem,1.65vw,1.35rem);line-height:1.65;margin-top:24px;text-shadow:0 2px 10px #0008}.container{width:min(1120px,92%);margin:0 auto}.welcome,.nextSteps{padding:76px 0}.welcome{text-align:center}.eyebrow{color:#956e35;letter-spacing:.17em;font-size:.8rem;font-weight:700;margin-bottom:14px}.welcome h2,.introduction h2,.nextSteps h2{font-family:Georgia,serif;font-size:clamp(1.9rem,3.2vw,2.65rem);line-height:1.25;color:#173454}.sectionLead{color:#5f6871;line-height:1.7;margin:14px auto 30px;max-width:700px;font-size:1.06rem}.videoCard{border:1px solid #e3ded4;background:#fff;box-shadow:0 10px 32px #24304412;border-radius:16px;overflow:hidden;text-align:left;max-width:860px;margin:34px auto 0}.videoImage{position:relative;aspect-ratio:16/9;background:#e8e5df}.videoDetails{padding:25px 28px;display:flex;align-items:center;justify-content:space-between;gap:22px}.videoDetails h3{font-family:Georgia,serif;font-size:1.3rem;color:#173454}.videoDetails p{margin-top:7px;color:#66717d;line-height:1.5}.videoButton{flex-shrink:0;padding:13px 19px;border:1px solid #b9bec5;border-radius:7px;background:#d8dadd;color:#686c72;opacity:.78;cursor:not-allowed;font:inherit;font-weight:700}.introduction{background:#fff;padding:75px 0}.prose{width:min(820px,90%);margin:auto}.prose h2{text-align:center;margin-bottom:32px}.prose p{font-size:1.07rem;line-height:1.9;margin:0 0 20px;color:#343d48}.prose strong{color:#223b59}.prose .closing{text-align:center;font-family:Georgia,serif;font-style:italic;color:#815f30;font-size:1.3rem;margin-top:35px}.nextSteps{text-align:center}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:36px}.card{background:white;border:1px solid #e5e0d8;overflow:hidden;border-radius:12px;box-shadow:0 6px 25px #2533470c;text-align:left;display:flex;flex-direction:column}.cardImage{position:relative;aspect-ratio:16/10;background:#ddd}.cardBody{padding:23px;display:flex;flex:1;flex-direction:column}.card h3{font-family:Georgia,serif;color:#173454;font-size:1.38rem}.card p{color:#5e6770;line-height:1.65;margin:12px 0 22px;flex:1}.cardLink{color:#174977;font-weight:700;text-decoration:underline;text-underline-offset:4px}.cardLink:hover,.cardLink:focus-visible{color:#9b6a27}@media(max-width:760px){.hero{min-height:480px;background-image:linear-gradient(0deg,rgba(15,20,27,.82),rgba(15,20,27,.14) 85%),url('/images/about-ministry/fce-about-ministry-hero.png');background-position:62% center;align-items:flex-end}.heroContent{padding:40px 0}.hero h1{max-width:400px}.welcome,.nextSteps,.introduction{padding:52px 0}.videoDetails{display:block}.videoButton{margin-top:20px;width:100%}.grid{grid-template-columns:1fr;max-width:450px;margin-left:auto;margin-right:auto}.cardImage{aspect-ratio:16/9}}
+/* Review refinement: shorter hero and Journey-to-Hope-style portrait welcome */
+.hero{min-height:clamp(280px,29vw,390px);background-position:center 48%}
+.heroContent{padding:35px 0}
+.hero h1{font-size:clamp(2.2rem,4.1vw,3.8rem)}
+.hero p{margin-top:14px}
+.videoCard{max-width:900px;display:flex;align-items:center;padding:30px 36px;gap:42px;background:#fffaf4}
+.portraitWrap{width:235px;flex:0 0 235px}
+.portrait{position:relative;width:235px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid #d5a446;box-shadow:0 9px 25px #0002}
+.videoDetails{display:block;flex:1;padding:0}
+.videoDetails h3{font-size:1.55rem}
+.videoDetails p{margin-top:15px}
+.videoButton{margin-top:20px}
+@media(max-width:760px){
+.hero{min-height:350px;background-position:61% center}
+.heroContent{padding:28px 0}
+.videoCard{display:flex;flex-direction:column;text-align:center;padding:26px 20px;gap:20px}
+.portraitWrap{width:190px;flex:0 0 auto}
+.portrait{width:190px}
+.videoDetails{width:100%}
+.videoDetails h3{font-size:1.35rem}
+}
