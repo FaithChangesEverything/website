@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./about-ministry.module.css";
+import AboutWelcomeVideo from "./AboutWelcomeVideo";
 
 export const metadata = {
   title: "About the Ministry | Faith Changes Everything",
@@ -38,10 +39,7 @@ export default function AboutMinistryPage() {
               </div>
               <div className={styles.videoDetails}>
                 <h3>A Personal Welcome from Pastor Richard about the heart and purpose of this ministry</h3>
-                <p>The welcome video will be available here after recording.</p>
-                <button className={styles.videoButton} type="button" disabled aria-label="Watch Welcome Video — coming soon">
-                  <span aria-hidden="true">▶ </span>Watch Welcome Video
-                </button>
+                <AboutWelcomeVideo />
               </div>
             </div>
           </div>
