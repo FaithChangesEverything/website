@@ -106,7 +106,7 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     const dialog = page.getByRole("dialog", { name: /Frontline/ });
     await dialog.getByRole("button", { name: "▶ Play Song" }).click();
     await expect(page.locator('aside[aria-label="FCE Music Player"] audio')).toHaveAttribute("src", /song-2026-0020-frontline\.mp3$/);
-    await dialog.getByRole("button", { name: "Add to Playlist" }).click();
+    await dialog.getByRole("button", { name: /Add to Playlist/ }).click();
     await expect(page.getByRole("dialog", { name: "Add to Playlist" })).toBeVisible();
     await page.locator("#picker-new-list").fill("Frontline Favorites");
     await page.getByRole("button", { name: "Create & Add" }).click();
