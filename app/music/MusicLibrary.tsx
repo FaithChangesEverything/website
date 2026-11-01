@@ -184,7 +184,7 @@ export default function MusicLibrary({ singles, tracks, album, artistLinks }: Pr
           <div>
             <p className={styles.sectionEyebrow}>ON THE FRONTLINE FOR CHRIST</p>
             <h2 id="tracks-heading">Album Tracks</h2>
-            <p>Ten songs presented in the album's intended listening order.</p>
+            <p>Ten songs presented in the album&apos;s intended listening order.</p>
           </div>
           <span className={styles.count}>{tracks.length} tracks</span>
         </div>
