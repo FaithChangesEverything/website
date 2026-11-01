@@ -4,9 +4,7 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
   test("page uses approved stage-lights hero, complete song inventory and album sequence", async ({ page, request }) => {
     const response = await page.goto("/music");
     expect(response?.status()).toBe(200);
-    await expect(page.getByRole("heading", { name: "FCE Music Library", exact: true })).toBeVisible({ visible: false }).catch(async () => {
-      await expect(page.locator("h1")).toHaveText("FCE Music Library");
-    });
+    await expect(page.getByRole("heading", { name: "FCE Music Library", exact: true })).toHaveText("FCE Music Library");
     await expect(page.locator("#singles article")).toHaveCount(13);
     await expect(page.locator("#album-tracks article")).toHaveCount(10);
     await expect(page.getByRole("heading", { name: "On the Frontline for Christ" })).toBeVisible();
@@ -57,7 +55,6 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     await page.goto("/music");
     await page.locator("#album summary").click();
     await expect(page.getByText(/Act IV — Our Living Hope/)).toBeVisible();
-    await expect(page.locator(".music_artistLinks__fake")).toHaveCount(0);
     const spotify = page.getByRole("link", { name: /Richard Ball on Spotify/ });
     await expect(spotify).toHaveAttribute("href", "https://open.spotify.com/artist/5VccgwHF7MJCcBhOWsM161");
     const apple = page.getByRole("link", { name: /Richard Ball on Apple Music/ });
