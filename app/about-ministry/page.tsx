@@ -31,17 +31,7 @@ export default function AboutMinistryPage() {
 
         <section className={styles.welcome} aria-label="A personal welcome from Pastor Richard">
           <div className={styles.container}>
-            <div className={styles.videoCard}>
-              <div className={styles.portraitWrap}>
-                <div className={styles.portrait}>
-                  <Image src="/images/about-ministry/pastor-richard.png" alt="Pastor Richard" fill sizes="(max-width: 760px) 190px, 235px" style={{objectFit:"cover"}} />
-                </div>
-              </div>
-              <div className={styles.videoDetails}>
-                <h3>A Personal Welcome from Pastor Richard about the heart and purpose of this ministry</h3>
-                <AboutWelcomeVideo />
-              </div>
-            </div>
+            <AboutWelcomeVideo />
           </div>
         </section>
 
