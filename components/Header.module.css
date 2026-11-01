@@ -53,11 +53,11 @@
   border-left: 1px solid rgba(215, 168, 75, .72);
 }
 
-.nav a:first-child {
+.nav > a:first-child {
   padding-left: 0;
 }
 
-.nav a:last-child {
+.nav > a:last-child {
   padding-right: 0;
 }
 
