@@ -82,3 +82,13 @@
 .prose{padding:23px 19px}
 .nextSteps{padding:8px 0 25px}
 }
+
+/* Cloudflare Stream welcome video modal */
+.videoButtonActive{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:16px;border:1px solid #1a466e;background:#173c61;color:white;padding:12px 19px;border-radius:7px;font:inherit;font-weight:700;cursor:pointer}
+.videoButtonActive:hover{background:#25577d}
+.videoButtonActive:focus-visible,.videoClose:focus-visible{outline:3px solid #e6b955;outline-offset:3px}
+.videoDialog{border:0;padding:0;background:transparent;max-width:min(1000px,94vw);width:94vw;overflow:visible}
+.videoDialog::backdrop{background:rgba(4,13,30,.85)}
+.videoDialogInner{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;box-shadow:0 20px 60px #0009}
+.streamFrame{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:10px}
+.videoClose{position:absolute;z-index:2;right:-12px;top:-16px;width:38px;height:38px;border:2px solid white;border-radius:50%;background:#173c61;color:#fff;font-size:20px;cursor:pointer}
