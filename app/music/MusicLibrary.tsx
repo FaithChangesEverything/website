@@ -62,8 +62,9 @@ function SongCard({ song, onDetails, onPlay, onAdd, isCurrent, isPlaying }: {
         <p className={styles.teaser}>{summarize(song.story)}</p>
         <div className={styles.cardControls}>
           <button type="button" className={styles.songPlayButton} onClick={() => onPlay(song.id)}
-            aria-label={`Play Song: ${song.title}`}>
-            {isCurrent && isPlaying ? "♫ Now Playing" : "▶ Play Song"}
+            aria-label={isCurrent && isPlaying ? `Pause Song: ${song.title}` :
+              isCurrent ? `Resume Song: ${song.title}` : `Play Song: ${song.title}`}>
+            {isCurrent && isPlaying ? "Ⅱ Pause Song" : isCurrent ? "▶ Resume Song" : "▶ Play Song"}
           </button>
           <button type="button" className={styles.addSongButton} onClick={() => onAdd(song.id)}
             aria-label={`Add ${song.title} to playlist`}>+ Add to Playlist</button>
@@ -352,7 +353,7 @@ export default function MusicLibrary({ singles, tracks, album, artistLinks }: Pr
         <div className={styles.songGrid}>
           {singles.map(song => (
             <SongCard key={song.id} song={song} onDetails={openDescription}
-              onPlay={startSong} onAdd={openAddToPlaylist}
+              onPlay={id => currentId === id ? togglePlayback() : startSong(id)} onAdd={openAddToPlaylist}
               isCurrent={currentId === song.id} isPlaying={isPlaying} />
           ))}
         </div>
@@ -399,7 +400,7 @@ export default function MusicLibrary({ singles, tracks, album, artistLinks }: Pr
         <div className={styles.songGrid}>
           {tracks.map(song => (
             <SongCard key={song.id} song={song} onDetails={openDescription}
-              onPlay={startSong} onAdd={openAddToPlaylist}
+              onPlay={id => currentId === id ? togglePlayback() : startSong(id)} onAdd={openAddToPlaylist}
               isCurrent={currentId === song.id} isPlaying={isPlaying} />
           ))}
         </div>
