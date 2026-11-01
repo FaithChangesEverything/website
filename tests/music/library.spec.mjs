@@ -114,6 +114,16 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     await expect(page.getByRole("heading", { name: "Frontline Favorites" })).toBeVisible();
   });
 
+  test("album naturally advances to the next track when a song finishes", async ({ page }) => {
+    await page.goto("/music");
+    await page.getByRole("button", { name: /Play the Whole Album/ }).click();
+    const player = page.locator('aside[aria-label="FCE Music Player"]');
+    await expect(player).toContainText("Track 1 of 10");
+    await player.locator("audio").evaluate(audio => audio.dispatchEvent(new Event("ended")));
+    await expect(player).toContainText("Track 2 of 10");
+    await expect(player).toContainText("What Grace Can Do");
+  });
+
   test("phone viewport has one-column cards and no horizontal overflow", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/music");
