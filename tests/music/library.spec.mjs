@@ -124,6 +124,28 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     await expect(player).toContainText("What Grace Can Do");
   });
 
+  test("desktop grid shows four cards across while laptop and phone layouts stay responsive", async ({ page }) => {
+    await page.setViewportSize({ width: 1600, height: 900 });
+    await page.goto("/music");
+    const grid = page.locator("#singles").locator("div[class*='songGrid']");
+    const measureColumns = async () => grid.evaluate(el => getComputedStyle(el).gridTemplateColumns.split(" ").filter(Boolean).length);
+    expect(await measureColumns()).toBe(4);
+    await expect(page.locator("#singles article")).toHaveCount(13);
+    let overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(2);
+
+    await page.setViewportSize({ width: 1280, height: 800 });
+    expect(await measureColumns()).toBe(3);
+
+    await page.setViewportSize({ width: 820, height: 1000 });
+    expect(await measureColumns()).toBe(2);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    expect(await measureColumns()).toBe(1);
+    overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(2);
+  });
+
   test("phone viewport has one-column cards and no horizontal overflow", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/music");
