@@ -239,7 +239,8 @@ export default function MusicLibrary({ singles, tracks, album, artistLinks }: Pr
     }
     let next = queueIndex + 1;
     if (shuffled && queue.length > 1) {
-      next = (queueIndex + 1 + Math.floor(Math.random() * (queue.length - 1))) % queue.length;
+      const randomOffset = window.crypto.getRandomValues(new Uint32Array(1))[0] % (queue.length - 1);
+      next = (queueIndex + 1 + randomOffset) % queue.length;
     } else if (next >= queue.length) {
       if (repeat === "all" || !automatic) next = 0;
       else { setIsPlaying(false); return; }
