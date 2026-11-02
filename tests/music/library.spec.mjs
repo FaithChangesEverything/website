@@ -146,6 +146,51 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     expect(overflow).toBeLessThanOrEqual(2);
   });
 
+  test("all 23 Full Description windows show their approved KJV passages, themes, lyrics and artist links", async ({ page, request }) => {
+    test.setTimeout(120000);
+    const { readFileSync } = await import("node:fs");
+    const singles = JSON.parse(readFileSync("app/music/singles.json", "utf8"));
+    const tracks = JSON.parse(readFileSync("app/music/tracks.json", "utf8"));
+    const allSongs = [...singles, ...tracks];
+
+    await page.goto("/music");
+    for (const row of allSongs) {
+      const [id, title, story, scripture, theme, , , lyricsFilename] = row;
+      const parts = scripture.match(/^(.+?)\\s+(\\d+):(\\d+)(?:-(\\d+))?\\s+\\(KJV\\)$/);
+      expect(parts, `Scripture must be parseable for ${title}`).not.toBeNull();
+      const slug = parts[1] === "Psalm" ? "psalms" : parts[1].toLowerCase().replace(/\\s+/g, "-");
+      const chapter = Number(parts[2]);
+      const first = Number(parts[3]);
+      const last = Number(parts[4] || parts[3]);
+      const response = await request.get(`/api/bible/${slug}/${chapter}`);
+      expect(response.ok(), `Missing KJV passage for ${title}: ${scripture}`).toBeTruthy();
+      const chapterData = await response.json();
+      const verses = (chapterData.paragraphs || []).flatMap(p => p.verses || []);
+      const expectedVerses = verses.filter(v => v.verse >= first && v.verse <= last);
+      expect(expectedVerses.length, `Missing numbered verses for ${title}`).toBe(last - first + 1);
+      const expected = expectedVerses.map(v => v.text.trim()).join(" ");
+
+      await page.getByRole("button", { name: `Full description for ${title}`, exact: true }).click();
+      const dialog = page.getByRole("dialog", { name: title, exact: true });
+      await expect(dialog).toBeVisible();
+      await expect(dialog.locator("p[class*='fullStory']")).toHaveText(story);
+      await expect(dialog.locator("p[class*='dialogTheme']")).toHaveText(theme);
+      await expect(dialog.locator("blockquote")).toHaveText(expected);
+      await expect(dialog.locator("p[class*='scriptureReference']")).toHaveText(scripture);
+      await expect(dialog.getByRole("link", { name: /Read in FCE Bible Reader/ }))
+        .toHaveAttribute("href", `/bible/${slug}/${chapter}#v${first}`);
+      await expect(dialog.getByRole("link", { name: /Open Lyrics/ }))
+        .toHaveAttribute("href", `https://resources.faithchangeseverything.org/documents/fce-music-lyrics/${lyricsFilename}`);
+      await expect(dialog.getByRole("link", { name: /Artist on Spotify/ }))
+        .toHaveAttribute("href", "https://open.spotify.com/artist/5VccgwHF7MJCcBhOWsM161");
+      await expect(dialog.getByRole("link", { name: /Artist on Apple Music/ }))
+        .toHaveAttribute("href", "https://music.apple.com/us/artist/richard-ball/6792113130");
+      await expect(dialog.getByRole("button", { name: /Play Song/ })).toBeVisible();
+      await dialog.getByRole("button", { name: "Close song description" }).click();
+      await expect(dialog).toBeHidden();
+    }
+  });
+
   test("phone viewport has one-column cards and no horizontal overflow", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/music");
