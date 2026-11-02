@@ -156,9 +156,9 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     await page.goto("/music");
     for (const row of allSongs) {
       const [id, title, story, scripture, theme, , , lyricsFilename] = row;
-      const parts = scripture.match(/^(.+?)\\s+(\\d+):(\\d+)(?:-(\\d+))?\\s+\\(KJV\\)$/);
+      const parts = scripture.match(/^(.+?)\s+(\d+):(\d+)(?:-(\d+))?\s+\(KJV\)$/);
       expect(parts, `Scripture must be parseable for ${title}`).not.toBeNull();
-      const slug = parts[1] === "Psalm" ? "psalms" : parts[1].toLowerCase().replace(/\\s+/g, "-");
+      const slug = parts[1] === "Psalm" ? "psalms" : parts[1].toLowerCase().replace(/\s+/g, "-");
       const chapter = Number(parts[2]);
       const first = Number(parts[3]);
       const last = Number(parts[4] || parts[3]);
