@@ -524,24 +524,3 @@
   .playerEmpty { padding:12px 15px; min-height:65px; }
   .playerEmpty p { font-size:.78rem; }
 }
-
-
-/* Large-desktop four-column Music Library preview.
-   Preserve three columns on ordinary laptops, two on tablets, one on phones. */
-@media (min-width: 1440px) {
-  .intro,
-  .collection,
-  .playlistsSection {
-    width: min(1420px, calc(100% - 48px));
-  }
-  .songGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 23px;
-  }
-  .cardBody {
-    padding: 20px 20px 23px;
-  }
-  .songCard h3 {
-    font-size: clamp(1.27rem, 1.45vw, 1.53rem);
-  }
-}
