@@ -124,12 +124,12 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     await expect(player).toContainText("What Grace Can Do");
   });
 
-  test("desktop grid shows four cards across while laptop and phone layouts stay responsive", async ({ page }) => {
+  test("desktop grid shows three cards across while tablet and phone layouts stay responsive", async ({ page }) => {
     await page.setViewportSize({ width: 1600, height: 900 });
     await page.goto("/music");
     const grid = page.locator("#singles").locator("div[class*='songGrid']");
     const measureColumns = async () => grid.evaluate(el => getComputedStyle(el).gridTemplateColumns.split(" ").filter(Boolean).length);
-    expect(await measureColumns()).toBe(4);
+    expect(await measureColumns()).toBe(3);
     await expect(page.locator("#singles article")).toHaveCount(13);
     let overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow).toBeLessThanOrEqual(2);
