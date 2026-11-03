@@ -46,7 +46,7 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
     await expect(dialog).toBeVisible();
     await expect(dialog.getByText("Fear thou not; for I am with thee.")).toBeVisible();
     await expect(dialog.getByText("Isaiah 41:10 (KJV)")).toBeVisible();
-    await expect(dialog.getByRole("link", { name: /Open Lyrics/ })).toHaveAttribute("href", /doc-2026-00231-when-u-cant-stand-lyrics\.docx$/);
+    await expect(dialog.getByRole("link", { name: /View Lyrics \(PDF\)/ })).toHaveAttribute("href", /\/documents\/fce-music-lyrics\/pdf\/doc-2026-00231-when-u-cant-stand-lyrics\.pdf$/);
     await expect(dialog.getByRole("link", { name: /FCE Bible Reader/ })).toHaveAttribute("href", "/bible/isaiah/41#v10");
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
@@ -155,7 +155,8 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
 
     await page.goto("/music");
     for (const row of allSongs) {
-      const [id, title, story, scripture, theme, , , lyricsFilename] = row;
+      const [id, title, story, scripture, theme, , , lyricsPdfPath] = row;
+      expect(lyricsPdfPath).toMatch(/^pdf\/[^/]+\.pdf$/);
       const parts = scripture.match(/^(.+?)\s+(\d+):(\d+)(?:-(\d+))?\s+\(KJV\)$/);
       expect(parts, `Scripture must be parseable for ${title}`).not.toBeNull();
       const slug = parts[1] === "Psalm" ? "psalms" : parts[1].toLowerCase().replace(/\s+/g, "-");
@@ -179,8 +180,8 @@ test.describe("FCE Music Library — REV1.2 launch", () => {
       await expect(dialog.locator("p[class*='scriptureReference']")).toHaveText(scripture);
       await expect(dialog.getByRole("link", { name: /Read in FCE Bible Reader/ }))
         .toHaveAttribute("href", `/bible/${slug}/${chapter}#v${first}`);
-      await expect(dialog.getByRole("link", { name: /Open Lyrics/ }))
-        .toHaveAttribute("href", `https://resources.faithchangeseverything.org/documents/fce-music-lyrics/${lyricsFilename}`);
+      await expect(dialog.getByRole("link", { name: /View Lyrics \(PDF\)/ }))
+        .toHaveAttribute("href", `https://resources.faithchangeseverything.org/documents/fce-music-lyrics/${lyricsPdfPath}`);
       await expect(dialog.getByRole("link", { name: /Artist on Spotify/ }))
         .toHaveAttribute("href", "https://open.spotify.com/artist/5VccgwHF7MJCcBhOWsM161");
       await expect(dialog.getByRole("link", { name: /Artist on Apple Music/ }))
