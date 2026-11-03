@@ -2,8 +2,9 @@ import rawSingles from "./singles.json";
 import rawTracks from "./tracks.json";
 import rawAlbum from "./album.json";
 
-// SongMetadata REV1.2, worksheet "songmetadata", rows 4–27 only.
-// The stored R2 file basenames and complete approved stories are preserved.
+// SongMetadata REV1.3, worksheet "songmetadata", rows 4–27 only.
+// Lyrics links use the PDF URLs in column M; column L retains archival Word filenames.
+// The stored R2 audio/cover file basenames and complete approved stories are preserved.
 // Rows 28 onward are deliberately excluded until their future publication.
 type SourceRow = [
   id: string,
@@ -13,7 +14,7 @@ type SourceRow = [
   theme: string,
   audioFile: string,
   coverFile: string,
-  lyricsFile: string,
+  lyricsPdfPath: string,
 ];
 
 export type Song = {
@@ -36,12 +37,12 @@ export const artistLinks = {
 };
 
 function fromRow(row: SourceRow, kind: Song["kind"], trackNumber?: number): Song {
-  const [id, title, story, scripture, theme, audioFile, coverFile, lyricsFile] = row;
+  const [id, title, story, scripture, theme, audioFile, coverFile, lyricsPdfPath] = row;
   return {
     id, title, story, scripture, theme, kind, trackNumber,
     audioUrl: `${r2}/audio/music/listening/${audioFile}`,
     coverUrl: `${r2}/images/music-covers/square/${coverFile}`,
-    lyricsUrl: `${r2}/documents/fce-music-lyrics/${lyricsFile}`,
+    lyricsUrl: `${r2}/documents/fce-music-lyrics/${lyricsPdfPath}`,
   };
 }
 
