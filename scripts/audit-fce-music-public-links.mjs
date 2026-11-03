@@ -8,7 +8,7 @@ const base = "https://resources.faithchangeseverything.org/";
 const spec = [
   ["audio", "audio/music/listening/", 5, "audio/mpeg"],
   ["cover", "images/music-covers/square/", 6, "image/png"],
-  ["lyrics", "documents/fce-music-lyrics/", 7, "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
+  ["lyrics", "documents/fce-music-lyrics/", 7, "application/pdf"],
 ];
 const requests = [];
 for (const row of [...singles, ...tracks]) {
@@ -16,7 +16,7 @@ for (const row of [...singles, ...tracks]) {
     requests.push({ kind, title: row[1], url: base + prefix + row[col], mime });
   }
 }
-requests.push({ kind: "album cover", title: album.title, url: album.cover, mime: "image/png" });
+if ([...singles, ...tracks].some(row => !/^pdf\\/[^/]+\\.pdf$/.test(row[7]))) {\n  throw new Error("REV1.3 song lyrics must use PDF paths under pdf/.");\n}\nrequests.push({ kind: "album cover", title: album.title, url: album.cover, mime: "image/png" });
 
 if (singles.length !== 13 || tracks.length !== 10 || requests.length !== 70) {
   throw new Error("Unexpected launch inventory; must check 13 singles, 10 album tracks, and one album cover.");
