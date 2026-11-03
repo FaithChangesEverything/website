@@ -442,7 +442,7 @@ export default function MusicLibrary({ singles, tracks, album, artistLinks }: Pr
                 <button type="button" onClick={() => openAddToPlaylist(selected.id)}>+ Add to Playlist</button>
               </div>
               <div className={styles.dialogActions}>
-                <a href={selected.lyricsUrl} target="_blank" rel="noopener noreferrer">Open Lyrics (Word) ↗</a>
+                <a href={selected.lyricsUrl} target="_blank" rel="noopener noreferrer">View Lyrics (PDF) ↗</a>
                 <a href={artistLinks.spotify} target="_blank" rel="noopener noreferrer">Artist on Spotify ↗</a>
                 <a href={artistLinks.apple} target="_blank" rel="noopener noreferrer">Artist on Apple Music ↗</a>
               </div>
