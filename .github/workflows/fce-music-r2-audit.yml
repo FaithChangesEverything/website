@@ -1,0 +1,27 @@
+name: Audit FCE Music Public R2 Assets
+
+on:
+  push:
+    branches: [feature/fce-music-library]
+    paths:
+      - "scripts/audit-fce-music-public-links.mjs"
+      - "app/music/singles.json"
+      - "app/music/tracks.json"
+      - "app/music/album.json"
+      - ".github/workflows/fce-music-r2-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-public-media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check all 70 Music Library media URLs
+        run: node scripts/audit-fce-music-public-links.mjs
