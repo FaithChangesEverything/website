@@ -34,11 +34,11 @@ export const hopeSeriesPoc = {
       },
       "cues": {
         "1.c.1": 0.0,
-        "1.c.2": 26.08,
-        "1.c.3": 100.6,
-        "1.c.4": 132.88,
+        "1.c.2": 24.08,
+        "1.c.3": 97.6,
+        "1.c.4": 130.88,
         "1.c.5": 196.24,
-        "1.c.6": 231.72,
+        "1.c.6": 230.72,
         "1.c.7": 253.56
       }
     },
@@ -209,7 +209,7 @@ export const hopeSeriesPoc = {
           "This verse is that prayer.",
           "Paul asks God Himself to fill believers with joy, peace, and hope—not because life is easy, but because they trust in Him. That is an important truth for us today. Hope is not something we manufacture on our own. It is something God produces within us as we place our trust in Him."
         ],
-        "audioStartSeconds": 26.08
+        "audioStartSeconds": 24.08
       },
       {
         "id": "1.c.3",
@@ -218,7 +218,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "Romans 15:13 reminds us that true hope comes from God. As we place our trust in Him, He fills our hearts with joy and peace, not because life is always easy, but because we know He is faithful. Through the power of the Holy Spirit, God enables us to live with a hope that is secure, enduring, and overflowing, regardless of our circumstances."
         ],
-        "audioStartSeconds": 100.6
+        "audioStartSeconds": 97.6
       },
       {
         "id": "1.c.4",
@@ -230,7 +230,7 @@ export const hopeSeriesPoc = {
           "As you trust Him, He promises to do something remarkable within your heart. He fills you with joy that is not dependent on happiness. He gives peace that is not dependent on perfect circumstances. Through the work of His Holy Spirit, He fills your heart with hope that remains steady even when life feels uncertain.",
           "Your circumstances may not change overnight, but God can begin changing you today. And sometimes, that is where hope begins."
         ],
-        "audioStartSeconds": 132.88
+        "audioStartSeconds": 130.88
       },
       {
         "id": "1.c.5",
@@ -253,7 +253,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "True hope is not found in changing circumstances. It is found in the unchanging character of the God of hope, who fills His people with joy, peace, and confidence as they trust in Him."
         ],
-        "audioStartSeconds": 231.72
+        "audioStartSeconds": 230.72
       },
       {
         "id": "1.c.7",
