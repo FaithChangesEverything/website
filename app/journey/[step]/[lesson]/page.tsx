@@ -190,14 +190,13 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="6.b"
         title="Read God’s Word"
         lessons={step.lessons}
-        intro="Continue growing in God’s Word with the FCE Bible Reader and our Bible Reading Plan Library."
+        intro="Continue growing in God’s Word with the Faith Changes Everything Bible Studies."
       >
-        <LessonBlock title="Continue Reading God’s Word" icon="▣" tone="highlight">
-          <p>Choose a Scripture-guided reading plan to help you keep reading the Bible regularly and growing in your understanding of God’s Word.</p>
+        <LessonBlock title="Faith Changes Everything Bible Studies" icon="▣" tone="highlight">
+          <p>Explore beginner, intermediate, and advanced Bible studies designed to help you understand Scripture and continue growing in your relationship with Christ.</p>
           <div className={fixes.lessonResourceLinks}>
-            <Link href="/reading-plans">Explore FCE Bible Reading Plans</Link>
+            <Link href="/bible-studies">Begin Reading</Link>
           </div>
-          <p>To return to this Journey to Hope lesson after visiting the Reading Plan Library, use your browser’s Back button.</p>
         </LessonBlock>
       </IndividualLesson>
     );
