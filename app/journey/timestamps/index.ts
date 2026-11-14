@@ -27,5 +27,9 @@ export const journeyAudioTimestampMap = {
 } satisfies Record<string, Record<string, JourneyTimestampEntry>>;
 
 export function getJourneyAudioTimestamp(recordingId: string, sectionId: string) {
-  return journeyAudioTimestampMap[recordingId]?.[sectionId];
+  const registry = journeyAudioTimestampMap as Record<
+    string,
+    Record<string, JourneyTimestampEntry>
+  >;
+  return registry[recordingId]?.[sectionId];
 }
