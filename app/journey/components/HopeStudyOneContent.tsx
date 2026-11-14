@@ -40,13 +40,7 @@ export function HopeStudyOneContent() {
             <div className={fixes.lessonSectionActions}>
               <JourneyListenFromHere
                 playerId="1c-study-1"
-                seconds={
-                  section.id === "1.c.1"
-                    ? section.audioStartSeconds
-                    : section.id === "1.c.3"
-                      ? section.audioStartSeconds + 1
-                      : section.audioStartSeconds + 5
-                }
+                seconds={section.audioStartSeconds}
               />
             </div>
 
