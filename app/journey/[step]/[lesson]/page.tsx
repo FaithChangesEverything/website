@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
-import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
+import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";\nimport { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
 import ScriptureReference from "@/components/bible/ScriptureReference";
@@ -58,10 +58,10 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   }
 
   if (lesson.id === "1.c") {
-    const sections = hopeSeries.map((title, index) => ({
-      id: `1.c.${hopeSectionIds[index]}`,
-      title,
-      href: `/journey/step-1/what-does-the-bible-say-about-hope/study-${index + 1}`,
+    const sections = hopeStudyManifests.map((study) => ({
+      id: study.sectionId,
+      title: study.title,
+      href: study.href,
     }));
 
     return (
@@ -69,7 +69,15 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         stepNumber={1}
         parentId="1.c"
         title="What Does the Bible Say About Hope"
-        intro="This lesson is a seven-part Scripture study. Each study is presented as its own continuous teaching page while 1.c remains one parent lesson in your Journey."
+        intro=""
+        introParagraphs={hopeSeriesIntro}
+        audio={{
+          src: hopeSeriesOverviewAudio.src,
+          title: "What Does the Bible Say About Hope",
+          playerId: "1c-overview",
+          resumeKey: "1.c.overview",
+          startAtSeconds: hopeSeriesOverviewAudio.startAtSeconds,
+        }}
         sections={sections}
         lessons={step.lessons}
       />
@@ -164,7 +172,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <p>The approved Character of God Bible Study Series invitation and supporting content will appear here during content implementation.</p>
         </LessonBlock>
         <LessonBlock title="3.b.5 Time to Reflect" icon="?">
-          <p>The approved reflection questions and Scripture will remain inside this lesson as established by Doctrine Rev. 1.6.</p>
+          <p>The approved reflection questions and Scripture will remain inside this lesson as established by Doctrine Rev. 1.7.</p>
         </LessonBlock>
         <LessonBlock title="3.b.6 Final Encouragement" icon="✦" tone="highlight">
           <p>The approved final encouragement will appear here as part of the same 3.b lesson.</p>
