@@ -43,7 +43,9 @@ export function HopeStudyOneContent() {
                 seconds={
                   section.id === "1.c.1"
                     ? section.audioStartSeconds
-                    : section.audioStartSeconds + 5
+                    : section.id === "1.c.3"
+                      ? section.audioStartSeconds + 1
+                      : section.audioStartSeconds + 5
                 }
               />
             </div>
