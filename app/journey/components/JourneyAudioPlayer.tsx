@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 import { recordJourneyEngagementAction } from "../progress/engagement-actions";
@@ -69,7 +69,7 @@ export function JourneyAudioPlayer({
     return Math.max(0, clipEnd - startAtSeconds);
   };
 
-  const saveState = (position: number) => {
+  const saveState = useCallback((position: number) => {
     try {
       window.localStorage.setItem(
         storageKey,
@@ -81,7 +81,7 @@ export function JourneyAudioPlayer({
     } catch {
       // Audio remains fully usable when local storage is unavailable.
     }
-  };
+  }, [storageKey]);
 
   const reportEngagement = async () => {
     if (!contentKey || !path || reportPendingRef.current) return;
@@ -134,7 +134,7 @@ export function JourneyAudioPlayer({
 
     window.addEventListener(J2H_AUDIO_SEEK_EVENT, handleSeekRequest);
     return () => window.removeEventListener(J2H_AUDIO_SEEK_EVENT, handleSeekRequest);
-  }, [endAtSeconds, playerId, startAtSeconds, storageKey]);
+  }, [endAtSeconds, playerId, saveState, startAtSeconds]);
 
   const handleLoadedMetadata = () => {
     const audio = audioRef.current;
