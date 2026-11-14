@@ -35,10 +35,10 @@ export const hopeSeriesPoc = {
       "cues": {
         "1.c.1": 0.0,
         "1.c.2": 24.08,
-        "1.c.3": 97.6,
+        "1.c.3": 95.6,
         "1.c.4": 130.88,
         "1.c.5": 196.24,
-        "1.c.6": 230.72,
+        "1.c.6": 228.72,
         "1.c.7": 253.56
       }
     },
@@ -218,7 +218,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "Romans 15:13 reminds us that true hope comes from God. As we place our trust in Him, He fills our hearts with joy and peace, not because life is always easy, but because we know He is faithful. Through the power of the Holy Spirit, God enables us to live with a hope that is secure, enduring, and overflowing, regardless of our circumstances."
         ],
-        "audioStartSeconds": 97.6
+        "audioStartSeconds": 95.6
       },
       {
         "id": "1.c.4",
@@ -253,7 +253,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "True hope is not found in changing circumstances. It is found in the unchanging character of the God of hope, who fills His people with joy, peace, and confidence as they trust in Him."
         ],
-        "audioStartSeconds": 230.72
+        "audioStartSeconds": 228.72
       },
       {
         "id": "1.c.7",
