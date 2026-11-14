@@ -7,7 +7,6 @@ import { getJourneyItemProgress, startJourneyItem } from "../../progress/operati
 import fixes from "../../journey-fixes.module.css";
 import ScriptureReference from "@/components/bible/ScriptureReference";
 
-const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
 
 function resolveLesson(stepSlug: string, lessonSlug: string) {
