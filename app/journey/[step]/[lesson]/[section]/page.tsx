@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";\nimport { HopeStudyOneContent } from "../../../components/HopeStudyOneContent";\nimport { getHopeStudyManifest, hopeStudyOne } from "../../../content/hopeSeriesPoc";
+import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";
+import { HopeStudyOneContent } from "../../../components/HopeStudyOneContent";
+import { getHopeStudyManifest, hopeStudyOne } from "../../../content/hopeSeriesPoc";
 import { bibleStudySeries, getJourneyStep, hopeSeries } from "../../../data";
 import { getJourneyItemProgress, startJourneyItem } from "../../../progress/operations";
 
