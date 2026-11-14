@@ -17,10 +17,6 @@ export function JourneyListenFromHere({
       }),
     );
 
-    document.getElementById(`audio-${playerId}`)?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
   };
 
   return (
