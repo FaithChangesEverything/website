@@ -261,3 +261,58 @@
   .lessonResourceLinks{grid-template-columns:1fr}
   .crisisTitle{white-space:normal}
 }
+
+.seriesOverviewIntro{
+  margin:18px 0 22px;
+  padding:18px 20px;
+  border-left:4px solid #d3a347;
+  border-radius:8px;
+  background:#fffaf4;
+}
+.seriesOverviewIntro p{
+  margin:0 0 1rem;
+  color:#52606d;
+  line-height:1.75;
+}
+.seriesOverviewIntro p:last-child{margin-bottom:0}
+
+.lessonSectionActions{
+  display:flex;
+  justify-content:flex-end;
+  margin:0 0 .8rem;
+}
+.listenFromHere{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  padding:.5rem .8rem;
+  border:1px solid #d8c7aa;
+  border-radius:999px;
+  background:#fffaf4;
+  color:#17324f;
+  font:inherit;
+  font-size:.78rem;
+  font-weight:800;
+  cursor:pointer;
+}
+.listenFromHere:hover{
+  background:#f8eedf;
+}
+.listenFromHere:focus-visible{
+  outline:3px solid #d7a84b;
+  outline-offset:3px;
+}
+.reflectionQuestions{
+  margin:.25rem 0 0;
+  padding-left:1.3rem;
+}
+.reflectionQuestions li{
+  margin:.45rem 0;
+  line-height:1.65;
+}
+
+@media(max-width:760px){
+  .seriesOverviewIntro{margin:14px 0 18px;padding:16px}
+  .lessonSectionActions{justify-content:flex-start}
+}
