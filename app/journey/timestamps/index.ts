@@ -5,6 +5,12 @@ import { step4AudioTimestamps } from "./step4";
 import { step5AudioTimestamps } from "./step5";
 import { step6AudioTimestamps } from "./step6";
 
+// Timestamp confidence:
+ // verified    = manually reviewed against the VTT and manuscript
+ // high        = explicit section ID or recording-start match in the VTT
+ // matched     = ordered section-title match in the VTT
+ // estimated   = boundary inferred where Buzz omitted the spoken heading
+ // needs-review = no safe timestamp; do not render "Listen from here"
 export type JourneyTimestampConfidence =
   | "verified"
   | "high"
