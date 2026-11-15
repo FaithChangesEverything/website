@@ -7,7 +7,8 @@ import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent
 import { HopeStudyFourContent } from "../../../components/HopeStudyFourContent";
 import { HopeStudyFiveContent } from "../../../components/HopeStudyFiveContent";
 import { HopeStudySixContent } from "../../../components/HopeStudySixContent";
-import { getHopeStudyManifest, hopeStudyOne, hopeStudyTwo, hopeStudyThree, hopeStudyFour, hopeStudyFive, hopeStudySix } from "../../../content/hopeSeriesPoc";
+import { HopeStudySevenContent } from "../../../components/HopeStudySevenContent";
+import { getHopeStudyManifest, hopeStudyOne, hopeStudyTwo, hopeStudyThree, hopeStudyFour, hopeStudyFive, hopeStudySix, hopeStudySeven } from "../../../content/hopeSeriesPoc";
 import { bibleStudySeries, getJourneyStep, hopeSeries } from "../../../data";
 import { getJourneyItemProgress, startJourneyItem } from "../../../progress/operations";
 
@@ -116,6 +117,8 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
           <HopeStudyFiveContent />
         ) : study.studyNumber === hopeStudySix.studyNumber ? (
           <HopeStudySixContent />
+        ) : study.studyNumber === hopeStudySeven.studyNumber ? (
+          <HopeStudySevenContent />
         ) : (
           <HopeStudyBlocks startId={startId} />
         )}
