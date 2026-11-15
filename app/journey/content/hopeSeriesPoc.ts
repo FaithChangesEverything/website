@@ -175,6 +175,101 @@ export const hopeSeriesPoc = {
       }
     }
   ],
+  "studyThree": {
+    "studyNumber": 3,
+    "progressKey": "1.c.study-3",
+    "sectionId": "1.c.15",
+    "title": "Hope in God’s Faithfulness",
+    "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-3",
+    "audio": {
+      "recordingId": "audio-2026-00004",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c15-1c21-audio-2026-00004-gods-faithfulness.mp3",
+      "vttFile": "1c15-1c21-audio-2026-00004-gods-faithfulness.vtt",
+      "timestampVerified": true
+    },
+    "sections": [
+      {
+        "id": "1.c.15",
+        "title": "Hope In God’s Faithfulness - Scripture",
+        "kind": "scripture",
+        "paragraphs": [],
+        "scripture": {
+          "text": "Yet this I call to mind and therefore I have hope: Because of the Lord’s great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness. I say to myself, “The Lord is my portion; therefore, I will wait for him.”",
+          "reference": "Lamentations 3:21-24 (NIV)"
+        },
+        "audioStartSeconds": 0.0
+      },
+      {
+        "id": "1.c.16",
+        "title": "Context",
+        "kind": "context",
+        "paragraphs": [
+          "The book of Lamentations is a collection of poetic writings composed after the destruction of Jerusalem in 586 B.C. The once-great city had fallen to the Babylonian Empire. The temple, the center of Israel's worship, had been destroyed. Homes were burned, families were separated, and many people were either killed or taken into exile. The devastation was almost beyond description.",
+          "Lamentations give voice to the sorrow of God's people during one of the darkest periods in Israel's history. Rather than hiding pain or pretending that everything is all right, the writer openly expresses grief, confusion, and heartbreak. The book reminds us that God invites His people to bring their deepest sorrows before Him.",
+          "Chapter 3 stands at the very center of Lamentations and marks a turning point in the writer's thoughts. After describing his suffering in vivid detail, he makes a deliberate choice. Instead of allowing his circumstances to control his perspective, he chooses to remember who God is. Although nothing around him has changed, everything within him begins to change because his focus shifts from his circumstances to God's character.",
+          "These verses teach us one of the Bible's greatest lessons about hope. Hope is not found in denying our pain or pretending life is easy. True hope is found in remembering the unchanging faithfulness, mercy, and love of God."
+        ],
+        "audioStartSeconds": 30.98
+      },
+      {
+        "id": "1.c.17",
+        "title": "What Does This Passage Teach?",
+        "kind": "teaching",
+        "paragraphs": [
+          "Lamentations 3:21–24 reminds us that even in life's darkest moments, there is hope because of God's unchanging character. His love never fails, His compassion is renewed every morning, and His faithfulness never ends. No matter what we face, we can confidently trust in the Lord, knowing that He alone is our constant source of strength, hope, and security."
+        ],
+        "audioStartSeconds": 135.38
+      },
+      {
+        "id": "1.c.18",
+        "title": "How Does This Apply to Me Today",
+        "kind": "application",
+        "paragraphs": [
+          "There are seasons in life when it feels as though everything is falling apart. You may be grieving the loss of someone you love, facing illness, struggling financially, or carrying burdens that seem too heavy to bear. Like the writer of Lamentations, you may wonder how hope is even possible.",
+          "This passage reminds us that hope does not require perfect circumstances. The writer's situation did not suddenly improve. The city remained in ruins, and the pain was still real. What changed was his focus. Instead of dwelling only on his suffering, he chose to remember God's love, compassion, and faithfulness.",
+          "The same invitation is extended to us today.",
+          "When we remember God's faithfulness in the past, we gain confidence to trust Him with the present and the future. Your circumstances may not change overnight. But your perspective can. And sometimes that is where hope begins to grow."
+        ],
+        "audioStartSeconds": 178.7
+      },
+      {
+        "id": "1.c.19",
+        "title": "Questions to Reflect On",
+        "kind": "questions",
+        "paragraphs": [],
+        "items": [
+          "What circumstances are making it difficult for me to see God's faithfulness today?",
+          "When I become discouraged, what truths about God's character do I need to remember?",
+          "How have I experienced God's mercy in the past?",
+          "What would it look like to trust God's timing instead of demanding immediate answers?",
+          "How can remembering God's faithfulness strengthen my hope today?"
+        ],
+        "audioStartSeconds": 244.84
+      },
+      {
+        "id": "1.c.20",
+        "title": "One Truth to Remember",
+        "kind": "truth",
+        "paragraphs": [
+          "Hope grows when we stop focusing only on our circumstances and begin remembering the unchanging faithfulness of God."
+        ],
+        "audioStartSeconds": 274.6
+      },
+      {
+        "id": "1.c.21",
+        "title": "Prayer",
+        "kind": "prayer",
+        "paragraphs": [
+          "Heavenly Father,",
+          "Thank You for Your unfailing love and faithfulness. When life feels overwhelming and my heart is discouraged, help me remember who You are instead of focusing only on what I can see.",
+          "Thank You that Your compassion never fails and that Your mercies are new every morning. Even when I cannot understand what You are doing, teach me to trust Your heart and rest in Your promises.",
+          "Strengthen my faith as I wait upon You. Help me to remember that You are my greatest treasure and that nothing in this world can separate me from Your love. Fill my heart with the hope that comes from knowing You are always faithful.",
+          "In the name of Jesus Christ, Amen."
+        ],
+        "audioStartSeconds": 293.0
+      }
+    ]
+  },
   "studyTwo": {
     "studyNumber": 2,
     "progressKey": "1.c.study-2",
@@ -371,6 +466,7 @@ export const hopeSeriesOverviewAudio = hopeSeriesPoc.parent.audio;
 export const hopeStudyManifests = hopeSeriesPoc.studies;
 export const hopeStudyOne = hopeSeriesPoc.proofOfConceptStudy;
 export const hopeStudyTwo = hopeSeriesPoc.studyTwo;
+export const hopeStudyThree = hopeSeriesPoc.studyThree;
 
 export function getHopeStudyManifest(studyNumber: number) {
   return hopeStudyManifests.find((study) => study.studyNumber === studyNumber);
