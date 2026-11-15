@@ -44,7 +44,7 @@ export const helpfulResources = {
         },
       ],
       links: [
-        { label: "Visit FCE Resources", href: "/resources" },
+        { label: "View Christian Counseling Resources", href: "/help-support#christian-counseling" },
       ],
       audioStartSeconds: 34.88,
     },
@@ -78,7 +78,7 @@ export const helpfulResources = {
         },
       ],
       links: [
-        { label: "Visit FCE Resources", href: "/resources" },
+        { label: "View Mental Health Resources", href: "/help-support#mental-health" },
       ],
       audioStartSeconds: 71.24,
     },
@@ -96,7 +96,7 @@ export const helpfulResources = {
         },
       ],
       links: [
-        { label: "Visit FCE Resources", href: "/resources" },
+        { label: "View Grief & Recovery Resources", href: "/help-support#grief-recovery" },
       ],
       audioStartSeconds: 109.52,
     },
@@ -130,7 +130,7 @@ export const helpfulResources = {
         },
       ],
       links: [
-        { label: "Visit FCE Resources", href: "/resources" },
+        { label: "View Marriage & Family Resources", href: "/help-support#marriage-family" },
       ],
       audioStartSeconds: 123.24,
     },
@@ -164,7 +164,7 @@ export const helpfulResources = {
         },
       ],
       links: [
-        { label: "Visit FCE Resources", href: "/resources" },
+        { label: "View Addiction Recovery Resources", href: "/help-support#addiction-recovery" },
       ],
       audioStartSeconds: 153.52,
     },
