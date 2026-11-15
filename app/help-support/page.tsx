@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NeedHelpNow from "./NeedHelpNow";
 import SupportIcon from "./SupportIcon";
+import SupportResourceDetails from "./SupportResourceDetails";
 import { supportCategories } from "./resources";
 import styles from "./helpSupport.module.css";
 
@@ -115,7 +116,7 @@ export default function HelpSupportPage() {
                   </span>
                   <h3>{category.title}</h3>
                   <p>{category.description}</p>
-                  <details>
+                  <SupportResourceDetails categoryId={category.id}>
                     <summary>View Resources</summary>
                     <div className={styles.resourceLinks}>
                       {category.resources.map((resource) => {
@@ -144,7 +145,7 @@ export default function HelpSupportPage() {
                         );
                       })}
                     </div>
-                  </details>
+                  </SupportResourceDetails>
                 </div>
               </article>
             );
