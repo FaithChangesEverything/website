@@ -37,11 +37,11 @@ export function SalvationJourneyContent() {
             ),
           )}
           {section.id === "2.e.4" ? (
-            <p>
-              <Link href="/find-a-church" className={fixes.readableButton}>
-                ▶ Find a Church Home
+            <div className={fixes.churchFinderCallToAction}>
+              <Link href="/find-a-church" className={fixes.churchFinderButton}>
+                <span aria-hidden="true">⌂</span> Find a Church Home <span aria-hidden="true">→</span>
               </Link>
-            </p>
+            </div>
           ) : null}
         </LessonBlock>
       ))}
