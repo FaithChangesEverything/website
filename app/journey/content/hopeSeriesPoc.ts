@@ -168,10 +168,10 @@ export const hopeSeriesPoc = {
         "1.c.43": 0.0,
         "1.c.44": 81.32,
         "1.c.45": 158.28,
-        "1.c.46": 200.76,
+        "1.c.46": 197.76,
         "1.c.47": 264.32,
         "1.c.48": 298.84,
-        "1.c.49": 315.96
+        "1.c.49": 314.96
       }
     }
   ],
@@ -230,7 +230,7 @@ export const hopeSeriesPoc = {
           "When your confidence begins to waver, look again to the empty tomb. The resurrection is God's declaration that sin has been defeated, death has been conquered, and every promise He has made will be fulfilled.",
           "Your inheritance is secure. Your Savior is alive. Your future is certain. Therefore, you can face today with courage and hope."
         ],
-        "audioStartSeconds": 200.76
+        "audioStartSeconds": 197.76
       },
       {
         "id": "1.c.47",
@@ -267,7 +267,7 @@ export const hopeSeriesPoc = {
           "Thank You for never leaving me, never forsaking me, and for preserving me by Your power. May my life always reflect the living hope that I have through Jesus Christ.",
           "In the name of Jesus Christ, Amen."
         ],
-        "audioStartSeconds": 315.96
+        "audioStartSeconds": 314.96
       }
     ]
   },
