@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
+import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
@@ -108,6 +109,29 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       <PastorLetter stepNumber={stepNumber} lessonId={lesson.id} title={lesson.title} lessons={step.lessons}>
         <p>The approved Pastor Letter manuscript for this Step will be integrated here from the authoritative Doctrine during content implementation.</p>
       </PastorLetter>
+    );
+  }
+
+  if (lesson.id === "1.b") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.b"
+        title="Understanding Hope"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope.mp3",
+          title: "Understanding Hope",
+          playerId: "1b-understanding-hope",
+          resumeKey: "1.b",
+          contentKey: "1.b",
+          path: "/journey/step-1/understanding-hope",
+          startAtSeconds: 0,
+          endAtSeconds: 184.08,
+        }}
+      >
+        <UnderstandingHopeContent />
+      </IndividualLesson>
     );
   }
 
