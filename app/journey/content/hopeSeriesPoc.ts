@@ -59,7 +59,7 @@ export const hopeSeriesPoc = {
         "1.c.9": 34.4,
         "1.c.10": 100.62,
         "1.c.11": 140.82,
-        "1.c.12": 213.66,
+        "1.c.12": 211.66,
         "1.c.13": 243.98,
         "1.c.14": 258.18
       }
@@ -243,7 +243,7 @@ export const hopeSeriesPoc = {
           "How does knowing Jesus has gone before me change the way I face today?",
           "What promise of God can I hold on to this week?"
         ],
-        "audioStartSeconds": 213.66
+        "audioStartSeconds": 211.66
       },
       {
         "id": "1.c.13",
