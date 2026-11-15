@@ -8,7 +8,9 @@ import { HelpfulResourcesContent } from "../../components/HelpfulResourcesConten
 import { PrayerForTodayContent } from "../../components/PrayerForTodayContent";
 import { ContinueYourJourneyContent } from "../../components/ContinueYourJourneyContent";
 import { UnderstandingSalvationContent } from "../../components/UnderstandingSalvationContent";
+import { SalvationScriptureContent } from "../../components/SalvationScriptureContent";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
+import { salvationScriptureIntro } from "../../content/salvationScripture";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
@@ -247,6 +249,29 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <UnderstandingSalvationContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.c") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.c"
+        title="What Does the Bible Say About Salvation"
+        lessons={step.lessons}
+        intro={salvationScriptureIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2c-2c10-audio-2026-00014.mp3",
+          title: "What Does the Bible Say About Salvation",
+          playerId: "2c-salvation-scripture",
+          resumeKey: "2.c",
+          contentKey: "2.c",
+          path: "/journey/step-2/what-does-the-bible-say-about-salvation",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationScriptureContent />
       </IndividualLesson>
     );
   }
