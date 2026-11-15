@@ -14,13 +14,6 @@ import sequence9 from "../step-overview-sequence9.module.css";
 
 type NavItem = { href: string; label: string; detail?: string };
 
-type LowerWindow = {
-  id: string;
-  title: string;
-  paragraphs: string[];
-  audioUrl?: string;
-};
-
 const pastorMessageVideos: Partial<Record<number, { title: string; embedUrl: string }>> = {
   1: {
     title: "Step 1: Before We Begin — A Message from Pastor Richard",
@@ -114,44 +107,81 @@ function cardsForStep(stepNumber: number, lessons: JourneyLesson[]) {
   return lessons.filter((lesson) => !excluded.has(lesson.id));
 }
 
-function lowerWindowsForStep(stepNumber: number): LowerWindow[] {
-  if (stepNumber === 1) {
-    return [
-      {
-        id: "1.f",
-        title: "A Prayer for Today",
-        audioUrl:
-          "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer.mp3",
-        paragraphs: [
-          "No matter what has brought you here today, God knows your heart. He sees your joys, your fears, your questions, and your struggles. You do not need perfect words or a polished prayer. He simply invites you to come to Him with honesty and faith. If you would like, make this prayer your own.",
-          "Heavenly Father,",
-          "Thank You for reminding me that true hope is found in You alone. There are times when life feels uncertain, and I don't always understand the circumstances I face. Yet today I choose to place my trust in You rather than in my fears.",
-          "Thank You for Your unfailing love, your faithfulness, and the promises You have given through Your Word. Thank You for sending Jesus Christ so that I can know the hope of forgiveness, new life, and the assurance of Your presence every day.",
-          "Please strengthen my faith when I am weak. Fill my heart with Your peace when I am anxious. Help me to remember that You are always working, even when I cannot see what You are doing.",
-          "Guide my steps as I continue this journey. Help me to grow in my relationship with You, to trust You more each day, and to become a reflection of Your love to those around me.",
-          "Thank You for never leaving me and for being the source of a hope that never fails.",
-          "In the name of Jesus Christ, I pray.",
-          "Amen.",
-        ],
-      },
-      {
-        id: "1.g",
-        title: "Continue Your Journey",
-        audioUrl:
-          "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey.mp3",
-        paragraphs: [
-          "Congratulations for completing the Step 1, Journey to Hope. Thank you for spending this time exploring what the Bible says about hope.",
-          "My prayer is that you leave here encouraged, knowing that no matter what you are facing today, you do not have to face it alone. God sees you, loves you, and invites you to place your hope in Him.",
-          "If this is your first time exploring the Christian faith, remember that every journey begins with a single step. You do not need to have all the answers today. Continue seeking God, reading His Word, and asking Him to reveal Himself to you.",
-          "If you already know Jesus Christ as your Savior, I encourage you to keep growing in your faith. Spend time with God each day through prayer and Bible reading. Become part of a Bible-believing church where you can worship, learn, and serve alongside other believers.",
-          "Wherever you are on your spiritual journey, there is always another step to take.",
-          "I’ll leave you at the end of your step one journey with this message, \"Wherever God is leading you next, don't feel pressured to do everything today. Simply take the next step He places before you.\" – From Pastor Richard at Faith Changes Everything, congratulations for completing Step 1, and I hope to see you on Step 2.",
-        ],
-      },
-    ];
-  }
+function Step1ClosingCards({
+  lessons,
+  lessonStates,
+  saving,
+}: {
+  lessons: JourneyLesson[];
+  lessonStates?: Record<string, { state: JourneyDisplayState }>;
+  saving: boolean;
+}) {
+  const closingItems = [
+    {
+      id: "1.f",
+      kind: "Closing Prayer",
+      description:
+        "Take a few moments to pray and reflect on what you’ve explored throughout Step 1.",
+      action: "Open Prayer",
+    },
+    {
+      id: "1.g",
+      kind: "Closing Encouragement",
+      description:
+        "A final word of encouragement from Pastor Richard as you complete Step 1 and prepare for what comes next.",
+      action: "Finish Step 1",
+    },
+  ]
+    .map((item) => {
+      const lesson = lessons.find((candidate) => candidate.id === item.id);
+      return lesson ? { ...item, lesson } : null;
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
-  return [];
+  if (closingItems.length === 0) return null;
+
+  return (
+    <section className={sequence9.stepClosing} aria-labelledby="step-1-closing-title">
+      <div className={sequence9.stepClosingHeader}>
+        <p className={styles.eyebrow}>Complete Step 1</p>
+        <h2 id="step-1-closing-title">Closing Step 1</h2>
+        <p>
+          When you have worked through the Step 1 lessons, use these final two
+          moments to pray, reflect, and close this part of your Journey.
+        </p>
+      </div>
+
+      <div className={sequence9.stepClosingGrid}>
+        {closingItems.map(({ id, kind, description, action, lesson }) => {
+          const state = lessonStates?.[id]?.state;
+          const presentation = displayState(state, saving);
+          const statusLabel = saving
+            ? presentation.label
+            : "Available";
+
+          return (
+            <article className={sequence9.stepClosingCard} key={id}>
+              <div className={sequence9.stepClosingCardTop}>
+                <span className={sequence9.windowBadge}>{id}</span>
+                <span className={sequence9.stepClosingKind}>{kind}</span>
+              </div>
+              <h3>{lesson.title}</h3>
+              <p>{description}</p>
+              <div className={sequence9.stepClosingFooter}>
+                <span className={sequence9.stepClosingStatus}>
+                  <span aria-hidden="true">{presentation.icon}</span> {statusLabel}
+                </span>
+                <Link className={sequence9.stepClosingAction} href={lesson.href}>
+                  {state === "completed" ? "Review" : action}
+                  <span aria-hidden="true"> →</span>
+                </Link>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
 
 function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lessons: JourneyLesson[] }) {
@@ -660,7 +690,6 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
   const progressLabel = stepProgress ? `${stepProgress.completed} of ${stepProgress.total} complete · ${percent}%` : "Not tracking yet";
   const saving = Boolean(summary && lessonStates);
   const cardLessons = cardsForStep(stepNumber, lessons);
-  const lowerWindows = lowerWindowsForStep(stepNumber);
 
   return <JourneyFrame><main className={styles.stepOverviewPage}>
     <section className={`${styles.interiorHero} ${fixes.interiorHeroCalm}`}><div className={styles.heroCopy}><p className={styles.crumb}>Journey to Hope <span>›</span> Step {step.number}</p><h1>Step {step.number}: {step.title}</h1><span className={styles.goldRule} aria-hidden="true" /><p>{step.summary}</p></div><aside className={styles.progressCard} aria-label={`Step ${step.number} progress`}><strong>Step Progress</strong><span>{stepProgress ? "Your saved progress in this Step." : "Progress will appear here after you choose to save your Journey."}</span><div className={styles.progressTrack}><span style={{ width: `${percent}%` }} /></div><b>{progressLabel}</b></aside></section>
@@ -675,22 +704,13 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
 
     {stepNumber === 2 && <Step2ClosingWindows />}
 
-    {lowerWindows.length > 0 && <section className={sequence9.lowerWindows} aria-label={`Step ${stepNumber} closing content`}>
-      {lowerWindows.map((window) => <article className={sequence9.lowerWindow} key={window.id}>
-        <div className={sequence9.windowContent}>
-          <span className={sequence9.windowBadge}>{window.id}</span>
-          <div className={sequence9.windowBody}>
-            <h2>{window.title}</h2>
-            {window.audioUrl && (
-              <JourneyAudioPlayer src={window.audioUrl} title={window.title} />
-            )}
-            <div className={sequence9.windowManuscript}>
-              {window.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-            </div>
-          </div>
-        </div>
-      </article>)}
-    </section>}
+    {stepNumber === 1 && (
+      <Step1ClosingCards
+        lessons={lessons}
+        lessonStates={lessonStates ?? undefined}
+        saving={saving}
+      />
+    )}
 
     <JourneyStepResourceArea
       stepId={`step-${stepNumber}` as "step-1" | "step-2" | "step-3" | "step-4" | "step-5" | "step-6"}
