@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
-import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
+import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";\nimport { TimeToReflectContent } from "../../components/TimeToReflectContent";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
@@ -131,6 +131,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <UnderstandingHopeContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "1.d") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.d"
+        title="Time to Reflect"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1d-1d12-audio-2026-00009-time-2-reflect.mp3",
+          title: "Time to Reflect",
+          playerId: "1d-time-to-reflect",
+          resumeKey: "1.d",
+          contentKey: "1.d",
+          path: "/journey/step-1/time-to-reflect",
+          startAtSeconds: 0,
+        }}
+      >
+        <TimeToReflectContent />
       </IndividualLesson>
     );
   }
