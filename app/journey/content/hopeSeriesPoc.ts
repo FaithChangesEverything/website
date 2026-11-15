@@ -175,6 +175,102 @@ export const hopeSeriesPoc = {
       }
     }
   ],
+  "studySeven": {
+    "studyNumber": 7,
+    "progressKey": "1.c.study-7",
+    "sectionId": "1.c.43",
+    "title": "A Living Hope through Christ",
+    "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-7",
+    "audio": {
+      "recordingId": "audio-2026-00008",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c43-1c49-audio-2026-00008-christ-scripture.mp3",
+      "vttFile": "1c43-1c49-audio-2026-00008-christ-scripture.vtt",
+      "timestampVerified": true
+    },
+    "sections": [
+      {
+        "id": "1.c.43",
+        "title": "A Living Hope through Christ - Scripture",
+        "kind": "scripture",
+        "paragraphs": [],
+        "scripture": {
+          "text": "Praise be to the God and Father of our Lord Jesus Christ! In his great mercy he has given us new birth into a living hope through the resurrection of Jesus Christ from the dead, and into an inheritance that can never perish, spoil or fade. This inheritance is kept in heaven for you, who through faith are shielded by God’s power until the coming of the salvation that is ready to be revealed in the last time. In all this you greatly rejoice, though now for a little while you may have had to suffer grief in all kinds of trials. These have come so that the proven genuineness of your faith—of greater worth than gold, which perishes even though refined by fire—may result in praise, glory and honor when Jesus Christ is revealed. Though you have not seen him, you love him; and even though you do not see him now, you believe in him and are filled with an inexpressible and glorious joy, for you are receiving the end result of your faith, the salvation of your souls.",
+          "reference": "1 Peter 1: 3-9 (NIV)"
+        },
+        "audioStartSeconds": 0.0
+      },
+      {
+        "id": "1.c.44",
+        "title": "Context",
+        "kind": "context",
+        "paragraphs": [
+          "The Apostle Peter wrote this letter to Christians scattered throughout Asia Minor who were experiencing increasing persecution because of their faith in Jesus Christ. Many had been rejected by their communities, misunderstood by their neighbors, and were beginning to suffer for following Christ.",
+          "Although their circumstances were difficult, Peter did not begin his letter by focusing on their hardships. Instead, he directed their attention to the unchanging hope they possessed through Jesus Christ.",
+          "Peter reminds his readers that their hope is not based on the temporary conditions of this world but on the resurrection of Christ. Because Jesus conquered sin and death, believers have been given new life and an inheritance that can never be lost. This eternal perspective enabled the early Christians to endure suffering with confidence, knowing that their future was secure in God's hands.",
+          "These verses encourage every believer to lift their eyes above present difficulties and remember that our greatest hope rests not in what we experience today but in what God has already accomplished through His Son and what He has promised for eternity."
+        ],
+        "audioStartSeconds": 81.32
+      },
+      {
+        "id": "1.c.45",
+        "title": "What Does This Passage Teach?",
+        "kind": "teaching",
+        "paragraphs": [
+          "1 Peter 1:3–9 reminds us that through the resurrection of Jesus Christ, God has given every believer a living hope and an eternal inheritance that can never be lost or destroyed. Although we will experience trials and suffering in this life, God uses them to strengthen and refine our faith. As we continue to trust in Christ, we can rejoice with confidence, knowing that our salvation is secure and that our hope rests in the eternal promises of God rather than the temporary circumstances of this world."
+        ],
+        "audioStartSeconds": 158.28
+      },
+      {
+        "id": "1.c.46",
+        "title": "How Does This Apply to Me Today?",
+        "kind": "application",
+        "paragraphs": [
+          "Life often brings disappointments that threaten to weaken our hope. Dreams may change, relationships may fail, health may decline, and circumstances may become overwhelming. Yet Peter reminds us that our greatest hope has never depended upon the things of this world. Because Jesus lives, our hope lives.",
+          "Whatever difficulties you may be facing today, remember that they are only part of your present journey. They do not define your eternal future. God is using every circumstance to strengthen your faith and draw you closer to Himself.",
+          "When your confidence begins to waver, look again to the empty tomb. The resurrection is God's declaration that sin has been defeated, death has been conquered, and every promise He has made will be fulfilled.",
+          "Your inheritance is secure. Your Savior is alive. Your future is certain. Therefore, you can face today with courage and hope."
+        ],
+        "audioStartSeconds": 200.76
+      },
+      {
+        "id": "1.c.47",
+        "title": "Questions to Reflect On",
+        "kind": "questions",
+        "paragraphs": [],
+        "items": [
+          "Am I placing my hope in temporary circumstances or in the living Christ?",
+          "How have past trials strengthened my faith?",
+          "What does it mean to me that my inheritance is being kept by God Himself?",
+          "How has the resurrection of Jesus changed the way I view suffering and death?",
+          "In what area of my life do I need to trust God's promises more fully today?"
+        ],
+        "audioStartSeconds": 264.32
+      },
+      {
+        "id": "1.c.48",
+        "title": "One Truth to Remember",
+        "kind": "truth",
+        "paragraphs": [
+          "Because Jesus Christ lives, our hope is alive, our future is secure, and no trial can separate us from the promises God has prepared for His children."
+        ],
+        "audioStartSeconds": 298.84
+      },
+      {
+        "id": "1.c.49",
+        "title": "Prayer",
+        "kind": "prayer",
+        "paragraphs": [
+          "Heavenly Father,",
+          "Thank You for Your great mercy and for giving me new life through Jesus Christ. Thank You that my hope is not built upon changing circumstances but upon the living Savior who conquered sin and death through His resurrection.",
+          "When I face trials, help me remember that You are using them to strengthen my faith and draw me closer to You. Keep my eyes fixed on the eternal inheritance You have promised and remind me that my future is secure because it rests in Your faithful hands.",
+          "Fill my heart with joy that comes from knowing Christ, even when life is difficult. Strengthen my trust, deepen my hope, and help me live each day with confidence in Your promises until the day I see my Savior face to face.",
+          "Thank You for never leaving me, never forsaking me, and for preserving me by Your power. May my life always reflect the living hope that I have through Jesus Christ.",
+          "In the name of Jesus Christ, Amen."
+        ],
+        "audioStartSeconds": 315.96
+      }
+    ]
+  },
   "studySix": {
     "studyNumber": 6,
     "progressKey": "1.c.study-6",
@@ -750,6 +846,7 @@ export const hopeStudyThree = hopeSeriesPoc.studyThree;
 export const hopeStudyFour = hopeSeriesPoc.studyFour;
 export const hopeStudyFive = hopeSeriesPoc.studyFive;
 export const hopeStudySix = hopeSeriesPoc.studySix;
+export const hopeStudySeven = hopeSeriesPoc.studySeven;
 
 export function getHopeStudyManifest(studyNumber: number) {
   return hopeStudyManifests.find((study) => study.studyNumber === studyNumber);
