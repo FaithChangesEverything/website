@@ -39,7 +39,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       },
       {
         type: "scripture",
-        text: ""If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved"",
+        text: `"If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved"`,
         reference: "Romans 10:9 (NIV).",
       },
       {
@@ -100,7 +100,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       },
       {
         type: "scripture",
-        text: ""For all have sinned and fall short of the glory of God"",
+        text: `"For all have sinned and fall short of the glory of God"`,
         reference: "Romans 3:23 (NIV)",
       },
       {
@@ -187,7 +187,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       },
       {
         type: "scripture",
-        text: ""But God demonstrates His own love for us in this: While we were still sinners, Christ died for us."",
+        text: `"But God demonstrates His own love for us in this: While we were still sinners, Christ died for us."`,
         reference: "Romans 5:8 (NIV)",
       },
       {
@@ -227,7 +227,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       },
       {
         type: "scripture",
-        text: ""For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord."",
+        text: `"For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord."`,
         reference: "Romans 6:23 (NIV)",
       },
       {
@@ -267,7 +267,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       },
       {
         type: "scripture",
-        text: ""If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved."",
+        text: `"If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised Him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved."`,
         reference: "Romans 10:9-10 (NIV)",
       },
       {
@@ -322,7 +322,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       },
       {
         type: "scripture",
-        text: ""Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"",
+        text: `"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"`,
         reference: "2 Corinthians 5:17 (NIV)",
       },
       {
