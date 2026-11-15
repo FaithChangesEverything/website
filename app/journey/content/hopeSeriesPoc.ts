@@ -175,6 +175,102 @@ export const hopeSeriesPoc = {
       }
     }
   ],
+  "studySix": {
+    "studyNumber": 6,
+    "progressKey": "1.c.study-6",
+    "sectionId": "1.c.36",
+    "title": "Hope through Suffering",
+    "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-6",
+    "audio": {
+      "recordingId": "audio-2026-00007",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c36-1c42-audio-2026-00007-suffering.mp3",
+      "vttFile": "1c36-1c42-audio-2026-00007-suffering.vtt",
+      "timestampVerified": true
+    },
+    "sections": [
+      {
+        "id": "1.c.36",
+        "title": "Hope through Suffering – Scripture",
+        "kind": "scripture",
+        "paragraphs": [],
+        "scripture": {
+          "text": "Therefore, since we have been justified through faith, we have peace with God through our Lord Jesus Christ, through whom we have gained access by faith into this grace in which we now stand. And we boast in the hope of the glory of God. Not only so, but we also glory in our sufferings, because we know that suffering produces perseverance; perseverance, character; and character, hope. And hope does not put us to shame, because God’s love has been poured out into our hearts through the Holy Spirit, who has been given to us.",
+          "reference": "Romans 5: 1-5 (NIV)"
+        },
+        "audioStartSeconds": 0.0
+      },
+      {
+        "id": "1.c.37",
+        "title": "Context",
+        "kind": "context",
+        "paragraphs": [
+          "In the first four chapters of Romans, the Apostle Paul carefully explains that no one can earn righteousness before God through good works or obedience to the law. Every person has sinned, and salvation is made possible only through faith in Jesus Christ. Because of Christ's sacrifice on the cross, those who trust in Him are declared righteous before God.",
+          "Romans 5 marks a turning point in Paul's letter. Having explained how we are justified by faith, Paul now describes the blessings that flow from that relationship with God. These blessings include peace with God, access to His grace, confidence in the future, and a hope that remains secure even in the midst of suffering.",
+          "For many people, suffering seems to destroy hope. Paul presents a completely different perspective. He teaches that when believers trust God through life's difficulties, those very trials become part of the process God uses to strengthen faith, develop character, and deepen hope. Rather than weakening our confidence in God, suffering can become one of the greatest tools He uses to mature us spiritually."
+        ],
+        "audioStartSeconds": 51.24
+      },
+      {
+        "id": "1.c.38",
+        "title": "What Does This Passage Teach?",
+        "kind": "teaching",
+        "paragraphs": [
+          "Romans 5:1–5 teaches that through faith in Jesus Christ we are justified before God and have peace with Him. Because of this new relationship, we can face life's trials with confidence, knowing that God uses suffering to develop perseverance, character, and a deeper hope. This hope is never empty or disappointing because it is founded on God's love, which has been poured into our hearts through the Holy Spirit."
+        ],
+        "audioStartSeconds": 130.2
+      },
+      {
+        "id": "1.c.39",
+        "title": "How Does This Apply to Me Today?",
+        "kind": "application",
+        "paragraphs": [
+          "Most people naturally associate hope with the absence of problems. Paul teaches something very different. Biblical hope grows even in the middle of difficulty because it is rooted in God's faithfulness rather than in changing circumstances.",
+          "While Scripture does not promise that life will be free from hardship, it does promise that God is working through every circumstance for your spiritual good.",
+          "The trials you face today do not mean God has abandoned you. They may be the very means through which He is strengthening your faith, shaping your character, and teaching you to trust Him more deeply.",
+          "Because you have been justified through faith, you already possess peace with God. Because you stand in His grace, you never face life's struggles alone. Because His Holy Spirit lives within you, your hope is secure.",
+          "Whatever you are facing today, remember that God's work in your life is not finished. He is faithfully accomplishing His purposes, and His promises will never fail."
+        ],
+        "audioStartSeconds": 164.76
+      },
+      {
+        "id": "1.c.40",
+        "title": "Questions to Reflect On",
+        "kind": "questions",
+        "paragraphs": [],
+        "items": [
+          "Am I finding my hope in changing circumstances or in my relationship with Christ?",
+          "How have past trials strengthened my faith and character?",
+          "In what area of my life is God teaching me perseverance today?",
+          "How does knowing that I have peace with God change the way I face difficult situations?",
+          "What promise of God gives me hope as I look toward the future?"
+        ],
+        "audioStartSeconds": 230.92
+      },
+      {
+        "id": "1.c.41",
+        "title": "One Truth to Remember",
+        "kind": "truth",
+        "paragraphs": [
+          "Because our hope is built on God's grace, strengthened through His work in our lives, and secured by His unfailing love, it will never disappoint us."
+        ],
+        "audioStartSeconds": 264.44
+      },
+      {
+        "id": "1.c.42",
+        "title": "Prayer",
+        "kind": "prayer",
+        "paragraphs": [
+          "Heavenly Father,",
+          "Thank You for the incredible gift of salvation through Jesus Christ. Thank You that through faith I have been justified, forgiven, and welcomed into a relationship with You. Thank You for the peace that comes from knowing my standing before You depends on Christ and not on my own efforts.",
+          "When I face trials, help me to trust that You are working for my good even when I cannot see the outcome. Give me perseverance to remain faithful, character that reflects Jesus, and a hope that grows stronger with each passing day.",
+          "Fill my heart with the assurance of Your love through the Holy Spirit. Help me to live each day with confidence in Your promises, knowing that You are faithful and that my hope in You will never disappoint.",
+          "Thank You for walking beside me through every season of life and for completing the good work You have begun in me.",
+          "In the name of Jesus Christ, Amen."
+        ],
+        "audioStartSeconds": 281.8
+      }
+    ]
+  },
   "studyFive": {
     "studyNumber": 5,
     "progressKey": "1.c.study-5",
@@ -653,6 +749,7 @@ export const hopeStudyTwo = hopeSeriesPoc.studyTwo;
 export const hopeStudyThree = hopeSeriesPoc.studyThree;
 export const hopeStudyFour = hopeSeriesPoc.studyFour;
 export const hopeStudyFive = hopeSeriesPoc.studyFive;
+export const hopeStudySix = hopeSeriesPoc.studySix;
 
 export function getHopeStudyManifest(studyNumber: number) {
   return hopeStudyManifests.find((study) => study.studyNumber === studyNumber);
