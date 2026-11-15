@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
 import { TimeToReflectContent } from "../../components/TimeToReflectContent";
+import { HelpfulResourcesContent } from "../../components/HelpfulResourcesContent";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
@@ -154,6 +155,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <TimeToReflectContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "1.e") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.e"
+        title="Helpful Resources"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1e-1e7-audio-2026-00010-resources.mp3",
+          title: "Helpful Resources",
+          playerId: "1e-helpful-resources",
+          resumeKey: "1.e",
+          contentKey: "1.e",
+          path: "/journey/step-1/helpful-resources",
+          startAtSeconds: 0,
+        }}
+      >
+        <HelpfulResourcesContent />
       </IndividualLesson>
     );
   }
