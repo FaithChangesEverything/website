@@ -46,7 +46,7 @@ export const hopeSeriesPoc = {
       "studyNumber": 2,
       "progressKey": "1.c.study-2",
       "sectionId": "1.c.8",
-      "title": "Hope: An Anchor for the Soul",
+      "title": "Hope – An Anchor for the Soul",
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-2",
       "audio": {
         "recordingId": "audio-2026-00003",
@@ -175,6 +175,100 @@ export const hopeSeriesPoc = {
       }
     }
   ],
+  "studyTwo": {
+    "studyNumber": 2,
+    "progressKey": "1.c.study-2",
+    "sectionId": "1.c.8",
+    "title": "Hope – An Anchor for the Soul",
+    "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-2",
+    "audio": {
+      "recordingId": "audio-2026-00003",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c8-1c14-audio-2026-00003-anchor-soul.mp3",
+      "vttFile": "1c8-1c14-audio-2026-00003-anchor-soul.vtt",
+      "timestampVerified": true
+    },
+    "sections": [
+      {
+        "id": "1.c.8",
+        "title": "Hope – An Anchor for the Soul – Scripture",
+        "kind": "scripture",
+        "paragraphs": [],
+        "scripture": {
+          "text": "We have this hope as an anchor for the soul, firm and secure. It enters the inner sanctuary behind the curtain, where our forerunner, Jesus, has entered on our behalf. He has become a high priest forever, in the order of Melchizedek.",
+          "reference": "Hebrews 6:19–20 (NIV)"
+        },
+        "audioStartSeconds": 0.0
+      },
+      {
+        "id": "1.c.9",
+        "title": "Context",
+        "kind": "context",
+        "paragraphs": [
+          "The book of Hebrews was written to Jewish Christians who were experiencing hardship because of their faith in Jesus Christ. Many faced persecution, rejection from family and friends, and the temptation to return to the old religious system that felt safer and more familiar.",
+          "Throughout the letter, the author encourages believers to remain faithful by showing that Jesus Christ is greater than everything that came before Him. He is greater than the prophets, greater than the angels, greater than Moses, and greater than the Old Testament priesthood.",
+          "Just before these verses, the author reminds his readers that God always keeps His promises. He points to God's promise to Abraham as proof that God's Word can be trusted. Because God's character never changes and His promises never fail, believers can have complete confidence in Him.",
+          "It is in this context that the author describes hope as \"an anchor for the soul.\""
+        ],
+        "audioStartSeconds": 34.4
+      },
+      {
+        "id": "1.c.10",
+        "title": "What Does This Passage Teach?",
+        "kind": "teaching",
+        "paragraphs": [
+          "Hebrews 6:19–20 teaches that our hope in Christ is firm and secure, like an anchor that holds us steady through the storms of life. This hope is not based on our circumstances but on Jesus Himself, who has entered God's presence on our behalf as our eternal High Priest. Because of His finished work, we can confidently trust that our relationship with God is secure and our future is certain."
+        ],
+        "audioStartSeconds": 100.62
+      },
+      {
+        "id": "1.c.11",
+        "title": "How Does This Apply to Me",
+        "kind": "application",
+        "paragraphs": [
+          "If your life feels like it is being tossed by waves, this passage offers tremendous comfort. You may be facing a medical diagnosis, grieving the loss of someone you love, struggling in a relationship, dealing with financial uncertainty, or wondering what tomorrow will bring. Storms have a way of making us feel as though we are drifting.",
+          "God does not promise that every storm will immediately end. Instead, He promises something even deeper. He promises to anchor your soul.",
+          "The anchor is not your own strength. It is not your ability to stay positive, nor is it found in favorable circumstances. Your anchor is Jesus Christ. He has already gone before you. He is with you now, and He will never let go of those who place their trust in Him. Even when you cannot see the shoreline, your anchor is holding."
+        ],
+        "audioStartSeconds": 142.82
+      },
+      {
+        "id": "1.c.12",
+        "title": "Questions to Reflect On",
+        "kind": "questions",
+        "paragraphs": [],
+        "items": [
+          "What storms am I facing right now?",
+          "Where have I been looking for stability?",
+          "Am I trusting God's promises, or only what I can see?",
+          "How does knowing Jesus has gone before me change the way I face today?",
+          "What promise of God can I hold on to this week?"
+        ],
+        "audioStartSeconds": 218.66
+      },
+      {
+        "id": "1.c.13",
+        "title": "One Truth to Remember",
+        "kind": "truth",
+        "paragraphs": [
+          "When life's storms are at their worst, your hope remains secure because it is anchored in Jesus Christ, not in your circumstances"
+        ],
+        "audioStartSeconds": 248.98
+      },
+      {
+        "id": "1.c.14",
+        "title": "Prayer",
+        "kind": "prayer",
+        "paragraphs": [
+          "Heavenly Father,",
+          "Thank You for giving me a hope that is firm and secure. When life's storms make me feel afraid or uncertain, remind me that my hope is anchored in Jesus Christ and not in changing circumstances.",
+          "Help me trust Your promises even when I cannot see the outcome. Thank You that Jesus has gone before me and has opened the way into Your presence. Thank You that He is my eternal High Priest who continually intercedes for me.",
+          "Strengthen my faith, steady my heart, and keep me anchored in Your love through every season of life.",
+          "In the name of Jesus Christ, Amen."
+        ],
+        "audioStartSeconds": 258.18
+      }
+    ]
+  },
   "proofOfConceptStudy": {
     "studyNumber": 1,
     "progressKey": "1.c.study-1",
@@ -276,6 +370,7 @@ export const hopeSeriesIntro = hopeSeriesPoc.parent.introParagraphs;
 export const hopeSeriesOverviewAudio = hopeSeriesPoc.parent.audio;
 export const hopeStudyManifests = hopeSeriesPoc.studies;
 export const hopeStudyOne = hopeSeriesPoc.proofOfConceptStudy;
+export const hopeStudyTwo = hopeSeriesPoc.studyTwo;
 
 export function getHopeStudyManifest(studyNumber: number) {
   return hopeStudyManifests.find((study) => study.studyNumber === studyNumber);
