@@ -58,9 +58,9 @@ export const hopeSeriesPoc = {
         "1.c.8": 0.0,
         "1.c.9": 34.4,
         "1.c.10": 100.62,
-        "1.c.11": 142.82,
-        "1.c.12": 218.66,
-        "1.c.13": 248.98,
+        "1.c.11": 140.82,
+        "1.c.12": 213.66,
+        "1.c.13": 243.98,
         "1.c.14": 258.18
       }
     },
@@ -229,7 +229,7 @@ export const hopeSeriesPoc = {
           "God does not promise that every storm will immediately end. Instead, He promises something even deeper. He promises to anchor your soul.",
           "The anchor is not your own strength. It is not your ability to stay positive, nor is it found in favorable circumstances. Your anchor is Jesus Christ. He has already gone before you. He is with you now, and He will never let go of those who place their trust in Him. Even when you cannot see the shoreline, your anchor is holding."
         ],
-        "audioStartSeconds": 142.82
+        "audioStartSeconds": 140.82
       },
       {
         "id": "1.c.12",
@@ -243,7 +243,7 @@ export const hopeSeriesPoc = {
           "How does knowing Jesus has gone before me change the way I face today?",
           "What promise of God can I hold on to this week?"
         ],
-        "audioStartSeconds": 218.66
+        "audioStartSeconds": 213.66
       },
       {
         "id": "1.c.13",
@@ -252,7 +252,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "When life's storms are at their worst, your hope remains secure because it is anchored in Jesus Christ, not in your circumstances"
         ],
-        "audioStartSeconds": 248.98
+        "audioStartSeconds": 243.98
       },
       {
         "id": "1.c.14",
