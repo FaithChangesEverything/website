@@ -127,7 +127,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
     blocks: [
       {
         type: "paragraph",
-        text: "When we understand that sin has separated us from God, it is natural to ask, "What can I do to make things right?" Throughout history, people have tried many different ways to answer that question. Some believe that living a good life, performing acts of kindness, following religious traditions, or doing enough good deeds will earn God's acceptance.",
+        text: `When we understand that sin has separated us from God, it is natural to ask, "What can I do to make things right?" Throughout history, people have tried many different ways to answer that question. Some believe that living a good life, performing acts of kindness, following religious traditions, or doing enough good deeds will earn God's acceptance.`,
       },
       {
         type: "paragraph",
