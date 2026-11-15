@@ -7,11 +7,12 @@ import { TimeToReflectContent } from "../../components/TimeToReflectContent";
 import { HelpfulResourcesContent } from "../../components/HelpfulResourcesContent";
 import { PrayerForTodayContent } from "../../components/PrayerForTodayContent";
 import { ContinueYourJourneyContent } from "../../components/ContinueYourJourneyContent";
+import { UnderstandingSalvationContent } from "../../components/UnderstandingSalvationContent";
+import { understandingSalvationIntro } from "../../content/understandingSalvation";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
-import ScriptureReference from "@/components/bible/ScriptureReference";
 
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
 
@@ -227,6 +228,29 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "2.b") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.b"
+        title="Understanding Salvation"
+        lessons={step.lessons}
+        intro={understandingSalvationIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2b-2b9-audio-2026-00013.mp3",
+          title: "Understanding Salvation",
+          playerId: "2b-understanding-salvation",
+          resumeKey: "2.b",
+          contentKey: "2.b",
+          path: "/journey/step-2/understanding-salvation",
+          startAtSeconds: 0,
+        }}
+      >
+        <UnderstandingSalvationContent />
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "2.h") {
     return (
       <IndividualLesson
@@ -366,9 +390,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       intro="This page now uses the approved continuous-flow Individual Lesson architecture. Final wording and section content remain governed by the authoritative Doctrine manuscript."
     >
       <LessonBlock title="Scripture" icon="▣" tone="scripture">
-        {lesson.id === "2.b" ? (
-          <p>Read <ScriptureReference book="john" chapter={3} startVerse={16} endVerse={17} label="John 3:16–17 (KJV)"/> in the FCE Bible without leaving your lesson. The final approved lesson manuscript will be incorporated here during content integration.</p>
-        ) : <p>The approved KJV Scripture for this lesson will appear here during content integration.</p>}
+        <p>The approved KJV Scripture for this lesson will appear here during content integration.</p>
       </LessonBlock>
       <LessonBlock title="The Heart of the Matter" icon="▤">
         <p>The approved teaching from the Doctrine manuscript will appear here in a readable, continuous section.</p>
