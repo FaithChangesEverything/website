@@ -78,7 +78,7 @@ export const hopeSeriesPoc = {
       },
       "cues": {
         "1.c.15": 0.0,
-        "1.c.16": 34.98,
+        "1.c.16": 35.98,
         "1.c.17": 140.38,
         "1.c.18": 178.7,
         "1.c.19": 246.84,
@@ -209,7 +209,7 @@ export const hopeSeriesPoc = {
           "Chapter 3 stands at the very center of Lamentations and marks a turning point in the writer's thoughts. After describing his suffering in vivid detail, he makes a deliberate choice. Instead of allowing his circumstances to control his perspective, he chooses to remember who God is. Although nothing around him has changed, everything within him begins to change because his focus shifts from his circumstances to God's character.",
           "These verses teach us one of the Bible's greatest lessons about hope. Hope is not found in denying our pain or pretending life is easy. True hope is found in remembering the unchanging faithfulness, mercy, and love of God."
         ],
-        "audioStartSeconds": 34.98
+        "audioStartSeconds": 35.98
       },
       {
         "id": "1.c.17",
