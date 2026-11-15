@@ -78,11 +78,11 @@ export const hopeSeriesPoc = {
       },
       "cues": {
         "1.c.15": 0.0,
-        "1.c.16": 32.98,
-        "1.c.17": 138.38,
+        "1.c.16": 34.98,
+        "1.c.17": 140.38,
         "1.c.18": 178.7,
         "1.c.19": 246.84,
-        "1.c.20": 278.6,
+        "1.c.20": 279.6,
         "1.c.21": 298.0
       }
     },
@@ -209,7 +209,7 @@ export const hopeSeriesPoc = {
           "Chapter 3 stands at the very center of Lamentations and marks a turning point in the writer's thoughts. After describing his suffering in vivid detail, he makes a deliberate choice. Instead of allowing his circumstances to control his perspective, he chooses to remember who God is. Although nothing around him has changed, everything within him begins to change because his focus shifts from his circumstances to God's character.",
           "These verses teach us one of the Bible's greatest lessons about hope. Hope is not found in denying our pain or pretending life is easy. True hope is found in remembering the unchanging faithfulness, mercy, and love of God."
         ],
-        "audioStartSeconds": 32.98
+        "audioStartSeconds": 34.98
       },
       {
         "id": "1.c.17",
@@ -218,7 +218,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "Lamentations 3:21–24 reminds us that even in life's darkest moments, there is hope because of God's unchanging character. His love never fails, His compassion is renewed every morning, and His faithfulness never ends. No matter what we face, we can confidently trust in the Lord, knowing that He alone is our constant source of strength, hope, and security."
         ],
-        "audioStartSeconds": 138.38
+        "audioStartSeconds": 140.38
       },
       {
         "id": "1.c.18",
@@ -253,7 +253,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "Hope grows when we stop focusing only on our circumstances and begin remembering the unchanging faithfulness of God."
         ],
-        "audioStartSeconds": 278.6
+        "audioStartSeconds": 279.6
       },
       {
         "id": "1.c.21",
