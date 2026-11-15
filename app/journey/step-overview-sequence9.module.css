@@ -167,6 +167,116 @@
   margin-top: 0;
 }
 
+.stepClosing {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 1.6rem auto 2rem;
+  padding: 1.5rem;
+  border: 1px solid #e5d6bb;
+  border-radius: 16px;
+  background: #fffaf4;
+  box-shadow: 0 10px 28px rgba(20, 33, 61, 0.07);
+}
+
+.stepClosingHeader {
+  max-width: 760px;
+  margin-bottom: 1.15rem;
+}
+
+.stepClosingHeader h2 {
+  margin: 0.15rem 0 0.45rem;
+  color: #071426;
+  font-family: Georgia, serif;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+}
+
+.stepClosingHeader > p:last-child {
+  margin: 0;
+  color: #52606d;
+  line-height: 1.65;
+}
+
+.stepClosingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stepClosingCard {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 1.25rem;
+  border: 1px solid rgba(20, 33, 61, 0.14);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 7px 20px rgba(20, 33, 61, 0.06);
+}
+
+.stepClosingCardTop {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.stepClosingKind {
+  color: #9b6b1d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stepClosingCard h3 {
+  margin: 0.9rem 0 0.45rem;
+  color: #071426;
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.stepClosingCard > p {
+  margin: 0;
+  color: #52606d;
+  line-height: 1.65;
+}
+
+.stepClosingFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.15rem;
+}
+
+.stepClosingStatus {
+  color: #52606d;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.stepClosingAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  padding: 0.72rem 0.95rem;
+  border-radius: 8px;
+  background: #102b49;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.stepClosingAction:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.stepClosingAction:focus-visible {
+  outline: 3px solid #d7a84b;
+  outline-offset: 3px;
+}
+
 .lowerWindows {
   display: grid;
   gap: 1.25rem;
@@ -370,6 +480,29 @@
   }
 
   .stepPastorVideoButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .stepClosing {
+    padding: 1.25rem;
+  }
+
+  .stepClosingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepClosingCard {
+    min-height: 0;
+  }
+
+  .stepClosingFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .stepClosingAction {
     width: 100%;
   }
 }
