@@ -25,7 +25,7 @@ export function UnderstandingHopeContent() {
 
       <p>
         Our hope is not found in avoiding life&apos;s storms but in knowing that we
-        do not have t0 face them alone. Hope is not the absence of pain. It is the
+        do not have to face them alone. Hope is not the absence of pain. It is the
         confidence that God is present even in the middle of it. As the writer of
         Hebrews reminds us:
       </p>
