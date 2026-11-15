@@ -11,6 +11,7 @@ import { UnderstandingSalvationContent } from "../../components/UnderstandingSal
 import { SalvationScriptureContent } from "../../components/SalvationScriptureContent";
 import { SalvationReflectionContent } from "../../components/SalvationReflectionContent";
 import { SalvationJourneyContent } from "../../components/SalvationJourneyContent";
+import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnlineResourcesContent";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
@@ -322,6 +323,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <SalvationJourneyContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.f") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.f"
+        title="Bible Study Online Resources"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017.mp3",
+          title: "Bible Study Online Resources",
+          playerId: "2f-online-resources",
+          resumeKey: "2.f",
+          contentKey: "2.f",
+          path: "/journey/step-2/bible-study-online-resources",
+          startAtSeconds: 0,
+        }}
+      >
+        <BibleStudyOnlineResourcesContent />
       </IndividualLesson>
     );
   }
