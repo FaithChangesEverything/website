@@ -25,7 +25,7 @@ export const timeToReflect = {
         `Learning about hope is an important beginning, but it is not the end of the journey. Biblical hope is more than something we understand—it is something we live. God doesn't simply want us to know that hope exists; He wants us to experience it every day. The good news is that growing in hope doesn't require extraordinary faith or perfect circumstances. It begins with small, intentional steps taken one day at a time. As we draw closer to God, trust His promises, and allow His Word to shape our lives, our hope grows stronger because it is rooted in Him rather than in our circumstances.`,
         `The following practical steps are not a checklist to earn God's favor or a formula that guarantees an easy life. Instead, they are biblical habits that help us know Christ more deeply and experience the hope He freely gives.`,
       ],
-      audioStartSeconds: 26.88,
+      audioStartSeconds: 27.88,
     },
     {
       id: "1.d.2",
@@ -47,7 +47,7 @@ export const timeToReflect = {
         "Spend five to ten minutes talking with God in prayer.",
         "Write down one thing you learned about God each day.",
       ],
-      audioStartSeconds: 136.08,
+      audioStartSeconds: 137.08,
     },
     {
       id: "1.d.4",
@@ -123,7 +123,7 @@ export const timeToReflect = {
         `Even when nothing seems to be happening around us, God is often doing His deepest work within us.`,
         `Hope grows stronger when we remember that God is never late. He is always working according to His perfect purpose.`,
       ],
-      audioStartSeconds: 383.799,
+      audioStartSeconds: 384.799,
     },
     {
       id: "1.d.11",
@@ -133,7 +133,7 @@ export const timeToReflect = {
         `Every step of this journey points to one person—Jesus Christ. He is the source of our hope, the foundation of our faith, and the Savior who walks with us through every season of life. Our confidence is never found in our own strength or in our ability to overcome life's challenges. It rests entirely in Him.`,
         `When you feel discouraged, look to Jesus. When you are uncertain, look to Jesus. When your strength is gone, look to Jesus. He is the One who conquered sin and death, who keeps every promise He has made, and who will never leave those who trust in Him. The more we know Him, the stronger our hope becomes. Every promise you've read throughout this Journey to Hope ultimately points to Him. He is not only the source of our hope—He is the fulfillment of it.`,
       ],
-      audioStartSeconds: 434.0,
+      audioStartSeconds: 436.0,
     },
     {
       id: "1.d.12",
