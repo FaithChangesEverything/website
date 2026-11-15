@@ -175,6 +175,101 @@ export const hopeSeriesPoc = {
       }
     }
   ],
+  "studyFive": {
+    "studyNumber": 5,
+    "progressKey": "1.c.study-5",
+    "sectionId": "1.c.29",
+    "title": "Hope in the Midst of Discouragement",
+    "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-5",
+    "audio": {
+      "recordingId": "audio-2026-00006",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c29-1c35-audio-2026-00006-discouragement.mp3",
+      "vttFile": "1c29-1c35-audio-2026-00006-discouragement.vtt",
+      "timestampVerified": true
+    },
+    "sections": [
+      {
+        "id": "1.c.29",
+        "title": "Hope in the Midst of Discouragement – Scripture",
+        "kind": "scripture",
+        "paragraphs": [],
+        "scripture": {
+          "text": "As the deer pants for streams of water, so my soul pants for you, my God. My soul thirsts for God, for the living God. When can I go and meet with God? My tears have been my food day and night, while people say to me all day long, “Where is your God?” These things I remember as I pour out my soul: how I used to go to the house of God under the protection of the Mighty One with shouts of joy and praise among the festive throng. Why, my soul, are you downcast? Why so disturbed within me? Put your hope in God, for I will yet praise him, my Savior and my God. My soul is downcast within me; therefore, I will remember you from the land of the Jordan, the heights of Hermon—from Mount Mizar. Deep calls to deep in the roar of your waterfalls; all your waves and breakers have swept over me. By day the Lord directs his love, at night his song is with me— a prayer to the God of my life. I say to God my Rock, “Why have you forgotten me? Why must I go about mourning, oppressed by the enemy?” My bones suffer mortal agony as my foes taunt me, saying to me all day long, “Where is your God?” Why, my soul, are you downcast? Why so disturbed?",
+          "reference": "Psalm 42:1-11 (NIV)"
+        },
+        "audioStartSeconds": 0.0
+      },
+      {
+        "id": "1.c.30",
+        "title": "Context",
+        "kind": "context",
+        "paragraphs": [
+          "Psalm 42 is one of the most honest and deeply personal expressions of spiritual longing found in the Bible. It was written by the Sons of Korah, a group of Levites who served in the worship of Israel. Although the exact circumstances are unknown, the writer appears to be separated from Jerusalem and unable to worship at the temple, which was the center of Israel's corporate worship.",
+          "As he looks back on happier days, he remembers leading others in joyful worship and celebration. Now those memories only deepen his sense of loss. Surrounded by people who mock his faith and question whether God has abandoned him, the psalmist wrestles with discouragement, loneliness, and spiritual dryness.",
+          "Yet this psalm is not simply a record of despair. It is the story of a believer who refuses to let despair have the final word. Even while acknowledging his pain, he repeatedly reminds himself to place his hope in God. His circumstances remain difficult, but his confidence rests in the God who never changes."
+        ],
+        "audioStartSeconds": 102.96
+      },
+      {
+        "id": "1.c.31",
+        "title": "What Does This Passage Teach?",
+        "kind": "teaching",
+        "paragraphs": [
+          "Psalm 42 reminds us that even faithful believers experience seasons of spiritual dryness, sorrow, and discouragement. The psalmist longs for God's presence like a thirsty deer longs for water. Surrounded by hardship and questions, he openly pours out his heart to God, demonstrating that we can bring our deepest struggles, fears, and emotions to Him in prayer.",
+          "Yet despite his pain, the psalmist refuses to let despair have the final word. He intentionally reminds himself to place his hope in God, trusting that God's love, faithfulness, and presence remain constant even when his circumstances have not changed. This psalm teaches us that biblical hope is not the absence of struggle but the confidence that God is with us and will never forsake those who trust in Him."
+        ],
+        "audioStartSeconds": 181.84
+      },
+      {
+        "id": "1.c.32",
+        "title": "How Does This Apply to Me Today?",
+        "kind": "application",
+        "paragraphs": [
+          "There are times when every believer experiences discouragement. You may feel spiritually dry, emotionally exhausted, or overwhelmed by circumstances that seem beyond your control. You may even wonder why God feels distant.",
+          "Psalm 42 reminds us that these struggles do not mean our faith has failed. Even mature believers experience seasons when hope must be intentionally renewed.",
+          "The psalmist teaches us to bring our questions honestly before God while continuing to trust Him. Instead of allowing discouragement to become our identity, we can remind ourselves of God's faithfulness and choose to place our hope in Him once again.",
+          "God is not intimidated by our tears or our questions. He invites us to come to Him just as we are. As we seek His presence, He gently renews our hope and reminds us that we are never alone."
+        ],
+        "audioStartSeconds": 244.88
+      },
+      {
+        "id": "1.c.33",
+        "title": "Questions to Reflect On",
+        "kind": "questions",
+        "paragraphs": [],
+        "items": [
+          "What circumstances have left me feeling discouraged or spiritually weary?",
+          "Am I seeking God Himself, or only asking Him to change my situation?",
+          "What truths about God's character do I need to remind myself of today?",
+          "How has God been faithful to me during difficult seasons in the past?",
+          "What is one practical way I can place my hope in God this week?"
+        ],
+        "audioStartSeconds": 312.24
+      },
+      {
+        "id": "1.c.34",
+        "title": "One Truth to Remember",
+        "kind": "truth",
+        "paragraphs": [
+          "Hope is renewed when we stop listening only to our discouragement and begin reminding ourselves of God's unchanging faithfulness."
+        ],
+        "audioStartSeconds": 348.4
+      },
+      {
+        "id": "1.c.35",
+        "title": "Prayer",
+        "kind": "prayer",
+        "paragraphs": [
+          "Heavenly Father,",
+          "Thank You for inviting me to come before You with complete honesty. You already know my fears, my disappointments, and the burdens I carry. Help me not to hide them from You, but to place them into Your loving hands.",
+          "When my heart is discouraged and my soul feels weary, draw me closer to Your presence. Remind me that You alone can satisfy the deepest longings of my heart and that Your faithfulness never changes, even when my emotions do.",
+          "Teach me to place my hope in You each day. Help me remember Your goodness, trust Your promises, and continue praising You even while I wait for Your perfect timing. Strengthen my faith and fill my heart with the peace that comes from knowing You are always with me.",
+          "In the name of Jesus Christ, Amen."
+        ],
+        "audioStartSeconds": 367.68
+      }
+    ]
+  },
   "studyFour": {
     "studyNumber": 4,
     "progressKey": "1.c.study-4",
@@ -557,6 +652,7 @@ export const hopeStudyOne = hopeSeriesPoc.proofOfConceptStudy;
 export const hopeStudyTwo = hopeSeriesPoc.studyTwo;
 export const hopeStudyThree = hopeSeriesPoc.studyThree;
 export const hopeStudyFour = hopeSeriesPoc.studyFour;
+export const hopeStudyFive = hopeSeriesPoc.studyFive;
 
 export function getHopeStudyManifest(studyNumber: number) {
   return hopeStudyManifests.find((study) => study.studyNumber === studyNumber);
