@@ -4,7 +4,8 @@ import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";
 import { HopeStudyOneContent } from "../../../components/HopeStudyOneContent";
 import { HopeStudyTwoContent } from "../../../components/HopeStudyTwoContent";
 import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent";
-import { getHopeStudyManifest, hopeStudyOne, hopeStudyTwo, hopeStudyThree } from "../../../content/hopeSeriesPoc";
+import { HopeStudyFourContent } from "../../../components/HopeStudyFourContent";
+import { getHopeStudyManifest, hopeStudyOne, hopeStudyTwo, hopeStudyThree, hopeStudyFour } from "../../../content/hopeSeriesPoc";
 import { bibleStudySeries, getJourneyStep, hopeSeries } from "../../../data";
 import { getJourneyItemProgress, startJourneyItem } from "../../../progress/operations";
 
@@ -107,6 +108,8 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
           <HopeStudyTwoContent />
         ) : study.studyNumber === hopeStudyThree.studyNumber ? (
           <HopeStudyThreeContent />
+        ) : study.studyNumber === hopeStudyFour.studyNumber ? (
+          <HopeStudyFourContent />
         ) : (
           <HopeStudyBlocks startId={startId} />
         )}
