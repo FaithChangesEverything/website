@@ -10,6 +10,8 @@ import { ContinueYourJourneyContent } from "../../components/ContinueYourJourney
 import { UnderstandingSalvationContent } from "../../components/UnderstandingSalvationContent";
 import { SalvationScriptureContent } from "../../components/SalvationScriptureContent";
 import { SalvationReflectionContent } from "../../components/SalvationReflectionContent";
+import { SalvationJourneyContent } from "../../components/SalvationJourneyContent";
+import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
 import { salvationScriptureIntro } from "../../content/salvationScripture";
@@ -297,6 +299,29 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <SalvationReflectionContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.e") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.e"
+        title="Continue Your Salvation Journey"
+        lessons={step.lessons}
+        intro={salvationJourneyIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2e-2e6-audio-2026-00016.mp3",
+          title: "Continue Your Salvation Journey",
+          playerId: "2e-salvation-journey",
+          resumeKey: "2.e",
+          contentKey: "2.e",
+          path: "/journey/step-2/continue-your-salvation-journey",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationJourneyContent />
       </IndividualLesson>
     );
   }
