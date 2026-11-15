@@ -6,6 +6,7 @@ import { UnderstandingHopeContent } from "../../components/UnderstandingHopeCont
 import { TimeToReflectContent } from "../../components/TimeToReflectContent";
 import { HelpfulResourcesContent } from "../../components/HelpfulResourcesContent";
 import { PrayerForTodayContent } from "../../components/PrayerForTodayContent";
+import { ContinueYourJourneyContent } from "../../components/ContinueYourJourneyContent";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
@@ -211,18 +212,17 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="1.g"
         title="Continue Your Journey"
         lessons={step.lessons}
-        intro="As you continue growing in your faith, you may find these additional resources helpful."
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey.mp3",
+          title: "Continue Your Journey",
+          playerId: "1g-continue-your-journey",
+          resumeKey: "1.g",
+          contentKey: "1.g",
+          path: "/journey/step-1/continue-your-journey",
+          startAtSeconds: 0,
+        }}
       >
-        <LessonBlock title="Continue Exploring" icon="→" tone="highlight">
-          <p>Wherever you are on your spiritual journey, there is always another step to take. Choose the next area that best fits where you are today.</p>
-          <div className={fixes.lessonResourceLinks}>
-            <Link href="/journey/step-2">Learn About Salvation</Link>
-            <Link href="/journey/step-3">Know the Heart of God</Link>
-            <Link href="/journey/step-4">Grow Your Faith</Link>
-            <Link href="/journey/step-5">Walk Through a Difficult Season</Link>
-            <Link href="/prayer">Request Prayer</Link>
-          </div>
-        </LessonBlock>
+        <ContinueYourJourneyContent />
       </IndividualLesson>
     );
   }
