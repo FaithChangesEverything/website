@@ -190,12 +190,12 @@ export const hopeSeriesPoc = {
     "sections": [
       {
         "id": "1.c.1",
-        "title": "The God of Hope - Scripture (NIV)",
+        "title": "The God of Hope - Scripture",
         "kind": "scripture",
         "paragraphs": [],
         "scripture": {
-          "text": "May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.",
-          "reference": "Romans 15:13 (NIV)"
+          "text": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+          "reference": "Romans 15:13 (KJV)"
         },
         "audioStartSeconds": 0.0
       },
@@ -206,7 +206,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "The Apostle Paul wrote the book of Romans around A.D. 57 while he was in the city of Corinth. Although Paul had not yet visited the Christians in Rome, he wrote this letter to explain the gospel clearly and encourage believers to live together in unity.",
           "As Paul nears the end of chapter 15, he has been encouraging Jewish and Gentile believers to accept one another, just as Christ accepted them. He reminds them that God's plan has always been to bring people from every nation together through Jesus Christ. After explaining these wonderful truths, Paul does not end with another command or another lesson. Instead, he offers a heartfelt prayer.",
-          "This verse is that prayer.",
+          "The verse we just read in Romans, is that prayer.",
           "Paul asks God Himself to fill believers with joy, peace, and hope—not because life is easy, but because they trust in Him. That is an important truth for us today. Hope is not something we manufacture on our own. It is something God produces within us as we place our trust in Him."
         ],
         "audioStartSeconds": 24.08
@@ -225,7 +225,7 @@ export const hopeSeriesPoc = {
         "title": "How Does This Apply to Me Today",
         "kind": "application",
         "paragraphs": [
-          "If you are reading this today because life feels overwhelming, this verse offers wonderful encouragement. Perhaps you are carrying grief, facing uncertainty, struggling with illness, or wondering how you will make it through tomorrow.",
+          "If you are reading this because life feels overwhelming, this verse offers wonderful encouragement. Perhaps you are carrying grief, facing uncertainty, struggling with illness, or wondering how you will make it through tomorrow.",
           "God is not asking you to pretend everything is fine. He is inviting you to place your trust in Him.",
           "As you trust Him, He promises to do something remarkable within your heart. He fills you with joy that is not dependent on happiness. He gives peace that is not dependent on perfect circumstances. Through the work of His Holy Spirit, He fills your heart with hope that remains steady even when life feels uncertain.",
           "Your circumstances may not change overnight, but God can begin changing you today. And sometimes, that is where hope begins."
@@ -261,7 +261,7 @@ export const hopeSeriesPoc = {
         "kind": "prayer",
         "paragraphs": [
           "Heavenly Father,",
-          "Thank You for being the God of hope. When my heart is discouraged and my circumstances seem uncertain, remind me that You never change. Help me to trust You even when I cannot see what lies ahead.",
+          "Thank You for being the God of hope. When my heart is discouraged and my circumstances seem uncertain, remind me that You’ll never change. Help me to trust You even when I cannot see what lies ahead.",
           "Fill my heart with Your joy and peace as I place my confidence in You. Through the power of Your Holy Spirit, let hope grow within me until it overflows into every part of my life and becomes an encouragement to those around me.",
           "Teach me to rest in Your promises, to remember Your faithfulness, and to walk each day with confidence that You are with me and You are working for my good and Your glory.",
           "In the name of Jesus Christ, Amen."
