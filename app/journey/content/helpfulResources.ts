@@ -46,7 +46,7 @@ export const helpfulResources = {
       links: [
         { label: "Visit FCE Resources", href: "/resources" },
       ],
-      audioStartSeconds: 36.88,
+      audioStartSeconds: 34.88,
     },
     {
       id: "1.e.2",
@@ -80,7 +80,7 @@ export const helpfulResources = {
       links: [
         { label: "Visit FCE Resources", href: "/resources" },
       ],
-      audioStartSeconds: 73.24,
+      audioStartSeconds: 71.24,
     },
     {
       id: "1.e.3",
@@ -178,7 +178,7 @@ export const helpfulResources = {
       links: [
         { label: "Explore FCE Bible Studies", href: "/bible-studies" },
       ],
-      audioStartSeconds: 183.0,
+      audioStartSeconds: 181.0,
     },
     {
       id: "1.e.7",
