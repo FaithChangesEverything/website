@@ -628,7 +628,7 @@ function Step2ClosingWindows() {
             />
             <div className={sequence9.windowManuscript}>
               <p>
-                As you continue growing in your faith, you'll discover that there are many helpful resources available to deepen your understanding of God's Word. We've created a collection of carefully selected Bible study resources to help you continue growing in your knowledge of God's Word. Explore our collection of Faith Changes Everything Bible study resources.
+                As you continue growing in your faith, you&apos;ll discover that there are many helpful resources available to deepen your understanding of God&apos;s Word. We&apos;ve created a collection of carefully selected Bible study resources to help you continue growing in your knowledge of God&apos;s Word. Explore our collection of Faith Changes Everything Bible study resources.
               </p>
             </div>
             <Link className={sequence9.resourceButton} href="/bible-studies">
@@ -649,7 +649,7 @@ function Step2ClosingWindows() {
             />
             <p>As you continue your journey of faith, may this prayer from the Apostle Paul encourage your heart.</p>
             <blockquote className={sequence9.scriptureQuote}>
-              “I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being, so that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power, together with all the Lord's holy people, to grasp how wide and long and high and deep is the love of Christ, and to know this love that surpasses knowledge—that you may be filled to the measure of all the fullness of God. Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen.”
+              “I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being, so that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power, together with all the Lord&apos;s holy people, to grasp how wide and long and high and deep is the love of Christ, and to know this love that surpasses knowledge—that you may be filled to the measure of all the fullness of God. Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen.”
               <strong>Ephesians 3:16–21 (NIV)</strong>
             </blockquote>
             <p className={sequence9.copyrightNotice}>
@@ -670,7 +670,7 @@ function Step2ClosingWindows() {
             />
             <div className={sequence9.windowManuscript}>
               <p>
-                Whether you have recently placed your faith in Jesus Christ or are still seeking to know Him better, I hope this chapter has helped you take another step toward a deeper understanding of God's love and His plan for your life. Remember, following Jesus is not a destination—it is a lifelong journey of growing in faith, trusting God's promises, and becoming more like Christ each day. When you're ready, return to the Journey Hub to continue your journey. There you'll find additional paths designed to help you grow, answer questions you may still have, and encourage you wherever you are in your walk with God. As you continue growing in your faith, you may find these additional resources helpful.
+                Whether you have recently placed your faith in Jesus Christ or are still seeking to know Him better, I hope this chapter has helped you take another step toward a deeper understanding of God&apos;s love and His plan for your life. Remember, following Jesus is not a destination—it is a lifelong journey of growing in faith, trusting God&apos;s promises, and becoming more like Christ each day. When you&apos;re ready, return to the Journey Hub to continue your journey. There you&apos;ll find additional paths designed to help you grow, answer questions you may still have, and encourage you wherever you are in your walk with God. As you continue growing in your faith, you may find these additional resources helpful.
               </p>
             </div>
           </div>
