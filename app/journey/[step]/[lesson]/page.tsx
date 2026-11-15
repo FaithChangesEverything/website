@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
-import { bibleStudySeries, getJourneyLesson, getJourneyStep, hopeSeries, journeySteps } from "../../data";
+import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
+import { TimeToReflectContent } from "../../components/TimeToReflectContent";
+import { HelpfulResourcesContent } from "../../components/HelpfulResourcesContent";
+import { PrayerForTodayContent } from "../../components/PrayerForTodayContent";
+import { ContinueYourJourneyContent } from "../../components/ContinueYourJourneyContent";
+import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
+import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
 import ScriptureReference from "@/components/bible/ScriptureReference";
 
-const hopeSectionIds = [1, 8, 15, 22, 29, 36, 43];
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
 
 function resolveLesson(stepSlug: string, lessonSlug: string) {
@@ -58,10 +63,10 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   }
 
   if (lesson.id === "1.c") {
-    const sections = hopeSeries.map((title, index) => ({
-      id: `1.c.${hopeSectionIds[index]}`,
-      title,
-      href: `/journey/step-1/what-does-the-bible-say-about-hope/study-${index + 1}`,
+    const sections = hopeStudyManifests.map((study) => ({
+      id: study.sectionId,
+      title: study.title,
+      href: study.href,
     }));
 
     return (
@@ -69,7 +74,15 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         stepNumber={1}
         parentId="1.c"
         title="What Does the Bible Say About Hope"
-        intro="This lesson is a seven-part Scripture study. Each study is presented as its own continuous teaching page while 1.c remains one parent lesson in your Journey."
+        intro=""
+        introParagraphs={hopeSeriesIntro}
+        audio={{
+          src: hopeSeriesOverviewAudio.src,
+          title: "What Does the Bible Say About Hope",
+          playerId: "1c-overview",
+          resumeKey: "1.c.overview",
+          startAtSeconds: hopeSeriesOverviewAudio.startAtSeconds,
+        }}
         sections={sections}
         lessons={step.lessons}
       />
@@ -103,6 +116,95 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "1.b") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.b"
+        title="Understanding Hope"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope.mp3",
+          title: "Understanding Hope",
+          playerId: "1b-understanding-hope",
+          resumeKey: "1.b",
+          contentKey: "1.b",
+          path: "/journey/step-1/understanding-hope",
+          startAtSeconds: 0,
+          endAtSeconds: 184.08,
+        }}
+      >
+        <UnderstandingHopeContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "1.d") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.d"
+        title="Time to Reflect"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1d-1d12-audio-2026-00009-time-2-reflect.mp3",
+          title: "Time to Reflect",
+          playerId: "1d-time-to-reflect",
+          resumeKey: "1.d",
+          contentKey: "1.d",
+          path: "/journey/step-1/time-to-reflect",
+          startAtSeconds: 0,
+        }}
+      >
+        <TimeToReflectContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "1.e") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.e"
+        title="Helpful Resources"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1e-1e7-audio-2026-00010-resources.mp3",
+          title: "Helpful Resources",
+          playerId: "1e-helpful-resources",
+          resumeKey: "1.e",
+          contentKey: "1.e",
+          path: "/journey/step-1/helpful-resources",
+          startAtSeconds: 0,
+        }}
+      >
+        <HelpfulResourcesContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "1.f") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.f"
+        title="A Prayer for Today"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer.mp3",
+          title: "A Prayer for Today",
+          playerId: "1f-prayer-for-today",
+          resumeKey: "1.f",
+          contentKey: "1.f",
+          path: "/journey/step-1/a-prayer-for-today",
+          startAtSeconds: 0,
+        }}
+      >
+        <PrayerForTodayContent />
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "1.g") {
     return (
       <IndividualLesson
@@ -110,18 +212,17 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="1.g"
         title="Continue Your Journey"
         lessons={step.lessons}
-        intro="As you continue growing in your faith, you may find these additional resources helpful."
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey.mp3",
+          title: "Continue Your Journey",
+          playerId: "1g-continue-your-journey",
+          resumeKey: "1.g",
+          contentKey: "1.g",
+          path: "/journey/step-1/continue-your-journey",
+          startAtSeconds: 0,
+        }}
       >
-        <LessonBlock title="Continue Exploring" icon="→" tone="highlight">
-          <p>Wherever you are on your spiritual journey, there is always another step to take. Choose the next area that best fits where you are today.</p>
-          <div className={fixes.lessonResourceLinks}>
-            <Link href="/journey/step-2">Learn About Salvation</Link>
-            <Link href="/journey/step-3">Know the Heart of God</Link>
-            <Link href="/journey/step-4">Grow Your Faith</Link>
-            <Link href="/journey/step-5">Walk Through a Difficult Season</Link>
-            <Link href="/prayer">Request Prayer</Link>
-          </div>
-        </LessonBlock>
+        <ContinueYourJourneyContent />
       </IndividualLesson>
     );
   }
@@ -164,7 +265,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           <p>The approved Character of God Bible Study Series invitation and supporting content will appear here during content implementation.</p>
         </LessonBlock>
         <LessonBlock title="3.b.5 Time to Reflect" icon="?">
-          <p>The approved reflection questions and Scripture will remain inside this lesson as established by Doctrine Rev. 1.6.</p>
+          <p>The approved reflection questions and Scripture will remain inside this lesson as established by Doctrine Rev. 1.7.</p>
         </LessonBlock>
         <LessonBlock title="3.b.6 Final Encouragement" icon="✦" tone="highlight">
           <p>The approved final encouragement will appear here as part of the same 3.b lesson.</p>
@@ -183,14 +284,13 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="6.b"
         title="Read God’s Word"
         lessons={step.lessons}
-        intro="Continue growing in God’s Word with the FCE Bible Reader and our Bible Reading Plan Library."
+        intro="Continue growing in God’s Word with the Faith Changes Everything Bible Studies."
       >
-        <LessonBlock title="Continue Reading God’s Word" icon="▣" tone="highlight">
-          <p>Choose a Scripture-guided reading plan to help you keep reading the Bible regularly and growing in your understanding of God’s Word.</p>
+        <LessonBlock title="Faith Changes Everything Bible Studies" icon="▣" tone="highlight">
+          <p>Explore beginner, intermediate, and advanced Bible studies designed to help you understand Scripture and continue growing in your relationship with Christ.</p>
           <div className={fixes.lessonResourceLinks}>
-            <Link href="/reading-plans">Explore FCE Bible Reading Plans</Link>
+            <Link href="/bible-studies">Begin Reading</Link>
           </div>
-          <p>To return to this Journey to Hope lesson after visiting the Reading Plan Library, use your browser’s Back button.</p>
         </LessonBlock>
       </IndividualLesson>
     );

@@ -67,6 +67,14 @@ export default function Header() {
           );
         })}
       </nav>
+      <Link
+        className={styles.requestPrayerCta}
+        href="/prayer"
+        aria-current={isActiveSection(pathname, "/prayer") ? "page" : undefined}
+      >
+        <span aria-hidden="true">🙏</span>
+        Request Prayer
+      </Link>
       <details className={styles.mobileMenu} key={pathname}>
         <summary aria-label="Open website navigation">Menu <span aria-hidden="true">☰</span></summary>
         <nav className={styles.mobileLinks} aria-label="Mobile primary navigation">
@@ -79,6 +87,16 @@ export default function Header() {
                 )}
               </div>
             </details>
+          ) : label === "Prayer" ? (
+            <Link
+              key={label}
+              href={href}
+              aria-current={isActiveSection(pathname, href) ? "page" : undefined}
+              className={styles.mobilePrayerCta}
+            >
+              <span aria-hidden="true">🙏</span>
+              Request Prayer
+            </Link>
           ) : (
             <Link key={label} href={href} aria-current={isActiveSection(pathname, href) ? "page" : undefined} className={isActiveSection(pathname,href) ? styles.active : undefined}>{label}</Link>
           ))}

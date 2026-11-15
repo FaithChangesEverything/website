@@ -193,16 +193,15 @@ test.describe('FCE Bible Reading Plans pilot',()=>{
     await page.goto('/reading-plans/getting-to-know-jesus/day/1');
     await expect(page.getByRole('button',{name:/Day Complete — Undo/})).toBeVisible();
   });
-  test('Journey to Hope Step 6.b opens the FCE Reading Plan Library',async({page})=>{
+  test('Journey to Hope Step 6.b opens the FCE Bible Study Library',async({page})=>{
     await page.goto('/journey/step-6/read-gods-word');
     await expect(page.getByRole('heading',{name:'Read God’s Word'})).toBeVisible();
-    const plans=page.getByRole('link',{name:'Explore FCE Bible Reading Plans'});
-    await expect(plans).toHaveAttribute('href','/reading-plans');
-    await expect(page.getByText('To return to this Journey to Hope lesson after visiting the Reading Plan Library, use your browser’s Back button.')).toBeVisible();
-    await plans.click();
-    await expect(page).toHaveURL(/\/reading-plans$/);
-    await expect(page.getByRole('heading',{name:'Bible Reading Plans'})).toBeVisible();
-    await expect(page.getByText('22 plans found')).toBeVisible();
+    const studies=page.getByRole('link',{name:'Begin Reading'});
+    await expect(studies).toHaveAttribute('href','/bible-studies');
+    await studies.click();
+    await expect(page).toHaveURL(/\/bible-studies$/);
+    await expect(page.getByRole('heading',{name:'FCE Bible Study Library'})).toBeVisible();
+    await expect(page.getByRole('heading',{name:'Explore Bible Studies'})).toBeVisible();
   });
   test('mobile layout stays in viewport and privacy text visible',async({page})=>{
     await page.setViewportSize({width:390,height:844});

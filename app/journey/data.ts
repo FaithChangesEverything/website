@@ -109,7 +109,7 @@ export const journeySteps: JourneyStep[] = [
 
 export const hopeSeries = [
   "The God of Hope",
-  "Hope: An Anchor for the Soul",
+  "Hope – An Anchor for the Soul",
   "Hope in God’s Faithfulness",
   "Hope that Renews Strength",
   "Hope in the Midst of Discouragement",
