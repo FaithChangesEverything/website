@@ -147,7 +147,7 @@ export const hopeSeriesPoc = {
         "1.c.37": 51.24,
         "1.c.38": 130.2,
         "1.c.39": 164.76,
-        "1.c.40": 230.92,
+        "1.c.40": 228.92,
         "1.c.41": 264.44,
         "1.c.42": 281.8
       }
@@ -244,7 +244,7 @@ export const hopeSeriesPoc = {
           "How does knowing that I have peace with God change the way I face difficult situations?",
           "What promise of God gives me hope as I look toward the future?"
         ],
-        "audioStartSeconds": 230.92
+        "audioStartSeconds": 228.92
       },
       {
         "id": "1.c.41",
