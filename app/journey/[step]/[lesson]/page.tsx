@@ -5,6 +5,7 @@ import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../
 import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
 import { TimeToReflectContent } from "../../components/TimeToReflectContent";
 import { HelpfulResourcesContent } from "../../components/HelpfulResourcesContent";
+import { PrayerForTodayContent } from "../../components/PrayerForTodayContent";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
@@ -177,6 +178,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <HelpfulResourcesContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "1.f") {
+    return (
+      <IndividualLesson
+        stepNumber={1}
+        lessonId="1.f"
+        title="A Prayer for Today"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer.mp3",
+          title: "A Prayer for Today",
+          playerId: "1f-prayer-for-today",
+          resumeKey: "1.f",
+          contentKey: "1.f",
+          path: "/journey/step-1/a-prayer-for-today",
+          startAtSeconds: 0,
+        }}
+      >
+        <PrayerForTodayContent />
       </IndividualLesson>
     );
   }
