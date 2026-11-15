@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 export type UnderstandingSalvationBlock =
   | { type: "paragraph"; text: string }
   | { type: "scripture"; text: string; reference: string };
