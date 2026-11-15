@@ -316,3 +316,49 @@
   .seriesOverviewIntro{margin:14px 0 18px;padding:16px}
   .lessonSectionActions{justify-content:flex-start}
 }
+
+
+/* Step 2e4: high-visibility, centered action to find a church home. */
+.churchFinderCallToAction{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:1.65rem 0 .5rem;
+  padding:1.45rem 1rem;
+  background:#f8f2e8;
+  border:1px solid #e4d3b6;
+  border-radius:12px;
+}
+.churchFinderButton{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:.7rem;
+  max-width:100%;
+  min-height:50px;
+  padding:.85rem 1.5rem;
+  border-radius:9px;
+  background:#173b63;
+  border:2px solid #173b63;
+  color:#fff!important;
+  text-decoration:none!important;
+  text-align:center;
+  font-size:1rem;
+  font-weight:800;
+  line-height:1.3;
+  box-shadow:0 4px 14px rgba(12,36,65,.16);
+  transition:background-color .2s,box-shadow .2s;
+}
+.churchFinderButton:hover{
+  background:#245989;
+  border-color:#245989;
+  box-shadow:0 5px 18px rgba(12,36,65,.25);
+}
+.churchFinderButton:focus-visible{
+  outline:3px solid #d7a84b;
+  outline-offset:4px;
+}
+@media(max-width:480px){
+  .churchFinderCallToAction{padding:1rem .75rem}
+  .churchFinderButton{width:100%;padding:.85rem 1rem;font-size:.95rem}
+}
