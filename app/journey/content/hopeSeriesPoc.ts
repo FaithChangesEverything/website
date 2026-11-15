@@ -122,8 +122,8 @@ export const hopeSeriesPoc = {
       },
       "cues": {
         "1.c.29": 0.0,
-        "1.c.30": 102.96,
-        "1.c.31": 181.84,
+        "1.c.30": 101.96,
+        "1.c.31": 179.84,
         "1.c.32": 244.88,
         "1.c.33": 312.24,
         "1.c.34": 348.4,
@@ -208,7 +208,7 @@ export const hopeSeriesPoc = {
           "As he looks back on happier days, he remembers leading others in joyful worship and celebration. Now those memories only deepen his sense of loss. Surrounded by people who mock his faith and question whether God has abandoned him, the psalmist wrestles with discouragement, loneliness, and spiritual dryness.",
           "Yet this psalm is not simply a record of despair. It is the story of a believer who refuses to let despair have the final word. Even while acknowledging his pain, he repeatedly reminds himself to place his hope in God. His circumstances remain difficult, but his confidence rests in the God who never changes."
         ],
-        "audioStartSeconds": 102.96
+        "audioStartSeconds": 101.96
       },
       {
         "id": "1.c.31",
@@ -218,7 +218,7 @@ export const hopeSeriesPoc = {
           "Psalm 42 reminds us that even faithful believers experience seasons of spiritual dryness, sorrow, and discouragement. The psalmist longs for God's presence like a thirsty deer longs for water. Surrounded by hardship and questions, he openly pours out his heart to God, demonstrating that we can bring our deepest struggles, fears, and emotions to Him in prayer.",
           "Yet despite his pain, the psalmist refuses to let despair have the final word. He intentionally reminds himself to place his hope in God, trusting that God's love, faithfulness, and presence remain constant even when his circumstances have not changed. This psalm teaches us that biblical hope is not the absence of struggle but the confidence that God is with us and will never forsake those who trust in Him."
         ],
-        "audioStartSeconds": 181.84
+        "audioStartSeconds": 179.84
       },
       {
         "id": "1.c.32",
