@@ -7,9 +7,11 @@ import styles from "../step-overview-sequence9.module.css";
 export function PastorMessageVideo({
   title,
   embedUrl,
+  buttonLabel = "Watch Pastor Richard’s Message",
 }: {
   title: string;
   embedUrl: string;
+  buttonLabel?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -21,7 +23,7 @@ export function PastorMessageVideo({
         onClick={() => setOpen(true)}
         aria-expanded="false"
       >
-        ▶ Watch Pastor Richard&apos;s Message
+        ▶ {buttonLabel}
       </button>
     );
   }
