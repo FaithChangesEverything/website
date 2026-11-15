@@ -175,6 +175,95 @@ export const hopeSeriesPoc = {
       }
     }
   ],
+  "studyFour": {
+    "studyNumber": 4,
+    "progressKey": "1.c.study-4",
+    "sectionId": "1.c.22",
+    "title": "Hope that Renews Strength",
+    "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-4",
+    "audio": {
+      "recordingId": "audio-2026-00005",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c22-1c28-audio-2026-00005-hope-renews.mp3",
+      "vttFile": "1c22-1c28-audio-2026-00005-hope-renews.vtt",
+      "timestampVerified": true
+    },
+    "sections": [
+      {
+        "id": "1.c.22",
+        "title": "Hope that Renews Strength - Scripture",
+        "kind": "scripture",
+        "paragraphs": [],
+        "scripture": {
+          "text": "Do you not know? Have you not heard? The Lord is the everlasting God, the Creator of the ends of the earth. He will not grow tired or weary, and his understanding no one can fathom. He gives strength to the weary and increases the power of the weak. Even youths grow tired and weary, and young men stumble and fall; but those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary; they will walk and not be faint.",
+          "reference": "Isaiah 40:28-31 (NIV)"
+        },
+        "audioStartSeconds": 0.0
+      },
+      {
+        "id": "1.c.23",
+        "title": "Context",
+        "kind": "context",
+        "paragraphs": [
+          "Isaiah ministered during a time of spiritual decline and growing uncertainty for the nation of Judah. Although the first part of the book contains warnings of coming judgment because of the people's rebellion, chapter 40 marks the beginning of a message filled with comfort and hope. God speaks tenderly to His people, assuring them that He has not forgotten them and that His purposes will ultimately prevail.",
+          "Many of God's people would eventually experience exile, far from their homes and surrounded by circumstances that seemed hopeless. They would be tempted to believe that God no longer saw their struggles or cared about their future. Through the prophet Isaiah, however, God reminds them of an unchanging truth: He is the everlasting Creator who never grows weary, never loses control, and never abandons those who trust in Him."
+        ],
+        "audioStartSeconds": 47.6
+      },
+      {
+        "id": "1.c.24",
+        "title": "What Does This Passage Teach?",
+        "kind": "teaching",
+        "paragraphs": [
+          "Isaiah 40:28–31 reminds us that God is everlasting, all-powerful, and never grows weary. When we place our hope in Him, He provides the strength we need to endure life's challenges. Even when our own strength fails, God faithfully renews us, enabling us to continue walking with confidence, perseverance, and hope."
+        ],
+        "audioStartSeconds": 104.96
+      },
+      {
+        "id": "1.c.25",
+        "title": "How Does This Apply to Me Today?",
+        "kind": "application",
+        "paragraphs": [
+          "Perhaps you feel exhausted today. You have prayed, waited, struggled, and wondered how much longer you can continue. This passage reminds us that God sees our weariness. He does not criticize us for needing His help. Instead, He invites us to depend upon His strength rather than our own. The world often tells us to try harder, push longer, or become stronger. God offers something far better. He offers His strength.",
+          "When we place our hope in Him, He meets us in our weakness and provides exactly what we need for today. He may not remove every burden immediately, but He promises that we will never carry those burdens alone. The same God who created the universe is able to sustain you through whatever you are facing today."
+        ],
+        "audioStartSeconds": 139.6
+      },
+      {
+        "id": "1.c.26",
+        "title": "Questions to Reflect On",
+        "kind": "questions",
+        "paragraphs": [],
+        "items": [
+          "Where am I relying on my own strength instead of God's?",
+          "What situations have left me feeling weary or discouraged?",
+          "How have I experienced God's strength during difficult seasons in the past?",
+          "What does it mean for me to hope in the Lord today?",
+          "How can I depend more fully upon God's strength this week?"
+        ],
+        "audioStartSeconds": 198.08
+      },
+      {
+        "id": "1.c.27",
+        "title": "One Truth to Remember",
+        "kind": "truth",
+        "paragraphs": [
+          "When your strength comes to an end, God's strength has only begun. Hope in the Lord, and He will provide what you need for each new day."
+        ],
+        "audioStartSeconds": 231.92
+      },
+      {
+        "id": "1.c.28",
+        "title": "Prayer",
+        "kind": "prayer",
+        "paragraphs": [
+          "Heavenly Father,",
+          "Thank You for being the everlasting God whose strength never fails. When I become weary and discouraged, remind me that I do not have to face life's challenges alone. Forgive me for the times I rely only on my own strength. Teach me to place my hope completely in You and to trust that You will provide everything I need for each day.",
+          "Renew my heart when I am tired. Strengthen my faith when I feel weak. Help me to walk faithfully with You, knowing that Your power is always greater than my limitations. Thank You for Your constant presence, Your perfect wisdom, and your unfailing love. In the name of Jesus Christ, Amen."
+        ],
+        "audioStartSeconds": 248.88
+      }
+    ]
+  },
   "studyThree": {
     "studyNumber": 3,
     "progressKey": "1.c.study-3",
@@ -467,6 +556,7 @@ export const hopeStudyManifests = hopeSeriesPoc.studies;
 export const hopeStudyOne = hopeSeriesPoc.proofOfConceptStudy;
 export const hopeStudyTwo = hopeSeriesPoc.studyTwo;
 export const hopeStudyThree = hopeSeriesPoc.studyThree;
+export const hopeStudyFour = hopeSeriesPoc.studyFour;
 
 export function getHopeStudyManifest(studyNumber: number) {
   return hopeStudyManifests.find((study) => study.studyNumber === studyNumber);
