@@ -1,4 +1,5 @@
 import { JourneyListenFromHere } from "./JourneyListenFromHere";
+import { PrayerOfSalvationVideo } from "./PrayerOfSalvationVideo";
 import { LessonBlock } from "./PageStructures";
 import { salvationReflectionSections } from "../content/salvationReflection";
 import { step2AudioTimestamps } from "../timestamps/step2";
@@ -25,6 +26,7 @@ export function SalvationReflectionContent() {
           {section.paragraphs.map((paragraph, index) => (
             <p key={`${section.id}-paragraph-${index}`}>{paragraph}</p>
           ))}
+          {section.id === "2.d.3" ? <PrayerOfSalvationVideo /> : null}
           {"questions" in section ? (
             <ol className={fixes.reflectionQuestions}>
               {section.questions.map((question) => <li key={question}>{question}</li>)}
