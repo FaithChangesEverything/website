@@ -25,29 +25,21 @@ export const stepResourceAssignments: Record<
     { id: "song-2026-0009", type: "song", category: "related-song" },
     { id: "song-2026-0008", type: "song", category: "related-song" },
     { id: "song-2026-0012", type: "song", category: "related-song" },
-    { id: "vid-2026-00184", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00188", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00182", type: "video", category: "related-sermon" },
+
+    { id: "vid-2026-00184", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00188", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00205", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00192", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00183", type: "sermon", category: "related-sermon" },
+
     { id: "vid-2026-00027", type: "video", category: "companion-resource" },
     { id: "vid-2026-00044", type: "video", category: "companion-resource" },
-    {
-      id: "doc-2026-00017",
-      type: "document",
-      category: "companion-resource",
-      label: "How to Study the Bible",
-    },
-    {
-      id: "external-tim-mackie-living-hope",
-      type: "ministry",
-      category: "additional-resource",
-    },
-    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
-    {
-      id: "j2h-find-a-church",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Find a Church Home",
-    },
+
+    { id: "doc-2026-00212", type: "document", category: "companion-resource" },
+    { id: "doc-2026-00003", type: "document", category: "companion-resource" },
+    { id: "doc-2026-00017", type: "document", category: "companion-resource" },
+
+    { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
   "step-2": [
@@ -239,6 +231,11 @@ export const stepResourceAssignments: Record<
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
+  // Step 1 is reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
+  // Do not supplement it from broader Sermon Library step metadata, which can
+  // contain valid cross-site placements that are not part of the final J2H list.
+  if (stepId === "step-1") return [...stepResourceAssignments[stepId]];
+
   // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
   // Keep other curated J2H resources intact, but remove legacy references to
   // these same 19 sermons so each appears once, and only in its assigned steps.
