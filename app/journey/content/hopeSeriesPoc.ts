@@ -101,7 +101,7 @@ export const hopeSeriesPoc = {
       "cues": {
         "1.c.22": 0.0,
         "1.c.23": 47.6,
-        "1.c.24": 104.96,
+        "1.c.24": 102.96,
         "1.c.25": 139.6,
         "1.c.26": 198.08,
         "1.c.27": 231.92,
@@ -216,7 +216,7 @@ export const hopeSeriesPoc = {
         "paragraphs": [
           "Isaiah 40:28–31 reminds us that God is everlasting, all-powerful, and never grows weary. When we place our hope in Him, He provides the strength we need to endure life's challenges. Even when our own strength fails, God faithfully renews us, enabling us to continue walking with confidence, perseverance, and hope."
         ],
-        "audioStartSeconds": 104.96
+        "audioStartSeconds": 102.96
       },
       {
         "id": "1.c.25",
