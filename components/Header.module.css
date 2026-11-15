@@ -80,6 +80,45 @@
   box-shadow: 0 0 5px rgba(215, 168, 75, .28);
 }
 
+
+.requestPrayerCta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, .88);
+  border-radius: 999px;
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.requestPrayerCta span {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.requestPrayerCta:hover,
+.requestPrayerCta:focus-visible,
+.requestPrayerCta[aria-current="page"] {
+  background: #fff;
+  border-color: #fff;
+  color: #061329;
+  text-decoration: none;
+}
+
+.requestPrayerCta:focus-visible {
+  outline: 2px solid #f1cb78;
+  outline-offset: 3px;
+}
+
 /* At intermediate browser widths, keep the logo fully inside the navy header.
    This prevents the intentional wide-screen overlap from colliding with the
    Need Help Right Now strip when the browser is narrowed or zoomed. */
@@ -111,6 +150,13 @@
   .nav a.active::after {
     bottom: -7px;
   }
+
+  .requestPrayerCta {
+    min-height: 42px;
+    padding: 0 13px;
+    gap: 6px;
+    font-size: .68rem;
+  }
 }
 
 @media (max-width: 950px) {
@@ -125,6 +171,10 @@
   }
 
   .nav {
+    display: none;
+  }
+
+  .requestPrayerCta {
     display: none;
   }
 }
@@ -153,6 +203,8 @@
   .mobileLinks{position:absolute;right:0;top:calc(100% + 12px);min-width:235px;max-height:75vh;overflow-y:auto;border-radius:9px;border:1px solid #ba9658;background:#081b35;box-shadow:0 12px 25px #0006;padding:7px;display:flex;flex-direction:column}
   .mobileLinks a{padding:11px 14px;color:white;text-decoration:none;font-size:.9rem;border-radius:5px}
   .mobileLinks a:hover,.mobileLinks a:focus-visible,.mobileLinks a.active{background:#183d67;color:#f6d28c}
+  .mobileLinks .mobilePrayerCta{display:flex;align-items:center;justify-content:center;gap:8px;margin:7px 5px 4px;border:1px solid #f1cb78;border-radius:999px;background:#0d2a4d;color:#fff;font-weight:800;text-transform:uppercase}
+  .mobileLinks .mobilePrayerCta:hover,.mobileLinks .mobilePrayerCta:focus-visible{background:#f1cb78;color:#061329}
 }
 @media(max-width:430px){
   .mobileMenu summary{font-size:0;gap:0;padding:10px 12px}
