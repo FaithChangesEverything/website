@@ -25,7 +25,7 @@ export const timeToReflect = {
         `Learning about hope is an important beginning, but it is not the end of the journey. Biblical hope is more than something we understand—it is something we live. God doesn't simply want us to know that hope exists; He wants us to experience it every day. The good news is that growing in hope doesn't require extraordinary faith or perfect circumstances. It begins with small, intentional steps taken one day at a time. As we draw closer to God, trust His promises, and allow His Word to shape our lives, our hope grows stronger because it is rooted in Him rather than in our circumstances.`,
         `The following practical steps are not a checklist to earn God's favor or a formula that guarantees an easy life. Instead, they are biblical habits that help us know Christ more deeply and experience the hope He freely gives.`,
       ],
-      audioStartSeconds: 24.88,
+      audioStartSeconds: 26.88,
     },
     {
       id: "1.d.2",
@@ -47,7 +47,7 @@ export const timeToReflect = {
         "Spend five to ten minutes talking with God in prayer.",
         "Write down one thing you learned about God each day.",
       ],
-      audioStartSeconds: 133.08,
+      audioStartSeconds: 136.08,
     },
     {
       id: "1.d.4",
@@ -57,7 +57,7 @@ export const timeToReflect = {
         `Prayer is not about saying the right words. It is about opening your heart to the God who already knows everything about you. Throughout Scripture, God's people prayed with honesty. They expressed joy, fear, confusion, disappointment, gratitude, and even questions they didn't fully understand.`,
         `God invites us to come to Him just as we are. We never need to pretend that everything is fine. Honest prayer strengthens our relationship with God because it teaches us to depend on Him rather than carrying our burdens alone.`,
       ],
-      audioStartSeconds: 152.84,
+      audioStartSeconds: 157.84,
     },
     {
       id: "1.d.5",
@@ -68,7 +68,7 @@ export const timeToReflect = {
         `Looking back at God's faithfulness reminds us that the God who carried us before is the same God who walks with us today. While our circumstances may change, His character never does.`,
         `Sometimes we don't recognize God's faithfulness until we look back over the road we've already traveled. What once seemed impossible often becomes a testimony of His sustaining grace.`,
       ],
-      audioStartSeconds: 193.4,
+      audioStartSeconds: 198.4,
     },
     {
       id: "1.d.6",
@@ -80,7 +80,7 @@ export const timeToReflect = {
         "Record one way God has provided for you this week.",
         "Begin a journal where you can continue remembering God's faithfulness.",
       ],
-      audioStartSeconds: 242.12,
+      audioStartSeconds: 244.12,
     },
     {
       id: "1.d.7",
@@ -90,7 +90,7 @@ export const timeToReflect = {
         `Our thoughts shape the way we view our circumstances. When discouragement fills our minds, hope begins to fade. God's Word renews our thinking by replacing fear with truth and uncertainty with His promises.`,
         `Reading Scripture consistently allows God's perspective to become stronger than our emotions. As His truth fills our minds, hope grows because we are learning to see life through His eyes instead of our own.`,
       ],
-      audioStartSeconds: 260.839,
+      audioStartSeconds: 262.839,
     },
     {
       id: "1.d.8",
@@ -111,7 +111,7 @@ export const timeToReflect = {
         `Serving does not eliminate our problems, but it reminds us that God can still use us to encourage someone else. As we become channels of His love, we often discover that He is renewing our own hearts at the same time.`,
         `Even simple acts of kindness can become powerful reminders that God is still working through us.`,
       ],
-      audioStartSeconds: 341.719,
+      audioStartSeconds: 343.719,
     },
     {
       id: "1.d.10",
@@ -123,7 +123,7 @@ export const timeToReflect = {
         `Even when nothing seems to be happening around us, God is often doing His deepest work within us.`,
         `Hope grows stronger when we remember that God is never late. He is always working according to His perfect purpose.`,
       ],
-      audioStartSeconds: 379.799,
+      audioStartSeconds: 383.799,
     },
     {
       id: "1.d.11",
@@ -133,7 +133,7 @@ export const timeToReflect = {
         `Every step of this journey points to one person—Jesus Christ. He is the source of our hope, the foundation of our faith, and the Savior who walks with us through every season of life. Our confidence is never found in our own strength or in our ability to overcome life's challenges. It rests entirely in Him.`,
         `When you feel discouraged, look to Jesus. When you are uncertain, look to Jesus. When your strength is gone, look to Jesus. He is the One who conquered sin and death, who keeps every promise He has made, and who will never leave those who trust in Him. The more we know Him, the stronger our hope becomes. Every promise you've read throughout this Journey to Hope ultimately points to Him. He is not only the source of our hope—He is the fulfillment of it.`,
       ],
-      audioStartSeconds: 429.0,
+      audioStartSeconds: 434.0,
     },
     {
       id: "1.d.12",
@@ -146,7 +146,7 @@ export const timeToReflect = {
         `As you continue walking with Christ, you'll discover that hope is not merely something you possess—it is Someone who walks beside you every day.`,
         `May your journey lead you ever closer to the One who is our living hope, Jesus Christ our Lord. Amen.`,
       ],
-      audioStartSeconds: 501.48,
+      audioStartSeconds: 505.48,
     },
   ],
 } as const;
