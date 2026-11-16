@@ -335,7 +335,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Bible Study Online Resources"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources.mp3",
           title: "Bible Study Online Resources",
           playerId: "2f-online-resources",
           resumeKey: "2.f",
