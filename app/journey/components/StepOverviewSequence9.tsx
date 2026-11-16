@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
-import { JourneyAudioPlayer } from "./JourneyAudioPlayer";
 import { PastorMessageVideo } from "./PastorMessageVideo";
 import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
@@ -614,68 +613,80 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
   );
 }
 
-function Step2ClosingWindows() {
+function Step2ClosingCards({
+  lessons,
+  lessonStates,
+  saving,
+}: {
+  lessons: JourneyLesson[];
+  lessonStates?: Record<string, { state: JourneyDisplayState }>;
+  saving: boolean;
+}) {
+  const closingItems = [
+    {
+      id: "2.f",
+      kind: "Bible Study Resources",
+      description: "Explore trusted online Bible study tools and the FCE printable resource guide to help you grow in God’s Word.",
+      action: "Explore Resources",
+    },
+    {
+      id: "2.g",
+      kind: "Final Encouragement",
+      description: "Receive a final word of encouragement through the Apostle Paul’s prayer in Ephesians 3.",
+      action: "Read Encouragement",
+    },
+    {
+      id: "2.h",
+      kind: "Continue Your Journey",
+      description: "A closing message from Pastor Richard as you complete Step 2 and prepare for the next part of your Journey.",
+      action: "Finish Step 2",
+    },
+  ]
+    .map((item) => {
+      const lesson = lessons.find((candidate) => candidate.id === item.id);
+      return lesson ? { ...item, lesson } : null;
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+
+  if (closingItems.length === 0) return null;
+
   return (
-    <section className={sequence9.lowerWindows} aria-label="Step 2 closing content">
-      <article className={sequence9.lowerWindow}>
-        <div className={sequence9.windowContent}>
-          <span className={sequence9.windowBadge}>2.f</span>
-          <div className={sequence9.windowBody}>
-            <h2>Bible Study Online Resources</h2>
-            <JourneyAudioPlayer
-              src="https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources.mp3"
-              title="Bible Study Online Resources"
-            />
-            <div className={sequence9.windowManuscript}>
-              <p>
-                As you continue growing in your faith, you&apos;ll discover that there are many helpful resources available to deepen your understanding of God&apos;s Word. We&apos;ve created a collection of carefully selected Bible study resources to help you continue growing in your knowledge of God&apos;s Word. Explore our collection of Faith Changes Everything Bible study resources.
-              </p>
-            </div>
-            <Link className={sequence9.resourceButton} href="/bible-studies">
-              FCE Bible Study Resources
-            </Link>
-          </div>
-        </div>
-      </article>
+    <section className={sequence9.stepClosing} aria-labelledby="step-2-closing-title">
+      <div className={sequence9.stepClosingHeader}>
+        <p className={styles.eyebrow}>Complete Step 2</p>
+        <h2 id="step-2-closing-title">Closing Step 2</h2>
+        <p>
+          When you have worked through the Step 2 lessons, use these final three
+          moments to explore helpful resources, reflect on Scripture, and continue your Journey.
+        </p>
+      </div>
+      <div className={`${sequence9.stepClosingGrid} ${sequence9.stepClosingGridThree}`}>
+        {closingItems.map(({ id, kind, description, action, lesson }) => {
+          const state = lessonStates?.[id]?.state;
+          const presentation = displayState(state, saving);
+          const statusLabel = saving ? presentation.label : "Available";
 
-      <article className={sequence9.lowerWindow}>
-        <div className={sequence9.windowContent}>
-          <span className={sequence9.windowBadge}>2.g</span>
-          <div className={sequence9.windowBody}>
-            <h2>Final Encouragement</h2>
-            <JourneyAudioPlayer
-              src="https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement.mp3"
-              title="Final Encouragement"
-            />
-            <p>As you continue your journey of faith, may this prayer from the Apostle Paul encourage your heart.</p>
-            <blockquote className={sequence9.scriptureQuote}>
-              “I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being, so that Christ may dwell in your hearts through faith. And I pray that you, being rooted and established in love, may have power, together with all the Lord&apos;s holy people, to grasp how wide and long and high and deep is the love of Christ, and to know this love that surpasses knowledge—that you may be filled to the measure of all the fullness of God. Now to him who is able to do immeasurably more than all we ask or imagine, according to his power that is at work within us, to him be glory in the church and in Christ Jesus throughout all generations, for ever and ever! Amen.”
-              <strong>Ephesians 3:16–21 (NIV)</strong>
-            </blockquote>
-            <p className={sequence9.copyrightNotice}>
-              Scripture quotations taken from The Holy Bible, New International Version® NIV®. Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.® Used by permission. All rights reserved worldwide.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article className={sequence9.lowerWindow}>
-        <div className={sequence9.windowContent}>
-          <span className={sequence9.windowBadge}>2.h</span>
-          <div className={sequence9.windowBody}>
-            <h2>Continue Your Journey - Congratulations on completing this part of your journey!!</h2>
-            <JourneyAudioPlayer
-              src="https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey.mp3"
-              title="Continue Your Journey"
-            />
-            <div className={sequence9.windowManuscript}>
-              <p>
-                Whether you have recently placed your faith in Jesus Christ or are still seeking to know Him better, I hope this chapter has helped you take another step toward a deeper understanding of God&apos;s love and His plan for your life. Remember, following Jesus is not a destination—it is a lifelong journey of growing in faith, trusting God&apos;s promises, and becoming more like Christ each day. When you&apos;re ready, return to the Journey Hub to continue your journey. There you&apos;ll find additional paths designed to help you grow, answer questions you may still have, and encourage you wherever you are in your walk with God. As you continue growing in your faith, you may find these additional resources helpful.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
+          return (
+            <article className={sequence9.stepClosingCard} key={id}>
+              <div className={sequence9.stepClosingCardTop}>
+                <span className={sequence9.windowBadge}>{id}</span>
+                <span className={sequence9.stepClosingKind}>{kind}</span>
+              </div>
+              <h3>{lesson.title}</h3>
+              <p>{description}</p>
+              <div className={sequence9.stepClosingFooter}>
+                <span className={sequence9.stepClosingStatus}>
+                  <span aria-hidden="true">{presentation.icon}</span> {statusLabel}
+                </span>
+                <Link className={sequence9.stepClosingAction} href={lesson.href}>
+                  {state === "completed" ? "Review" : action}
+                  <span aria-hidden="true"> →</span>
+                </Link>
+              </div>
+            </article>
+          );
+        })}
+      </div>
     </section>
   );
 }
@@ -702,7 +713,13 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
       <section className={styles.lessonCards} aria-labelledby="lessons-title"><div className={styles.lessonHeading}><span className={styles.lessonHeadingIcon} aria-hidden="true">▣</span><div><h2 id="lessons-title">Your Lessons in This Step</h2><p>Complete any lesson in any order. Supporting resources remain available without affecting your completion percentage.</p></div></div><div className={styles.cardGrid}>{cardLessons.map((lesson) => <LessonCard key={lesson.id} lesson={lesson} state={lessonStates?.[lesson.id]?.state} saving={saving} />)}</div>{!summary && <ProgressSavePrompt />}</section>
     </div>
 
-    {stepNumber === 2 && <Step2ClosingWindows />}
+    {stepNumber === 2 && (
+      <Step2ClosingCards
+        lessons={lessons}
+        lessonStates={lessonStates ?? undefined}
+        saving={saving}
+      />
+    )}
 
     {stepNumber === 1 && (
       <Step1ClosingCards

@@ -42,37 +42,25 @@ export const stepResourceAssignments: Record<
     { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
+  // Authoritative Step 2 assignments: J2H_Step_ResourcesRev1.2.xlsx, rows 18–34.
   "step-2": [
     { id: "song-2026-0009", type: "song", category: "related-song" },
     { id: "song-2026-0007", type: "song", category: "related-song" },
     { id: "song-2026-0012", type: "song", category: "related-song" },
-    { id: "vid-2026-00190", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00189", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00187", type: "video", category: "related-sermon" },
-    {
-      id: "doc-2026-00017",
-      type: "document",
-      category: "bible-study",
-      label: "Related Bible Study",
-    },
-    { id: "vid-2026-00019", type: "video", category: "companion-resource" },
-    { id: "vid-2026-00023", type: "video", category: "companion-resource" },
-    { id: "vid-2026-00038", type: "video", category: "companion-resource" },
-    {
-      id: "doc-2026-00017",
-      type: "document",
-      category: "companion-resource",
-      label: "How to Study the Bible",
-    },
-    { id: "vid-2026-00182", type: "video", category: "testimony" },
-    { id: "vid-2026-00190", type: "video", category: "additional-resource" },
-    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
-    {
-      id: "j2h-find-a-church",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Find a Church Home",
-    },
+    { id: "vid-2026-00190", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00189", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00187", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00206", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00192", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00185", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-0019", type: "video", category: "companion-resource", label: "Biblical Themes" },
+    { id: "vid-2026-0023", type: "video", category: "companion-resource", label: "Biblical Themes" },
+    { id: "vid-2026-0038", type: "video", category: "companion-resource", label: "Biblical Themes" },
+    { id: "doc-2026-00212", type: "document", category: "companion-resource", label: "How to Read the Bible" },
+    { id: "doc-2026-00003", type: "document", category: "companion-resource", label: "Bible Study Journal" },
+    { id: "doc-2026-00017", type: "document", category: "companion-resource", label: "How to Study the Bible" },
+    { id: "vid-2026-00196", type: "video", category: "prayer" },
+    { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
   "step-3": [
@@ -234,7 +222,7 @@ export function getStepResourceAssignments(
   // Step 1 is reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
   // Do not supplement it from broader Sermon Library step metadata, which can
   // contain valid cross-site placements that are not part of the final J2H list.
-  if (stepId === "step-1") return [...stepResourceAssignments[stepId]];
+  if (stepId === "step-1" || stepId === "step-2") return [...stepResourceAssignments[stepId]];
 
   // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
   // Keep other curated J2H resources intact, but remove legacy references to

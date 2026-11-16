@@ -7,11 +7,21 @@ import { TimeToReflectContent } from "../../components/TimeToReflectContent";
 import { HelpfulResourcesContent } from "../../components/HelpfulResourcesContent";
 import { PrayerForTodayContent } from "../../components/PrayerForTodayContent";
 import { ContinueYourJourneyContent } from "../../components/ContinueYourJourneyContent";
+import { UnderstandingSalvationContent } from "../../components/UnderstandingSalvationContent";
+import { SalvationScriptureContent } from "../../components/SalvationScriptureContent";
+import { SalvationReflectionContent } from "../../components/SalvationReflectionContent";
+import { SalvationJourneyContent } from "../../components/SalvationJourneyContent";
+import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnlineResourcesContent";
+import { SalvationFinalEncouragementContent } from "../../components/SalvationFinalEncouragementContent";
+import { SalvationContinueJourneyContent } from "../../components/SalvationContinueJourneyContent";
+import { salvationJourneyIntro } from "../../content/salvationJourney";
+import { salvationReflectionIntro } from "../../content/salvationReflection";
+import { understandingSalvationIntro } from "../../content/understandingSalvation";
+import { salvationScriptureIntro } from "../../content/salvationScripture";
 import { bibleStudySeries, getJourneyLesson, getJourneyStep, journeySteps } from "../../data";
 import { hopeSeriesIntro, hopeSeriesOverviewAudio, hopeStudyManifests } from "../../content/hopeSeriesPoc";
 import { getJourneyItemProgress, startJourneyItem } from "../../progress/operations";
 import fixes from "../../journey-fixes.module.css";
-import ScriptureReference from "@/components/bible/ScriptureReference";
 
 const bibleStudySectionIds = [1, 8, 15, 23, 31, 39, 48, 57];
 
@@ -227,6 +237,142 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (lesson.id === "2.b") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.b"
+        title="Understanding Salvation"
+        lessons={step.lessons}
+        intro={understandingSalvationIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2b-2b9-audio-2026-00013.mp3",
+          title: "Understanding Salvation",
+          playerId: "2b-understanding-salvation",
+          resumeKey: "2.b",
+          contentKey: "2.b",
+          path: "/journey/step-2/understanding-salvation",
+          startAtSeconds: 0,
+        }}
+      >
+        <UnderstandingSalvationContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.c") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.c"
+        title="What Does the Bible Say About Salvation"
+        lessons={step.lessons}
+        intro={salvationScriptureIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2c-2c10-audio-2026-00014.mp3",
+          title: "What Does the Bible Say About Salvation",
+          playerId: "2c-salvation-scripture",
+          resumeKey: "2.c",
+          contentKey: "2.c",
+          path: "/journey/step-2/what-does-the-bible-say-about-salvation",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationScriptureContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.d") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.d"
+        title="Time to Reflect"
+        lessons={step.lessons}
+        intro={salvationReflectionIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2d-2d3-audio-2026-00015.mp3",
+          title: "Time to Reflect",
+          playerId: "2d-time-to-reflect",
+          resumeKey: "2.d",
+          contentKey: "2.d",
+          path: "/journey/step-2/time-to-reflect",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationReflectionContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.e") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.e"
+        title="Continue Your Salvation Journey"
+        lessons={step.lessons}
+        intro={salvationJourneyIntro}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2e-2e6-audio-2026-00016.mp3",
+          title: "Continue Your Salvation Journey",
+          playerId: "2e-salvation-journey",
+          resumeKey: "2.e",
+          contentKey: "2.e",
+          path: "/journey/step-2/continue-your-salvation-journey",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationJourneyContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.f") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.f"
+        title="Bible Study Online Resources"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources.mp3",
+          title: "Bible Study Online Resources",
+          playerId: "2f-online-resources",
+          resumeKey: "2.f",
+          contentKey: "2.f",
+          path: "/journey/step-2/bible-study-online-resources",
+          startAtSeconds: 0,
+        }}
+      >
+        <BibleStudyOnlineResourcesContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.g") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.g"
+        title="Final Encouragement"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement.mp3",
+          title: "Final Encouragement",
+          playerId: "2g-final-encouragement",
+          resumeKey: "2.g",
+          contentKey: "2.g",
+          path: "/journey/step-2/final-encouragement",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationFinalEncouragementContent />
+      </IndividualLesson>
+    );
+  }
+
   if (lesson.id === "2.h") {
     return (
       <IndividualLesson
@@ -234,11 +380,17 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="2.h"
         title="Continue Your Journey"
         lessons={step.lessons}
-        intro="As you continue growing in your faith, the approved Continue Your Journey content will appear here during final content integration."
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey.mp3",
+          title: "Continue Your Journey",
+          playerId: "2h-continue-journey",
+          resumeKey: "2.h",
+          contentKey: "2.h",
+          path: "/journey/step-2/continue-your-journey",
+          startAtSeconds: 0,
+        }}
       >
-        <LessonBlock title="Continue Your Journey" icon="→" tone="highlight">
-          <p>The approved Step 2 closing encouragement will remain here, while the related resources now appear on the main Step 2 page.</p>
-        </LessonBlock>
+        <SalvationContinueJourneyContent />
       </IndividualLesson>
     );
   }
@@ -366,9 +518,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
       intro="This page now uses the approved continuous-flow Individual Lesson architecture. Final wording and section content remain governed by the authoritative Doctrine manuscript."
     >
       <LessonBlock title="Scripture" icon="▣" tone="scripture">
-        {lesson.id === "2.b" ? (
-          <p>Read <ScriptureReference book="john" chapter={3} startVerse={16} endVerse={17} label="John 3:16–17 (KJV)"/> in the FCE Bible without leaving your lesson. The final approved lesson manuscript will be incorporated here during content integration.</p>
-        ) : <p>The approved KJV Scripture for this lesson will appear here during content integration.</p>}
+        <p>The approved KJV Scripture for this lesson will appear here during content integration.</p>
       </LessonBlock>
       <LessonBlock title="The Heart of the Matter" icon="▤">
         <p>The approved teaching from the Doctrine manuscript will appear here in a readable, continuous section.</p>
