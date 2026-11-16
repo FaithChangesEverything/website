@@ -6,7 +6,7 @@ import { bibleBooks } from "@/lib/bible/books";
  * displays the corresponding KJV passage.
  */
 export function JourneyScriptureReference({ reference }: { reference: string }) {
-  const match = reference.match(/^(.+?)\s+(\d+):(\d+)(?:[-–](\d+))?\s*(?:\((NIV|KJV)\))?\.?$/);
+  const match = reference.match(/^(.+?)\s+(\d+):\s*(\d+)(?:\s*[-–]\s*(\d+))?\s*(?:\((NIV|KJV)\))?\.?$/);
   if (!match) return <strong>{reference}</strong>;
 
   const [, bookName, chapterText, firstVerseText, lastVerseText] = match;
