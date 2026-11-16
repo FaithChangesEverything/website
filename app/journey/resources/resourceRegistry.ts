@@ -191,7 +191,7 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "video",
     title: "Prayer of Salvation",
     description: "Watch Pastor Richard's Prayer of Salvation message in Step 2d.",
-    href: "/journey/step-2/time-to-reflect",
+    href: "/journey/step-2/time-to-reflect#prayer-of-salvation",
     actionLabel: "Watch Prayer of Salvation",
   },
   "vid-2026-00206": {
