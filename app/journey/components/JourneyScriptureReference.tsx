@@ -28,6 +28,7 @@ export function JourneyScriptureReference({ reference }: { reference: string }) 
         startVerse={startVerse}
         endVerse={endVerse}
         label={reference}
+        dialogLabel={`${book.name} ${chapter}:${startVerse}${endVerse !== startVerse ? `–${endVerse}` : ""} (KJV)`}
       />
     </strong>
   );
