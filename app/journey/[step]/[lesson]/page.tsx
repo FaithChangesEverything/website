@@ -13,6 +13,7 @@ import { SalvationReflectionContent } from "../../components/SalvationReflection
 import { SalvationJourneyContent } from "../../components/SalvationJourneyContent";
 import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnlineResourcesContent";
 import { SalvationFinalEncouragementContent } from "../../components/SalvationFinalEncouragementContent";
+import { SalvationContinueJourneyContent } from "../../components/SalvationContinueJourneyContent";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
@@ -379,11 +380,17 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessonId="2.h"
         title="Continue Your Journey"
         lessons={step.lessons}
-        intro="As you continue growing in your faith, the approved Continue Your Journey content will appear here during final content integration."
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey.mp3",
+          title: "Continue Your Journey",
+          playerId: "2h-continue-journey",
+          resumeKey: "2.h",
+          contentKey: "2.h",
+          path: "/journey/step-2/continue-your-journey",
+          startAtSeconds: 0,
+        }}
       >
-        <LessonBlock title="Continue Your Journey" icon="→" tone="highlight">
-          <p>The approved Step 2 closing encouragement will remain here, while the related resources now appear on the main Step 2 page.</p>
-        </LessonBlock>
+        <SalvationContinueJourneyContent />
       </IndividualLesson>
     );
   }
