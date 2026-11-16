@@ -450,6 +450,21 @@
   font-weight: 800;
 }
 
+/* Preserve the approved bold, black J2H citation styling on linked verses. */
+.scriptureQuote strong button {
+  color: inherit;
+  font: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.scriptureQuote strong button:hover,
+.scriptureQuote strong button:focus-visible {
+  color: #071426;
+  border-bottom-width: 2px;
+}
+
 .copyrightNotice {
   margin-top: 0.75rem !important;
   color: #667085;
