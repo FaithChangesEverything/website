@@ -548,3 +548,29 @@
     width: 100%;
   }
 }
+
+/* Shared explanation below the progress card on every Journey step. */
+.translationNotice {
+  margin-top: 1.1rem;
+  padding: 1.15rem 1.45rem;
+  border: 1px solid #c5d5d4;
+  border-left: 4px solid #4c7981;
+  border-radius: 12px;
+  background: #edf4f1;
+  color: #263c44;
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.65;
+}
+.translationNotice strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.translationNotice p {
+  margin: 0.3rem 0 0;
+  font-size: 0.98rem;
+}
+@media (max-width: 760px) {
+  .translationNotice { padding: 1rem 1.1rem; }
+}
