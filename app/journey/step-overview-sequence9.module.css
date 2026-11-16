@@ -201,6 +201,16 @@
   gap: 1rem;
 }
 
+.stepClosingGridThree {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .stepClosingGridThree {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .stepClosingCard {
   display: flex;
   min-height: 220px;
@@ -490,6 +500,9 @@
   }
 
   .stepClosingGrid {
+    grid-template-columns: 1fr;
+  }
+  .stepClosingGridThree {
     grid-template-columns: 1fr;
   }
 
