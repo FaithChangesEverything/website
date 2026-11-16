@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
-import { JourneyAudioPlayer } from "./JourneyAudioPlayer";
 import { PastorMessageVideo } from "./PastorMessageVideo";
 import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
