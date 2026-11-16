@@ -12,6 +12,7 @@ import { SalvationScriptureContent } from "../../components/SalvationScriptureCo
 import { SalvationReflectionContent } from "../../components/SalvationReflectionContent";
 import { SalvationJourneyContent } from "../../components/SalvationJourneyContent";
 import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnlineResourcesContent";
+import { SalvationFinalEncouragementContent } from "../../components/SalvationFinalEncouragementContent";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
@@ -345,6 +346,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <BibleStudyOnlineResourcesContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "2.g") {
+    return (
+      <IndividualLesson
+        stepNumber={2}
+        lessonId="2.g"
+        title="Final Encouragement"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement.mp3",
+          title: "Final Encouragement",
+          playerId: "2g-final-encouragement",
+          resumeKey: "2.g",
+          contentKey: "2.g",
+          path: "/journey/step-2/final-encouragement",
+          startAtSeconds: 0,
+        }}
+      >
+        <SalvationFinalEncouragementContent />
       </IndividualLesson>
     );
   }
