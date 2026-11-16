@@ -1,5 +1,6 @@
 import { JourneyListenFromHere } from "./JourneyListenFromHere";
 import { LessonBlock } from "./PageStructures";
+import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import { understandingSalvationSections } from "../content/understandingSalvation";
 import { step2AudioTimestamps } from "../timestamps/step2";
 import fixes from "../journey-fixes.module.css";
@@ -31,7 +32,7 @@ export function UnderstandingSalvationContent() {
                 key={`${section.id}-scripture-${index}`}
               >
                 {block.text}
-                <strong>{block.reference}</strong>
+                <JourneyScriptureReference reference={block.reference} />
               </blockquote>
             ) : (
               <p key={`${section.id}-paragraph-${index}`}>{block.text}</p>
