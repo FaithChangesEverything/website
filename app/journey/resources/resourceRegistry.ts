@@ -35,6 +35,8 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "song-2026-0007",
     type: "song",
     title: "It Should Have Been Me",
+    href: "/music#song-2026-0007",
+    actionLabel: "Open Song",
   },
   "song-2026-0014": {
     id: "song-2026-0014",
@@ -155,6 +157,20 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     type: "video",
     title: "The Mercy Principle",
   },
+  // Rev1.2 uses shortened IDs for the three Step 2 biblical-theme resources.
+  // Their actual destinations are the existing FCE Bible Study Library lessons.
+  "vid-2026-0019": {
+    id: "vid-2026-0019", type: "video", title: "Eternal Life",
+    href: "/bible-studies/biblical-themes/eternal-life", actionLabel: "Open Bible Study",
+  },
+  "vid-2026-0023": {
+    id: "vid-2026-0023", type: "video", title: "Gospel of the Kingdom",
+    href: "/bible-studies/biblical-themes/gospel-of-the-kingdom", actionLabel: "Open Bible Study",
+  },
+  "vid-2026-0038": {
+    id: "vid-2026-0038", type: "video", title: "The Messiah",
+    href: "/bible-studies/biblical-themes/messiah", actionLabel: "Open Bible Study",
+  },
   "vid-2026-00019": {
     id: "vid-2026-00019",
     type: "video",
@@ -174,6 +190,9 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "vid-2026-00196",
     type: "video",
     title: "Prayer of Salvation",
+    description: "Watch Pastor Richard's Prayer of Salvation message in Step 2d.",
+    href: "/journey/step-2/time-to-reflect",
+    actionLabel: "Watch Prayer of Salvation",
   },
   "vid-2026-00206": {
     id: "vid-2026-00206",
