@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { JourneyFrame, ProgressSavePrompt } from "./JourneyShell";
 import { JourneyTranslationNotice } from "./JourneyTranslationNotice";
+import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import { PastorMessageVideo } from "./PastorMessageVideo";
 import { JourneyStepResourceArea } from "./ResourceArea";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
@@ -288,7 +289,7 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                   Him, so that you may overflow with hope by the power of the Holy
                   Spirit.&quot;
                 </span>{" "}
-                — <strong>Romans 15:13 (NIV)</strong>
+                — <JourneyScriptureReference reference="Romans 15:13 (NIV)" />
               </p>
               <p>
                 Thank you for spending this time with me today. I&apos;m Pastor Richard.
