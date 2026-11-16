@@ -26,7 +26,7 @@ export function SalvationReflectionContent() {
           {section.paragraphs.map((paragraph, index) => (
             <p key={`${section.id}-paragraph-${index}`}>{paragraph}</p>
           ))}
-          {section.id === "2.d.3" ? <PastorMessageVideo title="Prayer of Salvation — Pastor Richard" embedUrl="https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/bf75d443f196d77274dcca4beb969248/iframe" buttonLabel="Prayer of Salvation" /> : null}
+          {section.id === "2.d.3" ? <div id="prayer-of-salvation"><PastorMessageVideo title="Prayer of Salvation — Pastor Richard" embedUrl="https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/bf75d443f196d77274dcca4beb969248/iframe" buttonLabel="Prayer of Salvation" /></div> : null}
           {"questions" in section ? (
             <ol className={fixes.reflectionQuestions}>
               {section.questions.map((question) => <li key={question}>{question}</li>)}
