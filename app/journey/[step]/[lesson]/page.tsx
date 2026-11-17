@@ -14,7 +14,7 @@ import { SalvationJourneyContent } from "../../components/SalvationJourneyConten
 import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnlineResourcesContent";
 import { SalvationFinalEncouragementContent } from "../../components/SalvationFinalEncouragementContent";
 import { SalvationContinueJourneyContent } from "../../components/SalvationContinueJourneyContent";
-import { JourneyListenFromHere } from "../../components/JourneyListenFromHere";
+import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
@@ -414,44 +414,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           startAtSeconds: step3AudioTimestamps["audio-2026-00020"]["3.b"].seconds,
         }}
       >
-        <LessonBlock title="3.b Knowing the Heart of God" icon="◇">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b"].seconds} />
-          <p>
-            To know God more deeply, we must begin with what He has revealed about
-            Himself. In the sections that follow, we’ll look at God’s character
-            through Scripture and see how Jesus Christ reveals the heart of the
-            Father. As we grow in our understanding of who God truly is, we also
-            learn why He is worthy of our trust, our worship, and our love.
-          </p>
-        </LessonBlock>
-        <LessonBlock title="3.b.1 God Reveals His Own Character" icon="▤">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.1"].seconds} />
-          <p>The approved Doctrine teaching for God’s revealed character will appear here during content implementation.</p>
-        </LessonBlock>
-        <LessonBlock title="3.b.2 Jesus Is the Perfect Revelation of God" icon="◇">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.2"].seconds} />
-          <p>The approved Doctrine teaching about Jesus revealing the Father will appear here during content implementation.</p>
-        </LessonBlock>
-        <LessonBlock title="3.b.3 Knowing God Personally" icon="✦" tone="highlight">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.3"].seconds} />
-          <p>The approved Doctrine teaching about knowing God personally will appear here during content implementation.</p>
-        </LessonBlock>
-        <LessonBlock title="3.b.4 Go Deeper in Your Understanding of God" icon="▣">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.4"].seconds} />
-          <p>The approved Character of God Bible Study Series invitation and supporting content will appear here during content implementation.</p>
-        </LessonBlock>
-        <LessonBlock title="3.b.5 Time to Reflect" icon="?">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.5"].seconds} />
-          <p>The approved reflection questions and Scripture will remain inside this lesson as established by Doctrine Rev. 1.7.</p>
-        </LessonBlock>
-        <LessonBlock title="3.b.6 Final Encouragement" icon="✦" tone="highlight">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.6"].seconds} />
-          <p>The approved final encouragement will appear here as part of the same 3.b lesson.</p>
-        </LessonBlock>
-        <LessonBlock title="3.b.7 Continue Your Journey" icon="→">
-          <JourneyListenFromHere playerId="3b-knowing-heart-of-god" seconds={step3AudioTimestamps["audio-2026-00020"]["3.b.7"].seconds} />
-          <p>The approved Continue Your Journey content will close this lesson during content implementation.</p>
-        </LessonBlock>
+        <Step3HeartOfGodContent />
       </IndividualLesson>
     );
   }
