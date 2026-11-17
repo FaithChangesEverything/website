@@ -135,7 +135,7 @@ export function Step3HeartOfGodContent() {
         <p>
           Knowing God is much more than learning facts about Him. It is the
           beginning of a personal relationship that grows throughout your life.
-          The more you spend time reading His Word...pThe more you pray... The
+          The more you spend time reading His Word...The more you pray... The
           more you trust Him...The more you will discover that He truly is
           compassionate, gracious, patient, loving, and faithful. You won&apos;t
           simply learn more about God. You will come to know Him personally. And
