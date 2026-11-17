@@ -1,3 +1,4 @@
+import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import { JourneyListenFromHere } from "./JourneyListenFromHere";
 import { LessonBlock } from "./PageStructures";
 import { hopeStudyOne } from "../content/hopeSeriesPoc";
@@ -47,7 +48,7 @@ export function HopeStudyOneContent() {
             {"scripture" in section ? (
               <blockquote className={sequence9.scriptureQuote}>
                 {section.scripture.text}
-                <strong>{section.scripture.reference}</strong>
+                <JourneyScriptureReference reference={section.scripture.reference} />
               </blockquote>
             ) : null}
 

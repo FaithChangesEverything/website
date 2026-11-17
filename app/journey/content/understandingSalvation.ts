@@ -148,7 +148,7 @@ export const understandingSalvationSections: UnderstandingSalvationSection[] = [
       {
         type: "scripture",
         text: "“For it is by grace you have been saved, through faith – and this is not from yourselves, it is the gift of God – not by works, so that no one can boast”.",
-        reference: "Ephesians 2: v8-p",
+        reference: "Ephesians 2:8–9 (NIV)",
       },
       {
         type: "paragraph",

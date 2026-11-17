@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JourneyListenFromHere } from "./JourneyListenFromHere";
 import { LessonBlock } from "./PageStructures";
+import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import { salvationJourneySections } from "../content/salvationJourney";
 import { step2AudioTimestamps } from "../timestamps/step2";
 import fixes from "../journey-fixes.module.css";
@@ -30,7 +31,7 @@ export function SalvationJourneyContent() {
                 className={sequence9.scriptureQuote}
                 key={`${section.id}-scripture-${index}`}
               >
-                {block.text} <strong>{block.reference}</strong>
+                {block.text} <JourneyScriptureReference reference={block.reference} />
               </blockquote>
             ) : (
               <p key={`${section.id}-paragraph-${index}`}>{block.text}</p>

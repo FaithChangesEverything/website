@@ -1,3 +1,4 @@
+import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import sequence9 from "../step-overview-sequence9.module.css";
 
 export function UnderstandingHopeContent() {
@@ -33,7 +34,7 @@ export function UnderstandingHopeContent() {
       <blockquote className={sequence9.scriptureQuote}>
         Let us hold fast the profession of our faith without wavering; (for he is faithful
         that promised;)
-        <strong>Hebrews 10:23 (KJV)</strong>
+        <JourneyScriptureReference reference="Hebrews 10:23 (KJV)" />
       </blockquote>
 
       <p>
