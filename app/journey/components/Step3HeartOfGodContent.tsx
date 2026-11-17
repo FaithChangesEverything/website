@@ -195,10 +195,12 @@ export function Step3HeartOfGodContent() {
           to pray. Thank God for revealing Himself through Jesus Christ and ask
           Him to help you know Him more deeply each day.
         </p>
-        <QuotedScripture
-          text={'" Come near to God and he will come near to you."'}
-          reference="James 4:8 (KJV)"
-        />
+        <blockquote className={sequence9.scriptureQuote}>
+          &quot;Draw nigh to God, and he will draw nigh to you. Cleanse{" "}
+          <em>your</em> hands, <em>ye</em> sinners; and purify{" "}
+          <em>your</em> hearts, <em>ye</em> double minded.&quot;{" "}
+          <JourneyScriptureReference reference="James 4:8 (KJV)" />
+        </blockquote>
       </LessonBlock>
 
       <LessonBlock title="3.b.6 Final Encouragement" icon="✦" tone="highlight">
