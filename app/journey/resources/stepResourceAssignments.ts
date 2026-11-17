@@ -63,67 +63,19 @@ export const stepResourceAssignments: Record<
     { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
+  // Authoritative Step 3 assignments: J2H_Step_ResourcesRev1.2.xlsx, rows 35–43.
+  // Include only these nine IDs; the Character of God series remains linked
+  // within lesson 3.b.4 and is not an extra resource row in Rev1.2.
   "step-3": [
     { id: "song-2026-0014", type: "song", category: "related-song" },
-    { id: "vid-2026-00206", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00207", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00208", type: "video", category: "related-sermon" },
-    {
-      id: "doc-2026-00017",
-      type: "document",
-      category: "bible-study",
-      label: "Related Bible Study",
-    },
-    { id: "vid-2026-00182", type: "video", category: "testimony" },
-    {
-      id: "doc-2026-00068",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    {
-      id: "doc-2026-00069",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    {
-      id: "doc-2026-00070",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    {
-      id: "doc-2026-00071",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    {
-      id: "doc-2026-00072",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    {
-      id: "doc-2026-00073",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    {
-      id: "doc-2026-00074",
-      type: "document",
-      category: "additional-resource",
-      label: "Character of God Bible Study Series",
-    },
-    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
-    {
-      id: "j2h-find-a-church",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Find a Church Home",
-    },
+    { id: "vid-2026-00206", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00207", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00208", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00192", type: "sermon", category: "related-sermon" },
+    { id: "doc-2026-00212", type: "document", category: "companion-resource", label: "How to Read the Bible" },
+    { id: "doc-2026-00003", type: "document", category: "companion-resource", label: "Bible Study Journal" },
+    { id: "doc-2026-00017", type: "document", category: "companion-resource", label: "How to Study the Bible" },
+    { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
   "step-4": [
@@ -219,10 +171,10 @@ export const stepResourceAssignments: Record<
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
-  // Step 1 is reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
+  // Steps 1–3 are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
   // Do not supplement it from broader Sermon Library step metadata, which can
   // contain valid cross-site placements that are not part of the final J2H list.
-  if (stepId === "step-1" || stepId === "step-2") return [...stepResourceAssignments[stepId]];
+  if (stepId === "step-1" || stepId === "step-2" || stepId === "step-3") return [...stepResourceAssignments[stepId]];
 
   // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
   // Keep other curated J2H resources intact, but remove legacy references to
