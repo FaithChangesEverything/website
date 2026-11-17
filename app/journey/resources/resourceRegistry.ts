@@ -42,6 +42,8 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "song-2026-0014",
     type: "song",
     title: "Teach Me to Trust",
+    href: "/music#song-2026-0014",
+    actionLabel: "Open Song",
   },
   "song-2026-0018": {
     id: "song-2026-0018",
