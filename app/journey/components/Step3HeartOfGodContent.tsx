@@ -154,7 +154,7 @@ export function Step3HeartOfGodContent() {
         <p>In this series you&apos;ll learn about:</p>
         <ul className={fixes.reflectionQuestions}>
           <li>The Trinity — Understanding God the Father, Jesus Christ, and the Holy Spirit</li>
-          <li>Exodus 34:6–7 — God&apos;s own description of His character</li>
+          <li><JourneyScriptureReference reference="Exodus 34:6–7" /> — God&apos;s own description of His character</li>
           <li>God&apos;s Compassion</li>
           <li>God&apos;s Grace</li>
           <li>Why God Is Slow to Anger</li>
