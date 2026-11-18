@@ -49,6 +49,8 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "song-2026-0018",
     type: "song",
     title: "Faith Changes Everything",
+    href: "/music#song-2026-0018",
+    actionLabel: "Open Song",
   },
   "song-2026-0005": {
     id: "song-2026-0005",
@@ -59,6 +61,8 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "vid-2026-00026",
     type: "video",
     title: "Holy Spirit",
+    href: "/bible-studies/biblical-themes/holy-spirit",
+    actionLabel: "Open Bible Study",
   },
   "vid-2026-00050": {
     id: "vid-2026-00050",
@@ -69,16 +73,28 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "vid-2026-00056",
     type: "video",
     title: "What Is the Bible",
+    href: "/bible-studies/how-to-read-the-bible/what-is-the-bible",
+    actionLabel: "Open Bible Study",
   },
   "vid-2026-00057": {
     id: "vid-2026-00057",
     type: "video",
     title: "The Story of the Bible",
+    href: "/bible-studies/how-to-read-the-bible/story-of-the-bible",
+    actionLabel: "Open Bible Study",
   },
   "vid-2026-00165": {
     id: "vid-2026-00165",
     type: "video",
     title: "The Lord’s Prayer",
+  },
+  // Rev1.2 uses the correct Step 4 BibleProject resource ID, 00164.
+  "vid-2026-00164": {
+    id: "vid-2026-00164",
+    type: "video",
+    title: "The Lord’s Prayer",
+    href: "/bible-studies/sermon-on-the-mount/the-lords-prayer",
+    actionLabel: "Open Bible Study",
   },
   "vid-2026-00184": {
     id: "vid-2026-00184",
