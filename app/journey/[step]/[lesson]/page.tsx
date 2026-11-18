@@ -16,6 +16,7 @@ import { SalvationFinalEncouragementContent } from "../../components/SalvationFi
 import { SalvationContinueJourneyContent } from "../../components/SalvationContinueJourneyContent";
 import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent";
 import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrowthContent";
+import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWordContent";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
@@ -439,6 +440,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step4SpiritualGrowthContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "4.c") {
+    return (
+      <IndividualLesson
+        stepNumber={4}
+        lessonId="4.c"
+        title="The Importance of Reading God’s Word"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4c-4c2-audio-2026-00022.mp3",
+          title: "The Importance of Reading God’s Word",
+          playerId: "4c-reading-gods-word",
+          resumeKey: "4.c",
+          contentKey: "4.c",
+          path: "/journey/step-4/the-importance-of-reading-gods-word",
+          startAtSeconds: step4AudioTimestamps["audio-2026-00022"]["4.c"].seconds,
+        }}
+      >
+        <Step4ReadingGodsWordContent />
       </IndividualLesson>
     );
   }
