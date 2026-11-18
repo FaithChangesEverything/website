@@ -19,9 +19,7 @@ function ListenFromSection({ section }: { section: keyof typeof cues }) {
 export function Step4StudyTwoContent() {
   return (
     <>
-      <LessonBlock title="4.d.8 Step 2 — Begin With Prayer" icon="◇">
-        <ListenFromSection section="4.d.8" />
-      </LessonBlock>
+      <LessonBlock title="4.d.8 Step 2 — Begin With Prayer" icon="◇" />
 
       <LessonBlock title="4.d.9 Key Scripture" icon="▣" tone="scripture">
         <ListenFromSection section="4.d.9" />
