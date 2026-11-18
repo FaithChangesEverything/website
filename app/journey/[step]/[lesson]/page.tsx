@@ -116,7 +116,23 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         stepNumber={4}
         parentId="4.d"
         title="How to Study the Bible"
-        intro="This lesson is an eight-part study. Each study is presented as its own continuous teaching page while 4.d remains one parent lesson in your Journey."
+        intro=""
+        introParagraphs={[
+          "Prefer a Printable Version?",
+          "We have created a free downloadable PDF of this Bible study for those who would like a convenient guide to print, save, or refer back to throughout their personal study time.",
+          "Please note that the downloadable guide is an abridged version of this course. While it covers the essential principles of Bible study, the lessons below provide a much richer learning experience with additional Scripture, expanded teaching, reflection questions, practical application, and prayer. If you're looking for the deepest experience, we encourage you to continue through the interactive lessons below. If you'd like a handy reference to keep with your Bible or use during your daily devotions, the PDF is a wonderful companion resource.",
+        ]}
+        resourceLink={{
+          href: "https://resources.faithchangeseverything.org/documents/bible-studies/how-to-study-bible/doc-2026-00017-How%20to%20Study%20the%20Bible.pdf",
+          label: 'Download the Abridged "How to Study the Bible" Guide (PDF)',
+        }}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d-audio-2026-00023.mp3",
+          title: "How to Study the Bible — Introduction",
+          playerId: "4d-overview",
+          resumeKey: "4.d.overview",
+          startAtSeconds: step4AudioTimestamps["audio-2026-00023"]["4.d"].seconds,
+        }}
         sections={sections}
         lessons={step.lessons}
       />
