@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";
 import { HopeStudyOneContent } from "../../../components/HopeStudyOneContent";
+import { Step4StudyOneContent } from "../../../components/Step4StudyOneContent";
+import { step4AudioTimestamps } from "../../../timestamps/step4";
 import { HopeStudyTwoContent } from "../../../components/HopeStudyTwoContent";
 import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent";
 import { HopeStudyFourContent } from "../../../components/HopeStudyFourContent";
@@ -126,5 +128,16 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
     );
   }
   const baseHref = "/journey/step-4/how-to-study-the-bible"; const nav = buildSectionNav(baseHref, bibleStudySeries, index);
-  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next}><BibleStudyStudyBlocks studyIndex={index} /></SeriesStudy>;
+  const audio = study.studyNumber === 1
+    ? {
+        src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d1-4d7-audio-2026-00024.mp3",
+        title: "Step 1 — Just Begin",
+        playerId: "4d-study-1",
+        resumeKey: progressKey,
+        contentKey: progressKey,
+        path: `${baseHref}/study-1`,
+        startAtSeconds: step4AudioTimestamps["audio-2026-00024"]["4.d.1"].seconds,
+      }
+    : undefined;
+  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
 }
