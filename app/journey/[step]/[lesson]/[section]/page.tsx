@@ -9,6 +9,7 @@ import { Step4StudyFourContent } from "../../../components/Step4StudyFourContent
 import { Step4StudyFiveContent } from "../../../components/Step4StudyFiveContent";
 import { Step4StudySixContent } from "../../../components/Step4StudySixContent";
 import { Step4StudySevenContent } from "../../../components/Step4StudySevenContent";
+import { Step4StudyEightContent } from "../../../components/Step4StudyEightContent";
 import { step4AudioTimestamps } from "../../../timestamps/step4";
 import { HopeStudyTwoContent } from "../../../components/HopeStudyTwoContent";
 import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent";
@@ -204,6 +205,16 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
                     path: `${baseHref}/study-7`,
                     startAtSeconds: step4AudioTimestamps["audio-2026-00030"]["4.d.49"].seconds,
                   }
-                : undefined;
-  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : study.studyNumber === 3 ? <Step4StudyThreeContent /> : study.studyNumber === 4 ? <Step4StudyFourContent /> : study.studyNumber === 5 ? <Step4StudyFiveContent /> : study.studyNumber === 6 ? <Step4StudySixContent /> : study.studyNumber === 7 ? <Step4StudySevenContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
+                : study.studyNumber === 8
+                  ? {
+                      src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d57-4d65-audio-2026-00031.mp3",
+                      title: "Step Eight — Never Stop Growing",
+                      playerId: "4d-study-8",
+                      resumeKey: progressKey,
+                      contentKey: progressKey,
+                      path: `${baseHref}/study-8`,
+                      startAtSeconds: step4AudioTimestamps["audio-2026-00031"]["4.d.58"].seconds,
+                    }
+                  : undefined;
+  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : study.studyNumber === 3 ? <Step4StudyThreeContent /> : study.studyNumber === 4 ? <Step4StudyFourContent /> : study.studyNumber === 5 ? <Step4StudyFiveContent /> : study.studyNumber === 6 ? <Step4StudySixContent /> : study.studyNumber === 7 ? <Step4StudySevenContent /> : study.studyNumber === 8 ? <Step4StudyEightContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
 }
