@@ -4,6 +4,7 @@ import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";
 import { HopeStudyOneContent } from "../../../components/HopeStudyOneContent";
 import { Step4StudyOneContent } from "../../../components/Step4StudyOneContent";
 import { Step4StudyTwoContent } from "../../../components/Step4StudyTwoContent";
+import { Step4StudyThreeContent } from "../../../components/Step4StudyThreeContent";
 import { step4AudioTimestamps } from "../../../timestamps/step4";
 import { HopeStudyTwoContent } from "../../../components/HopeStudyTwoContent";
 import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent";
@@ -149,6 +150,16 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
           path: `${baseHref}/study-2`,
           startAtSeconds: step4AudioTimestamps["audio-2026-00025"]["4.d.9"].seconds,
         }
-      : undefined;
-  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
+      : study.studyNumber === 3
+        ? {
+            src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d15-4d22-audio-2026-00026.mp3",
+            title: "Step 3 — Read With Purpose",
+            playerId: "4d-study-3",
+            resumeKey: progressKey,
+            contentKey: progressKey,
+            path: `${baseHref}/study-3`,
+            startAtSeconds: step4AudioTimestamps["audio-2026-00026"]["4.d.16"].seconds,
+          }
+        : undefined;
+  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : study.studyNumber === 3 ? <Step4StudyThreeContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
 }
