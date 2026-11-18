@@ -20,7 +20,7 @@ export function Step4StudyThreeContent() {
   return (
     <>
       <LessonBlock title="4.d.15 Step 3 — Read With Purpose" icon="◇">
-        <p>Read with purpose as you seek to understand and live God&apos;s Word.</p>
+        {null}
       </LessonBlock>
 
       <LessonBlock title="4.d.16 Key Scripture" icon="▣" tone="scripture">
