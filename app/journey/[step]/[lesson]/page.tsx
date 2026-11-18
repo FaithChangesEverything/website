@@ -15,7 +15,9 @@ import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnl
 import { SalvationFinalEncouragementContent } from "../../components/SalvationFinalEncouragementContent";
 import { SalvationContinueJourneyContent } from "../../components/SalvationContinueJourneyContent";
 import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent";
+import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrowthContent";
 import { step3AudioTimestamps } from "../../timestamps/step3";
+import { step4AudioTimestamps } from "../../timestamps/step4";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
@@ -415,6 +417,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step3HeartOfGodContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "4.b") {
+    return (
+      <IndividualLesson
+        stepNumber={4}
+        lessonId="4.b"
+        title="Understanding Spiritual Growth"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4b-audio-2026-00021.mp3",
+          title: "Understanding Spiritual Growth",
+          playerId: "4b-spiritual-growth",
+          resumeKey: "4.b",
+          contentKey: "4.b",
+          path: "/journey/step-4/understanding-spiritual-growth",
+          startAtSeconds: step4AudioTimestamps["audio-2026-00021"]["4.b"].seconds,
+        }}
+      >
+        <Step4SpiritualGrowthContent />
       </IndividualLesson>
     );
   }
