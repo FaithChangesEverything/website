@@ -6,6 +6,7 @@ import { Step4StudyOneContent } from "../../../components/Step4StudyOneContent";
 import { Step4StudyTwoContent } from "../../../components/Step4StudyTwoContent";
 import { Step4StudyThreeContent } from "../../../components/Step4StudyThreeContent";
 import { Step4StudyFourContent } from "../../../components/Step4StudyFourContent";
+import { Step4StudyFiveContent } from "../../../components/Step4StudyFiveContent";
 import { step4AudioTimestamps } from "../../../timestamps/step4";
 import { HopeStudyTwoContent } from "../../../components/HopeStudyTwoContent";
 import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent";
@@ -171,6 +172,16 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
               path: `${baseHref}/study-4`,
               startAtSeconds: step4AudioTimestamps["audio-2026-00027"]["4.d.24"].seconds,
             }
-          : undefined;
-  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : study.studyNumber === 3 ? <Step4StudyThreeContent /> : study.studyNumber === 4 ? <Step4StudyFourContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
+          : study.studyNumber === 5
+            ? {
+                src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d31-4d38-audio-2026-00028.mp3",
+                title: "Step Five — Where Should I Begin?",
+                playerId: "4d-study-5",
+                resumeKey: progressKey,
+                contentKey: progressKey,
+                path: `${baseHref}/study-5`,
+                startAtSeconds: step4AudioTimestamps["audio-2026-00028"]["4.d.32"].seconds,
+              }
+            : undefined;
+  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : study.studyNumber === 3 ? <Step4StudyThreeContent /> : study.studyNumber === 4 ? <Step4StudyFourContent /> : study.studyNumber === 5 ? <Step4StudyFiveContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
 }
