@@ -18,6 +18,7 @@ import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent"
 import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrowthContent";
 import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWordContent";
 import { Step5OverwhelmingContent } from "../../components/Step5OverwhelmingContent";
+import { Step5GrievingContent } from "../../components/Step5GrievingContent";
 import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
@@ -508,6 +509,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step5OverwhelmingContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.c") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.c"
+        title="When You’re Grieving"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5c-5c10-audio-2026-00033.mp3",
+          title: "When You’re Grieving",
+          playerId: "5c-when-youre-grieving",
+          resumeKey: "5.c",
+          contentKey: "5.c",
+          path: "/journey/step-5/when-youre-grieving",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00033"]["5.c"].seconds,
+        }}
+      >
+        <Step5GrievingContent />
       </IndividualLesson>
     );
   }
