@@ -79,16 +79,11 @@ export function Step5OverwhelmingContent() {
       <p>Heavenly Father,</p>
       <p>Life feels heavy right now, and I confess that I&apos;ve been trying to carry burdens that are far too great for me. Thank You for inviting me to come to You just as I am. Help me trust you with the things I cannot control. Give me peace in place of anxiety, strength in place of weariness, and hope in place of fear. Teach me to depend on You one day at a time, knowing that Your grace is always enough for whatever I face. Thank You for walking beside me, even when I cannot see what lies ahead.</p>
       <p>In Jesus&apos; name, Amen.</p>
-      <section aria-labelledby="5b-help-heading">
-        <h3 id="5b-help-heading">💙 Need Help Right Now?</h3>
-        <p>If you&apos;re feeling hopeless, thinking about ending your life, or you&apos;re worried you might act on those thoughts, please don&apos;t face this alone.</p>
-        <p>Talk to someone you trust—a family member, a friend, a pastor, or a counselor. Help is available, and there are people who want to listen and support you through this difficult moment.</p>
-        <p>If you are in the United States or Canada, you can call or text <a href="tel:988">988</a> to reach the Suicide &amp; Crisis Lifeline 24 hours a day, 7 days a week.</p>
-        <p>Your life matters. You are deeply loved by God. This difficult season does not have to be the end of your story.</p>
-        <p>If you&apos;re in immediate danger of harming yourself or someone else, call your local emergency services or go to the nearest emergency department immediately.</p>
-        <p>If you&apos;re outside the United States or Canada, contact your local emergency services or your country&apos;s crisis support service for immediate assistance.</p>
-        <div className={fixes.lessonResourceLinks}><Link href="/help-support">Need Help Now — More Support</Link></div>
-      </section>
+      <div className={fixes.step5NeedHelpAction}>
+        <Link href="/help-support" className={fixes.step5NeedHelpButton}>
+          <span aria-hidden="true">♥</span> Need Help Right Now?
+        </Link>
+      </div>
     </LessonBlock>
     <LessonBlock title="5.b.9 Additional Ministry Resources" icon="▣">
       <Listen section="5.b.9" />
