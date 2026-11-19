@@ -3,6 +3,7 @@ import { JourneyListenFromHere } from "./JourneyListenFromHere";
 import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import { LessonBlock } from "./PageStructures";
 import { step5AudioTimestamps } from "../timestamps/step5";
+import { Step5ResourceTiles } from "./Step5ResourceTiles";
 import fixes from "../journey-fixes.module.css";
 import sequence9 from "../step-overview-sequence9.module.css";
 
@@ -78,12 +79,7 @@ export function Step5GrievingContent() {
     <LessonBlock title="5.c.9 Additional Ministry Resources" icon="▣">
       <Listen section="5.c.9" />
       <p>Explore our growing collection of sermons, worship music, Bible studies, devotionals, and discipleship resources created to encourage your heart and strengthen your faith during every season of life.</p>
-      <div className={fixes.lessonResourceLinks}>
-        <Link href="/sermons">Sermons</Link>
-        <Link href="/music">Music Library</Link>
-        <Link href="/bible-studies">Bible Studies</Link>
-        <Link href="/resources">Ministry Resources</Link>
-      </div>
+      <Step5ResourceTiles />
     </LessonBlock>
     <LessonBlock title="5.c.10 Final Encouragement" icon="✦" tone="highlight">
       <Listen section="5.c.10" />
