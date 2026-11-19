@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
 import { TimeToReflectContent } from "../../components/TimeToReflectContent";
@@ -66,6 +66,12 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
+
+  // Step 4 Pastor welcome is already presented in full on the Step overview.
+  // Avoid the obsolete standalone Pastor Letter placeholder for this route.
+  if (stepNumber === 4 && lesson.id === "4.a") {
+    permanentRedirect("/journey/step-4");
+  }
 
   // Sequence 9 first-render synchronization:
   // if this route represents an active completion-tracked item for the current
