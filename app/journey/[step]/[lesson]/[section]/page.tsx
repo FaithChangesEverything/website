@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LessonBlock, SeriesStudy } from "../../../components/PageStructures";
 import { HopeStudyOneContent } from "../../../components/HopeStudyOneContent";
+import { Step4StudyOneContent } from "../../../components/Step4StudyOneContent";
+import { Step4StudyTwoContent } from "../../../components/Step4StudyTwoContent";
+import { Step4StudyThreeContent } from "../../../components/Step4StudyThreeContent";
+import { Step4StudyFourContent } from "../../../components/Step4StudyFourContent";
+import { Step4StudyFiveContent } from "../../../components/Step4StudyFiveContent";
+import { Step4StudySixContent } from "../../../components/Step4StudySixContent";
+import { Step4StudySevenContent } from "../../../components/Step4StudySevenContent";
+import { Step4StudyEightContent } from "../../../components/Step4StudyEightContent";
+import { step4AudioTimestamps } from "../../../timestamps/step4";
 import { HopeStudyTwoContent } from "../../../components/HopeStudyTwoContent";
 import { HopeStudyThreeContent } from "../../../components/HopeStudyThreeContent";
 import { HopeStudyFourContent } from "../../../components/HopeStudyFourContent";
@@ -126,5 +135,86 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
     );
   }
   const baseHref = "/journey/step-4/how-to-study-the-bible"; const nav = buildSectionNav(baseHref, bibleStudySeries, index);
-  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next}><BibleStudyStudyBlocks studyIndex={index} /></SeriesStudy>;
+  const audio = study.studyNumber === 1
+    ? {
+        src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d1-4d7-audio-2026-00024.mp3",
+        title: "Step 1 — Just Begin",
+        playerId: "4d-study-1",
+        resumeKey: progressKey,
+        contentKey: progressKey,
+        path: `${baseHref}/study-1`,
+        startAtSeconds: step4AudioTimestamps["audio-2026-00024"]["4.d.1"].seconds,
+      }
+    : study.studyNumber === 2
+      ? {
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d8-4d14-audio-2026-00025.mp3",
+          title: "Step 2 — Begin With Prayer",
+          playerId: "4d-study-2",
+          resumeKey: progressKey,
+          contentKey: progressKey,
+          path: `${baseHref}/study-2`,
+          startAtSeconds: step4AudioTimestamps["audio-2026-00025"]["4.d.9"].seconds,
+        }
+      : study.studyNumber === 3
+        ? {
+            src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d15-4d22-audio-2026-00026.mp3",
+            title: "Step 3 — Read With Purpose",
+            playerId: "4d-study-3",
+            resumeKey: progressKey,
+            contentKey: progressKey,
+            path: `${baseHref}/study-3`,
+            startAtSeconds: step4AudioTimestamps["audio-2026-00026"]["4.d.16"].seconds,
+          }
+        : study.studyNumber === 4
+          ? {
+              src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d23-4d30-audio-2026-00027.mp3",
+              title: "Step Four — Write Down What God Shows You",
+              playerId: "4d-study-4",
+              resumeKey: progressKey,
+              contentKey: progressKey,
+              path: `${baseHref}/study-4`,
+              startAtSeconds: step4AudioTimestamps["audio-2026-00027"]["4.d.24"].seconds,
+            }
+          : study.studyNumber === 5
+            ? {
+                src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d31-4d38-audio-2026-00028.mp3",
+                title: "Step Five — Where Should I Begin?",
+                playerId: "4d-study-5",
+                resumeKey: progressKey,
+                contentKey: progressKey,
+                path: `${baseHref}/study-5`,
+                startAtSeconds: step4AudioTimestamps["audio-2026-00028"]["4.d.32"].seconds,
+              }
+            : study.studyNumber === 6
+              ? {
+                  src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d39-4d47-audio-2026-00029.mp3",
+                  title: "Step Six — Let Scripture Explain Scripture",
+                  playerId: "4d-study-6",
+                  resumeKey: progressKey,
+                  contentKey: progressKey,
+                  path: `${baseHref}/study-6`,
+                  startAtSeconds: step4AudioTimestamps["audio-2026-00029"]["4.d.40"].seconds,
+                }
+              : study.studyNumber === 7
+                ? {
+                    src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d48-4d56-audio-2026-00030.mp3",
+                    title: "Step Seven — Live What You Learn",
+                    playerId: "4d-study-7",
+                    resumeKey: progressKey,
+                    contentKey: progressKey,
+                    path: `${baseHref}/study-7`,
+                    startAtSeconds: step4AudioTimestamps["audio-2026-00030"]["4.d.49"].seconds,
+                  }
+                : study.studyNumber === 8
+                  ? {
+                      src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d57-4d65-audio-2026-00031.mp3",
+                      title: "Step Eight — Never Stop Growing",
+                      playerId: "4d-study-8",
+                      resumeKey: progressKey,
+                      contentKey: progressKey,
+                      path: `${baseHref}/study-8`,
+                      startAtSeconds: step4AudioTimestamps["audio-2026-00031"]["4.d.58"].seconds,
+                    }
+                  : undefined;
+  return <SeriesStudy stepNumber={4} parentId="4.d" sectionId={`4.d.${bibleStudySectionIds[index]}`} progressKey={progressKey} title={bibleStudySeries[index]} parentTitle="How to Study the Bible" lessons={study.step.lessons} previousSection={nav.previous} nextSection={nav.next} audio={audio}>{study.studyNumber === 1 ? <Step4StudyOneContent /> : study.studyNumber === 2 ? <Step4StudyTwoContent /> : study.studyNumber === 3 ? <Step4StudyThreeContent /> : study.studyNumber === 4 ? <Step4StudyFourContent /> : study.studyNumber === 5 ? <Step4StudyFiveContent /> : study.studyNumber === 6 ? <Step4StudySixContent /> : study.studyNumber === 7 ? <Step4StudySevenContent /> : study.studyNumber === 8 ? <Step4StudyEightContent /> : <BibleStudyStudyBlocks studyIndex={index} />}</SeriesStudy>;
 }

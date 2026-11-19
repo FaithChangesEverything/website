@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { IndividualLesson, LessonBlock, PastorLetter, SeriesOverview } from "../../components/PageStructures";
 import { UnderstandingHopeContent } from "../../components/UnderstandingHopeContent";
 import { TimeToReflectContent } from "../../components/TimeToReflectContent";
@@ -15,7 +15,10 @@ import { BibleStudyOnlineResourcesContent } from "../../components/BibleStudyOnl
 import { SalvationFinalEncouragementContent } from "../../components/SalvationFinalEncouragementContent";
 import { SalvationContinueJourneyContent } from "../../components/SalvationContinueJourneyContent";
 import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent";
+import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrowthContent";
+import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWordContent";
 import { step3AudioTimestamps } from "../../timestamps/step3";
+import { step4AudioTimestamps } from "../../timestamps/step4";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
 import { salvationReflectionIntro } from "../../content/salvationReflection";
 import { understandingSalvationIntro } from "../../content/understandingSalvation";
@@ -63,6 +66,12 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
   const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
+
+  // Step 4 Pastor welcome is already presented in full on the Step overview.
+  // Avoid the obsolete standalone Pastor Letter placeholder for this route.
+  if (stepNumber === 4 && lesson.id === "4.a") {
+    permanentRedirect("/journey/step-4");
+  }
 
   // Sequence 9 first-render synchronization:
   // if this route represents an active completion-tracked item for the current
@@ -113,7 +122,23 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         stepNumber={4}
         parentId="4.d"
         title="How to Study the Bible"
-        intro="This lesson is an eight-part study. Each study is presented as its own continuous teaching page while 4.d remains one parent lesson in your Journey."
+        intro=""
+        introParagraphs={[
+          "Prefer a Printable Version?",
+          "We have created a free downloadable PDF of this Bible study for those who would like a convenient guide to print, save, or refer back to throughout their personal study time.",
+          "Please note that the downloadable guide is an abridged version of this course. While it covers the essential principles of Bible study, the lessons below provide a much richer learning experience with additional Scripture, expanded teaching, reflection questions, practical application, and prayer. If you're looking for the deepest experience, we encourage you to continue through the interactive lessons below. If you'd like a handy reference to keep with your Bible or use during your daily devotions, the PDF is a wonderful companion resource.",
+        ]}
+        resourceLink={{
+          href: "https://resources.faithchangeseverything.org/documents/bible-studies/how-to-study-bible/doc-2026-00017-How%20to%20Study%20the%20Bible.pdf",
+          label: 'Download the Abridged "How to Study the Bible" Guide (PDF)',
+        }}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d-audio-2026-00023.mp3",
+          title: "How to Study the Bible — Introduction",
+          playerId: "4d-overview",
+          resumeKey: "4.d.overview",
+          startAtSeconds: step4AudioTimestamps["audio-2026-00023"]["4.d"].seconds,
+        }}
         sections={sections}
         lessons={step.lessons}
       />
@@ -415,6 +440,50 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step3HeartOfGodContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "4.b") {
+    return (
+      <IndividualLesson
+        stepNumber={4}
+        lessonId="4.b"
+        title="Understanding Spiritual Growth"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4b-audio-2026-00021.mp3",
+          title: "Understanding Spiritual Growth",
+          playerId: "4b-spiritual-growth",
+          resumeKey: "4.b",
+          contentKey: "4.b",
+          path: "/journey/step-4/understanding-spiritual-growth",
+          startAtSeconds: step4AudioTimestamps["audio-2026-00021"]["4.b"].seconds,
+        }}
+      >
+        <Step4SpiritualGrowthContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "4.c") {
+    return (
+      <IndividualLesson
+        stepNumber={4}
+        lessonId="4.c"
+        title="The Importance of Reading God’s Word"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4c-4c2-audio-2026-00022.mp3",
+          title: "The Importance of Reading God’s Word",
+          playerId: "4c-reading-gods-word",
+          resumeKey: "4.c",
+          contentKey: "4.c",
+          path: "/journey/step-4/the-importance-of-reading-gods-word",
+          startAtSeconds: step4AudioTimestamps["audio-2026-00022"]["4.c"].seconds,
+        }}
+      >
+        <Step4ReadingGodsWordContent />
       </IndividualLesson>
     );
   }

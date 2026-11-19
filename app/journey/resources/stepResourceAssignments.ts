@@ -78,39 +78,29 @@ export const stepResourceAssignments: Record<
     { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
+  // Authoritative Step 4 assignments: J2H_Step_ResourcesRev1.2.xlsx, rows 44–59.
+  // BibleProject topics open the corresponding FCE Bible Studies, not external videos.
+  // Alaska Testimony is the standalone sermon-library video resource.
   "step-4": [
     { id: "song-2026-0014", type: "song", category: "related-song" },
     { id: "song-2026-0018", type: "song", category: "related-song" },
     { id: "song-2026-0012", type: "song", category: "related-song" },
-    { id: "vid-2026-00205", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00191", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00193", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00189", type: "video", category: "related-sermon" },
-    {
-      id: "doc-2026-00017",
-      type: "document",
-      category: "bible-study",
-      label: "Related Bible Study",
-    },
-    { id: "vid-2026-00182", type: "video", category: "testimony" },
-    { id: "vid-2026-00026", type: "video", category: "related-video" },
-    { id: "vid-2026-00050", type: "video", category: "related-video" },
-    { id: "vid-2026-00056", type: "video", category: "related-video" },
-    { id: "vid-2026-00057", type: "video", category: "related-video" },
-    { id: "vid-2026-00165", type: "video", category: "related-video" },
-    {
-      id: "external-tim-mackie-what-is-faith",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Additional Resources",
-    },
-    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
-    {
-      id: "j2h-find-a-church",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Find a Church Home",
-    },
+
+    { id: "vid-2026-00205", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00191", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00193", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00189", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00192", type: "sermon", category: "related-sermon" },
+
+    { id: "vid-2026-00026", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00056", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00057", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00164", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+
+    { id: "doc-2026-00212", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "doc-2026-00003", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "doc-2026-00017", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
   "step-5": [
@@ -171,10 +161,10 @@ export const stepResourceAssignments: Record<
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
-  // Steps 1–3 are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
+  // Steps 1–4 are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
   // Do not supplement it from broader Sermon Library step metadata, which can
   // contain valid cross-site placements that are not part of the final J2H list.
-  if (stepId === "step-1" || stepId === "step-2" || stepId === "step-3") return [...stepResourceAssignments[stepId]];
+  if (stepId === "step-1" || stepId === "step-2" || stepId === "step-3" || stepId === "step-4") return [...stepResourceAssignments[stepId]];
 
   // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
   // Keep other curated J2H resources intact, but remove legacy references to
