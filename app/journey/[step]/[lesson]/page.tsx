@@ -17,6 +17,8 @@ import { SalvationContinueJourneyContent } from "../../components/SalvationConti
 import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent";
 import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrowthContent";
 import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWordContent";
+import { Step5OverwhelmingContent } from "../../components/Step5OverwhelmingContent";
+import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
@@ -484,6 +486,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step4ReadingGodsWordContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.b") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.b"
+        title="When Life Feels Overwhelming"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5b-5b10-audio-2026-00032.mp3",
+          title: "When Life Feels Overwhelming",
+          playerId: "5b-when-life-feels-overwhelming",
+          resumeKey: "5.b",
+          contentKey: "5.b",
+          path: "/journey/step-5/when-life-feels-overwhelming",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00032"]["5.b"].seconds,
+        }}
+      >
+        <Step5OverwhelmingContent />
       </IndividualLesson>
     );
   }
