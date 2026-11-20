@@ -23,6 +23,7 @@ import { Step5GodFeelsSilentContent } from "../../components/Step5GodFeelsSilent
 import { Step5WhenYouHaveFailedContent } from "../../components/Step5WhenYouHaveFailedContent";
 import { Step5AfraidOfFutureContent } from "../../components/Step5AfraidOfFutureContent";
 import { Step5RelationshipsHurtContent } from "../../components/Step5RelationshipsHurtContent";
+import { Step5FindingHopeAgainContent } from "../../components/Step5FindingHopeAgainContent";
 import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
@@ -623,6 +624,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step5RelationshipsHurtContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.h") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.h"
+        title="Finding Hope Again"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5h-5h9-audio-2026-00038.mp3",
+          title: "Finding Hope Again",
+          playerId: "5h-finding-hope-again",
+          resumeKey: "5.h",
+          contentKey: "5.h",
+          path: "/journey/step-5/finding-hope-again",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00038"]["5.h"].seconds,
+        }}
+      >
+        <Step5FindingHopeAgainContent />
       </IndividualLesson>
     );
   }
