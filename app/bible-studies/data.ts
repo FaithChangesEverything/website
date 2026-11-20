@@ -157,6 +157,7 @@ export const bibleStudySeries: BibleStudySeriesSummary[] = [
     title: "How to Study the Bible",
     summary: "Build practical habits for studying Scripture thoughtfully and applying what you learn to everyday life.",
     group: "study-skills",
+    href: "/journey/step-4/how-to-study-the-bible",
   },
   {
     slug: "how-to-read-the-bible",
