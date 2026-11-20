@@ -1,4 +1,3 @@
-import { getSermonById, getSermonsForStep } from "../../sermons/data";
 import type { JourneyResourceReference } from "./types";
 
 export type JourneyStepId =
@@ -132,49 +131,40 @@ export const stepResourceAssignments: Record<
     { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
+  // Authoritative Step 6 assignments: J2H_Step_ResourcesRev1.2.xlsx, rows 78–96.
+  // Five BibleProject topics open the corresponding FCE Bible Study lessons.
+  // Alaska Testimony remains a standalone Sermon Library video.
   "step-6": [
     { id: "song-2026-0018", type: "song", category: "related-song" },
     { id: "song-2026-0014", type: "song", category: "related-song" },
     { id: "song-2026-0012", type: "song", category: "related-song" },
     { id: "song-2026-0005", type: "song", category: "related-song" },
-    { id: "vid-2026-00205", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00191", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00189", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00193", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00186", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00056", type: "video", category: "related-video" },
-    { id: "vid-2026-00057", type: "video", category: "related-video" },
-    { id: "vid-2026-00026", type: "video", category: "related-video" },
-    { id: "vid-2026-00164", type: "video", category: "related-video" },
-    { id: "vid-2026-00019", type: "video", category: "related-video" },
-    { id: "doc-2026-00017", type: "document", category: "bible-study" },
-    { id: "vid-2026-00182", type: "video", category: "testimony" },
+
+    { id: "vid-2026-00205", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00191", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00189", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00193", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00186", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00192", type: "sermon", category: "related-sermon" },
+
+    { id: "vid-2026-00056", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00057", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00026", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00164", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-0019", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+
+    { id: "doc-2026-00212", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "doc-2026-00003", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "doc-2026-00017", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+
+    { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 };
 
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
-  // Steps 1–5 are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
-  // Do not supplement it from broader Sermon Library step metadata, which can
-  // contain valid cross-site placements that are not part of the final J2H list.
-  if (stepId === "step-1" || stepId === "step-2" || stepId === "step-3" || stepId === "step-4" || stepId === "step-5") return [...stepResourceAssignments[stepId]];
-
-  // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
-  // Keep other curated J2H resources intact, but remove legacy references to
-  // these same 19 sermons so each appears once, and only in its assigned steps.
-  const nonSermonResources = stepResourceAssignments[stepId].filter(
-    (reference) => !getSermonById(reference.id),
-  );
-  const stepNumber = Number(stepId.slice(-1));
-  const stepSermons: JourneyResourceReference[] = getSermonsForStep(stepNumber).map(
-    (sermon) => ({
-      id: sermon.id,
-      type: sermon.series === "Testimony" ? "testimony" : "sermon",
-      category: sermon.series === "Testimony" ? "testimony" : "related-sermon",
-    }),
-  );
-  const songs = nonSermonResources.filter((resource) => resource.category === "related-song");
-  const otherResources = nonSermonResources.filter((resource) => resource.category !== "related-song");
-  return [...songs, ...stepSermons, ...otherResources];
+  // All six Steps are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
+  // Do not supplement these lists from broader Sermon Library step metadata.
+  return [...stepResourceAssignments[stepId]];
 }

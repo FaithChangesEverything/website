@@ -71,6 +71,19 @@ export async function generateMetadata({ params }: { params: Promise<{ step: str
 
 export default async function JourneyLessonPage({ params }: { params: Promise<{ step: string; lesson: string }> }) {
   const { step: stepSlug, lesson: lessonSlug } = await params;
+  // Step 6 is one page; redirect historical individual lesson URLs to their sections.
+  if (stepSlug === "step-6") {
+    const step6Anchors: Record<string, string> = {
+      "read-gods-word": "6.b",
+      "walk-with-christ": "6.c",
+      "reflect-on-your-journey": "6.d",
+      "find-a-church-home": "6.e",
+      "we-would-love-to-pray-for-you": "6.f",
+      "stay-connected": "6.g",
+    };
+    const anchor = step6Anchors[lessonSlug];
+    if (anchor) permanentRedirect(`/journey/step-6#${anchor}`);
+  }
   const { stepNumber, step, lesson } = resolveLesson(stepSlug, lessonSlug);
 
   if (!step || !lesson) notFound();
