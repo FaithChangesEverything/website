@@ -6,6 +6,7 @@ import { JourneyTranslationNotice } from "./JourneyTranslationNotice";
 import { JourneyScriptureReference } from "./JourneyScriptureReference";
 import { PastorMessageVideo } from "./PastorMessageVideo";
 import { JourneyStepResourceArea } from "./ResourceArea";
+import { Step6NextSteps } from "./Step6NextSteps";
 import { getJourneyProgressSummary, getJourneyStepDisplayStates, type JourneyDisplayState } from "../progress/operations";
 import { journeySteps, type JourneyLesson } from "../data";
 import styles from "../journey.module.css";
@@ -712,7 +713,7 @@ export async function StepOverviewSequence9({ stepNumber, lessons }: { stepNumbe
     <div className={`${styles.overviewPanel} ${sequence9.overviewAfterPastorWelcome}`}>
       <aside className={styles.yourJourney}><h2>Your Journey</h2>{journeySteps.map((item) => { const state = summary?.steps.find((s) => s.step === item.number); const marker = state?.status === "completed" ? "✓" : state?.status === "in_progress" ? "●" : "○"; const label = state ? state.status.replace("_", " ") : "not tracking"; return <Link key={item.id} href={item.href} className={item.id === step.id ? styles.currentJourneyItem : ""} aria-current={item.id === step.id ? "page" : undefined}><span className={`${styles.journeyNumber} ${item.id === step.id ? "" : refined.journeyNumberNeutral}`}>{item.number}</span><span>{item.title}<small className={fixes.journeyCompletionCount}>{state ? `${state.completed} of ${state.total} complete` : ""}</small></span><span className={`${refined.journeyState} ${item.id === step.id ? refined.journeyStateCurrent : ""}`} aria-label={label}>{marker}</span></Link>; })}<div className={styles.sidebarSupport}><span className={styles.supportIcon} aria-hidden="true">♡</span><strong>You Are Not Alone</strong><p>Whatever you’re facing, we’re here to walk with you and point you to hope.</p><a href="/help-support">Need Help Right Now →</a></div></aside>
 
-      <section className={styles.lessonCards} aria-labelledby="lessons-title"><div className={styles.lessonHeading}><span className={styles.lessonHeadingIcon} aria-hidden="true">▣</span><div><h2 id="lessons-title">Your Lessons in This Step</h2><p>Complete any lesson in any order. Supporting resources remain available without affecting your completion percentage.</p></div></div><div className={styles.cardGrid}>{cardLessons.map((lesson) => <LessonCard key={lesson.id} lesson={lesson} state={lessonStates?.[lesson.id]?.state} saving={saving} />)}</div>{!summary && <ProgressSavePrompt />}<JourneyTranslationNotice /></section>
+      <section className={styles.lessonCards} aria-labelledby="lessons-title">{stepNumber !== 6 && <div className={styles.lessonHeading}><span className={styles.lessonHeadingIcon} aria-hidden="true">▣</span><div><h2 id="lessons-title">Your Lessons in This Step</h2><p>Complete any lesson in any order. Supporting resources remain available without affecting your completion percentage.</p></div></div>}{stepNumber === 6 ? <Step6NextSteps /> : <div className={styles.cardGrid}>{cardLessons.map((lesson) => <LessonCard key={lesson.id} lesson={lesson} state={lessonStates?.[lesson.id]?.state} saving={saving} />)}</div>}{stepNumber !== 6 && !summary && <ProgressSavePrompt />}{stepNumber !== 6 && <JourneyTranslationNotice />}</section>
     </div>
 
     {stepNumber === 2 && (
