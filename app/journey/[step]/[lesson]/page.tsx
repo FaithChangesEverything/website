@@ -17,6 +17,14 @@ import { SalvationContinueJourneyContent } from "../../components/SalvationConti
 import { Step3HeartOfGodContent } from "../../components/Step3HeartOfGodContent";
 import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrowthContent";
 import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWordContent";
+import { Step5OverwhelmingContent } from "../../components/Step5OverwhelmingContent";
+import { Step5GrievingContent } from "../../components/Step5GrievingContent";
+import { Step5GodFeelsSilentContent } from "../../components/Step5GodFeelsSilentContent";
+import { Step5WhenYouHaveFailedContent } from "../../components/Step5WhenYouHaveFailedContent";
+import { Step5AfraidOfFutureContent } from "../../components/Step5AfraidOfFutureContent";
+import { Step5RelationshipsHurtContent } from "../../components/Step5RelationshipsHurtContent";
+import { Step5FindingHopeAgainContent } from "../../components/Step5FindingHopeAgainContent";
+import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
 import { salvationJourneyIntro } from "../../content/salvationJourney";
@@ -484,6 +492,160 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step4ReadingGodsWordContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.b") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.b"
+        title="When Life Feels Overwhelming"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5b-5b10-audio-2026-00032.mp3",
+          title: "When Life Feels Overwhelming",
+          playerId: "5b-when-life-feels-overwhelming",
+          resumeKey: "5.b",
+          contentKey: "5.b",
+          path: "/journey/step-5/when-life-feels-overwhelming",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00032"]["5.b"].seconds,
+        }}
+      >
+        <Step5OverwhelmingContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.c") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.c"
+        title="When You’re Grieving"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5c-5c10-audio-2026-00033.mp3",
+          title: "When You’re Grieving",
+          playerId: "5c-when-youre-grieving",
+          resumeKey: "5.c",
+          contentKey: "5.c",
+          path: "/journey/step-5/when-youre-grieving",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00033"]["5.c"].seconds,
+        }}
+      >
+        <Step5GrievingContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.d") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.d"
+        title="When God Feels Silent"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5d-5d10-audio-2026-00034.mp3",
+          title: "When God Feels Silent",
+          playerId: "5d-when-god-feels-silent",
+          resumeKey: "5.d",
+          contentKey: "5.d",
+          path: "/journey/step-5/when-god-feels-silent",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00034"]["5.d"].seconds,
+        }}
+      >
+        <Step5GodFeelsSilentContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.e") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.e"
+        title="When You Think You Have Failed"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5e-5e9-audio-2026-00035.mp3",
+          title: "When You Think You Have Failed",
+          playerId: "5e-when-you-think-you-have-failed",
+          resumeKey: "5.e",
+          contentKey: "5.e",
+          path: "/journey/step-5/when-you-think-you-have-failed",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00035"]["5.e"].seconds,
+        }}
+      >
+        <Step5WhenYouHaveFailedContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.f") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.f"
+        title="When You’re Afraid of the Future"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5f-5f9-audio-2026-00036.mp3",
+          title: "When You’re Afraid of the Future",
+          playerId: "5f-when-youre-afraid-of-the-future",
+          resumeKey: "5.f",
+          contentKey: "5.f",
+          path: "/journey/step-5/when-youre-afraid-of-the-future",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00036"]["5.f"].seconds,
+        }}
+      >
+        <Step5AfraidOfFutureContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.g") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.g"
+        title="When Relationships Hurt"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5g-5g9-audio-2026-00037.mp3",
+          title: "When Relationships Hurt",
+          playerId: "5g-when-relationships-hurt",
+          resumeKey: "5.g",
+          contentKey: "5.g",
+          path: "/journey/step-5/when-relationships-hurt",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00037"]["5.g"].seconds,
+        }}
+      >
+        <Step5RelationshipsHurtContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.h") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.h"
+        title="Finding Hope Again"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5h-5h9-audio-2026-00038.mp3",
+          title: "Finding Hope Again",
+          playerId: "5h-finding-hope-again",
+          resumeKey: "5.h",
+          contentKey: "5.h",
+          path: "/journey/step-5/finding-hope-again",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00038"]["5.h"].seconds,
+        }}
+      >
+        <Step5FindingHopeAgainContent />
       </IndividualLesson>
     );
   }
