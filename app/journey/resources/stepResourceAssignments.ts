@@ -103,39 +103,33 @@ export const stepResourceAssignments: Record<
     { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
+  // Authoritative Step 5 assignments: J2H_Step_ResourcesRev1.2.xlsx, rows 60–77.
+  // Keep the five specified sermons in the Resource Area even if broader
+  // sermon metadata has a different placement; do not add unlisted extras.
+  // BibleProject entries route to their matching FCE Bible Studies.
   "step-5": [
     { id: "song-2026-0009", type: "song", category: "related-song" },
     { id: "song-2026-0008", type: "song", category: "related-song" },
     { id: "song-2026-0012", type: "song", category: "related-song" },
     { id: "song-2026-0005", type: "song", category: "related-song" },
     { id: "song-2026-0014", type: "song", category: "related-song" },
-    { id: "vid-2026-00188", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00204", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00182", type: "video", category: "related-sermon" },
-    { id: "vid-2026-00027", type: "video", category: "related-video" },
-    { id: "vid-2026-00044", type: "video", category: "related-video" },
-    { id: "vid-2026-00184", type: "video", category: "related-video" },
-    { id: "vid-2026-00133", type: "video", category: "related-video" },
-    { id: "vid-2026-00134", type: "video", category: "related-video" },
-    {
-      id: "doc-2026-00017",
-      type: "document",
-      category: "bible-study",
-      label: "Related Bible Study",
-    },
-    {
-      id: "external-tim-mackie-what-is-hope",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Additional Resources",
-    },
-    { id: "j2h-prayer-support", type: "prayer", category: "prayer" },
-    {
-      id: "j2h-find-a-church",
-      type: "ministry",
-      category: "additional-resource",
-      label: "Find a Church Home",
-    },
+
+    { id: "vid-2026-00188", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00204", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00192", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00184", type: "sermon", category: "related-sermon" },
+    { id: "vid-2026-00194", type: "sermon", category: "related-sermon" },
+
+    { id: "vid-2026-00027", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00044", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00133", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+    { id: "vid-2026-00134", type: "video", category: "companion-resource", label: "Related Bible Studies" },
+
+    { id: "doc-2026-00212", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "doc-2026-00003", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+    { id: "doc-2026-00017", type: "document", category: "companion-resource", label: "Printable Guides and Journal" },
+
+    { id: "vid-2026-00182", type: "testimony", category: "testimony" },
   ],
 
   "step-6": [
@@ -161,10 +155,10 @@ export const stepResourceAssignments: Record<
 export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
-  // Steps 1–4 are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
+  // Steps 1–5 are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
   // Do not supplement it from broader Sermon Library step metadata, which can
   // contain valid cross-site placements that are not part of the final J2H list.
-  if (stepId === "step-1" || stepId === "step-2" || stepId === "step-3" || stepId === "step-4") return [...stepResourceAssignments[stepId]];
+  if (stepId === "step-1" || stepId === "step-2" || stepId === "step-3" || stepId === "step-4" || stepId === "step-5") return [...stepResourceAssignments[stepId]];
 
   // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
   // Keep other curated J2H resources intact, but remove legacy references to
