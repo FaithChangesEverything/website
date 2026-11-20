@@ -69,7 +69,7 @@ export function Step5GodFeelsSilentContent() {
       <Listen section="5.d.7" />
       <p>Open your Faith Changes Everything Bible Journal. Write down one prayer you&apos;ve been waiting for God to answer. Next to it, write one promise from Scripture that reminds you of His faithfulness. Then pray this simple prayer:</p>
       <p>&quot;Lord, even while I wait, I choose to trust You.&quot;</p>
-      <div className={fixes.lessonResourceLinks}><Link href="/journal">Open the FCE Bible Journal</Link></div>
+      <div className={fixes.churchFinderCallToAction}><Link href="/journal" className={fixes.churchFinderButton}>Open the FCE Bible Journal</Link></div>
     </LessonBlock>
     <LessonBlock title="5.d.8 Prayer" icon="◇">
       <Listen section="5.d.8" />
