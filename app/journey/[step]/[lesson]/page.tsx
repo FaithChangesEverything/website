@@ -22,6 +22,7 @@ import { Step5GrievingContent } from "../../components/Step5GrievingContent";
 import { Step5GodFeelsSilentContent } from "../../components/Step5GodFeelsSilentContent";
 import { Step5WhenYouHaveFailedContent } from "../../components/Step5WhenYouHaveFailedContent";
 import { Step5AfraidOfFutureContent } from "../../components/Step5AfraidOfFutureContent";
+import { Step5RelationshipsHurtContent } from "../../components/Step5RelationshipsHurtContent";
 import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
@@ -600,6 +601,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step5AfraidOfFutureContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.g") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.g"
+        title="When Relationships Hurt"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5g-5g9-audio-2026-00037.mp3",
+          title: "When Relationships Hurt",
+          playerId: "5g-when-relationships-hurt",
+          resumeKey: "5.g",
+          contentKey: "5.g",
+          path: "/journey/step-5/when-relationships-hurt",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00037"]["5.g"].seconds,
+        }}
+      >
+        <Step5RelationshipsHurtContent />
       </IndividualLesson>
     );
   }
