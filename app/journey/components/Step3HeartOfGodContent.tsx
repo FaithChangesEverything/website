@@ -167,7 +167,7 @@ export function Step3HeartOfGodContent() {
           His Word.
         </p>
         <div className={fixes.lessonResourceLinks}>
-          <Link href="/bible-studies/character-of-god">▶ Explore the Character of God Bible Study Series</Link>
+          <Link href="/bible-studies/character-of-god" className={fixes.churchFinderButton}>Explore the Character of God Bible Study Series</Link>
         </div>
       </LessonBlock>
 
