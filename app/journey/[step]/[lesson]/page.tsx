@@ -19,6 +19,7 @@ import { Step4SpiritualGrowthContent } from "../../components/Step4SpiritualGrow
 import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWordContent";
 import { Step5OverwhelmingContent } from "../../components/Step5OverwhelmingContent";
 import { Step5GrievingContent } from "../../components/Step5GrievingContent";
+import { Step5GodFeelsSilentContent } from "../../components/Step5GodFeelsSilentContent";
 import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
@@ -531,6 +532,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step5GrievingContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.d") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.d"
+        title="When God Feels Silent"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5d-5d10-audio-2026-00034.mp3",
+          title: "When God Feels Silent",
+          playerId: "5d-when-god-feels-silent",
+          resumeKey: "5.d",
+          contentKey: "5.d",
+          path: "/journey/step-5/when-god-feels-silent",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00034"]["5.d"].seconds,
+        }}
+      >
+        <Step5GodFeelsSilentContent />
       </IndividualLesson>
     );
   }
