@@ -221,16 +221,10 @@ export function JourneyAudioPlayer({
     storedRangesRef.current = mergeRanges(stored?.playedRanges ?? []);
     audio.currentTime = safePosition;
 
-    if (bounds.duration > 0) {
-      const uniqueSeconds = playedSeconds(
-        mergeRanges([
-          ...storedRangesRef.current,
-          ...rangesFromTimeRanges(audio.played, bounds.start, bounds.end),
-        ]),
-      );
-      reportedBucketRef.current =
-        Math.floor(Math.min(100, (uniqueSeconds / bounds.duration) * 100) / 10) * 10;
-    }
+    // Local playback history is not proof that the server accepted an engagement
+    // report (for example, a policy may have been disabled during the prior visit).
+    // Allow the next timeupdate to re-report the restored listening milestone.
+    reportedBucketRef.current = 0;
   };
 
   const handleTimeUpdate = () => {
