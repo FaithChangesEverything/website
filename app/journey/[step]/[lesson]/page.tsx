@@ -21,6 +21,7 @@ import { Step5OverwhelmingContent } from "../../components/Step5OverwhelmingCont
 import { Step5GrievingContent } from "../../components/Step5GrievingContent";
 import { Step5GodFeelsSilentContent } from "../../components/Step5GodFeelsSilentContent";
 import { Step5WhenYouHaveFailedContent } from "../../components/Step5WhenYouHaveFailedContent";
+import { Step5AfraidOfFutureContent } from "../../components/Step5AfraidOfFutureContent";
 import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
@@ -577,6 +578,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step5WhenYouHaveFailedContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.f") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.f"
+        title="When You’re Afraid of the Future"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5f-5f9-audio-2026-00036.mp3",
+          title: "When You’re Afraid of the Future",
+          playerId: "5f-when-youre-afraid-of-the-future",
+          resumeKey: "5.f",
+          contentKey: "5.f",
+          path: "/journey/step-5/when-youre-afraid-of-the-future",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00036"]["5.f"].seconds,
+        }}
+      >
+        <Step5AfraidOfFutureContent />
       </IndividualLesson>
     );
   }
