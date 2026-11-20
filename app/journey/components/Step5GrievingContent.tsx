@@ -64,7 +64,7 @@ export function Step5GrievingContent() {
     <LessonBlock title="5.c.7 Today’s Challenge" icon="→">
       <Listen section="5.c.7" />
       <p>Today, spend a few minutes writing in your Faith Changes Everything Bible Journal. Write about the person, relationship, dream, or season you are grieving. Then write one thing you are thankful for. Gratitude does not erase grief. But it reminds us that even in our darkest seasons, God&apos;s goodness is still present.</p>
-      <div className={fixes.lessonResourceLinks}><Link href="/journal">Open the FCE Bible Journal</Link></div>
+      <div className={fixes.churchFinderCallToAction}><Link href="/journal" className={fixes.churchFinderButton}>Open the FCE Bible Journal</Link></div>
     </LessonBlock>
     <LessonBlock title="5.c.8 Prayer" icon="◇">
       <Listen section="5.c.8" />
