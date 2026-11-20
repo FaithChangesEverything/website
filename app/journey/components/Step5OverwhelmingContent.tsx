@@ -73,7 +73,7 @@ export function Step5OverwhelmingContent() {
       <p>Take a few minutes to write down every burden you&apos;re carrying in your Faith Changes Everything Bible Journal. Write each one on its own line. Then pray over them one at a time. You don&apos;t have to ask God to solve everything immediately. Simply place each burden into His hands.</p>
       <p>Leave that page in your journal.</p>
       <p>Months from now, look back and notice how faithfully God carried you through things that once seemed impossible.</p>
-      <div className={fixes.lessonResourceLinks}><Link href="/journal">Open the FCE Bible Journal</Link></div>
+      <div className={fixes.churchFinderCallToAction}><Link href="/journal" className={fixes.churchFinderButton}>Open the FCE Bible Journal</Link></div>
     </LessonBlock>
     <LessonBlock title="5.b.8 Prayer" icon="◇">
       <Listen section="5.b.8" />
