@@ -44,7 +44,7 @@ export async function JourneyCompletionControl({ contentKey, path, itemLabel = "
     return (
       <div className={`${styles.completionBar} ${fixes.lessonCompletionConcept}`} role="status">
         <button className={styles.completeButton} type="button" disabled>Mark {itemLabel} Complete</button>
-        <p className={styles.progressNote}>In Progress — completion becomes available after reasonable engagement with this {itemLabel.toLowerCase()}. The final engagement threshold will be set during Sequence 8 testing.</p>
+        <p className={styles.progressNote}>In Progress — continue reading or listening. You can mark this {itemLabel.toLowerCase()} complete once the engagement requirement is met.</p>
       </div>
     );
   }
