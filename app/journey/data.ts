@@ -97,12 +97,12 @@ export const journeySteps: JourneyStep[] = [
     summary: "Continue walking with Christ through Scripture, prayer, encouragement, and connection.",
     lessons: [
       { id: "6.a", title: "A Message from Pastor Richard", href: "/journey/step-6/a-message-from-pastor-richard", kind: "pastor-letter" },
-      { id: "6.b", title: "Read God’s Word", href: "/journey/step-6/read-gods-word" },
-      { id: "6.c", title: "Walk with Christ", href: "/journey/step-6/walk-with-christ" },
-      { id: "6.d", title: "Reflect on Your Journey", href: "/journey/step-6/reflect-on-your-journey" },
-      { id: "6.e", title: "Find a Church Home", href: "/journey/step-6/find-a-church-home" },
-      { id: "6.f", title: "We Would Love to Pray for You", href: "/journey/step-6/we-would-love-to-pray-for-you" },
-      { id: "6.g", title: "Stay Connected", href: "/journey/step-6/stay-connected" },
+      { id: "6.b", title: "Read God’s Word", href: "/journey/step-6#6.b" },
+      { id: "6.c", title: "Walk with Christ", href: "/journey/step-6#6.c" },
+      { id: "6.d", title: "Reflect on Your Journey", href: "/journey/step-6#6.d" },
+      { id: "6.e", title: "Find a Church Home", href: "/journey/step-6#6.e" },
+      { id: "6.f", title: "We Would Love to Pray for You", href: "/journey/step-6#6.f" },
+      { id: "6.g", title: "Stay Connected", href: "/journey/step-6#6.g" },
     ],
   },
 ];
