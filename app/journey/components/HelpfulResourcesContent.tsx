@@ -38,9 +38,9 @@ export function HelpfulResourcesContent() {
           ) : null}
 
           {"links" in section ? (
-            <div className={fixes.lessonResourceLinks}>
+            <div className={fixes.churchFinderCallToAction}>
               {section.links.map((link) => (
-                <Link key={link.href} href={link.href}>{link.label}</Link>
+                <Link key={link.href} href={link.href} className={fixes.churchFinderButton}>{link.label}</Link>
               ))}
             </div>
           ) : null}
