@@ -166,8 +166,8 @@ export function Step3HeartOfGodContent() {
           additional resources designed to help you know God more deeply through
           His Word.
         </p>
-        <div className={fixes.lessonResourceLinks}>
-          <Link href="/bible-studies/character-of-god">▶ Explore the Character of God Bible Study Series</Link>
+        <div className={fixes.churchFinderCallToAction}>
+          <Link href="/bible-studies/character-of-god" className={fixes.churchFinderButton}>Explore the Character of God Bible Study Series</Link>
         </div>
       </LessonBlock>
 

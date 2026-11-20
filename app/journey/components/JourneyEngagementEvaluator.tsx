@@ -11,7 +11,7 @@ type Props = {
 };
 
 /**
- * Sequence 8 engagement evaluator.
+ * Journey to Hope written lesson engagement evaluator.
  *
  * This component intentionally records only coarse threshold evidence. It does not
  * store scrolling history, keystrokes, pause/seek history, or second-by-second
@@ -21,7 +21,6 @@ type Props = {
 export function JourneyEngagementEvaluator({ contentKey, targetId, path }: Props) {
   const router = useRouter();
   const highestReportedRef = useRef(0);
-  const activeSecondsRef = useRef(0);
   const eligibleRef = useRef(false);
   const requestInFlightRef = useRef(false);
 
@@ -29,7 +28,6 @@ export function JourneyEngagementEvaluator({ contentKey, targetId, path }: Props
     const target = document.getElementById(targetId);
     if (!target) return;
 
-    let activeTimer: number | undefined;
     let rafId: number | undefined;
 
     const report = async (percent: number) => {
@@ -46,7 +44,7 @@ export function JourneyEngagementEvaluator({ contentKey, targetId, path }: Props
           contentKey,
           "written",
           rounded,
-          activeSecondsRef.current,
+          undefined,
           path,
         );
 
@@ -77,19 +75,12 @@ export function JourneyEngagementEvaluator({ contentKey, targetId, path }: Props
       rafId = window.requestAnimationFrame(evaluate);
     };
 
-    const isActivelyViewing = () => document.visibilityState === "visible" && document.hasFocus();
-
-    activeTimer = window.setInterval(() => {
-      if (isActivelyViewing()) activeSecondsRef.current += 1;
-    }, 1000);
-
     window.addEventListener("scroll", scheduleEvaluate, { passive: true });
     window.addEventListener("resize", scheduleEvaluate);
     document.addEventListener("visibilitychange", scheduleEvaluate);
     scheduleEvaluate();
 
     return () => {
-      if (activeTimer !== undefined) window.clearInterval(activeTimer);
       if (rafId !== undefined) window.cancelAnimationFrame(rafId);
       window.removeEventListener("scroll", scheduleEvaluate);
       window.removeEventListener("resize", scheduleEvaluate);

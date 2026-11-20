@@ -15,9 +15,9 @@ export function BibleStudyOnlineResourcesContent() {
           View / Download Bible Study Online References PDF <span aria-hidden="true">↗</span>
         </a>
       </div>
-      <p>
-        <Link href="/resources#guides">Explore all FCE guides and printable resources →</Link>
-      </p>
+      <div className={fixes.churchFinderCallToAction}>
+        <Link href="/resources#guides" className={fixes.churchFinderButton}>Explore all FCE guides and printable resources <span aria-hidden="true">→</span></Link>
+      </div>
     </LessonBlock>
   );
 }
