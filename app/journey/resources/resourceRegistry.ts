@@ -56,6 +56,8 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "song-2026-0005",
     type: "song",
     title: "Yesterday Don’t Own Me Anymore",
+    href: "/music#song-2026-0005",
+    actionLabel: "Open Song",
   },
   "vid-2026-00026": {
     id: "vid-2026-00026",
@@ -105,11 +107,15 @@ const resourceRegistry: Record<ResourceId, ResolvedResource> = {
     id: "vid-2026-00133",
     type: "video",
     title: "Job",
+    href: "/bible-studies/old-testament/job",
+    actionLabel: "Open Bible Study",
   },
   "vid-2026-00134": {
     id: "vid-2026-00134",
     type: "video",
     title: "Psalms",
+    href: "/bible-studies/old-testament/psalms",
+    actionLabel: "Open Bible Study",
   },
   "vid-2026-00188": {
     id: "vid-2026-00188",
