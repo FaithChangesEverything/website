@@ -14,9 +14,9 @@ export function SalvationContinueJourneyContent() {
           Return to the Journey Hub <span aria-hidden="true">→</span>
         </Link>
       </div>
-      <p style={{textAlign:"center"}}>
-        <Link href="/resources">Explore the FCE Resources Library →</Link>
-      </p>
+      <div className={fixes.churchFinderCallToAction}>
+        <Link href="/resources" className={fixes.churchFinderButton}>Explore the FCE Resources Library <span aria-hidden="true">→</span></Link>
+      </div>
     </LessonBlock>
   );
 }
