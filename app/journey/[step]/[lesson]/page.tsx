@@ -20,6 +20,7 @@ import { Step4ReadingGodsWordContent } from "../../components/Step4ReadingGodsWo
 import { Step5OverwhelmingContent } from "../../components/Step5OverwhelmingContent";
 import { Step5GrievingContent } from "../../components/Step5GrievingContent";
 import { Step5GodFeelsSilentContent } from "../../components/Step5GodFeelsSilentContent";
+import { Step5WhenYouHaveFailedContent } from "../../components/Step5WhenYouHaveFailedContent";
 import { step5AudioTimestamps } from "../../timestamps/step5";
 import { step3AudioTimestamps } from "../../timestamps/step3";
 import { step4AudioTimestamps } from "../../timestamps/step4";
@@ -554,6 +555,28 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         }}
       >
         <Step5GodFeelsSilentContent />
+      </IndividualLesson>
+    );
+  }
+
+  if (lesson.id === "5.e") {
+    return (
+      <IndividualLesson
+        stepNumber={5}
+        lessonId="5.e"
+        title="When You Think You Have Failed"
+        lessons={step.lessons}
+        audio={{
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5e-5e9-audio-2026-00035.mp3",
+          title: "When You Think You Have Failed",
+          playerId: "5e-when-you-think-you-have-failed",
+          resumeKey: "5.e",
+          contentKey: "5.e",
+          path: "/journey/step-5/when-you-think-you-have-failed",
+          startAtSeconds: step5AudioTimestamps["audio-2026-00035"]["5.e"].seconds,
+        }}
+      >
+        <Step5WhenYouHaveFailedContent />
       </IndividualLesson>
     );
   }
