@@ -165,36 +165,6 @@ export function getStepResourceAssignments(
   stepId: JourneyStepId,
 ): JourneyResourceReference[] {
   // All six Steps are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
-  // Do not supplement it from broader Sermon Library step metadata, which can
-  // contain valid cross-site placements that are not part of the final J2H list.
+  // Do not supplement these lists from broader Sermon Library step metadata.
   return [...stepResourceAssignments[stepId]];
-
-
-};
-
-export function getStepResourceAssignments(
-  stepId: JourneyStepId,
-): JourneyResourceReference[] {
-  // All six Steps are reconciled directly to J2H_Step_ResourcesRev1.2.xlsx.
-  // Do not supplement it from broader Sermon Library step metadata, which can
-  // contain valid cross-site placements that are not part of the final J2H list.
-  return [...stepResourceAssignments[stepId]];
-
-  // Column J of the sermon spreadsheet is authoritative for J2H sermon placements.
-  // Keep other curated J2H resources intact, but remove legacy references to
-  // these same 19 sermons so each appears once, and only in its assigned steps.
-  const nonSermonResources = stepResourceAssignments[stepId].filter(
-    (reference) => !getSermonById(reference.id),
-  );
-  const stepNumber = Number(stepId.slice(-1));
-  const stepSermons: JourneyResourceReference[] = getSermonsForStep(stepNumber).map(
-    (sermon) => ({
-      id: sermon.id,
-      type: sermon.series === "Testimony" ? "testimony" : "sermon",
-      category: sermon.series === "Testimony" ? "testimony" : "related-sermon",
-    }),
-  );
-  const songs = nonSermonResources.filter((resource) => resource.category === "related-song");
-  const otherResources = nonSermonResources.filter((resource) => resource.category !== "related-song");
-  return [...songs, ...stepSermons, ...otherResources];
 }
