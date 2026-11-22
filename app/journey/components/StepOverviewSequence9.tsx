@@ -451,7 +451,7 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
             </>
           ) : stepNumber === 5 ? (
             <>
-              <p><em>Dear Friend, Welcome to Step 5 of the Journey to Hope Series.</em></p>
+              <p><em>Dear Friend, welcome to Step 5 of the Journey to Hope Series.</em></p>
               <p>
                 If you&apos;ve found your way to this page, chances are life hasn&apos;t
                 been easy lately. Perhaps you&apos;ve lost someone you love. Maybe
