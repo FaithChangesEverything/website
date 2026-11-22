@@ -7,6 +7,15 @@ import { recordJourneyEngagementAction } from "../progress/engagement-actions";
 import styles from "../step-overview-sequence9.module.css";
 
 export const J2H_AUDIO_SEEK_EVENT = "j2h-audio-seek";
+export const J2H_AUDIO_SEEK_DIAGNOSTIC_EVENT = "j2h-audio-seek-diagnostic";
+
+type AudioSeekDiagnostic = {
+  playerId?: string;
+  requestId: string;
+  requestedSeconds: number;
+  stage: "received" | "seeked" | "playing";
+  reportedSeconds: number;
+};
 
 type PlayedRange = [number, number];
 
@@ -100,6 +109,22 @@ export function JourneyAudioPlayer({
 }: JourneyAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const pendingSeekRef = useRef<number | null>(null);
+  const diagnosticRef = useRef<{ requestId: string; requestedSeconds: number } | null>(null);
+
+  const emitSeekDiagnostic = (stage: AudioSeekDiagnostic["stage"]) => {
+    const audio = audioRef.current;
+    const request = diagnosticRef.current;
+    if (!audio || !request) return;
+    window.dispatchEvent(new CustomEvent<AudioSeekDiagnostic>(J2H_AUDIO_SEEK_DIAGNOSTIC_EVENT, {
+      detail: {
+        playerId,
+        requestId: request.requestId,
+        requestedSeconds: request.requestedSeconds,
+        stage,
+        reportedSeconds: audio.currentTime,
+      },
+    }));
+  };
   const storedRangesRef = useRef<PlayedRange[]>([]);
   const reportedBucketRef = useRef(0);
   const eligibilityRefreshRef = useRef(false);
@@ -190,7 +215,7 @@ export function JourneyAudioPlayer({
     if (!audio) return;
 
     const handleSeekRequest = (event: Event) => {
-      const detail = (event as CustomEvent<{ playerId?: string; seconds?: number }>).detail;
+      const detail = (event as CustomEvent<{ playerId?: string; seconds?: number; requestId?: string }>).detail;
       if (!detail || detail.playerId !== playerId || typeof detail.seconds !== "number") return;
 
       // iOS Safari can defer a currentTime seek until metadata has loaded.
@@ -201,7 +226,11 @@ export function JourneyAudioPlayer({
         bounds.duration > 0 ? bounds.end : detail.seconds,
       );
       pendingSeekRef.current = target;
+      diagnosticRef.current = detail.requestId
+        ? { requestId: detail.requestId, requestedSeconds: detail.seconds }
+        : null;
       audio.pause();
+      emitSeekDiagnostic("received");
 
       if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
         audio.currentTime = target;
@@ -253,6 +282,7 @@ export function JourneyAudioPlayer({
     }
 
     pendingSeekRef.current = null;
+    emitSeekDiagnostic("seeked");
     saveState(audio.currentTime);
     void audio.play().catch(() => {
       // iOS may require a second tap of the native Play control after an
@@ -304,6 +334,7 @@ export function JourneyAudioPlayer({
         aria-label={`Listen to ${title}`}
         onLoadedMetadata={handleLoadedMetadata}
         onSeeked={handleSeeked}
+        onPlaying={() => emitSeekDiagnostic("playing")}
         onTimeUpdate={handleTimeUpdate}
       >
         <source src={src} type="audio/mpeg" />
