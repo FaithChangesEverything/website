@@ -451,7 +451,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Knowing the Heart of God"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-3/3b-3b7-audio-2026-00020.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-3/3b-3b7-audio-2026-00020-CBR-test.mp3",
           title: "Knowing the Heart of God",
           playerId: "3b-knowing-heart-of-god",
           resumeKey: "3.b",
