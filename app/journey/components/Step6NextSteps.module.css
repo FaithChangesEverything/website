@@ -10,6 +10,8 @@
 .copy h3{font-family:Georgia,serif;color:#071426;font-size:clamp(1.35rem,2.2vw,1.7rem);margin:0 0 .12rem;}
 .subtitle{color:#37617a!important;font-weight:800;margin:0 0 .85rem!important;}
 .copy p:not(.number):not(.subtitle){color:#33485d;line-height:1.72;margin:.65rem 0 0;}
+.audioWrap{margin-top:1.15rem;max-width:100%;min-width:0;}
+.audioWrap > div{max-width:100%;}
 .actionWrap{display:flex;align-items:center;justify-content:flex-start;}
 .action{width:100%;max-width:220px;min-height:144px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;text-align:center;padding:1rem;border:1px solid var(--tile-border);border-radius:16px;color:var(--tile-ink)!important;background:linear-gradient(145deg,#fff 0%,var(--tile-bg) 75%);box-shadow:0 5px 0 var(--tile-border),0 12px 19px rgba(29,48,70,.11);text-decoration:none!important;font-weight:800;font-size:.97rem;line-height:1.33;transition:transform .18s ease,box-shadow .18s ease;box-sizing:border-box;}
 .action svg{flex-shrink:0;}
