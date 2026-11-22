@@ -182,7 +182,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Understanding Hope"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope-CBR-test.mp3",
           title: "Understanding Hope",
           playerId: "1b-understanding-hope",
           resumeKey: "1.b",
@@ -205,7 +205,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Time to Reflect"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1d-1d12-audio-2026-00009-time-2-reflect.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1d-1d12-audio-2026-00009-time-2-reflect-CBR-test.mp3",
           title: "Time to Reflect",
           playerId: "1d-time-to-reflect",
           resumeKey: "1.d",
@@ -227,7 +227,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Helpful Resources"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1e-1e7-audio-2026-00010-resources.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1e-1e7-audio-2026-00010-resources-CBR-test.mp3",
           title: "Helpful Resources",
           playerId: "1e-helpful-resources",
           resumeKey: "1.e",
@@ -249,7 +249,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="A Prayer for Today"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer-CBR-test.mp3",
           title: "A Prayer for Today",
           playerId: "1f-prayer-for-today",
           resumeKey: "1.f",
@@ -271,7 +271,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Continue Your Journey"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey-CBR-test.mp3",
           title: "Continue Your Journey",
           playerId: "1g-continue-your-journey",
           resumeKey: "1.g",
