@@ -317,7 +317,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={salvationScriptureIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2c-2c10-audio-2026-00014.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2c-2c10-audio-2026-00014-CBR-test.mp3",
           title: "What Does the Bible Say About Salvation",
           playerId: "2c-salvation-scripture",
           resumeKey: "2.c",
@@ -340,7 +340,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={salvationReflectionIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2d-2d3-audio-2026-00015.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2d-2d3-audio-2026-00015-CBR-test.mp3",
           title: "Time to Reflect",
           playerId: "2d-time-to-reflect",
           resumeKey: "2.d",
@@ -363,7 +363,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={salvationJourneyIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2e-2e6-audio-2026-00016.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2e-2e6-audio-2026-00016-CBR-test.mp3",
           title: "Continue Your Salvation Journey",
           playerId: "2e-salvation-journey",
           resumeKey: "2.e",
@@ -385,7 +385,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Bible Study Online Resources"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources-CBR-test.mp3",
           title: "Bible Study Online Resources",
           playerId: "2f-online-resources",
           resumeKey: "2.f",
@@ -407,7 +407,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Final Encouragement"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement-CBR-test.mp3",
           title: "Final Encouragement",
           playerId: "2g-final-encouragement",
           resumeKey: "2.g",
@@ -429,7 +429,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Continue Your Journey"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey-CBR-test.mp3",
           title: "Continue Your Journey",
           playerId: "2h-continue-journey",
           resumeKey: "2.h",
