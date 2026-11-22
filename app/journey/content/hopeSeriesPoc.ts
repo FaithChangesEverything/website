@@ -1,7 +1,7 @@
 export type HopeSectionKind = "scripture" | "context" | "teaching" | "application" | "questions" | "truth" | "prayer";
 
 export const hopeSeriesPoc = {
-  "sourceRevision": "FCE Website Doctrine Rev 1.7",
+  "sourceRevision": "FCE Website Doctrine Rev 1.8",
   "parent": {
     "id": "1.c",
     "title": "What Does the Bible Say About Hope",
