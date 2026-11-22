@@ -459,28 +459,3 @@
   .step5ResourceTileIcon { transition: none; }
   .step5ResourceTile:hover .step5ResourceTileIcon { transform: none; }
 }
-
-
-/* Temporary Sequence 57 audio-seek diagnostics; remove before production merge. */
-.listenDiagnosticWrap {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .4rem;
-  max-width: 100%;
-}
-.listenDiagnostic {
-  display: flex;
-  flex-direction: column;
-  gap: .2rem;
-  max-width: 100%;
-  padding: .65rem .8rem;
-  border: 1px solid #c9b88e;
-  border-radius: .6rem;
-  background: #fff9e9;
-  color: #17324f;
-  font-size: .8rem;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-.listenDiagnostic small { color: #52606d; }
