@@ -88,10 +88,10 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
 
   if (!step || !lesson) notFound();
 
-  // Step 4 Pastor welcome is already presented in full on the Step overview.
-  // Avoid the obsolete standalone Pastor Letter placeholder for this route.
-  if (stepNumber === 4 && lesson.id === "4.a") {
-    permanentRedirect("/journey/step-4");
+  // Steps 1–5 display their complete Pastor welcome on the Step overview.
+  // Redirect historical standalone Pastor Letter URLs instead of showing placeholders.
+  if (stepNumber >= 1 && stepNumber <= 5 && lesson.kind === "pastor-letter") {
+    permanentRedirect(`/journey/step-${stepNumber}`);
   }
 
   // Sequence 9 first-render synchronization:
