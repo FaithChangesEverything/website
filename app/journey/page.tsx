@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JourneyFrame, ProgressSavePrompt } from "./components/JourneyShell";
+import { PastorMessageVideo } from "./components/PastorMessageVideo";
 import { getJourneyProgressSummary } from "./progress/operations";
 import { journeySteps } from "./data";
 import styles from "./journey.module.css";
@@ -8,6 +9,14 @@ import refined from "./journey-refinements.module.css";
 import fixes from "./journey-fixes.module.css";
 
 export const metadata = { title: "Journey to Hope | Faith Changes Everything", description: "A Scripture-centered journey of hope, salvation, faith, encouragement, and next steps with Jesus Christ." };
+
+const journeyWidePastorLetter = [
+  "Dear Friend, first, let me say how grateful I am that you're here. I don't know what brought you to this page today. Perhaps someone shared this website with you, or maybe you found it while searching for answers. Whatever your story may be, I want you to know that your visit is not an interruption—it's an opportunity. An opportunity to pause, to breathe, and to take one small step toward hope.",
+  "Life has a way of leading us down roads we never expected to travel. Some seasons are filled with joy, while others leave us carrying burdens that seem too heavy to bear. You may be grieving, struggling with anxiety, searching for purpose, questioning your faith, or simply wondering if anyone truly understands what you're going through. Wherever you find yourself today, you are welcome here.",
+  "This journey isn't about having all the answers. It's not about pretending everything is okay or trying to fix your life in a single moment. Instead, it's about taking one step at a time and allowing God to meet you exactly where you are.",
+  "As you move through these pages, you'll find biblical encouragement, practical guidance, thoughtful resources, and opportunities for prayer. More than anything, my hope is that you'll come to know the One who said, \"Come to Me, all who labor and are heavy laden, and I will give you rest.\" No matter what you've experienced, your story isn't over. There is hope because there is Christ.",
+  "Faith Changes Everything. \"You may not believe it today, and that's okay. My prayer is that as you continue this journey, you'll discover something I've found to be true in my own life—that faith in Jesus Christ truly changes everything.\" Thank you for allowing us to walk with you. Let's take this next step together. And don’t forget, God loves you so very much, and so do I!!"
+] as const;
 
 const stepCardImages: Record<number, { src: string; alt: string }> = {
   1: { src: "/images/journey/step-cards/golden_sunrise_over_mountain_valley.png", alt: "A person looking across a sunlit mountain valley" },
@@ -43,7 +52,21 @@ export default async function JourneyPage() {
 
     <section id="pastor-letter" className={styles.pastorWelcome}>
       <div className={styles.pastorIdentity}><div className={styles.pastorPortrait}><Image src="/images/pastor-richard.png" alt="Pastor Richard" width={260} height={260} sizes="(max-width: 720px) 160px, 220px" priority /></div><Image className={`${refined.pastorSignatureImage} ${fixes.signatureBlend}`} src="/journal/assets/signature.png" alt="Pastor Richard signature" width={205} height={82} /><span>Founder &amp; Pastor</span></div>
-      <div className={styles.pastorWelcomeCopy}><p className={styles.eyebrow}>A Letter from Pastor Richard</p><h2>Welcome to Your<br />Journey to Hope</h2><span className={styles.goldRule} aria-hidden="true" /><p>The complete Journey-wide Pastor Letter will remain here in written form, together with the approved video. Final Doctrine copy is integrated during content implementation.</p><div className={styles.welcomeActions}><button className={fixes.readableButton} type="button" disabled>▶ Watch Pastor Richard’s Message</button></div><div id="pastor-letter-text" className={`${styles.manuscript} ${fixes.readablePanel}`}><p><strong>Journey-wide Pastor Letter</strong></p><p>The approved “Before We Begin...A Message from Pastor Richard” letter from the authoritative Website Doctrine will be presented here in full during content implementation. This is the Journey-wide welcome letter and is separate from the Pastor Letter that begins each individual Step.</p></div></div>
+      <div className={styles.pastorWelcomeCopy}>
+        <p className={styles.eyebrow}>A Letter from Pastor Richard</p>
+        <h2>Before We Begin...A Message from Pastor Richard</h2>
+        <span className={styles.goldRule} aria-hidden="true" />
+        <div className={styles.welcomeActions}>
+          <PastorMessageVideo
+            title="Journey to Hope — Before We Begin: A Message from Pastor Richard"
+            embedUrl="https://customer-r3nvd2sbu94qp82j.cloudflarestream.com/3f27167dcdde6231821b35bb10ca9cc7/iframe"
+          />
+        </div>
+        <div id="pastor-letter-text" className={`${styles.manuscript} ${fixes.readablePanel}`}>
+          {journeyWidePastorLetter.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+          <p>In Christ,<br />In His Service<br /><strong>Pastor Richard</strong><br />Founder - Faith Changes Everything</p>
+        </div>
+      </div>
     </section>
 
     <section className={styles.stepsSection}>

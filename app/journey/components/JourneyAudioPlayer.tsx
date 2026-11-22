@@ -7,7 +7,6 @@ import { recordJourneyEngagementAction } from "../progress/engagement-actions";
 import styles from "../step-overview-sequence9.module.css";
 
 export const J2H_AUDIO_SEEK_EVENT = "j2h-audio-seek";
-
 type PlayedRange = [number, number];
 
 type StoredAudioState = {
@@ -99,6 +98,7 @@ export function JourneyAudioPlayer({
   endAtSeconds,
 }: JourneyAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const pendingSeekRef = useRef<number | null>(null);
   const storedRangesRef = useRef<PlayedRange[]>([]);
   const reportedBucketRef = useRef(0);
   const eligibilityRefreshRef = useRef(false);
@@ -192,14 +192,23 @@ export function JourneyAudioPlayer({
       const detail = (event as CustomEvent<{ playerId?: string; seconds?: number }>).detail;
       if (!detail || detail.playerId !== playerId || typeof detail.seconds !== "number") return;
 
+      // iOS Safari can defer a currentTime seek until metadata has loaded.
+      // Keep the request pending until the browser confirms the seek.
       const bounds = clipBounds();
-      const target = Math.min(Math.max(detail.seconds, bounds.start), bounds.end);
-      audio.currentTime = target;
-      saveState(target);
+      const target = Math.min(
+        Math.max(detail.seconds, bounds.start),
+        bounds.duration > 0 ? bounds.end : detail.seconds,
+      );
+      pendingSeekRef.current = target;
+      audio.pause();
 
-      void audio.play().catch(() => {
-        // A browser may still require the visitor to press Play manually.
-      });
+      if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
+        audio.currentTime = target;
+      } else if (audio.networkState === HTMLMediaElement.NETWORK_EMPTY) {
+        audio.load();
+      }
+
+      // Playback starts in onSeeked, not before the browser reaches the target.
     };
 
     window.addEventListener(J2H_AUDIO_SEEK_EVENT, handleSeekRequest);
@@ -212,14 +221,17 @@ export function JourneyAudioPlayer({
 
     const bounds = clipBounds();
     const stored = readStoredState(storageKey);
-    const storedPosition = stored?.position ?? bounds.start;
+    const requestedPosition = pendingSeekRef.current;
+    const storedPosition = requestedPosition ?? stored?.position ?? bounds.start;
     const safePosition =
       storedPosition >= bounds.start && storedPosition < bounds.end - 0.5
         ? storedPosition
         : bounds.start;
 
     storedRangesRef.current = mergeRanges(stored?.playedRanges ?? []);
-    audio.currentTime = safePosition;
+    // A newly requested Listen From Here position takes priority over
+    // restoring an earlier listening session.
+    audio.currentTime = requestedPosition ?? safePosition;
 
     // Local playback history is not proof that the server accepted an engagement
     // report (for example, a policy may have been disabled during the prior visit).
@@ -227,9 +239,40 @@ export function JourneyAudioPlayer({
     reportedBucketRef.current = 0;
   };
 
+  const handleSeeked = () => {
+    const audio = audioRef.current;
+    const target = pendingSeekRef.current;
+    if (!audio || target === null) return;
+
+    // Do not start at an old position if the browser has not reached the
+    // latest requested location (for example, after a delayed metadata load).
+    if (Math.abs(audio.currentTime - target) > 0.75) {
+      audio.currentTime = target;
+      return;
+    }
+
+    pendingSeekRef.current = null;
+    saveState(audio.currentTime);
+    void audio.play().catch(() => {
+      // iOS may require a second tap of the native Play control after an
+      // asynchronous seek. Preserve the correct position for that tap.
+    });
+  };
+
+  const handlePlay = () => {
+    const activeAudio = audioRef.current;
+    if (!activeAudio) return;
+
+    // Only one narration should play at a time, including when playback
+    // starts from the native controls, Restart, or Listen From Here.
+    document.querySelectorAll<HTMLAudioElement>("audio").forEach((other) => {
+      if (other !== activeAudio && !other.paused) other.pause();
+    });
+  };
+
   const handleTimeUpdate = () => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || pendingSeekRef.current !== null) return;
 
     const bounds = clipBounds();
     if (audio.currentTime < bounds.start) {
@@ -269,7 +312,9 @@ export function JourneyAudioPlayer({
         preload="metadata"
         controlsList="nodownload"
         aria-label={`Listen to ${title}`}
+        onPlay={handlePlay}
         onLoadedMetadata={handleLoadedMetadata}
+        onSeeked={handleSeeked}
         onTimeUpdate={handleTimeUpdate}
       >
         <source src={src} type="audio/mpeg" />

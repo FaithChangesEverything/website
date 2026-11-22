@@ -137,7 +137,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
   const baseHref = "/journey/step-4/how-to-study-the-bible"; const nav = buildSectionNav(baseHref, bibleStudySeries, index);
   const audio = study.studyNumber === 1
     ? {
-        src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d1-4d7-audio-2026-00024.mp3",
+        src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d1-4d7-audio-2026-00024-CBR-test.mp3",
         title: "Step 1 — Just Begin",
         playerId: "4d-study-1",
         resumeKey: progressKey,
@@ -147,7 +147,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
       }
     : study.studyNumber === 2
       ? {
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d8-4d14-audio-2026-00025.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d8-4d14-audio-2026-00025-CBR-test.mp3",
           title: "Step 2 — Begin With Prayer",
           playerId: "4d-study-2",
           resumeKey: progressKey,
@@ -157,7 +157,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
         }
       : study.studyNumber === 3
         ? {
-            src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d15-4d22-audio-2026-00026.mp3",
+            src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d15-4d22-audio-2026-00026-CBR-test.mp3",
             title: "Step 3 — Read With Purpose",
             playerId: "4d-study-3",
             resumeKey: progressKey,
@@ -167,7 +167,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
           }
         : study.studyNumber === 4
           ? {
-              src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d23-4d30-audio-2026-00027.mp3",
+              src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d23-4d30-audio-2026-00027-CBR-test.mp3",
               title: "Step Four — Write Down What God Shows You",
               playerId: "4d-study-4",
               resumeKey: progressKey,
@@ -177,7 +177,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
             }
           : study.studyNumber === 5
             ? {
-                src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d31-4d38-audio-2026-00028.mp3",
+                src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d31-4d38-audio-2026-00028-CBR-test.mp3",
                 title: "Step Five — Where Should I Begin?",
                 playerId: "4d-study-5",
                 resumeKey: progressKey,
@@ -187,7 +187,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
               }
             : study.studyNumber === 6
               ? {
-                  src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d39-4d47-audio-2026-00029.mp3",
+                  src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d39-4d47-audio-2026-00029-CBR-test.mp3",
                   title: "Step Six — Let Scripture Explain Scripture",
                   playerId: "4d-study-6",
                   resumeKey: progressKey,
@@ -197,7 +197,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
                 }
               : study.studyNumber === 7
                 ? {
-                    src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d48-4d56-audio-2026-00030.mp3",
+                    src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d48-4d56-audio-2026-00030-CBR-test.mp3",
                     title: "Step Seven — Live What You Learn",
                     playerId: "4d-study-7",
                     resumeKey: progressKey,
@@ -207,7 +207,7 @@ export default async function JourneySeriesStudyPage({ params }: { params: Promi
                   }
                 : study.studyNumber === 8
                   ? {
-                      src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d57-4d65-audio-2026-00031.mp3",
+                      src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d57-4d65-audio-2026-00031-CBR-test.mp3",
                       title: "Step Eight — Never Stop Growing",
                       playerId: "4d-study-8",
                       resumeKey: progressKey,

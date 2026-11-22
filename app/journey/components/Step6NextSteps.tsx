@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { JourneyAudioPlayer } from "./JourneyAudioPlayer";
 import styles from "./Step6NextSteps.module.css";
 
 type Kind = "book" | "calendar" | "journal" | "church" | "prayer" | "contact";
@@ -14,6 +15,15 @@ function Icon({ kind }: { kind: Kind }) {
     case "contact": return <svg {...common}><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7M7 2h10"/></svg>;
   }
 }
+
+const step6Audio: Record<string, string> = {
+  "6.b": "6b-audio-2026-00039-CBR-test.mp3",
+  "6.c": "6c-audio-2026-00040-CBR-test.mp3",
+  "6.d": "6d-audio-2026-00041-CBR-test.mp3",
+  "6.e": "6e-audio-2026-00042-CBR-test.mp3",
+  "6.f": "6f-audio-2026-00043-CBR-test.mp3",
+  "6.g": "6g-audio-2026-00044-CBR-test.mp3",
+};
 
 const actions = [
   {
@@ -78,6 +88,16 @@ export function Step6NextSteps() {
               <h3>{item.title}</h3>
               <p className={styles.subtitle}>{item.subtitle}</p>
               {item.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+              <div className={styles.audioWrap}>
+                <JourneyAudioPlayer
+                  src={`https://resources.faithchangeseverything.org/audio/journey-to-hope/step-6/${step6Audio[item.id]}`}
+                  title={item.title}
+                  playerId={item.id}
+                  resumeKey={item.id}
+                  contentKey={item.id}
+                  path={`/journey/step-6#${item.id}`}
+                />
+              </div>
             </div>
             <div className={styles.actionWrap}>
               {"comingSoon" in item && item.comingSoon ? (

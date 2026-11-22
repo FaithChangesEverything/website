@@ -88,10 +88,10 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
 
   if (!step || !lesson) notFound();
 
-  // Step 4 Pastor welcome is already presented in full on the Step overview.
-  // Avoid the obsolete standalone Pastor Letter placeholder for this route.
-  if (stepNumber === 4 && lesson.id === "4.a") {
-    permanentRedirect("/journey/step-4");
+  // Steps 1–6 display their complete Pastor welcome on the Step overview.
+  // Redirect historical standalone Pastor Letter URLs instead of showing placeholders.
+  if (stepNumber >= 1 && stepNumber <= 6 && lesson.kind === "pastor-letter") {
+    permanentRedirect(`/journey/step-${stepNumber}`);
   }
 
   // Sequence 9 first-render synchronization:
@@ -154,7 +154,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           label: 'Download the Abridged "How to Study the Bible" Guide (PDF)',
         }}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d-audio-2026-00023.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d-audio-2026-00023-CBR-test.mp3",
           title: "How to Study the Bible — Introduction",
           playerId: "4d-overview",
           resumeKey: "4.d.overview",
@@ -182,7 +182,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Understanding Hope"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope-CBR-test.mp3",
           title: "Understanding Hope",
           playerId: "1b-understanding-hope",
           resumeKey: "1.b",
@@ -205,7 +205,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Time to Reflect"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1d-1d12-audio-2026-00009-time-2-reflect.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1d-1d12-audio-2026-00009-time-2-reflect-CBR-test.mp3",
           title: "Time to Reflect",
           playerId: "1d-time-to-reflect",
           resumeKey: "1.d",
@@ -227,7 +227,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Helpful Resources"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1e-1e7-audio-2026-00010-resources.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1e-1e7-audio-2026-00010-resources-CBR-test.mp3",
           title: "Helpful Resources",
           playerId: "1e-helpful-resources",
           resumeKey: "1.e",
@@ -249,7 +249,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="A Prayer for Today"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1f-audio-2026-00011-prayer-CBR-test.mp3",
           title: "A Prayer for Today",
           playerId: "1f-prayer-for-today",
           resumeKey: "1.f",
@@ -271,7 +271,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Continue Your Journey"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1g-audio-2026-00012-continue-journey-CBR-test.mp3",
           title: "Continue Your Journey",
           playerId: "1g-continue-your-journey",
           resumeKey: "1.g",
@@ -294,7 +294,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={understandingSalvationIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2b-2b9-audio-2026-00013.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2b-2b9-audio-2026-00013-CBR-test.mp3",
           title: "Understanding Salvation",
           playerId: "2b-understanding-salvation",
           resumeKey: "2.b",
@@ -317,7 +317,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={salvationScriptureIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2c-2c10-audio-2026-00014.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2c-2c10-audio-2026-00014-CBR-test.mp3",
           title: "What Does the Bible Say About Salvation",
           playerId: "2c-salvation-scripture",
           resumeKey: "2.c",
@@ -340,7 +340,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={salvationReflectionIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2d-2d3-audio-2026-00015.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2d-2d3-audio-2026-00015-CBR-test.mp3",
           title: "Time to Reflect",
           playerId: "2d-time-to-reflect",
           resumeKey: "2.d",
@@ -363,7 +363,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={salvationJourneyIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2e-2e6-audio-2026-00016.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2e-2e6-audio-2026-00016-CBR-test.mp3",
           title: "Continue Your Salvation Journey",
           playerId: "2e-salvation-journey",
           resumeKey: "2.e",
@@ -385,7 +385,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Bible Study Online Resources"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2f-audio-2026-00017-resources-CBR-test.mp3",
           title: "Bible Study Online Resources",
           playerId: "2f-online-resources",
           resumeKey: "2.f",
@@ -407,7 +407,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Final Encouragement"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2g-audio-2026-00018-final-encouragement-CBR-test.mp3",
           title: "Final Encouragement",
           playerId: "2g-final-encouragement",
           resumeKey: "2.g",
@@ -429,7 +429,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Continue Your Journey"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2h-audio-2026-00019-continue-journey-CBR-test.mp3",
           title: "Continue Your Journey",
           playerId: "2h-continue-journey",
           resumeKey: "2.h",
@@ -451,7 +451,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Knowing the Heart of God"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-3/3b-3b7-audio-2026-00020.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-3/3b-3b7-audio-2026-00020-CBR-test.mp3",
           title: "Knowing the Heart of God",
           playerId: "3b-knowing-heart-of-god",
           resumeKey: "3.b",
@@ -473,7 +473,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Understanding Spiritual Growth"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4b-audio-2026-00021.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4b-audio-2026-00021-CBR-test.mp3",
           title: "Understanding Spiritual Growth",
           playerId: "4b-spiritual-growth",
           resumeKey: "4.b",
@@ -495,7 +495,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="The Importance of Reading God’s Word"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4c-4c2-audio-2026-00022.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4c-4c2-audio-2026-00022-CBR-test.mp3",
           title: "The Importance of Reading God’s Word",
           playerId: "4c-reading-gods-word",
           resumeKey: "4.c",
@@ -517,7 +517,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="When Life Feels Overwhelming"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5b-5b10-audio-2026-00032.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5b-5b10-audio-2026-00032-CBR-test.mp3",
           title: "When Life Feels Overwhelming",
           playerId: "5b-when-life-feels-overwhelming",
           resumeKey: "5.b",
@@ -539,7 +539,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="When You’re Grieving"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5c-5c10-audio-2026-00033.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5c-5c10-audio-2026-00033-CBR-test.mp3",
           title: "When You’re Grieving",
           playerId: "5c-when-youre-grieving",
           resumeKey: "5.c",
@@ -561,7 +561,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="When God Feels Silent"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5d-5d10-audio-2026-00034.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5d-5d10-audio-2026-00034-CBR-test.mp3",
           title: "When God Feels Silent",
           playerId: "5d-when-god-feels-silent",
           resumeKey: "5.d",
@@ -583,7 +583,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="When You Think You Have Failed"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5e-5e9-audio-2026-00035.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5e-5e9-audio-2026-00035-CBR-test.mp3",
           title: "When You Think You Have Failed",
           playerId: "5e-when-you-think-you-have-failed",
           resumeKey: "5.e",
@@ -605,7 +605,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="When You’re Afraid of the Future"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5f-5f9-audio-2026-00036.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5f-5f9-audio-2026-00036-CBR-test.mp3",
           title: "When You’re Afraid of the Future",
           playerId: "5f-when-youre-afraid-of-the-future",
           resumeKey: "5.f",
@@ -627,7 +627,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="When Relationships Hurt"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5g-5g9-audio-2026-00037.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5g-5g9-audio-2026-00037-CBR-test.mp3",
           title: "When Relationships Hurt",
           playerId: "5g-when-relationships-hurt",
           resumeKey: "5.g",
@@ -649,7 +649,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Finding Hope Again"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5h-5h9-audio-2026-00038.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-5/5h-5h9-audio-2026-00038-CBR-test.mp3",
           title: "Finding Hope Again",
           playerId: "5h-finding-hope-again",
           resumeKey: "5.h",

@@ -186,7 +186,7 @@ export const salvationScriptureSections: SalvationScriptureSection[] = [
       {
         type: "scripture",
         text: `"If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved."`,
-        reference: "Romans 10:9-11 (NIV)",
+        reference: "Romans 10:9-10 (NIV)",
       },
       {
         type: "scripture",

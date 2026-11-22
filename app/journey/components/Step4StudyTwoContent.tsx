@@ -24,7 +24,7 @@ export function Step4StudyTwoContent() {
       <LessonBlock title="4.d.9 Key Scripture" icon="▣" tone="scripture">
         <ListenFromSection section="4.d.9" />
         <blockquote className={sequence9.scriptureQuote}>
-          &quot;Open my eyes that I may see wonderful things in your law.&quot;{" "}
+          &quot;Open thou mine eyes, that I may behold wondrous things out of thy law.&quot;{" "}
           <JourneyScriptureReference reference="Psalm 119:18 (KJV)" />
         </blockquote>
       </LessonBlock>

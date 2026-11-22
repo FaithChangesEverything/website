@@ -16,7 +16,6 @@ export function JourneyListenFromHere({
         detail: { playerId, seconds },
       }),
     );
-
   };
 
   return (

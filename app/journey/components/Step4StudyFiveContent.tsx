@@ -26,7 +26,7 @@ export function Step4StudyFiveContent() {
         <blockquote className={sequence9.scriptureQuote}>
           &quot;All scripture is given by inspiration of God, and is profitable for
           doctrine, for reproof, for correction, for instruction in righteousness:
-          that the man of God may be perfect, thoroughly furnished unto all
+          that the man of God may be perfect, throughly furnished unto all
           good works.&quot;{" "}
           <JourneyScriptureReference reference="2 Timothy 3:16-17 (KJV)" />
         </blockquote>

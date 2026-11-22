@@ -451,7 +451,7 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
             </>
           ) : stepNumber === 5 ? (
             <>
-              <p><em>Dear Friend, Welcome to Step 5 of the Journey to Hope Series.</em></p>
+              <p><em>Dear Friend, welcome to Step 5 of the Journey to Hope Series.</em></p>
               <p>
                 If you&apos;ve found your way to this page, chances are life hasn&apos;t
                 been easy lately. Perhaps you&apos;ve lost someone you love. Maybe
@@ -580,8 +580,8 @@ function StepPastorWelcome({ stepNumber, lessons }: { stepNumber: number; lesson
                 Below you&apos;ll find several resources that we&apos;ve created to help
                 you continue growing in your relationship with Christ. Whether it&apos;s
                 a Bible reading plan, the Walking with Christ devotional, the Bible
-                Journal, our weekly encouragement emails, or simply reaching out for
-                prayer, my prayer is that you&apos;ll take the next step God is leading
+                Journal, or simply reaching out for prayer, my prayer is that
+                you&apos;ll take the next step God is leading
                 you to take.
               </p>
               <p>

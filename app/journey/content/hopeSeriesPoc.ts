@@ -1,7 +1,7 @@
 export type HopeSectionKind = "scripture" | "context" | "teaching" | "application" | "questions" | "truth" | "prayer";
 
 export const hopeSeriesPoc = {
-  "sourceRevision": "FCE Website Doctrine Rev 1.7",
+  "sourceRevision": "FCE Website Doctrine Rev 1.8",
   "parent": {
     "id": "1.c",
     "title": "What Does the Bible Say About Hope",
@@ -14,7 +14,7 @@ export const hopeSeriesPoc = {
     ],
     "audio": {
       "recordingId": "audio-2026-00001",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1b-1c-audio-2026-00001-bible-say-hope-CBR-test.mp3",
       "vttFile": "1b-1c-audio-2026-00001-bible-say-hope.vtt",
       "startAtSeconds": 184.08
     }
@@ -28,7 +28,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-1",
       "audio": {
         "recordingId": "audio-2026-00002",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c1-1c7-audio-2026-00002-god-of-hope.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c1-1c7-audio-2026-00002-god-of-hope-CBR-test.mp3",
         "vttFile": "1c1-1c7-audio-2026-00002-god-of-hope.vtt",
         "timestampVerified": true
       },
@@ -50,7 +50,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-2",
       "audio": {
         "recordingId": "audio-2026-00003",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c8-1c14-audio-2026-00003-anchor-soul.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c8-1c14-audio-2026-00003-anchor-soul-CBR-test.mp3",
         "vttFile": "1c8-1c14-audio-2026-00003-anchor-soul.vtt",
         "timestampVerified": true
       },
@@ -60,7 +60,7 @@ export const hopeSeriesPoc = {
         "1.c.10": 100.62,
         "1.c.11": 140.82,
         "1.c.12": 211.66,
-        "1.c.13": 243.98,
+        "1.c.13": 241.98,
         "1.c.14": 258.18
       }
     },
@@ -72,7 +72,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-3",
       "audio": {
         "recordingId": "audio-2026-00004",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c15-1c21-audio-2026-00004-gods-faithfulness.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c15-1c21-audio-2026-00004-gods-faithfulness-CBR-test.mp3",
         "vttFile": "1c15-1c21-audio-2026-00004-gods-faithfulness.vtt",
         "timestampVerified": true
       },
@@ -94,7 +94,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-4",
       "audio": {
         "recordingId": "audio-2026-00005",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c22-1c28-audio-2026-00005-hope-renews.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c22-1c28-audio-2026-00005-hope-renews-CBR-test.mp3",
         "vttFile": "1c22-1c28-audio-2026-00005-hope-renews.vtt",
         "timestampVerified": true
       },
@@ -116,7 +116,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-5",
       "audio": {
         "recordingId": "audio-2026-00006",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c29-1c35-audio-2026-00006-discouragement.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c29-1c35-audio-2026-00006-discouragement-CBR-test.mp3",
         "vttFile": "1c29-1c35-audio-2026-00006-discouragement.vtt",
         "timestampVerified": true
       },
@@ -138,7 +138,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-6",
       "audio": {
         "recordingId": "audio-2026-00007",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c36-1c42-audio-2026-00007-suffering.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c36-1c42-audio-2026-00007-suffering-CBR-test.mp3",
         "vttFile": "1c36-1c42-audio-2026-00007-suffering.vtt",
         "timestampVerified": true
       },
@@ -160,7 +160,7 @@ export const hopeSeriesPoc = {
       "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-7",
       "audio": {
         "recordingId": "audio-2026-00008",
-        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c43-1c49-audio-2026-00008-christ-scripture.mp3",
+        "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c43-1c49-audio-2026-00008-christ-scripture-CBR-test.mp3",
         "vttFile": "1c43-1c49-audio-2026-00008-christ-scripture.vtt",
         "timestampVerified": true
       },
@@ -183,7 +183,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-7",
     "audio": {
       "recordingId": "audio-2026-00008",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c43-1c49-audio-2026-00008-christ-scripture.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c43-1c49-audio-2026-00008-christ-scripture-CBR-test.mp3",
       "vttFile": "1c43-1c49-audio-2026-00008-christ-scripture.vtt",
       "timestampVerified": true
     },
@@ -279,7 +279,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-6",
     "audio": {
       "recordingId": "audio-2026-00007",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c36-1c42-audio-2026-00007-suffering.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c36-1c42-audio-2026-00007-suffering-CBR-test.mp3",
       "vttFile": "1c36-1c42-audio-2026-00007-suffering.vtt",
       "timestampVerified": true
     },
@@ -375,7 +375,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-5",
     "audio": {
       "recordingId": "audio-2026-00006",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c29-1c35-audio-2026-00006-discouragement.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c29-1c35-audio-2026-00006-discouragement-CBR-test.mp3",
       "vttFile": "1c29-1c35-audio-2026-00006-discouragement.vtt",
       "timestampVerified": true
     },
@@ -470,7 +470,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-4",
     "audio": {
       "recordingId": "audio-2026-00005",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c22-1c28-audio-2026-00005-hope-renews.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c22-1c28-audio-2026-00005-hope-renews-CBR-test.mp3",
       "vttFile": "1c22-1c28-audio-2026-00005-hope-renews.vtt",
       "timestampVerified": true
     },
@@ -559,7 +559,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-3",
     "audio": {
       "recordingId": "audio-2026-00004",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c15-1c21-audio-2026-00004-gods-faithfulness.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c15-1c21-audio-2026-00004-gods-faithfulness-CBR-test.mp3",
       "vttFile": "1c15-1c21-audio-2026-00004-gods-faithfulness.vtt",
       "timestampVerified": true
     },
@@ -654,7 +654,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-2",
     "audio": {
       "recordingId": "audio-2026-00003",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c8-1c14-audio-2026-00003-anchor-soul.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c8-1c14-audio-2026-00003-anchor-soul-CBR-test.mp3",
       "vttFile": "1c8-1c14-audio-2026-00003-anchor-soul.vtt",
       "timestampVerified": true
     },
@@ -748,7 +748,7 @@ export const hopeSeriesPoc = {
     "href": "/journey/step-1/what-does-the-bible-say-about-hope/study-1",
     "audio": {
       "recordingId": "audio-2026-00002",
-      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c1-1c7-audio-2026-00002-god-of-hope.mp3",
+      "src": "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-1/1c1-1c7-audio-2026-00002-god-of-hope-CBR-test.mp3",
       "vttFile": "1c1-1c7-audio-2026-00002-god-of-hope.vtt",
       "timestampVerified": true
     },
