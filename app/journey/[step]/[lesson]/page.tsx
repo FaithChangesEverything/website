@@ -154,7 +154,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
           label: 'Download the Abridged "How to Study the Bible" Guide (PDF)',
         }}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d-audio-2026-00023.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4d-audio-2026-00023-CBR-test.mp3",
           title: "How to Study the Bible — Introduction",
           playerId: "4d-overview",
           resumeKey: "4.d.overview",
@@ -473,7 +473,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="Understanding Spiritual Growth"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4b-audio-2026-00021.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4b-audio-2026-00021-CBR-test.mp3",
           title: "Understanding Spiritual Growth",
           playerId: "4b-spiritual-growth",
           resumeKey: "4.b",
@@ -495,7 +495,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         title="The Importance of Reading God’s Word"
         lessons={step.lessons}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4c-4c2-audio-2026-00022.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-4/4c-4c2-audio-2026-00022-CBR-test.mp3",
           title: "The Importance of Reading God’s Word",
           playerId: "4c-reading-gods-word",
           resumeKey: "4.c",
