@@ -259,6 +259,17 @@ export function JourneyAudioPlayer({
     });
   };
 
+  const handlePlay = () => {
+    const activeAudio = audioRef.current;
+    if (!activeAudio) return;
+
+    // Only one narration should play at a time, including when playback
+    // starts from the native controls, Restart, or Listen From Here.
+    document.querySelectorAll<HTMLAudioElement>("audio").forEach((other) => {
+      if (other !== activeAudio && !other.paused) other.pause();
+    });
+  };
+
   const handleTimeUpdate = () => {
     const audio = audioRef.current;
     if (!audio || pendingSeekRef.current !== null) return;
@@ -301,6 +312,7 @@ export function JourneyAudioPlayer({
         preload="metadata"
         controlsList="nodownload"
         aria-label={`Listen to ${title}`}
+        onPlay={handlePlay}
         onLoadedMetadata={handleLoadedMetadata}
         onSeeked={handleSeeked}
         onTimeUpdate={handleTimeUpdate}
