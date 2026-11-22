@@ -294,7 +294,7 @@ export default async function JourneyLessonPage({ params }: { params: Promise<{ 
         lessons={step.lessons}
         intro={understandingSalvationIntro}
         audio={{
-          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2b-2b9-audio-2026-00013.mp3",
+          src: "https://resources.faithchangeseverything.org/audio/journey-to-hope/step-2/2b-2b9-audio-2026-00013-CBR-test.mp3",
           title: "Understanding Salvation",
           playerId: "2b-understanding-salvation",
           resumeKey: "2.b",
